@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NMD - Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #e8e4df; font-family: Inter, sans-serif; min-height: 100vh; color: #111; }
+    header { background: #0d0d0d; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
+    .logo { display: flex; flex-direction: column; gap: 2px; }
+    .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
+    .logo-sub { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; }
+    .header-tag { font-size: 10px; letter-spacing: 3px; color: #555; text-transform: uppercase; font-weight: 500; }
+    .hero { padding: 80px 48px 60px; border-bottom: 1px solid #ccc; }
+    .hero-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #888; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .hero-label::before { content: ''; display: block; width: 32px; height: 2px; background: #1a8fdf; }
+    h1 { font-family: Playfair Display, serif; font-size: clamp(48px, 7vw, 96px); font-weight: 900; line-height: 1.0; color: #111; max-width: 800px; }
+    h1 em { font-style: italic; color: #555; }
+    .hero-desc { margin-top: 28px; font-size: 16px; color: #555; max-width: 480px; line-height: 1.7; }
+    .grid-section { padding: 60px 48px 80px; }
+    .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #888; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid #ccc; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .card { background: #0d0d0d; border-radius: 4px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .card-accent { height: 3px; width: 100%; }
+    .card-body { padding: 32px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .card-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+    .card-title { font-family: Playfair Display, serif; font-size: 28px; font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 14px; }
+    .card-desc { font-size: 13px; color: #888; line-height: 1.65; flex: 1; }
+    .card-footer { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid #222; }
+    .card-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
+    .card-arrow { font-size: 18px; color: #444; transition: color 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { color: #fff; }
+    footer { background: #0d0d0d; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left, .footer-right { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    @media (max-width: 640px) { header, .hero, .grid-section, footer { padding-left: 24px; padding-right: 24px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="logo-nmd">NMD</span>
+      <span class="logo-sub">No Money Down</span>
+    </div>
+    <span class="header-tag">Credit Intelligence</span>
+  </header>
+  <section class="hero">
+    <div class="hero-label">Latest Editions</div>
+    <h1>The credit moves<br><em>everyone's</em> watching.</h1>
+    <p class="hero-desc">NMD breaks down the biggest shifts in credit, banking, and financial products so you always know what it means for you.</p>
+  </section>
+  <section class="grid-section">
+    <div class="section-label">All Newsletters</div>
+    <div class="grid">
+      <a class="card" href="nmd-chase-apple-card-carousel.html">
+        <div class="card-accent" style="background:#1a8fdf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1a8fdf;">Breaking News</div>
+          <div class="card-title">Chase just took Apple Card.</div>
+          <div class="card-desc">Goldman Sachs is out. JPMorgan Chase is in. $20 billion in card balances is changing hands and if you are an Apple Card holder, this affects you directly.</div>
+          <div class="card-footer">
+            <span class="card-date">January 2025</span>
+            <span class="card-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-discover-carousel.html">
+        <div class="card-accent" style="background:#e8621a;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#e8621a;">Breaking</div>
+          <div class="card-title">Capital One just dropped Discover.</div>
+          <div class="card-desc">The mega-merger reshaping the credit card landscape. What the Capital One and Discover deal means for cardholders, rewards, and the future of credit.</div>
+          <div class="card-footer">
+            <span class="card-date">February 2026</span>
+            <span class="card-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-report-page.html">
+        <div class="card-accent" style="background:#2ec27e;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#2ec27e;">Credit Guide</div>
+          <div class="card-title">Your credit report, decoded.</div>
+          <div class="card-desc">Everything you need to know about reading, understanding, and improving your credit report. The NMD breakdown of what lenders actually see.</div>
+          <div class="card-footer">
+            <span class="card-date">2025</span>
+            <span class="card-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <footer>
+    <span class="footer-left">NMD - No Money Down</span>
+    <span class="footer-right">Credit Intelligence</span>
+  </footer>
+</body>
+</html>
