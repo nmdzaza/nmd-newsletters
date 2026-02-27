@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Credit Union May Not Be Protected — NMD Credit Repair</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --white: #ffffff;
+    --cream: #f5f2eb;
+    --rule: #e0dbd0;
+    --slate: #556070;
+    --navy: #0b1f3a;
+    --amber: #92400e;
+    --amber-light: #fef3c7;
+    --amber-mid: #d97706;
+    --red: #b91c1c;
+    --red-light: #fee2e2;
+    --green: #166534;
+    --green-light: #dcfce7;
+    --steel: #1e3a5f;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(245,242,235,0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+    height: 56px;
+    padding: 0 clamp(20px, 5vw, 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+  }
+
+  .prog {
+    position: fixed;
+    top: 56px; left: 0;
+    height: 2px;
+    background: var(--amber-mid);
+    width: 0%;
+    z-index: 99;
+    transition: width 0.08s linear;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    min-height: 100svh;
+    padding: calc(56px + clamp(48px, 8vw, 100px)) clamp(24px, 6vw, 120px) clamp(48px, 8vw, 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: clamp(16px, 2.5vw, 30px);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: clamp(24px, 4vw, 52px);
+    flex-shrink: 0;
+  }
+
+  .slide-meta.dk { border-bottom-color: rgba(255,255,255,0.08); }
+
+  .slide-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+  }
+
+  .slide-label.lt { color: #fbbf24; }
+
+  .nmd-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--ink);
+  }
+
+  .nmd-badge.wh { color: white; }
+
+  .heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 76px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(46px, 8vw, 112px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    flex-shrink: 0;
+  }
+
+  em { font-style: italic; font-weight: 300; }
+
+  .watermark {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .sec-num {
+    position: absolute;
+    bottom: clamp(14px, 2.5vw, 30px);
+    right: clamp(20px, 3.5vw, 56px);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(52px, 10vw, 144px);
+    font-weight: 900;
+    color: rgba(13,13,13,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .sec-num.lt { color: rgba(255,255,255,0.04); }
+
+  /* ── COVER ── */
+  #cover { background: var(--navy); gap: clamp(18px, 3vw, 40px); }
+
+  #cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--amber-mid), transparent);
+  }
+
+  #cover .watermark {
+    right: -3%; top: 5%;
+    font-size: clamp(100px, 24vw, 340px);
+    color: rgba(255,255,255,0.025);
+    letter-spacing: -10px;
+  }
+
+  /* subtle grid */
+  #cover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(11px, 1.3vw, 14px);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--amber-mid);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: clamp(22px, 3vw, 38px);
+    height: 2px;
+    background: var(--amber-mid);
+    flex-shrink: 0;
+  }
+
+  .cover-sub {
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.75;
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .cover-sub strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+  .cover-footer {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 26px);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .nmd-mark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: white;
+  }
+
+  .nmd-mark small {
+    display: block;
+    font-size: clamp(9px, 0.9vw, 11px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.2);
+    margin-top: 2px;
+  }
+
+  .vdiv { width: 1px; height: 30px; background: rgba(255,255,255,0.1); }
+
+  .cover-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 12px);
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+  }
+
+  /* ── WHAT IS CFPB ── */
+  #what { background: var(--cream); }
+
+  .body-text {
+    font-size: clamp(15px, 1.8vw, 21px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.8;
+    max-width: 820px;
+    margin: clamp(20px, 3vw, 40px) 0;
+  }
+
+  .body-text strong { color: var(--ink); font-weight: 600; }
+
+  /* stat row */
+  .stat-row {
+    display: flex;
+    gap: 2px;
+    background: var(--rule);
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+
+  .stat-cell {
+    flex: 1;
+    background: var(--white);
+    padding: clamp(20px, 3vw, 36px) clamp(18px, 2.5vw, 32px);
+    position: relative;
+  }
+
+  .stat-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: clamp(18px, 2.5vw, 32px);
+    width: 28px; height: 3px;
+    background: var(--amber-mid);
+  }
+
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #bbb;
+    margin: 14px 0 8px;
+  }
+
+  .stat-val {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-val.amber { color: var(--amber-mid); }
+  .stat-val.red { color: var(--red); }
+
+  .stat-sub {
+    font-size: clamp(12px, 1.3vw, 15px);
+    color: var(--slate);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { flex-direction: column; }
+  }
+
+  /* ── THE GAP ── */
+  #gap { background: var(--white); }
+
+  .gap-diagram {
+    margin-top: clamp(20px, 3vw, 44px);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--rule);
+  }
+
+  .gap-row {
+    display: grid;
+    grid-template-columns: clamp(90px, 14vw, 180px) 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+  }
+
+  @media (max-width: 580px) {
+    .gap-row { grid-template-columns: 1fr; }
+  }
+
+  .gap-head {
+    background: var(--cream);
+    padding: clamp(12px, 1.8vw, 18px) clamp(16px, 2vw, 28px);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+  }
+
+  .gap-head.ent { color: var(--slate); }
+  .gap-head.bank { color: var(--green); }
+  .gap-head.cu { color: var(--amber-mid); }
+
+  .gap-cell {
+    background: white;
+    padding: clamp(16px, 2.5vw, 28px) clamp(14px, 2vw, 24px);
+  }
+
+  .gap-cell h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(13px, 1.5vw, 18px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .gap-cell p {
+    font-size: clamp(12px, 1.4vw, 15px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .gap-cell p strong { color: var(--ink); font-weight: 600; }
+
+  .gap-cell.good { border-left: 3px solid var(--green); }
+  .gap-cell.warn { border-left: 3px solid var(--amber-mid); }
+  .gap-cell.bad { border-left: 3px solid var(--red); }
+
+  .status-tag {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1vw, 11px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+
+  .status-tag.good { background: var(--green-light); color: var(--green); }
+  .status-tag.warn { background: var(--amber-light); color: var(--amber); }
+  .status-tag.bad { background: var(--red-light); color: var(--red); }
+
+  /* ── TIMELINE ── */
+  #timeline { background: var(--navy); }
+
+  .tl-list { margin-top: clamp(20px, 3vw, 44px); }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: clamp(56px, 8vw, 110px) clamp(18px, 2.2vw, 26px) 1fr;
+    column-gap: clamp(12px, 1.8vw, 24px);
+  }
+
+  .tl-time {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: right;
+    padding-top: 4px;
+  }
+
+  .tl-spine { display: flex; flex-direction: column; align-items: center; }
+
+  .tl-dot {
+    width: clamp(12px, 1.4vw, 16px);
+    height: clamp(12px, 1.4vw, 16px);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .tl-dot.amber { background: var(--amber-mid); }
+  .tl-dot.red { background: #ef4444; }
+  .tl-dot.grey { background: rgba(255,255,255,0.15); }
+  .tl-dot.green { background: #4ade80; }
+
+  .tl-line { width: 2px; flex: 1; background: rgba(255,255,255,0.08); margin: 4px 0; min-height: 16px; }
+
+  .tl-body { padding-bottom: clamp(18px, 3vw, 40px); }
+
+  .tl-body h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(14px, 1.7vw, 21px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    margin: 2px 0 7px;
+  }
+
+  .tl-body p {
+    font-size: clamp(13px, 1.5vw, 16px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  .tl-body p strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  .pill {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1vw, 11px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+
+  .pill.amber { background: rgba(217,119,6,0.2); color: #fbbf24; }
+  .pill.red { background: rgba(239,68,68,0.15); color: #f87171; }
+  .pill.green { background: rgba(74,222,128,0.12); color: #4ade80; }
+  .pill.grey { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.4); }
+
+  /* ── IMPACT ── */
+  #impact { background: var(--cream); }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+    margin-top: clamp(20px, 3vw, 44px);
+  }
+
+  @media (max-width: 560px) {
+    .impact-grid { grid-template-columns: 1fr; }
+  }
+
+  .impact-cell {
+    background: white;
+    padding: clamp(22px, 3vw, 38px) clamp(18px, 2.5vw, 36px);
+    position: relative;
+  }
+
+  .impact-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: clamp(18px, 2.5vw, 36px);
+    width: 32px; height: 3px;
+    background: var(--amber-mid);
+  }
+
+  .impact-cell h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(14px, 1.7vw, 20px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 16px 0 8px;
+  }
+
+  .impact-cell p {
+    font-size: clamp(13px, 1.4vw, 16px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .impact-cell p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── NMD PLAYBOOK ── */
+  #playbook { background: var(--white); }
+
+  .play-list { margin-top: clamp(20px, 3vw, 44px); }
+
+  .play-item {
+    display: flex;
+    gap: clamp(14px, 2.5vw, 32px);
+    padding: clamp(18px, 2.5vw, 30px) 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+
+  .play-item:last-child { border-bottom: none; }
+
+  .play-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(30px, 4.5vw, 56px);
+    font-weight: 900;
+    color: rgba(13,13,13,0.07);
+    line-height: 1;
+    flex-shrink: 0;
+    width: clamp(34px, 4.5vw, 60px);
+  }
+
+  .play-content h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(14px, 1.7vw, 21px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 7px;
+  }
+
+  .play-content p {
+    font-size: clamp(13px, 1.5vw, 17px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .play-content p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--navy);
+    text-align: center;
+    align-items: center;
+    gap: clamp(18px, 2.5vw, 32px);
+  }
+
+  #cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 72px 72px;
+    pointer-events: none;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw; height: 60vw;
+    max-width: 600px; max-height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,119,6,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-flag::before, .cta-flag::after {
+    content: '';
+    width: clamp(22px, 3vw, 38px);
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  .cta-sub {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(15px, 1.8vw, 22px);
+    color: rgba(255,255,255,0.38);
+    line-height: 1.7;
+    max-width: 560px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn {
+    background: var(--amber-mid);
+    padding: clamp(16px, 2vw, 28px) clamp(28px, 5vw, 68px);
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(217,119,6,0.3); }
+
+  .cta-btn-main {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 2vw, 26px);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .cta-btn-sub {
+    font-size: clamp(11px, 1.2vw, 13px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+  }
+
+  .cta-handle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 14px);
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.15);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+
+<nav>
+  <a href="#cover" class="nav-brand">NMD</a>
+  <div class="nav-tag">No Money Down · Credit Repair</div>
+</nav>
+
+<!-- ══ COVER ══ -->
+<section id="cover">
+  <div class="watermark">CFPB</div>
+  <div class="eyebrow" style="position:relative;z-index:1;">Breaking · Consumer Protection · 2026</div>
+  <h1 class="display" style="color:white; position:relative; z-index:1;">
+    Your Credit<br/>
+    Union <em style="color:rgba(255,255,255,0.25);">Might</em><br/>
+    Not Be<br/>
+    <span style="color:#fbbf24;">Protected.</span>
+  </h1>
+  <p class="cover-sub">The CFPB is losing its funding. And there's a critical gap in the law that leaves <strong>anyone with a credit union account — especially at larger credit unions like NFCU and PenFed — with no federal regulator to complain to.</strong> Here's what's happening and what you need to know.</p>
+  <div class="cover-footer">
+    <div class="nmd-mark">NMD<small>No Money Down</small></div>
+    <div class="vdiv"></div>
+    <div class="cover-date">Credit Intelligence · Feb 2026</div>
+  </div>
+  <div class="sec-num lt">01</div>
+</section>
+
+<!-- ══ WHAT IS CFPB ══ -->
+<section id="what">
+  <div class="slide-meta">
+    <div class="slide-label">Background</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">The CFPB Was<br/><em style="color:var(--amber-mid);">Your Last Line</em><br/>of Defense.</h2>
+  <p class="body-text">
+    The Consumer Financial Protection Bureau — the CFPB — was created after the 2008 financial crisis specifically to protect everyday consumers from banks, lenders, debt collectors, and credit bureaus. <strong>If a financial institution was abusing you, the CFPB was who you called.</strong><br/><br/>
+    It handled millions of complaints. It levied massive fines. It forced Equifax, Experian, and TransUnion to actually respond when you had a dispute. And now the Trump administration has declared its funding mechanism illegal — meaning the agency is on a path toward shutdown.
+  </p>
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">Complaints Filed in 2024</div>
+      <div class="stat-val amber">5M+</div>
+      <div class="stat-sub">Consumer complaints the CFPB processed last year alone</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Enforcement Actions Dropped</div>
+      <div class="stat-val red">22</div>
+      <div class="stat-sub">Pending bank enforcement cases dropped in 2025 under new admin</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Consumer Losses Since Cuts</div>
+      <div class="stat-val red">$19B</div>
+      <div class="stat-sub">Estimated consumer losses directly tied to CFPB cuts per Sen. Warren's office</div>
+    </div>
+  </div>
+  <div class="sec-num">02</div>
+</section>
+
+<!-- ══ THE GAP ══ -->
+<section id="gap">
+  <div class="slide-meta">
+    <div class="slide-label">The Critical Gap</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">Banks Have<br/>Protection.<br/><em style="color:var(--amber-mid);">Credit Unions</em><br/>Have a Problem.</h2>
+  <div class="gap-diagram">
+    <div class="gap-row" style="background:var(--rule);">
+      <div class="gap-head ent">Institution</div>
+      <div class="gap-head bank">Banks</div>
+      <div class="gap-head cu">Credit Unions</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-head ent" style="font-size:clamp(9px,1vw,12px);">Who Handles Complaints</div>
+      <div class="gap-cell good">
+        <h4>OCC / helpwithmybank.gov</h4>
+        <p><strong>Banks have a clear regulator.</strong> If you have a problem with Chase, BofA, or Wells Fargo — the Office of the Comptroller of the Currency handles it directly. There's a dedicated website, a clear process, and real enforcement power.</p>
+        <span class="status-tag good">Covered</span>
+      </div>
+      <div class="gap-cell bad">
+        <h4>Nobody. That's the Problem.</h4>
+        <p>The NCUA only handles complaints for credit unions with <strong>under $10 billion in assets.</strong> Anything above that was covered exclusively by the CFPB. If the CFPB goes away, members of large credit unions have <strong>no federal regulator to complain to.</strong></p>
+        <span class="status-tag bad">Gap Exposed</span>
+      </div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-head ent" style="font-size:clamp(9px,1vw,12px);">Large Institution Example</div>
+      <div class="gap-cell good">
+        <h4>JPMorgan Chase — $3.9T in Assets</h4>
+        <p>Regulated by OCC. If Chase wrongly reports a debt on your credit file, you file with the OCC and they investigate. Process works with or without the CFPB.</p>
+        <span class="status-tag good">OCC Has It</span>
+      </div>
+      <div class="gap-cell bad">
+        <h4>NFCU / PenFed — $40B+ in Assets</h4>
+        <p>Both are above the NCUA's $10B threshold. A member who filed a complaint against PenFed with the NCUA was told <strong>it was outside their purview — and forwarded to the CFPB.</strong> If the CFPB is gone, that forward goes nowhere.</p>
+        <span class="status-tag bad">No Regulator</span>
+      </div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-head ent" style="font-size:clamp(9px,1vw,12px);">Credit Reporting Disputes</div>
+      <div class="gap-cell good">
+        <h4>CFPB + OCC Both Watch Banks</h4>
+        <p>If a bank furnisher reports something wrong on your credit file, you have two agencies watching that process.</p>
+        <span class="status-tag warn">Partially Covered</span>
+      </div>
+      <div class="gap-cell bad">
+        <h4>CFPB Was the Only Watchdog</h4>
+        <p>Credit unions reporting errors on your file? That was <strong>exclusively CFPB territory</strong> for large CUs. No CFPB means no federal oversight of how big credit unions report to the bureaus.</p>
+        <span class="status-tag bad">Unprotected</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num">03</div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section id="timeline">
+  <div class="slide-meta dk">
+    <div class="slide-label lt">How We Got Here</div>
+    <div class="nmd-badge wh">NMD</div>
+  </div>
+  <h2 class="heading" style="color:white;">The CFPB's<br/><em style="color:rgba(255,255,255,0.25);">Collapse</em><br/><span style="color:#fbbf24;">Timeline.</span></h2>
+  <div class="tl-list">
+    <div class="tl-item">
+      <div class="tl-time">Feb 2025</div>
+      <div class="tl-spine"><div class="tl-dot red"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Director Fired. Operations Halted.</h4>
+        <p>Trump fired Director Rohit Chopra. Acting Director Russell Vought — Project 2025 architect — ordered all CFPB operations halted. <strong>Investigations, rulemaking, enforcement — all stopped.</strong> Probationary employees fired.</p>
+        <span class="pill red">Full Shutdown Order</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Nov 2025</div>
+      <div class="tl-spine"><div class="tl-dot amber"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>DOJ Declares CFPB Funding Illegal</h4>
+        <p>The DOJ's Office of Legal Counsel ruled the CFPB cannot draw from the Federal Reserve while the Fed operates at a loss. <strong>The agency anticipates exhausting all funds by early 2026.</strong></p>
+        <span class="pill amber">Funding Declared Illegal</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Dec 2025</div>
+      <div class="tl-spine"><div class="tl-dot green"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Court Rules Against Vought — Temporarily</h4>
+        <p>Judge Amy Berman Jackson ruled Vought cannot unilaterally refuse to request CFPB funding. <strong>$145 million was reluctantly requested</strong> — keeping the agency operational through March 2026.</p>
+        <span class="pill green">Temporary Win</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Feb 2026</div>
+      <div class="tl-spine"><div class="tl-dot amber"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>DC Circuit Hears Arguments</h4>
+        <p>The full U.S. Court of Appeals for the DC Circuit heard oral arguments on the future of the agency. <strong>The appellate judges will decide whether the CFPB survives in any meaningful form.</strong> Outcome still pending.</p>
+        <span class="pill amber">Legal Battle Ongoing</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Now</div>
+      <div class="tl-spine"><div class="tl-dot grey"></div></div>
+      <div class="tl-body">
+        <h4>Funded Through March 2026 — Then Unknown</h4>
+        <p>The CFPB is technically still accepting complaints — but with up to <strong>90% fewer staff,</strong> response times are gutted and enforcement is near zero. <strong>After March, nothing is guaranteed.</strong></p>
+        <span class="pill grey">Uncertain Future</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num lt">04</div>
+</section>
+
+<!-- ══ IMPACT ══ -->
+<section id="impact">
+  <div class="slide-meta">
+    <div class="slide-label">What This Means For You</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">What Happens<br/><em style="color:var(--amber-mid);">To You</em><br/>Without the CFPB.</h2>
+  <div class="impact-grid">
+    <div class="impact-cell">
+      <h4>Credit Dispute Errors Go Unchallenged</h4>
+      <p>The CFPB forced Equifax, Experian, and TransUnion to actually investigate disputes. Without that oversight, <strong>the bureaus have less pressure to fix errors</strong> — and more freedom to ignore them. Your dispute letters carry less weight.</p>
+    </div>
+    <div class="impact-cell">
+      <h4>Debt Collectors Get Bolder</h4>
+      <p>The CFPB was the agency that enforced the Fair Debt Collection Practices Act. Without active enforcement, <strong>debt collectors who call at illegal hours, make false claims, or harass consumers face fewer consequences.</strong></p>
+    </div>
+    <div class="impact-cell">
+      <h4>No Recourse with Large Credit Unions</h4>
+      <p>If NFCU, PenFed, or any large credit union makes an error on your credit file, charges an illegal fee, or closes your account incorrectly — <strong>you now have no federal agency to escalate to.</strong> Your only option is a lawsuit.</p>
+    </div>
+    <div class="impact-cell">
+      <h4>State Patchwork Becomes Your Only Protection</h4>
+      <p>Some states — like California and New York — have strong consumer protection laws. Others have almost nothing. <strong>Where you live now determines how much protection you have,</strong> which was never how federal consumer law was supposed to work.</p>
+    </div>
+    <div class="impact-cell">
+      <h4>Predatory Lending Ramps Back Up</h4>
+      <p>The CFPB was actively watching payday lenders, credit card fee structures, and mortgage servicers. <strong>22 enforcement cases were already dropped in 2025.</strong> Without a watchdog, the same practices that caused the 2008 crisis can resurface.</p>
+    </div>
+    <div class="impact-cell">
+      <h4>Your Complaint Database Disappears</h4>
+      <p>The CFPB maintained a public database of consumer complaints — a powerful tool for identifying patterns of abuse. <strong>If the agency shuts down, that database and its institutional memory go with it.</strong></p>
+    </div>
+  </div>
+  <div class="sec-num">05</div>
+</section>
+
+<!-- ══ NMD PLAYBOOK ══ -->
+<section id="playbook">
+  <div class="slide-meta">
+    <div class="slide-label">The NMD Approach</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">How We<br/>Protect You<br/><em style="color:var(--amber-mid);">When the</em><br/>Government Won't.</h2>
+  <div class="play-list">
+    <div class="play-item">
+      <div class="play-n">01</div>
+      <div class="play-content">
+        <h4>We Document Everything From Day One</h4>
+        <p>The CFPB won't always be there to back up your complaint. <strong>We build a paper trail on every client file</strong> — dispute letters, certified mail receipts, bureau responses, timeline documentation — so you have legal standing if this ever goes to court or state AG.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">02</div>
+      <div class="play-content">
+        <h4>We Know State-Level Alternatives</h4>
+        <p>The CFPB isn't your only option — it was just the easiest one. <strong>Your state attorney general, the FTC, the OCC for bank accounts, and the NCUA for smaller credit unions</strong> all still exist. We know how to route your complaint to the right place based on your institution.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">03</div>
+      <div class="play-content">
+        <h4>We Use FCRA and FDCPA Directly</h4>
+        <p>The Fair Credit Reporting Act and Fair Debt Collection Practices Act are federal law — they don't disappear with the CFPB. <strong>Private lawsuits under FCRA are still fully available.</strong> We position our clients to use these laws directly when agencies fail.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">04</div>
+      <div class="play-content">
+        <h4>We Stay Ahead of What's Changing</h4>
+        <p>This isn't the only thing changing in consumer finance right now. The Capital One/Discover merger, Chase 5/24 evolution, credit union oversight gaps — <strong>we track all of it so our clients know what's happening before it affects them.</strong> That's the NMD difference.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num">06</div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-flag">No Money Down</div>
+  <h2 class="display" style="color:white; position:relative; z-index:1;">
+    The System<br/>
+    <em style="color:rgba(255,255,255,0.25);">Is Changing.</em><br/>
+    Your Strategy<br/>
+    <span style="color:#fbbf24;">Should Too.</span>
+  </h2>
+  <p class="cta-sub">When the agencies that protect you start disappearing, you need someone in your corner who knows how to fight without them.</p>
+  <a href="#" class="cta-btn">
+    <div class="cta-btn-main">DM Us for a Free Consult</div>
+    <div class="cta-btn-sub">We'll review your file and make sure you're protected</div>
+  </a>
+  <div class="cta-handle">@NMD · No Money Down · Credit Repair</div>
+  <div class="sec-num lt">07</div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('prog').style.width = pct + '%';
+  });
+</script>
+
+</body>
+</html>

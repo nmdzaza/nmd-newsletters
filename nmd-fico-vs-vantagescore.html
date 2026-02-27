@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Score You're Watching Isn't the One That Matters — NMD</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --white: #ffffff;
+    --cream: #f6f3ed;
+    --rule: #e0dbd0;
+    --slate: #556070;
+    --dark: #111827;
+    --purple: #4f1d96;
+    --purple-light: #f3e8ff;
+    --purple-mid: #7c3aed;
+    --blue: #1d4ed8;
+    --blue-light: #eff6ff;
+    --green: #166534;
+    --green-light: #dcfce7;
+    --red: #b91c1c;
+    --red-light: #fee2e2;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(246,243,237,0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+    height: 56px;
+    padding: 0 clamp(20px, 5vw, 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+  }
+
+  .prog {
+    position: fixed;
+    top: 56px; left: 0;
+    height: 2px;
+    background: var(--purple-mid);
+    width: 0%;
+    z-index: 99;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    min-height: 100svh;
+    padding: calc(56px + clamp(48px, 8vw, 100px)) clamp(24px, 6vw, 120px) clamp(48px, 8vw, 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: clamp(16px, 2.5vw, 30px);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: clamp(24px, 4vw, 52px);
+    flex-shrink: 0;
+  }
+
+  .slide-meta.dk { border-bottom-color: rgba(255,255,255,0.08); }
+
+  .slide-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+  }
+
+  .slide-label.lt { color: #a78bfa; }
+
+  .nmd-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: 800;
+    letter-spacing: 4px;
+  }
+
+  .nmd-badge.dk { color: var(--ink); }
+  .nmd-badge.wh { color: white; }
+
+  .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(46px, 8vw, 112px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    flex-shrink: 0;
+  }
+
+  .heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 76px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  em { font-style: italic; font-weight: 300; }
+
+  .watermark {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .sec-num {
+    position: absolute;
+    bottom: clamp(14px, 2.5vw, 30px);
+    right: clamp(20px, 3.5vw, 56px);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(52px, 10vw, 144px);
+    font-weight: 900;
+    color: rgba(13,13,13,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .sec-num.lt { color: rgba(255,255,255,0.04); }
+
+  /* ── COVER ── */
+  #cover {
+    background: var(--dark);
+    gap: clamp(18px, 3vw, 40px);
+  }
+
+  #cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+  }
+
+  #cover::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--purple-mid), #a78bfa, transparent);
+  }
+
+  #cover .watermark {
+    right: -2%; top: 5%;
+    font-size: clamp(100px, 22vw, 320px);
+    color: rgba(124,58,237,0.06);
+  }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(11px, 1.3vw, 14px);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #a78bfa;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: clamp(22px, 3vw, 38px);
+    height: 2px;
+    background: #a78bfa;
+    flex-shrink: 0;
+  }
+
+  /* forum post card */
+  .forum-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    padding: clamp(18px, 3vw, 36px);
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .forum-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 12px;
+  }
+
+  .forum-text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(15px, 1.8vw, 22px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+  }
+
+  .forum-text strong { font-style: normal; font-weight: 700; color: white; }
+
+  .cover-footer {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 26px);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .nmd-mark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: white;
+  }
+
+  .nmd-mark small {
+    display: block;
+    font-size: clamp(9px, 0.9vw, 11px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.2);
+    margin-top: 2px;
+  }
+
+  .vdiv { width: 1px; height: 30px; }
+  .vdiv.dk { background: rgba(255,255,255,0.1); }
+  .vdiv.lt { background: var(--rule); }
+
+  .cover-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 12px);
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.18);
+    text-transform: uppercase;
+  }
+
+  /* ── SCORE LANDSCAPE ── */
+  #landscape { background: var(--cream); }
+
+  .body-text {
+    font-size: clamp(15px, 1.8vw, 20px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.8;
+    max-width: 820px;
+    margin: clamp(18px, 2.5vw, 36px) 0;
+    flex-shrink: 0;
+  }
+
+  .body-text strong { color: var(--ink); font-weight: 600; }
+
+  .score-models {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--rule);
+    margin-top: clamp(8px, 1.5vw, 20px);
+  }
+
+  .model-row {
+    display: grid;
+    grid-template-columns: clamp(100px, 14vw, 180px) 1fr auto;
+    gap: 2px;
+    background: var(--rule);
+  }
+
+  @media (max-width: 600px) {
+    .model-row { grid-template-columns: 1fr; }
+  }
+
+  .model-cell {
+    background: var(--white);
+    padding: clamp(16px, 2.5vw, 28px) clamp(16px, 2.5vw, 32px);
+  }
+
+  .model-cell.label {
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+  }
+
+  .model-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(13px, 1.6vw, 19px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .model-desc {
+    font-size: clamp(12px, 1.3vw, 15px);
+    color: var(--slate);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .model-desc strong { color: var(--ink); font-weight: 600; }
+
+  .model-use {
+    background: var(--white);
+    padding: clamp(16px, 2.5vw, 28px) clamp(14px, 2vw, 28px);
+    display: flex;
+    align-items: center;
+    min-width: clamp(120px, 16vw, 200px);
+  }
+
+  .use-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 2px;
+  }
+
+  .use-tag.common { background: var(--green-light); color: var(--green); }
+  .use-tag.growing { background: var(--amber-light); color: var(--amber); }
+  .use-tag.free { background: var(--blue-light); color: var(--blue); }
+  .use-tag.legacy { background: var(--red-light); color: var(--red); }
+
+  .row-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* ── THE REAL STORY (breakdown) ── */
+  #story { background: var(--white); }
+
+  .story-card {
+    border-left: 4px solid var(--purple-mid);
+    background: var(--purple-light);
+    padding: clamp(20px, 3.5vw, 44px);
+    margin: clamp(18px, 2.5vw, 36px) 0;
+    flex-shrink: 0;
+  }
+
+  .story-card .block-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 12px;
+  }
+
+  .story-card .quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(15px, 1.8vw, 22px);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .story-card .quote strong { font-style: normal; font-weight: 700; }
+
+  .story-card .cite {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-top: 14px;
+  }
+
+  /* breakdown comparison */
+  .breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 560px) {
+    .breakdown { grid-template-columns: 1fr; }
+  }
+
+  .bd-header {
+    padding: clamp(12px, 1.8vw, 18px) clamp(16px, 2.5vw, 36px);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: var(--cream);
+  }
+
+  .bd-header.before { color: var(--red); }
+  .bd-header.after { color: var(--green); }
+
+  .bd-cell {
+    background: white;
+    padding: clamp(20px, 3vw, 36px) clamp(16px, 2.5vw, 36px);
+    position: relative;
+  }
+
+  .bd-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: clamp(16px, 2.5vw, 36px);
+    width: 28px; height: 3px;
+  }
+
+  .bd-cell.before::before { background: var(--red); }
+  .bd-cell.after::before { background: var(--green); }
+
+  .bd-cell h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(13px, 1.5vw, 19px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 16px 0 8px;
+    color: var(--ink);
+  }
+
+  .bd-cell .big-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .bd-cell .big-num.red { color: var(--red); }
+  .bd-cell .big-num.green { color: var(--green); }
+
+  .bd-cell p {
+    font-size: clamp(12px, 1.4vw, 16px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .bd-cell p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── WHY DIFFERENT ── */
+  #why { background: var(--dark); }
+
+  .diff-list { margin-top: clamp(20px, 3vw, 44px); }
+
+  .diff-item {
+    display: flex;
+    gap: clamp(14px, 2.5vw, 32px);
+    padding: clamp(18px, 2.5vw, 30px) 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    align-items: flex-start;
+  }
+
+  .diff-item:last-child { border-bottom: none; }
+
+  .diff-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(30px, 4.5vw, 56px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    flex-shrink: 0;
+    width: clamp(32px, 4.5vw, 60px);
+  }
+
+  .diff-content h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(14px, 1.7vw, 21px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 7px;
+  }
+
+  .diff-content p {
+    font-size: clamp(13px, 1.5vw, 16px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  .diff-content p strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  .diff-tag {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1vw, 11px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+
+  .diff-tag.fico { background: rgba(99,102,241,0.2); color: #a5b4fc; }
+  .diff-tag.vs { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+  .diff-tag.both { background: rgba(245,158,11,0.15); color: #fcd34d; }
+
+  /* ── WHAT LENDERS PULL ── */
+  #lenders { background: var(--cream); }
+
+  .lender-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 28vw, 320px), 1fr));
+    gap: 2px;
+    background: var(--rule);
+    margin-top: clamp(20px, 3vw, 44px);
+  }
+
+  .lender-cell {
+    background: white;
+    padding: clamp(20px, 3vw, 38px) clamp(18px, 2.5vw, 36px);
+    position: relative;
+  }
+
+  .lender-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: clamp(18px, 2.5vw, 36px);
+    width: 30px; height: 3px;
+  }
+
+  .lender-cell.fico-cell::before { background: var(--purple-mid); }
+  .lender-cell.vs-cell::before { background: var(--green); }
+  .lender-cell.free-cell::before { background: var(--blue); }
+
+  .lender-icon {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 900;
+    line-height: 1;
+    margin: 16px 0 10px;
+  }
+
+  .lender-icon.purple { color: var(--purple-mid); }
+  .lender-icon.green { color: var(--green); }
+  .lender-icon.blue { color: var(--blue); }
+
+  .lender-cell h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(13px, 1.5vw, 19px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .lender-cell p {
+    font-size: clamp(12px, 1.4vw, 15px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .lender-cell p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── BIG SHIFT ── */
+  #shift { background: var(--white); }
+
+  .shift-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2px, 0.5vw, 4px);
+    background: var(--rule);
+    margin-top: clamp(20px, 3vw, 44px);
+  }
+
+  @media (max-width: 560px) {
+    .shift-grid { grid-template-columns: 1fr; }
+  }
+
+  .shift-cell {
+    background: white;
+    padding: clamp(20px, 3vw, 38px) clamp(16px, 2.5vw, 36px);
+    position: relative;
+  }
+
+  .shift-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: clamp(16px, 2.5vw, 36px);
+    width: 30px; height: 3px;
+    background: var(--purple-mid);
+  }
+
+  .shift-cell h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(13px, 1.5vw, 19px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 16px 0 8px;
+  }
+
+  .shift-cell p {
+    font-size: clamp(12px, 1.4vw, 15px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .shift-cell p strong { color: var(--ink); font-weight: 600; }
+
+  .shift-stat {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--purple-mid);
+    line-height: 1;
+    margin: 14px 0 6px;
+  }
+
+  /* ── NMD PLAYBOOK ── */
+  #playbook { background: var(--cream); }
+
+  .play-list { margin-top: clamp(20px, 3vw, 44px); }
+
+  .play-item {
+    display: flex;
+    gap: clamp(14px, 2.5vw, 32px);
+    padding: clamp(18px, 2.5vw, 30px) 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+
+  .play-item:last-child { border-bottom: none; }
+
+  .play-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(30px, 4.5vw, 56px);
+    font-weight: 900;
+    color: rgba(13,13,13,0.07);
+    line-height: 1;
+    flex-shrink: 0;
+    width: clamp(32px, 4.5vw, 60px);
+  }
+
+  .play-content h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(14px, 1.7vw, 21px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 7px;
+  }
+
+  .play-content p {
+    font-size: clamp(13px, 1.5vw, 17px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .play-content p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--dark);
+    text-align: center;
+    align-items: center;
+    gap: clamp(18px, 2.5vw, 32px);
+  }
+
+  #cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 72px 72px;
+    pointer-events: none;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw; height: 60vw;
+    max-width: 600px; max-height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-flag::before, .cta-flag::after {
+    content: '';
+    width: clamp(22px, 3vw, 38px);
+    height: 1px;
+    background: rgba(255,255,255,0.18);
+  }
+
+  .cta-sub {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(15px, 1.8vw, 22px);
+    color: rgba(255,255,255,0.38);
+    line-height: 1.7;
+    max-width: 560px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn {
+    background: var(--purple-mid);
+    padding: clamp(16px, 2vw, 28px) clamp(28px, 5vw, 68px);
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(124,58,237,0.4); }
+
+  .cta-btn-main {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 2vw, 26px);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .cta-btn-sub {
+    font-size: clamp(11px, 1.2vw, 13px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+  }
+
+  .cta-handle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 14px);
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.14);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+
+<nav>
+  <a href="#cover" class="nav-brand">NMD</a>
+  <div class="nav-tag">No Money Down · Credit Repair</div>
+</nav>
+
+<!-- ══ COVER ══ -->
+<section id="cover">
+  <div class="watermark">740</div>
+  <div class="eyebrow">Real Talk · Credit Scores · 2026</div>
+  <h1 class="display" style="color:white; position:relative; z-index:1;">
+    The Score<br/>
+    You're <em style="color:rgba(255,255,255,0.22);">Watching</em><br/>
+    Isn't the One<br/>
+    <span style="color:#a78bfa;">They're Using.</span>
+  </h1>
+  <div class="forum-card">
+    <div class="forum-tag">FICO Forum · January 2026 · Real Datapoint</div>
+    <p class="forum-text">"I paid $39.95 for my scores. Saw a <strong>740.</strong> Applied for an auto loan with confidence. When the paperwork came back with an <strong>11% interest rate,</strong> I looked at the H4 form. My score on their end: <strong>699.</strong> Come to find out they weren't using FICO at all."</p>
+  </div>
+  <div class="cover-footer">
+    <div class="nmd-mark">NMD<small>No Money Down</small></div>
+    <div class="vdiv dk"></div>
+    <div class="cover-date">Credit Intelligence · Feb 2026</div>
+  </div>
+  <div class="sec-num lt">01</div>
+</section>
+
+<!-- ══ SCORE LANDSCAPE ══ -->
+<section id="landscape">
+  <div class="slide-meta">
+    <div class="slide-label">The Score Landscape</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">There Are<br/><em style="color:var(--purple-mid);">Dozens</em> of<br/>Scores. You're<br/>Watching One.</h2>
+  <p class="body-text">
+    Most people think there's <strong>one credit score.</strong> There are over 28 widely used FICO versions alone — plus VantageScore models 3.0, 4.0, and 5.0 — and free tools like Credit Karma show you something different from what any lender is likely to pull. The score you see and the score a lender sees can be <strong>40–60+ points apart on the same day.</strong>
+  </p>
+  <div class="score-models">
+    <div class="model-row">
+      <div class="model-cell label"><span class="row-label">What You See Free</span></div>
+      <div class="model-cell">
+        <div class="model-name">VantageScore 3.0</div>
+        <div class="model-desc">What Credit Karma, Credit Sesame, and most free tools show. <strong>Almost no lender uses VS 3.0 for actual credit decisions.</strong> It's a marketing product designed to get you to apply for cards.</div>
+      </div>
+      <div class="model-use"><span class="use-tag free">Monitoring Only</span></div>
+    </div>
+    <div class="model-row">
+      <div class="model-cell label"><span class="row-label">What myFICO Sells</span></div>
+      <div class="model-cell">
+        <div class="model-name">FICO Score 8</div>
+        <div class="model-desc">The most widely used FICO version for credit cards and personal loans. <strong>NOT what mortgage lenders use. NOT always what auto lenders use.</strong> Accurate for some decisions, wrong for others.</div>
+      </div>
+      <div class="model-use"><span class="use-tag common">Cards & Personal</span></div>
+    </div>
+    <div class="model-row">
+      <div class="model-cell label"><span class="row-label">Auto Loans</span></div>
+      <div class="model-cell">
+        <div class="model-name">FICO Auto Score 2 / 4 / 8</div>
+        <div class="model-desc">Industry-specific versions that weigh your auto loan history more heavily. <strong>Your FICO 8 can be 740. Your Auto Score can be 699.</strong> This is exactly what happened in the forum post above.</div>
+      </div>
+      <div class="model-use"><span class="use-tag legacy">Often Hidden</span></div>
+    </div>
+    <div class="model-row">
+      <div class="model-cell label"><span class="row-label">Mortgages</span></div>
+      <div class="model-cell">
+        <div class="model-name">Classic FICO 2 / 4 / 5 + VantageScore 4.0</div>
+        <div class="model-desc">Mortgages used Classic FICO exclusively for decades. <strong>In July 2025 the FHFA approved VantageScore 4.0 for Fannie Mae and Freddie Mac loans.</strong> Lenders can now choose. Most consumers have no idea what VS 4.0 says about them.</div>
+      </div>
+      <div class="model-use"><span class="use-tag growing">Major Shift</span></div>
+    </div>
+  </div>
+  <div class="sec-num">02</div>
+</section>
+
+<!-- ══ THE REAL STORY ══ -->
+<section id="story">
+  <div class="slide-meta">
+    <div class="slide-label">The Real Numbers</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">A 41-Point Gap<br/>Cost Someone<br/><em style="color:var(--purple-mid);">Real Money.</em></h2>
+  <div class="story-card">
+    <div class="block-label">FICO Forum · January 2026</div>
+    <p class="quote">"Let's say you're looking for a decent rate for an auto loan. You pay $39.95 on myFICO because you think this is the industry standard. Good news — your lowest score is <strong>740.</strong> So you confidently apply with a few lenders. When you get the H4 form that shows why they offered you <strong>11% interest,</strong> you see your score is actually <strong>699.</strong> Come to find out they chose VantageScore 4.0. Is it a coincidence they chose the lowest score? Your gut tells you not to trust the banks."</p>
+    <div class="cite">— Forum Post by OP · General Credit Topics · 1/1/2026</div>
+  </div>
+  <div class="breakdown">
+    <div class="bd-header before">❌ What They Expected</div>
+    <div class="bd-header after">✓ What Actually Happened</div>
+    <div class="bd-cell before">
+      <div class="big-num red">740</div>
+      <h4>myFICO Score 8</h4>
+      <p>Paid $39.95 to verify. Saw 740. <strong>Felt confident enough to apply.</strong> Every online guide said this qualifies you for a good rate. Went in prepared — or so they thought.</p>
+    </div>
+    <div class="bd-cell after">
+      <div class="big-num green">699</div>
+      <h4>VantageScore 4.0 (Lender's Model)</h4>
+      <p>Lender pulled VS 4.0 instead. <strong>41-point gap. Different tier. Higher rate.</strong> The H4 adverse action form showed it clearly — the model used wasn't the one they prepared for. Result: 11% interest instead of the 6–7% they were targeting.</p>
+    </div>
+  </div>
+  <div class="sec-num">03</div>
+</section>
+
+<!-- ══ WHY THEY'RE DIFFERENT ══ -->
+<section id="why">
+  <div class="slide-meta dk">
+    <div class="slide-label lt">Why the Scores Differ</div>
+    <div class="nmd-badge wh">NMD</div>
+  </div>
+  <h2 class="heading" style="color:white;">FICO and<br/>VantageScore<br/><em style="color:rgba(255,255,255,0.25);">Are Not</em><br/><span style="color:#a78bfa;">The Same Math.</span></h2>
+  <div class="diff-list">
+    <div class="diff-item">
+      <div class="diff-n">01</div>
+      <div class="diff-content">
+        <h4>Different Weight on Utilization</h4>
+        <p>FICO and VantageScore both count utilization, but <strong>VantageScore 4.0 uses "trended data"</strong> — meaning it looks at whether your balances are going up or down over time, not just the snapshot. If your utilization is creeping up even slightly, VS 4.0 can be harsher than FICO 8.</p>
+        <span class="diff-tag vs">VS 4.0 Sensitive to Trends</span>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-n">02</div>
+      <div class="diff-content">
+        <h4>Thin Files Score Differently</h4>
+        <p>FICO 8 requires at least <strong>6 months of history</strong> to generate a score. VantageScore 4.0 can score you with just one month of history. This sounds like a win — but it also means <strong>newer accounts impact VS scores faster</strong> and more dramatically than FICO.</p>
+        <span class="diff-tag vs">VS Scores More People</span>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-n">03</div>
+      <div class="diff-content">
+        <h4>Collections Treated Differently</h4>
+        <p>FICO 9 ignores paid collections. FICO 8 still counts them. <strong>VantageScore 4.0 ignores medical debt in collections</strong> but weighs other collections more heavily in some profiles. The same collections account can affect each model completely differently.</p>
+        <span class="diff-tag both">Model-Specific Logic</span>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-n">04</div>
+      <div class="diff-content">
+        <h4>Industry-Specific FICO Versions Are Even More Different</h4>
+        <p>Auto lenders frequently use <strong>FICO Auto Score 2, 4, or 8</strong> — versions that amplify auto loan payment history. If you've ever had a late payment on a car note, these models punish it harder than standard FICO 8. <strong>You can have a 750 FICO 8 and a 699 Auto Score simultaneously.</strong></p>
+        <span class="diff-tag fico">FICO Auto Variants</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num lt">04</div>
+</section>
+
+<!-- ══ WHAT LENDERS ACTUALLY PULL ══ -->
+<section id="lenders">
+  <div class="slide-meta">
+    <div class="slide-label">Know Before You Apply</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">What Lenders<br/><em style="color:var(--purple-mid);">Actually</em> Pull<br/>by Loan Type.</h2>
+  <div class="lender-grid">
+    <div class="lender-cell fico-cell">
+      <div class="lender-icon purple">🏦</div>
+      <h4>Credit Cards</h4>
+      <p>Most card issuers use <strong>FICO Score 8 or 9</strong> — sometimes bureau-specific versions. Amex tends to favor EX. Chase pulls EX heavily for cards. Capital One pulls all three. myFICO is reasonably accurate here.</p>
+    </div>
+    <div class="lender-cell free-cell">
+      <div class="lender-icon blue">🚗</div>
+      <h4>Auto Loans</h4>
+      <p>Dealers and direct lenders commonly use <strong>FICO Auto Score 2, 4, or 8</strong> — sometimes VantageScore. <strong>This is where the 41-point surprise happens most often.</strong> Your FICO 8 means almost nothing here without checking Auto-specific scores.</p>
+    </div>
+    <div class="lender-cell vs-cell">
+      <div class="lender-icon green">🏡</div>
+      <h4>Mortgages</h4>
+      <p>Historically required <strong>Classic FICO (Mortgage Score 2/4/5)</strong> via tri-merge. Since July 2025, lenders can now choose <strong>VantageScore 4.0</strong> for Fannie/Freddie loans. This is the biggest industry shift in decades. Know both scores before house hunting.</p>
+    </div>
+    <div class="lender-cell fico-cell">
+      <div class="lender-icon purple">💳</div>
+      <h4>Free Tools (Credit Karma, Experian)</h4>
+      <p>Show <strong>VantageScore 3.0</strong> — a model almost no lender uses for actual decisions. It's useful for tracking directional movement, but the number itself is <strong>not what lenders see.</strong> Never apply based solely on a free score tool.</p>
+    </div>
+    <div class="lender-cell vs-cell">
+      <div class="lender-icon green">🏦</div>
+      <h4>Personal Loans</h4>
+      <p>Varies widely. Online lenders (SoFi, LightStream) often use FICO 8. Some use VantageScore for prescreening. <strong>Fintech lenders increasingly use VS 4.0 or 5.0</strong> for initial decisions, then may pull FICO for final underwriting.</p>
+    </div>
+    <div class="lender-cell free-cell">
+      <div class="lender-icon blue">🏢</div>
+      <h4>Credit Unions</h4>
+      <p>This is the wild card. Credit unions have the most variety. Some use FICO 8. Some use older FICO 4 or 5. Some use VS 4.0. <strong>Almost none of them tell you in advance.</strong> Always ask which bureau and which model before applying.</p>
+    </div>
+  </div>
+  <div class="sec-num">05</div>
+</section>
+
+<!-- ══ THE BIG SHIFT ══ -->
+<section id="shift">
+  <div class="slide-meta">
+    <div class="slide-label">The Industry Shift</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">July 2025<br/>Changed<br/><em style="color:var(--purple-mid);">Everything</em><br/>for Mortgages.</h2>
+  <div class="shift-grid">
+    <div class="shift-cell">
+      <div class="shift-stat">74%</div>
+      <h4>VantageScore Mortgage Usage Rose 74% in First Half of 2025</h4>
+      <p>Before the FHFA officially approved VS 4.0, lenders were already adopting it for mortgage evaluation at a massive rate. <strong>The shift was happening before most consumers even knew about it.</strong></p>
+    </div>
+    <div class="shift-cell">
+      <div class="shift-stat">5M+</div>
+      <h4>5 Million More Borrowers Can Qualify Using VS 4.0</h4>
+      <p>VantageScore 4.0 incorporates rent, utility, and telecom payment data. <strong>Consumers with thin credit files who pay rent on time can now qualify for Fannie/Freddie mortgages</strong> who couldn't before. This is real access expansion — if you know about it.</p>
+    </div>
+    <div class="shift-cell">
+      <div class="shift-stat">42B</div>
+      <h4>42 Billion VantageScores Used in 2024 Alone</h4>
+      <p>VS scores used grew 55% year-over-year. <strong>Nine of the top 10 U.S. banks now use VantageScore for some product decisions.</strong> The idea that FICO is the only score that matters is already outdated.</p>
+    </div>
+    <div class="shift-cell">
+      <div class="shift-stat">70%</div>
+      <h4>70% of the US Mortgage Market Backed by Fannie & Freddie</h4>
+      <p>When Fannie and Freddie change their standards, it ripples through essentially the entire conventional mortgage market. <strong>This isn't a niche change. It affects almost every home purchase loan in America.</strong> And most buyers don't know it happened.</p>
+    </div>
+  </div>
+  <div class="sec-num">06</div>
+</section>
+
+<!-- ══ NMD PLAYBOOK ══ -->
+<section id="playbook">
+  <div class="slide-meta">
+    <div class="slide-label">The NMD Approach</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">How We Make<br/>Sure You're<br/><em style="color:var(--purple-mid);">Prepared for</em><br/>the Right Score.</h2>
+  <div class="play-list">
+    <div class="play-item">
+      <div class="play-n">01</div>
+      <div class="play-content">
+        <h4>We Identify Your Goal First, Then Your Score</h4>
+        <p>Buying a car? We pull your Auto Scores. Buying a house? We check Classic FICO mortgage scores AND VantageScore 4.0. Applying for a card? We identify which bureau and which model the issuer favors. <strong>We never optimize blindly for FICO 8 when that's not what the lender is pulling.</strong></p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">02</div>
+      <div class="play-content">
+        <h4>We Build Credit That Works Across All Models</h4>
+        <p>Low utilization, zero late payments, clean collections, long account age — these factors help you across FICO 8, FICO Auto, Classic FICO mortgage, and VantageScore 4.0 simultaneously. <strong>Good credit fundamentals don't care which model the lender uses.</strong> We build those fundamentals first.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">03</div>
+      <div class="play-content">
+        <h4>We Leverage Trended Data for VS 4.0 Clients</h4>
+        <p>VantageScore 4.0 rewards consumers whose balances are trending down and whose payment behavior is consistent over time. <strong>For clients heading toward a mortgage, we actively structure paydown sequencing</strong> to show the trend VS 4.0 is looking for — not just the snapshot FICO 8 sees.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">04</div>
+      <div class="play-content">
+        <h4>We Know Which Free Tools Are Useful vs. Which Are Lies</h4>
+        <p>Credit Karma's VS 3.0 score can be directionally useful — if your VS 3.0 drops 30 points, something real happened. But <strong>we never let clients make application decisions based on it.</strong> We access the actual scores lenders will pull before any hard inquiry hits.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num">07</div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-flag">No Money Down</div>
+  <h2 class="display" style="color:white; position:relative; z-index:1;">
+    Stop<br/>
+    <em style="color:rgba(255,255,255,0.22);">Guessing</em><br/>
+    Which Score<br/>
+    <span style="color:#a78bfa;">Matters.</span>
+  </h2>
+  <p class="cta-sub">A 740 means nothing if the lender is pulling a 699. Let's find out exactly which score matters for your next move — before you apply.</p>
+  <a href="#" class="cta-btn">
+    <div class="cta-btn-main">DM Us for a Free Consult</div>
+    <div class="cta-btn-sub">We'll map the exact scores your lender will pull</div>
+  </a>
+  <div class="cta-handle">@NMD · No Money Down · Credit Repair</div>
+  <div class="sec-num lt">08</div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('prog').style.width = pct + '%';
+  });
+</script>
+
+</body>
+</html>

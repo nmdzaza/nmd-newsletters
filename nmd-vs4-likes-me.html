@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS4 Apparently Likes Me — What VantageScore 4.0 Actually Rewards — NMD</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --white: #ffffff;
+    --cream: #f5f2ec;
+    --rule: #ddd8cc;
+    --slate: #556070;
+    --dark: #0a1628;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --teal-mid: #0f766e;
+    --teal-dark: #042f2e;
+    --green: #166534;
+    --green-light: #dcfce7;
+    --red: #b91c1c;
+    --red-light: #fee2e2;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --blue: #1d4ed8;
+    --blue-light: #eff6ff;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(245,242,236,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+    height: 56px;
+    padding: 0 clamp(20px,5vw,80px);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:800; letter-spacing:5px; color:var(--ink); text-decoration:none; }
+  .nav-tag { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--teal); }
+
+  .prog { position:fixed; top:56px; left:0; height:2px; background:var(--teal); width:0%; z-index:99; }
+
+  section {
+    min-height: 100svh;
+    padding: calc(56px + clamp(48px,8vw,100px)) clamp(24px,6vw,120px) clamp(48px,8vw,100px);
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  .slide-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: clamp(16px,2.5vw,30px);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: clamp(24px,4vw,52px); flex-shrink:0;
+  }
+  .slide-meta.dk { border-bottom-color: rgba(255,255,255,0.08); }
+  .slide-label { font-family:'Barlow Condensed',sans-serif; font-size:clamp(10px,1.2vw,13px); font-weight:700; letter-spacing:5px; text-transform:uppercase; color:var(--teal); }
+  .slide-label.lt { color:#5eead4; }
+  .nmd-badge { font-family:'Barlow Condensed',sans-serif; font-size:clamp(12px,1.5vw,16px); font-weight:800; letter-spacing:4px; }
+  .nmd-badge.dk { color:var(--ink); }
+  .nmd-badge.wh { color:white; }
+
+  .display { font-family:'Fraunces',Georgia,serif; font-size:clamp(46px,8vw,112px); font-weight:900; line-height:0.88; letter-spacing:-0.03em; flex-shrink:0; }
+  .heading { font-family:'Fraunces',Georgia,serif; font-size:clamp(34px,5.5vw,76px); font-weight:900; line-height:0.9; letter-spacing:-0.02em; flex-shrink:0; }
+  em { font-style:italic; font-weight:300; }
+
+  .body-text { font-size:clamp(15px,1.8vw,20px); font-weight:300; color:var(--slate); line-height:1.8; max-width:820px; margin:clamp(18px,2.5vw,36px) 0; flex-shrink:0; }
+  .body-text strong { color:var(--ink); font-weight:600; }
+
+  .sec-num { position:absolute; bottom:clamp(14px,2.5vw,30px); right:clamp(20px,3.5vw,56px); font-family:'Fraunces',Georgia,serif; font-size:clamp(52px,10vw,144px); font-weight:900; color:rgba(13,13,13,0.04); line-height:1; pointer-events:none; user-select:none; }
+  .sec-num.lt { color:rgba(255,255,255,0.04); }
+
+  /* COVER */
+  #cover { background:var(--teal-dark); gap:clamp(18px,3vw,40px); }
+  #cover::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px); background-size:80px 80px; pointer-events:none; }
+  #cover::after { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--teal),#2dd4bf,transparent); }
+
+  .cover-watermark { position:absolute; right:-2%; top:5%; font-family:'Fraunces',Georgia,serif; font-weight:900; font-size:clamp(100px,22vw,320px); color:rgba(13,148,136,0.07); line-height:1; pointer-events:none; user-select:none; }
+
+  .eyebrow { font-family:'Barlow Condensed',sans-serif; font-size:clamp(11px,1.3vw,14px); font-weight:700; letter-spacing:6px; text-transform:uppercase; color:#5eead4; display:flex; align-items:center; gap:14px; flex-shrink:0; position:relative; z-index:1; }
+  .eyebrow::before { content:''; width:clamp(22px,3vw,38px); height:2px; background:#5eead4; flex-shrink:0; }
+
+  .forum-card { border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.04); padding:clamp(18px,3vw,36px); max-width:700px; position:relative; z-index:1; flex-shrink:0; }
+  .forum-tag { font-family:'Barlow Condensed',sans-serif; font-size:clamp(9px,1.1vw,12px); font-weight:700; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:12px; }
+  .forum-text { font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:clamp(15px,1.8vw,22px); font-weight:300; color:rgba(255,255,255,0.7); line-height:1.65; }
+  .forum-text strong { font-style:normal; font-weight:700; color:white; }
+
+  .cover-footer { display:flex; align-items:center; gap:clamp(14px,2vw,26px); flex-wrap:wrap; position:relative; z-index:1; flex-shrink:0; }
+  .nmd-mark { font-family:'Barlow Condensed',sans-serif; font-size:clamp(16px,1.8vw,22px); font-weight:800; letter-spacing:5px; color:white; }
+  .nmd-mark small { display:block; font-size:clamp(9px,0.9vw,11px); font-weight:400; letter-spacing:3px; color:rgba(255,255,255,0.2); margin-top:2px; }
+  .vdiv { width:1px; }
+  .vdiv.dk { background:rgba(255,255,255,0.1); height:30px; }
+  .vdiv.lt { background:var(--rule); height:30px; }
+  .cover-date { font-family:'Barlow Condensed',sans-serif; font-size:clamp(10px,1.1vw,12px); letter-spacing:3px; color:rgba(255,255,255,0.18); text-transform:uppercase; }
+
+  /* PROFILE GRID - who VS4 loves/hates */
+  .profile-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--rule); margin-top:clamp(20px,3vw,44px); flex-shrink:0; }
+  @media(max-width:560px){ .profile-grid { grid-template-columns:1fr; } }
+  .profile-header { padding:clamp(12px,1.8vw,18px) clamp(16px,2.5vw,36px); font-family:'Barlow Condensed',sans-serif; font-size:clamp(10px,1.2vw,13px); font-weight:700; letter-spacing:4px; text-transform:uppercase; background:var(--cream); }
+  .profile-header.loves { color:var(--teal-mid); }
+  .profile-header.hates { color:var(--red); }
+  .profile-cell { background:white; padding:clamp(18px,2.5vw,32px) clamp(16px,2.5vw,36px); position:relative; }
+  .profile-cell::before { content:''; position:absolute; top:0; left:clamp(16px,2.5vw,36px); width:28px; height:3px; }
+  .profile-cell.love::before { background:var(--teal); }
+  .profile-cell.hate::before { background:var(--red); }
+  .profile-cell h4 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(13px,1.5vw,19px); font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:8px; margin-top:14px; }
+  .profile-cell p { font-size:clamp(12px,1.4vw,15px); font-weight:300; color:var(--slate); line-height:1.7; }
+  .profile-cell p strong { color:var(--ink); font-weight:600; }
+
+  /* DATA POINTS */
+  #datapoints { background:var(--white); }
+  .dp-list { margin-top:clamp(20px,3vw,44px); }
+  .dp-item { display:flex; gap:clamp(14px,2.5vw,32px); padding:clamp(18px,2.5vw,30px) 0; border-bottom:1px solid var(--rule); align-items:flex-start; }
+  .dp-item:last-child { border-bottom:none; }
+  .dp-score { font-family:'Fraunces',Georgia,serif; font-size:clamp(28px,4vw,52px); font-weight:900; line-height:1; color:var(--teal); flex-shrink:0; min-width:clamp(60px,8vw,100px); }
+  .dp-score.neg { color:var(--red); }
+  .dp-content h4 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(14px,1.7vw,21px); font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:7px; }
+  .dp-content p { font-size:clamp(13px,1.5vw,16px); font-weight:300; color:var(--slate); line-height:1.7; }
+  .dp-content p strong { color:var(--ink); font-weight:600; }
+  .dp-tag { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-size:clamp(9px,1vw,11px); font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 11px; margin-top:10px; border-radius:2px; }
+  .dp-tag.good { background:var(--teal-light); color:var(--teal-mid); }
+  .dp-tag.bad { background:var(--red-light); color:var(--red); }
+  .dp-tag.neutral { background:var(--amber-light); color:var(--amber); }
+
+  /* TRENDED DATA EXPLAINER */
+  #trended { background:var(--dark); }
+  .trend-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(clamp(200px,28vw,300px),1fr)); gap:2px; background:rgba(255,255,255,0.05); margin-top:clamp(20px,3vw,44px); }
+  .trend-cell { background:rgba(255,255,255,0.03); padding:clamp(20px,3vw,38px) clamp(18px,2.5vw,36px); border-top:2px solid rgba(255,255,255,0.06); }
+  .trend-cell.hi { border-top-color:var(--teal); }
+  .trend-num { font-family:'Fraunces',Georgia,serif; font-size:clamp(28px,4vw,52px); font-weight:900; color:var(--teal); line-height:1; margin-bottom:12px; }
+  .trend-cell h4 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(13px,1.5vw,19px); font-weight:700; letter-spacing:1px; text-transform:uppercase; color:white; margin-bottom:8px; }
+  .trend-cell p { font-size:clamp(12px,1.4vw,15px); font-weight:300; color:rgba(255,255,255,0.5); line-height:1.7; }
+  .trend-cell p strong { color:rgba(255,255,255,0.85); font-weight:600; }
+
+  /* WHERE TO GET VS4 */
+  #access { background:var(--cream); }
+  .access-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(clamp(200px,28vw,280px),1fr)); gap:2px; background:var(--rule); margin-top:clamp(20px,3vw,44px); }
+  .access-cell { background:white; padding:clamp(20px,3vw,36px) clamp(18px,2.5vw,32px); position:relative; }
+  .access-cell::before { content:''; position:absolute; top:0; left:clamp(18px,2.5vw,32px); width:30px; height:3px; background:var(--teal); }
+  .access-cell h4 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(13px,1.5vw,19px); font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin:16px 0 8px; }
+  .access-cell p { font-size:clamp(12px,1.4vw,15px); font-weight:300; color:var(--slate); line-height:1.7; }
+  .access-cell p strong { color:var(--ink); font-weight:600; }
+  .access-tag { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-size:clamp(9px,1vw,11px); font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 11px; margin-top:10px; border-radius:2px; background:var(--teal-light); color:var(--teal-mid); }
+
+  /* NMD PLAYBOOK */
+  #playbook { background:var(--white); }
+  .play-list { margin-top:clamp(20px,3vw,44px); }
+  .play-item { display:flex; gap:clamp(14px,2.5vw,32px); padding:clamp(18px,2.5vw,30px) 0; border-bottom:1px solid var(--rule); align-items:flex-start; }
+  .play-item:last-child { border-bottom:none; }
+  .play-n { font-family:'Fraunces',Georgia,serif; font-size:clamp(30px,4.5vw,56px); font-weight:900; color:rgba(13,13,13,0.07); line-height:1; flex-shrink:0; width:clamp(32px,4.5vw,60px); }
+  .play-content h4 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(14px,1.7vw,21px); font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--ink); margin-bottom:7px; }
+  .play-content p { font-size:clamp(13px,1.5vw,17px); font-weight:300; color:var(--slate); line-height:1.7; }
+  .play-content p strong { color:var(--ink); font-weight:600; }
+
+  /* CTA */
+  #cta { background:var(--teal-dark); text-align:center; align-items:center; gap:clamp(18px,2.5vw,32px); }
+  #cta::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px); background-size:72px 72px; pointer-events:none; }
+  .cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:60vw; height:60vw; max-width:600px; max-height:600px; border-radius:50%; background:radial-gradient(circle,rgba(13,148,136,0.15) 0%,transparent 60%); pointer-events:none; }
+  .cta-flag { display:inline-flex; align-items:center; gap:14px; font-family:'Barlow Condensed',sans-serif; font-size:clamp(10px,1.2vw,13px); font-weight:700; letter-spacing:5px; text-transform:uppercase; color:rgba(255,255,255,0.25); position:relative; z-index:1; }
+  .cta-flag::before,.cta-flag::after { content:''; width:clamp(22px,3vw,38px); height:1px; background:rgba(255,255,255,0.18); }
+  .cta-sub { font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:clamp(15px,1.8vw,22px); color:rgba(255,255,255,0.38); line-height:1.7; max-width:560px; position:relative; z-index:1; }
+  .cta-btn { background:var(--teal); padding:clamp(16px,2vw,28px) clamp(28px,5vw,68px); display:inline-block; text-decoration:none; position:relative; z-index:1; transition:transform .2s,box-shadow .2s; }
+  .cta-btn:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(13,148,136,0.4); }
+  .cta-btn-main { font-family:'Barlow Condensed',sans-serif; font-size:clamp(16px,2vw,26px); font-weight:800; letter-spacing:3px; text-transform:uppercase; color:white; margin-bottom:4px; }
+  .cta-btn-sub { font-size:clamp(11px,1.2vw,13px); font-weight:300; color:rgba(255,255,255,0.55); letter-spacing:1px; }
+  .cta-handle { font-family:'Barlow Condensed',sans-serif; font-size:clamp(10px,1.1vw,14px); letter-spacing:4px; color:rgba(255,255,255,0.14); text-transform:uppercase; position:relative; z-index:1; }
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+<nav>
+  <a href="#cover" class="nav-brand">NMD</a>
+  <div class="nav-tag">No Money Down · Credit Intel</div>
+</nav>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="cover-watermark">VS4</div>
+  <div class="eyebrow">VantageScore 4.0 · Who It Loves &amp; Who It Wrecks</div>
+  <h1 class="display" style="color:white; position:relative; z-index:1;">
+    VS4<br/>
+    <em style="color:rgba(255,255,255,0.22);">Apparently</em><br/>
+    Likes Me.<br/>
+    <span style="color:#5eead4;">Does It Like You?</span>
+  </h1>
+  <div class="forum-card">
+    <div class="forum-tag">FICO Forum · 2026 · Real Consumer Datapoints</div>
+    <p class="forum-text">"My VS4 from Synchrony is <strong>14–15 points higher</strong> than all three of my FICO 8 scores. Thick file, long history, trending balances downward. Meanwhile someone else on this thread says VS4 is their worst score — high student loan utilization, short history. <strong>Same model. Completely opposite results.</strong>"</p>
+  </div>
+  <div class="cover-footer">
+    <div class="nmd-mark">NMD<small>No Money Down</small></div>
+    <div class="vdiv dk"></div>
+    <div class="cover-date">Credit Intelligence · Feb 2026</div>
+  </div>
+  <div class="sec-num lt">01</div>
+</section>
+
+<!-- WHO VS4 LOVES vs HATES -->
+<section id="profiles" style="background:var(--cream);">
+  <div class="slide-meta">
+    <div class="slide-label">VS4 Profile Types</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">VS4 Is Not<br/>Neutral. It Has<br/><em style="color:var(--teal);">Winners</em> and<br/>Losers.</h2>
+  <p class="body-text">VantageScore 4.0 uses <strong>trended data</strong> — not just a snapshot — which means your behavior over the past 24 months matters more than what your report says today. That creates clear winners and losers. The same score that feels generous to one person destroys another.</p>
+  <div class="profile-grid">
+    <div class="profile-header loves">✓ VS4 Rewards These Profiles</div>
+    <div class="profile-header hates">✗ VS4 Punishes These Profiles</div>
+
+    <div class="profile-cell love">
+      <h4>Thick, Long Credit History</h4>
+      <p>VS4 rewards depth. <strong>If your oldest open account is 10+ years and you have 8+ accounts,</strong> VS4 tends to score significantly higher than FICO 8 on the same file. Long average age of accounts is heavily weighted.</p>
+    </div>
+    <div class="profile-cell hate">
+      <h4>Thin or Young Files</h4>
+      <p>VS4 can score with just 1 month of history — but <strong>it penalizes less-than-thick files aggressively.</strong> If you have fewer accounts or your file is under 3 years, VS4 often comes in lower than FICO 8 on the same data.</p>
+    </div>
+
+    <div class="profile-cell love">
+      <h4>Balances Consistently Trending Down</h4>
+      <p>This is VS4's signature move. <strong>If you typically carry a balance but have been paying it down over the last 12–24 months,</strong> VS4 gives you credit for the trajectory — not just where you are today. FICO 8 has no memory of this.</p>
+    </div>
+    <div class="profile-cell hate">
+      <h4>Balances Creeping Up (Even Slightly)</h4>
+      <p>The flip side of trended data. <strong>If your balances have increased over time — even modestly — VS4 flags the trend</strong> and scores it worse than FICO 8 would for the same current snapshot. Gradually increasing revolving debt is a VS4 red flag.</p>
+    </div>
+
+    <div class="profile-cell love">
+      <h4>Low Revolving + Low Installment Utilization</h4>
+      <p>When both are clean, VS4 is generous. <strong>If you maintain low credit card balances AND your installment loans are mostly paid down,</strong> VS4 frequently outpaces FICO 8 by 10–20+ points on the same file.</p>
+    </div>
+    <div class="profile-cell hate">
+      <h4>High Student Loan or Installment Utilization</h4>
+      <p>This is where VS4 gets brutal. <strong>High student loan balances relative to original balance can crater VS4</strong> to levels that feel catastrophic. One forum user compared it to having a charge-off on their file. FICO is much more forgiving here.</p>
+    </div>
+
+    <div class="profile-cell love">
+      <h4>Rent, Utilities &amp; Telecom Payments (When Reported)</h4>
+      <p>VS4 is the first widely adopted model to incorporate alternative data. <strong>If your rent or utilities are reported to the bureaus, VS4 uses them.</strong> For rebuilders or thin-file consumers, this is a meaningful advantage over FICO 8.</p>
+    </div>
+    <div class="profile-cell hate">
+      <h4>Many New Accounts or Recent Inquiries</h4>
+      <p><strong>VS4 tends to penalize new account activity harder than FICO 8</strong> for certain profiles — especially multiple new accounts opened within 12 months. The trended data model sees the acceleration as a risk signal, even if each individual account is clean.</p>
+    </div>
+  </div>
+  <div class="sec-num">02</div>
+</section>
+
+<!-- REAL DATAPOINTS -->
+<section id="datapoints">
+  <div class="slide-meta">
+    <div class="slide-label">Real Forum Datapoints</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">What the<br/>Numbers<br/><em style="color:var(--teal);">Actually</em><br/>Look Like.</h2>
+  <div class="dp-list">
+    <div class="dp-item">
+      <div class="dp-score">+14</div>
+      <div class="dp-content">
+        <h4>Thick File, Low Util, Decreasing Balances</h4>
+        <p>Forum poster with 14+ year AAoA, low revolving utilization, balances trending down. <strong>VS4 came in 14–15 points above FICO 8</strong> across all three bureaus. This is the trended data reward in action — FICO 8 took a snapshot; VS4 saw the whole movie.</p>
+        <span class="dp-tag good">VS4 Winner</span>
+      </div>
+    </div>
+    <div class="dp-item">
+      <div class="dp-score neg">-17</div>
+      <div class="dp-content">
+        <h4>Credit Union Switched VS 3.0 → VS 4.0</h4>
+        <p>A credit union migrated from VS 3.0 to VS 4.0 on October 1, 2025. Member's score <strong>dropped from 835 (VS 3.0) to 818 (VS 4.0)</strong> on the same file — nearly paid off everything, only $6k on a car loan and $200 on cards. VS4's heavier installment utilization weighting hit them.</p>
+        <span class="dp-tag bad">VS4 Loser</span>
+      </div>
+    </div>
+    <div class="dp-item">
+      <div class="dp-score">+11</div>
+      <div class="dp-content">
+        <h4>TU VS4 vs TU FICO 8 — Same Bureau, Same Day</h4>
+        <p>Multiple forum members documented VS4 running <strong>10–15 points higher than FICO 8 on the same TransUnion data</strong> for profiles with long history and low utilization. The gap was consistent and repeatable, not a one-time quirk.</p>
+        <span class="dp-tag good">VS4 Winner</span>
+      </div>
+    </div>
+    <div class="dp-item">
+      <div class="dp-score neg">-50</div>
+      <div class="dp-content">
+        <h4>High Student Loan Balance = Catastrophic VS4 Drop</h4>
+        <p>One power user with high student loan installment utilization reported TU VS4 scoring <strong>nearly as low as if they had a late payment string going to 180+ days and a charge-off</strong> on EQ8. Student loan installment util is VS4's biggest flaw, per heavy users of the model.</p>
+        <span class="dp-tag bad">VS4 Loser</span>
+      </div>
+    </div>
+    <div class="dp-item">
+      <div class="dp-score">+0</div>
+      <div class="dp-content">
+        <h4>Synchrony Now Uses VS4 for Credit Limit Increase Decisions</h4>
+        <p>Multiple confirmed forum datapoints: Synchrony's AA letters for new applications reference their internal score. But <strong>CLI letters reference VS4 directly</strong> — confirmed by CSR and adverse action letters. Your VS4 from your Lowe's or Amazon Sync card isn't just cosmetic. It's live.</p>
+        <span class="dp-tag neutral">Lender Alert</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num">03</div>
+</section>
+
+<!-- TRENDED DATA DEEP DIVE -->
+<section id="trended">
+  <div class="slide-meta dk">
+    <div class="slide-label lt">The Trended Data Difference</div>
+    <div class="nmd-badge wh">NMD</div>
+  </div>
+  <h2 class="heading" style="color:white;">FICO 8 Sees a<br/>Snapshot.<br/><em style="color:rgba(255,255,255,0.22);">VS4 Watches</em><br/><span style="color:#5eead4;">the Whole Film.</span></h2>
+  <div class="trend-grid">
+    <div class="trend-cell hi">
+      <div class="trend-num">24mo</div>
+      <h4>VS4 Looks Back 24 Months of Behavior</h4>
+      <p>VantageScore 4.0 incorporates up to <strong>24 months of payment and balance history</strong> as trended data. If you've been consistently paying down balances over two years, VS4 rewards the pattern — not just where you stand today.</p>
+    </div>
+    <div class="trend-cell">
+      <div class="trend-num">0mo</div>
+      <h4>FICO 8 Has No Utilization Memory</h4>
+      <p>FICO 8 scores utilization as a pure snapshot — the moment your statement closes, that balance is what matters. <strong>Two years of paydown history means nothing to FICO 8.</strong> It only sees today. This is why the same profile can look very different across models.</p>
+    </div>
+    <div class="trend-cell hi">
+      <div class="trend-num">↑ util</div>
+      <h4>Rising Utilization = Bigger VS4 Penalty</h4>
+      <p>If your balances have trended upward — even slowly — <strong>VS4 penalizes the trajectory,</strong> not just the current level. A person at 28% utilization who was at 12% last year scores worse on VS4 than someone who's been flat at 28% for two years. FICO 8 sees both the same way.</p>
+    </div>
+    <div class="trend-cell">
+      <div class="trend-num">↓ util</div>
+      <h4>Falling Utilization = VS4 Bonus Points</h4>
+      <p>The opposite is equally powerful. If you've been systematically paying down debt, <strong>VS4 sees and rewards that responsible trajectory.</strong> This is the main reason some profiles find VS4 dramatically higher than FICO 8 — behavioral improvement is visible and rewarded.</p>
+    </div>
+  </div>
+  <div class="sec-num lt">04</div>
+</section>
+
+<!-- WHERE TO GET VS4 -->
+<section id="access">
+  <div class="slide-meta">
+    <div class="slide-label">How to Check Your VS4</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">VS4 Is Hard<br/>to Find. Here's<br/><em style="color:var(--teal);">Where</em> to<br/>Look.</h2>
+  <p class="body-text">Unlike FICO 8 (available everywhere) or VS 3.0 (Credit Karma), VS4 has historically been difficult for consumers to access. That's starting to change as more lenders adopt it — but you still need to know where to look.</p>
+  <div class="access-grid">
+    <div class="access-cell">
+      <h4>Synchrony Cards</h4>
+      <p>Any Synchrony-issued card (Amazon, Lowe's, QVC, PayPal, Sam's Club, etc.) provides your <strong>TU VantageScore 4.0</strong> in the cardholder portal. This has been the most widely available free VS4 source for the past several years.</p>
+      <span class="access-tag">TU VS4 · Free</span>
+    </div>
+    <div class="access-cell">
+      <h4>Wings Financial Credit Union</h4>
+      <p>One of the first credit unions confirmed to both provide AND use VS4 for credit decisions. They pull Experian VS4. <strong>If you're a member, what you see in your portal is what they use to approve you.</strong></p>
+      <span class="access-tag">EX VS4 · Decision Score</span>
+    </div>
+    <div class="access-cell">
+      <h4>Some Credit Unions (Varies)</h4>
+      <p>An increasing number of credit unions have migrated from VS 3.0 to VS 4.0 — one confirmed migration happened October 1, 2025. <strong>Always ask your credit union which model they use.</strong> The answer may have changed recently.</p>
+      <span class="access-tag">Various Bureaus</span>
+    </div>
+    <div class="access-cell">
+      <h4>Direct from VantageScore / TransUnion</h4>
+      <p>TransUnion's paid monitoring services provide VS4 access. Some short-term trial subscriptions have historically offered all three bureau VS4 scores. <strong>VS4 availability is expanding rapidly</strong> as mortgage lenders adopt it in 2026.</p>
+      <span class="access-tag">Expanding Access</span>
+    </div>
+    <div class="access-cell">
+      <h4>Mortgage Pre-Approval (Starting 2025–2026)</h4>
+      <p>With FHFA approving VS4 for Fannie/Freddie mortgages in July 2025, <strong>some mortgage lenders will now pull VS4 during pre-approval.</strong> You may see your VS4 for the first time when applying for a home loan — for better or worse.</p>
+      <span class="access-tag">New · Mortgage</span>
+    </div>
+    <div class="access-cell">
+      <h4>NOT Credit Karma, NOT WalletHub</h4>
+      <p>Credit Karma shows VS 3.0. WalletHub shows VS 3.0. These are older, less predictive models. <strong>The number you see on these platforms is NOT VS4.</strong> Don't confuse them — and definitely don't make mortgage decisions based on VS 3.0 when lenders may now use VS4.</p>
+      <span class="access-tag" style="background:var(--red-light);color:var(--red);">Not VS4</span>
+    </div>
+  </div>
+  <div class="sec-num">05</div>
+</section>
+
+<!-- NMD PLAYBOOK -->
+<section id="playbook">
+  <div class="slide-meta">
+    <div class="slide-label">The NMD Approach</div>
+    <div class="nmd-badge dk">NMD</div>
+  </div>
+  <h2 class="heading">How We<br/>Optimize for<br/>Both FICO<br/><em style="color:var(--teal);">and VS4.</em></h2>
+  <div class="play-list">
+    <div class="play-item">
+      <div class="play-n">01</div>
+      <div class="play-content">
+        <h4>We Check Your VS4 Before Any Mortgage App</h4>
+        <p>With VS4 now approved for Fannie/Freddie loans, <strong>walking into a mortgage application without knowing your VS4 is a blind spot we eliminate first.</strong> We access it through Synchrony or a CU portal and compare it to your Classic FICO before any hard inquiry touches your file.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">02</div>
+      <div class="play-content">
+        <h4>We Build Downward Trending Utilization Strategically</h4>
+        <p>VS4's trended data feature rewards consistent paydown behavior. <strong>We don't just get your utilization low — we sequence paydowns over multiple months</strong> so VS4 sees a clear downward trajectory in the reporting window. The trend is the strategy.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">03</div>
+      <div class="play-content">
+        <h4>We Warn Student Loan Borrowers Before They Apply</h4>
+        <p>High student loan installment utilization is VS4's most brutal flaw. <strong>If you're applying somewhere that uses VS4 and you carry significant student loan balances,</strong> we identify that risk before you apply and either find an alternative lender or structure the application timing to minimize damage.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">04</div>
+      <div class="play-content">
+        <h4>We Report Rent for Clients Who Can Benefit</h4>
+        <p>VS4 is one of the few widely adopted models that actually uses rent payment data. <strong>For rebuilders or thin-file clients, we connect rent reporting services</strong> (Experian RentBureau, Rental Kharma, etc.) specifically to improve VS4 scores, especially now that mortgage lenders can use it.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num">06</div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-flag">No Money Down</div>
+  <h2 class="display" style="color:white; position:relative; z-index:1;">
+    Does<br/>
+    <em style="color:rgba(255,255,255,0.22);">VS4</em><br/>
+    Like Your<br/>
+    <span style="color:#5eead4;">Profile?</span>
+  </h2>
+  <p class="cta-sub">The model that's about to matter for mortgages either loves you or punishes you — and most people have no idea which. Let's find out before it costs you a rate.</p>
+  <a href="#" class="cta-btn">
+    <div class="cta-btn-main">DM Us for a VS4 Assessment</div>
+    <div class="cta-btn-sub">We'll pull your VS4 and compare it to what lenders will see</div>
+  </a>
+  <div class="cta-handle">@NMD · No Money Down · Credit Repair</div>
+  <div class="sec-num lt">07</div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('prog').style.width = pct + '%';
+  });
+</script>
+</body>
+</html>
