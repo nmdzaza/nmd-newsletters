@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approved After Bankruptcy — NMD Credit Repair</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --white: #ffffff;
+    --cream: #f7f4ef;
+    --rule: #e2ddd4;
+    --slate: #5a6472;
+    --navy: #0b1f3a;
+    --red: #cc0000;
+    --red-light: #fdecea;
+    --green: #1a7a4a;
+    --green-light: #eaf7f0;
+    --gold: #b45309;
+    --gold-light: #fef3e2;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,244,239,0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(20px, 5vw, 80px);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 56px; left: 0;
+    height: 2px;
+    background: var(--red);
+    width: 0%;
+    z-index: 99;
+  }
+
+  /* SECTIONS */
+  section {
+    min-height: 100svh;
+    padding: calc(56px + clamp(48px, 8vw, 100px)) clamp(24px, 6vw, 120px) clamp(48px, 8vw, 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: clamp(18px, 2.5vw, 32px);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: clamp(24px, 4vw, 52px);
+    flex-shrink: 0;
+  }
+
+  .slide-meta.dk { border-bottom-color: rgba(255,255,255,0.08); }
+
+  .slide-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  .slide-label.lt { color: #e87777; }
+
+  .nmd-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--ink);
+  }
+
+  .nmd-badge.wh { color: white; }
+
+  /* TYPE */
+  .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(48px, 8.5vw, 116px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    flex-shrink: 0;
+  }
+
+  .heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 76px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  em { font-style: italic; font-weight: 300; }
+
+  .watermark {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  /* ── COVER ── */
+  #cover { background: var(--cream); gap: clamp(20px, 3.5vw, 44px); }
+
+  #cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--red);
+  }
+
+  #cover .watermark {
+    right: -2%; top: 8%;
+    font-size: clamp(110px, 26vw, 360px);
+    color: rgba(204,0,0,0.05);
+  }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(11px, 1.3vw, 14px);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: clamp(22px, 3vw, 38px);
+    height: 2px;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .cover-quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 24px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+    max-width: 680px;
+    border-left: 3px solid var(--red);
+    padding-left: clamp(14px, 2vw, 26px);
+    flex-shrink: 0;
+  }
+
+  .cover-footer {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 26px);
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .nmd-mark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--ink);
+  }
+
+  .nmd-mark small {
+    display: block;
+    font-size: clamp(9px, 0.9vw, 11px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(13,13,13,0.3);
+    margin-top: 2px;
+  }
+
+  .vdiv { width: 1px; height: 30px; background: var(--rule); }
+
+  .cover-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 12px);
+    letter-spacing: 3px;
+    color: rgba(13,13,13,0.28);
+    text-transform: uppercase;
+  }
+
+  /* ── STORY ── */
+  #story { background: var(--white); }
+
+  .story-block {
+    background: var(--cream);
+    border-left: 4px solid var(--red);
+    padding: clamp(22px, 3.5vw, 48px) clamp(18px, 3.5vw, 44px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2vw, 22px);
+    margin: clamp(20px, 3vw, 40px) 0;
+  }
+
+  .block-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  .story-text {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 24px);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .story-text strong { font-style: normal; font-weight: 700; }
+
+  .story-cite {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border: 1px solid var(--rule);
+    color: var(--slate);
+  }
+
+  /* ── TIMELINE ── */
+  #timeline { background: var(--cream); }
+
+  .tl-list { margin-top: clamp(16px, 2.5vw, 36px); }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: clamp(56px, 7vw, 100px) clamp(20px, 2.5vw, 28px) 1fr;
+    column-gap: clamp(14px, 2vw, 26px);
+  }
+
+  .tl-time {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-align: right;
+    padding-top: 4px;
+  }
+
+  .tl-spine { display: flex; flex-direction: column; align-items: center; }
+
+  .tl-dot {
+    width: clamp(12px, 1.4vw, 17px);
+    height: clamp(12px, 1.4vw, 17px);
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .tl-dot.grey { background: var(--rule); }
+  .tl-dot.green { background: var(--green); }
+  .tl-line { width: 2px; flex: 1; background: var(--rule); margin: 4px 0; min-height: 16px; }
+
+  .tl-body { padding-bottom: clamp(20px, 3.5vw, 44px); }
+
+  .tl-body h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(15px, 1.8vw, 22px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 2px 0 8px;
+  }
+
+  .tl-body p {
+    font-size: clamp(13px, 1.6vw, 17px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .tl-body p strong { color: var(--ink); font-weight: 600; }
+
+  .pill {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(9px, 1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+
+  .pill.red { background: var(--red-light); color: var(--red); }
+  .pill.gold { background: var(--gold-light); color: var(--gold); }
+  .pill.green { background: var(--green-light); color: var(--green); }
+
+  /* ── WHY IT MATTERS ── */
+  #why { background: var(--navy); }
+
+  .fact-list { margin-top: clamp(20px, 3vw, 44px); }
+
+  .fact-item {
+    display: flex;
+    gap: clamp(14px, 2.5vw, 32px);
+    padding: clamp(18px, 2.5vw, 30px) 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    align-items: flex-start;
+  }
+
+  .fact-item:last-child { border-bottom: none; }
+
+  .fact-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(32px, 4.5vw, 60px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    flex-shrink: 0;
+    width: clamp(36px, 4.5vw, 64px);
+  }
+
+  .fact-content h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(15px, 1.8vw, 22px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .fact-content p {
+    font-size: clamp(13px, 1.6vw, 17px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  .fact-content p strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  /* ── ISSUERS ── */
+  #issuers { background: var(--white); }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule);
+    margin-top: clamp(20px, 3vw, 44px);
+  }
+
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  .col-hdr {
+    padding: clamp(12px, 1.8vw, 18px) clamp(18px, 2.5vw, 36px);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: var(--cream);
+  }
+
+  .col-hdr.gr { color: var(--green); }
+  .col-hdr.rd { color: var(--red); }
+
+  .tc-cell {
+    background: white;
+    padding: clamp(20px, 2.5vw, 36px) clamp(18px, 2.5vw, 36px);
+    position: relative;
+  }
+
+  .tc-cell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: clamp(18px, 2.5vw, 36px);
+    width: 30px; height: 3px;
+  }
+
+  .tc-cell.look::before { background: var(--green); }
+  .tc-cell.avoid::before { background: var(--red); }
+
+  .tc-cell h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(14px, 1.7vw, 20px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 16px 0 8px;
+  }
+
+  .tc-cell p {
+    font-size: clamp(13px, 1.4vw, 16px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .tc-cell p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── PLAYBOOK ── */
+  #playbook { background: var(--cream); }
+
+  .play-list { margin-top: clamp(20px, 3vw, 44px); }
+
+  .play-item {
+    display: flex;
+    gap: clamp(14px, 2.5vw, 30px);
+    padding: clamp(18px, 2.5vw, 30px) 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+
+  .play-item:last-child { border-bottom: none; }
+
+  .play-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 900;
+    color: rgba(13,13,13,0.07);
+    line-height: 1;
+    flex-shrink: 0;
+    width: clamp(36px, 4.5vw, 60px);
+  }
+
+  .play-content h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(15px, 1.8vw, 22px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .play-content p {
+    font-size: clamp(13px, 1.6vw, 17px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+
+  .play-content p strong { color: var(--ink); font-weight: 600; }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--red);
+    text-align: center;
+    align-items: center;
+    gap: clamp(18px, 2.5vw, 32px);
+  }
+
+  #cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 70px 70px;
+    pointer-events: none;
+  }
+
+  .cta-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 13px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-flag::before, .cta-flag::after {
+    content: '';
+    width: clamp(22px, 3vw, 38px);
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+  }
+
+  .cta-sub {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(15px, 1.8vw, 22px);
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    max-width: 560px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn {
+    background: white;
+    padding: clamp(16px, 2vw, 28px) clamp(28px, 5vw, 68px);
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+
+  .cta-btn-main {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(16px, 2vw, 26px);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+
+  .cta-btn-sub {
+    font-size: clamp(11px, 1.2vw, 14px);
+    font-weight: 300;
+    color: rgba(204,0,0,0.5);
+    letter-spacing: 1px;
+  }
+
+  .cta-handle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(10px, 1.2vw, 14px);
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.18);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sec-num {
+    position: absolute;
+    bottom: clamp(16px, 2.5vw, 32px);
+    right: clamp(20px, 3.5vw, 56px);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(56px, 10vw, 148px);
+    font-weight: 900;
+    color: rgba(13,13,13,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .sec-num.lt { color: rgba(255,255,255,0.04); }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="prog"></div>
+
+<nav>
+  <a href="#cover" class="nav-brand">NMD</a>
+  <div class="nav-tag">No Money Down · Credit Repair</div>
+</nav>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="watermark">BK7</div>
+  <div class="eyebrow">Client Story · Credit Rebuild · 2026</div>
+  <h1 class="display">
+    "They said<br/>
+    <em style="color:rgba(13,13,13,0.22);">bankruptcy</em><br/>
+    would close<br/>
+    <span style="color:var(--red);">every door."</span>
+  </h1>
+  <p class="cover-quote">A client of mine — 24 months post BK7 discharge — just got approved for a $2,000 credit limit. Here's the story, what it means, and how we got there.</p>
+  <div class="cover-footer">
+    <div class="nmd-mark">NMD<small>No Money Down</small></div>
+    <div class="vdiv"></div>
+    <div class="cover-sub">Credit Repair · Real Results</div>
+  </div>
+  <div class="sec-num">01</div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="slide-meta">
+    <div class="slide-label">Client Story</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">Here's What My<br/>Client <span style="color:var(--red);">Told Me.</span></h2>
+  <div class="story-block">
+    <div class="block-label">In Their Own Words</div>
+    <p class="story-text">"I shop at Target about 3 times a week. I have the debit card but I don't like having my checking account linked to a third-party system. So I decided to apply for the Circle Card — <strong>figured I'd add some credit history and get purchase protection with a fixed limit.</strong> Based on everything I'd read online, I was expecting a $300 limit or a straight denial. I'm 24 months post BK7 discharge. Instead I got the 7-to-10-day message. I assumed that meant a denial. Then less than 12 hours later — <strong>approved. $2,000 limit."</strong></p>
+    <div class="story-cite">— NMD Client · February 2026 · Post BK7 Discharge</div>
+  </div>
+  <div class="tags">
+    <div class="tag">BK7 Discharge</div>
+    <div class="tag">24 Months Post</div>
+    <div class="tag">$2,000 Limit</div>
+    <div class="tag">Target Circle Card</div>
+    <div class="tag">7–10 Day Message</div>
+  </div>
+  <div class="sec-num">02</div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="slide-meta">
+    <div class="slide-label">The Timeline</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">Application to<br/><span style="color:var(--red);">Approved</span><br/><em>in 12 Hours.</em></h2>
+  <div class="tl-list">
+    <div class="tl-item">
+      <div class="tl-time">Day 1</div>
+      <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Application Submitted</h4>
+        <p>Applied for the Target Circle Card through the app. <strong>24 months out from a BK7 discharge.</strong> Expectation was a denial or a $300 limit based on what the forums were saying.</p>
+        <span class="pill red">Low Expectations</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Same Day</div>
+      <div class="tl-spine"><div class="tl-dot grey"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>"7 to 10 Business Days" Message</h4>
+        <p>The app returned the pending message. <strong>Most people read this as a denial.</strong> My client assumed the worst and moved on with their day.</p>
+        <span class="pill gold">Pending — Not Denied</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">&lt; 12 hrs</div>
+      <div class="tl-spine"><div class="tl-dot green"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Approval Email — $2,000 Limit</h4>
+        <p>Less than 12 hours later, the approval came through. <strong>Not $300. Not a denial. $2,000.</strong> Well above what most forum data points suggested for someone at this stage.</p>
+        <span class="pill green">Approved · $2,000 CL</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Day 3</div>
+      <div class="tl-spine"><div class="tl-dot green"></div></div>
+      <div class="tl-body">
+        <h4>Card Already Shipped</h4>
+        <p>Called to ask about a temp shopping pass. Rep confirmed no virtual card option — <strong>physical card was already in transit</strong> just 3 days after approval.</p>
+        <span class="pill green">Card En Route</span>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num">03</div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section id="why">
+  <div class="slide-meta dk">
+    <div class="slide-label lt">The Bigger Picture</div>
+    <div class="nmd-badge wh">NMD</div>
+  </div>
+  <h2 class="heading" style="color:white;">Bankruptcy<br/><em style="color:rgba(255,255,255,0.28);">Isn't</em> the End.<br/><span style="color:#e87777;">It's a Reset.</span></h2>
+  <div class="fact-list">
+    <div class="fact-item">
+      <div class="fact-n">01</div>
+      <div class="fact-content">
+        <h4>The 7–10 Day Message Is Not a Denial</h4>
+        <p>Most people stop here and assume it's over. <strong>It means your application went to manual review.</strong> Underwriters look at your full picture — not just an algorithm. That's an opportunity.</p>
+      </div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-n">02</div>
+      <div class="fact-content">
+        <h4>Forum Data Points Are Skewed Negative</h4>
+        <p>People post when they're upset. They don't post when it goes well. <strong>The $300 limit and denial stories dominate — but they're not the whole picture.</strong> High-limit approvals happen. They just don't get talked about.</p>
+      </div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-n">03</div>
+      <div class="fact-content">
+        <h4>24 Months Post-BK Is a Real Turning Point</h4>
+        <p>Most issuers won't touch you in the first 12 months. <strong>At 24 months, doors start opening.</strong> Store cards, credit unions, secured-to-unsecured conversions. The clock matters more than most people realize.</p>
+      </div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-n">04</div>
+      <div class="fact-content">
+        <h4>A $2,000 Limit Is a Foundation — Not a Ceiling</h4>
+        <p>This is the first brick. <strong>A clean card with a real limit, paid on time, sets the stage for prime cards, auto loans, and eventually a mortgage.</strong> Every approval builds the next one.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num lt">04</div>
+</section>
+
+<!-- WHAT ISSUERS LOOK FOR -->
+<section id="issuers">
+  <div class="slide-meta">
+    <div class="slide-label">What They're Looking At</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">What Issuers<br/><em style="color:var(--red);">Actually</em> Look For<br/>Post-Bankruptcy.</h2>
+  <div class="two-col">
+    <div class="col-hdr gr">✓ What Helps Your Approval</div>
+    <div class="col-hdr rd">✗ What Kills It</div>
+    <div class="tc-cell look">
+      <h4>Time Since Discharge</h4>
+      <p><strong>24+ months is the sweet spot</strong> for store cards and entry-level unsecured cards. The longer you wait, the more doors open.</p>
+    </div>
+    <div class="tc-cell avoid">
+      <h4>New Negatives Post-BK</h4>
+      <p>A collection or late payment after your discharge signals the same behavior that caused the BK. <strong>This will kill approvals fast.</strong></p>
+    </div>
+    <div class="tc-cell look">
+      <h4>Positive Tradelines Since Discharge</h4>
+      <p>Any account kept clean after the BK — <strong>secured card, credit builder loan, authorized user account</strong> — tells issuers you've changed your behavior.</p>
+    </div>
+    <div class="tc-cell avoid">
+      <h4>Too Many Applications at Once</h4>
+      <p>Multiple hard inquiries post-BK looks desperate. <strong>Apply one at a time,</strong> to issuers known to approve post-bankruptcy profiles.</p>
+    </div>
+    <div class="tc-cell look">
+      <h4>Stable Income and Low DTI</h4>
+      <p>Stable employment and clean banking history feed into underwriting <strong>beyond just the score.</strong></p>
+    </div>
+    <div class="tc-cell avoid">
+      <h4>Applying to the Wrong Issuers</h4>
+      <p>Not every issuer approves post-BK at 24 months. <strong>Applying to the wrong ones wastes hard inquiries</strong> and stalls your rebuild.</p>
+    </div>
+  </div>
+  <div class="sec-num">05</div>
+</section>
+
+<!-- PLAYBOOK -->
+<section id="playbook">
+  <div class="slide-meta">
+    <div class="slide-label">The NMD Approach</div>
+    <div class="nmd-badge">NMD</div>
+  </div>
+  <h2 class="heading">How We Navigate<br/><span style="color:var(--red);">Life After</span><br/><em>Bankruptcy.</em></h2>
+  <div class="play-list">
+    <div class="play-item">
+      <div class="play-n">01</div>
+      <div class="play-content">
+        <h4>We Map Out Your BK Timeline First</h4>
+        <p>The discharge date matters more than most people know. <strong>We track exactly when 12, 24, and 36-month windows open</strong> and what becomes available at each stage — so you're never applying blind.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">02</div>
+      <div class="play-content">
+        <h4>We Build Positive History While You Wait</h4>
+        <p>You don't just sit and wait. <strong>Secured cards, credit builder loans, authorized user tradelines</strong> — we build your post-BK profile actively so when 24 months hits, you're already positioned.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">03</div>
+      <div class="play-content">
+        <h4>We Know Which Issuers Are BK-Friendly</h4>
+        <p>Target, Capital One, certain credit unions — <strong>we know who approves post-BK and at what stage.</strong> No wasted inquiries. No surprise denials. Every application is a calculated move.</p>
+      </div>
+    </div>
+    <div class="play-item">
+      <div class="play-n">04</div>
+      <div class="play-content">
+        <h4>We Turn That First Card Into the Next Three</h4>
+        <p>A $2,000 store card is a foundation. <strong>We use that approval to stack the next application, then the next.</strong> Within 12–18 months most clients have multiple prime cards and a score that doesn't look like it ever had a bankruptcy.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sec-num">06</div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-flag">No Money Down</div>
+  <h2 class="display" style="color:white; position:relative; z-index:1;">Your<br/><em style="color:rgba(255,255,255,0.3);">Bankruptcy</em><br/>Isn't Your<br/>Story.</h2>
+  <p class="cta-sub">What you do in the 24 months after discharge — that's your story. And we help you write it the right way.</p>
+  <a href="#" class="cta-btn">
+    <div class="cta-btn-main">DM Us for a Free Consult</div>
+    <div class="cta-btn-sub">We'll map your rebuild timeline and your next approval</div>
+  </a>
+  <div class="cta-handle">@NMD · No Money Down · Credit Repair</div>
+  <div class="sec-num lt">07</div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('prog').style.width = pct + '%';
+  });
+</script>
+
+</body>
+</html>
