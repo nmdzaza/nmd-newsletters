@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affirm & BNPL — NMD</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#020c02;
+  --dark:#040f04;
+  --panel:#071207;
+  --green:#00ff41;
+  --green-dim:rgba(0,255,65,0.7);
+  --green-muted:rgba(0,255,65,0.35);
+  --green-ghost:rgba(0,255,65,0.07);
+  --green-border:rgba(0,255,65,0.2);
+  --amber:#ffb700;
+  --red:#ff3b3b;
+  --dim:rgba(0,255,65,0.45);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--void);font-family:'Share Tech Mono',monospace;color:var(--green);-webkit-font-smoothing:antialiased;cursor:default;}
+
+/* Scanline overlay */
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.15) 2px,rgba(0,0,0,0.15) 4px);pointer-events:none;z-index:1000;opacity:0.3;}
+
+/* Progress */
+.pb{position:fixed;top:0;left:0;height:2px;background:var(--green);width:0%;z-index:200;box-shadow:0 0 12px var(--green);}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--void);height:52px;padding:0 clamp(20px,5vw,80px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--green-border);}
+.nav-brand{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:900;letter-spacing:8px;color:var(--green);text-shadow:0 0 20px var(--green);}
+.nav-right{font-size:10px;letter-spacing:3px;color:var(--dim);}
+.nav-dot{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:50%;margin-right:8px;animation:blink 1.2s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* Section */
+section{min-height:100svh;padding:calc(52px + clamp(60px,8vw,100px)) clamp(24px,7vw,140px) clamp(60px,8vw,100px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+
+/* Grid bg */
+section::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--green-ghost) 1px,transparent 1px),linear-gradient(90deg,var(--green-ghost) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+section > *{position:relative;z-index:1;}
+
+/* Header */
+.sh{display:flex;align-items:center;gap:16px;margin-bottom:clamp(32px,5vw,60px);}
+.sh-bracket{color:var(--green-muted);font-size:14px;}
+.sh-text{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--dim);}
+.sh-num{font-size:10px;letter-spacing:3px;color:var(--green);margin-left:auto;}
+
+/* Typography */
+h1{font-family:'Orbitron',sans-serif;font-size:clamp(32px,6vw,82px);font-weight:900;line-height:1.0;letter-spacing:-1px;text-shadow:0 0 40px rgba(0,255,65,0.4);}
+h1 .accent{color:var(--void);-webkit-text-stroke:1px var(--green);}
+h2{font-family:'Orbitron',sans-serif;font-size:clamp(22px,3.5vw,52px);font-weight:900;line-height:1.1;text-shadow:0 0 30px rgba(0,255,65,0.3);}
+h2 .accent{color:var(--void);-webkit-text-stroke:1px var(--green);}
+
+.tag{font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--green);margin-bottom:20px;display:block;}
+.tag::before{content:'> ';}
+.sub{font-size:clamp(12px,1.3vw,15px);color:var(--dim);line-height:1.9;margin-top:clamp(20px,3vw,36px);max-width:640px;}
+
+/* Terminal box */
+.terminal{background:var(--panel);border:1px solid var(--green-border);padding:clamp(24px,4vw,48px);margin-top:clamp(24px,3.5vw,44px);}
+.terminal-header{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--green-border);}
+.t-dot{width:8px;height:8px;border-radius:50%;}
+.terminal-body{font-size:clamp(12px,1.2vw,14px);line-height:2.0;color:var(--green-dim);}
+.terminal-body .cmd{color:var(--green);}
+.terminal-body .val{color:var(--amber);}
+.terminal-body .err{color:var(--red);}
+.terminal-body .ok{color:var(--green);text-shadow:0 0 10px var(--green);}
+
+/* Stat grid terminal */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--green-border);margin-top:clamp(24px,4vw,48px);}
+.stat-cell{background:var(--panel);padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:10px;}
+.stat-num{font-family:'Orbitron',sans-serif;font-size:clamp(28px,4vw,56px);font-weight:900;color:var(--green);text-shadow:0 0 20px rgba(0,255,65,0.5);line-height:1;}
+.stat-num.warn{color:var(--amber);text-shadow:0 0 20px rgba(255,183,0,0.5);}
+.stat-num.bad{color:var(--red);text-shadow:0 0 20px rgba(255,59,59,0.5);}
+.stat-label{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--dim);}
+.stat-desc{font-size:clamp(10px,1vw,12px);color:var(--dim);line-height:1.7;}
+
+/* Data row */
+.data-row{display:flex;gap:clamp(16px,3vw,40px);padding:clamp(16px,2vw,24px) 0;border-bottom:1px solid var(--green-ghost);align-items:flex-start;}
+.data-row:last-child{border-bottom:none;}
+.data-key{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green-muted);flex-shrink:0;width:140px;padding-top:2px;}
+.data-val{font-size:clamp(12px,1.2vw,14px);color:var(--green-dim);line-height:1.7;}
+.data-val .hi{color:var(--green);}
+.data-val .warn{color:var(--amber);}
+
+/* Alert box */
+.alert{border:1px solid var(--amber);background:rgba(255,183,0,0.05);padding:clamp(20px,3vw,36px);margin-top:clamp(24px,3vw,40px);}
+.alert-label{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:block;}
+.alert-label::before{content:'⚠ ';}
+.alert p{font-size:clamp(12px,1.2vw,14px);color:rgba(255,183,0,0.8);line-height:1.7;}
+
+/* Two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);margin-top:clamp(28px,4vw,52px);}
+
+/* CTA */
+.cta-section{background:var(--dark) !important;}
+.cta-big{font-family:'Orbitron',sans-serif;font-size:clamp(36px,7vw,100px);font-weight:900;line-height:0.9;color:var(--green);text-shadow:0 0 60px rgba(0,255,65,0.3);}
+.cta-big .hollow{color:transparent;-webkit-text-stroke:1px var(--green-muted);}
+.cta-sub{font-size:clamp(11px,1.2vw,14px);color:var(--dim);line-height:1.9;margin-top:clamp(20px,3vw,36px);max-width:580px;}
+.cta-cmd{display:inline-block;margin-top:clamp(28px,4vw,48px);font-size:11px;letter-spacing:4px;border:1px solid var(--green-border);padding:14px 36px;color:var(--green);}
+.cta-cmd::before{content:'$ ';color:var(--green-muted);}
+
+/* Glow orb */
+.orb{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(0,255,65,0.06) 0%,transparent 70%);pointer-events:none;}
+
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}.data-key{width:100px;}}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+<nav>
+  <span class="nav-brand">NMD</span>
+  <span class="nav-right"><span class="nav-dot"></span>BNPL INTELLIGENCE ACTIVE</span>
+</nav>
+
+<!-- 01 -->
+<section>
+  <div class="orb" style="top:-100px;left:-100px;"></div>
+  <div class="sh"><span class="sh-bracket">[</span><span class="sh-text">NMD Credit Intelligence</span><span class="sh-bracket">]</span><span class="sh-num">01 / 06</span></div>
+  <span class="tag">BNPL Score Analysis</span>
+  <h1>AFFIRM<br><span class="accent">& YOUR</span><br>FICO</h1>
+  <p class="sub">Buy Now Pay Later is reshaping credit profiles across the country. NMD breaks down exactly how Affirm reports, what the CFA classification means for your score, and when multiple BNPL lines become a strategic asset — not a liability.</p>
+</section>
+
+<!-- 02 How Affirm Reports -->
+<section>
+  <div class="sh"><span class="sh-bracket">[</span><span class="sh-text">Reporting Mechanics</span><span class="sh-bracket">]</span><span class="sh-num">02 / 06</span></div>
+  <h2>HOW AFFIRM<br><span class="accent">REPORTS</span></h2>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="t-dot" style="background:#ff5f57;"></div>
+      <div class="t-dot" style="background:#febc2e;"></div>
+      <div class="t-dot" style="background:#28c840;"></div>
+      <span style="font-size:11px;color:var(--dim);margin-left:8px;">nmd_affirm_report_scan.exe</span>
+    </div>
+    <div class="terminal-body">
+      <div><span class="cmd">SCAN</span> bureau_reporting → <span class="ok">EXPERIAN ONLY</span></div>
+      <div style="margin-top:8px;"><span class="cmd">SCAN</span> product_type_1 → <span class="val">"Pay in 4"</span> → <span class="err">DOES NOT REPORT</span></div>
+      <div style="margin-top:8px;"><span class="cmd">SCAN</span> product_type_2 → <span class="val">"Monthly Installment"</span> → <span class="ok">REPORTS TO EXPERIAN</span></div>
+      <div style="margin-top:8px;"><span class="cmd">SCAN</span> loan_term_threshold → <span class="val">12+ months</span> → <span class="ok">LIKELY TO REPORT</span></div>
+      <div style="margin-top:8px;"><span class="cmd">SCAN</span> account_classification → <span class="val">CFA (Consumer Finance Account)</span></div>
+      <div style="margin-top:8px;"><span class="cmd">WARN</span> fico_8_weight → <span class="err">CFA PENALTY ACTIVE — SEE SLIDE 03</span></div>
+      <div style="margin-top:8px;"><span class="cmd">INFO</span> fico_9_10 → <span class="ok">CFA PENALTY REDUCED — MODERN MODELS HANDLE BETTER</span></div>
+    </div>
+  </div>
+  <div class="alert">
+    <span class="alert-label">Important</span>
+    <p>Affirm reports to Experian only — not Equifax or TransUnion. This means your Affirm history is invisible on those bureaus. Strategy implication: it doesn't contaminate all three files.</p>
+  </div>
+</section>
+
+<!-- 03 CFA Classification -->
+<section>
+  <div class="sh"><span class="sh-bracket">[</span><span class="sh-text">CFA Deep Dive</span><span class="sh-bracket">]</span><span class="sh-num">03 / 06</span></div>
+  <h2>THE CFA<br><span class="accent">PENALTY</span></h2>
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <span class="stat-num warn">~10</span>
+      <span class="stat-label">Avg CFA Penalty (FICO 8)</span>
+      <span class="stat-desc">Consumer Finance Accounts carry a historical stigma in older FICO models. The assumption: you couldn't get bank credit, so you used a finance company.</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="font-size:clamp(20px,2.5vw,36px);">FICO 9/10</span>
+      <span class="stat-label">CFA Reduced in Modern Models</span>
+      <span class="stat-desc">Newer scoring models de-emphasize the CFA classification. As lenders update to FICO 10, this penalty continues shrinking.</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">VS</span>
+      <span class="stat-label">Bank vs Finance Lender</span>
+      <span class="stat-desc">FICO treats bank installment loans differently from consumer finance accounts. A personal loan from Marcus = bank. Affirm = CFA. Same product, different FICO impact.</span>
+    </div>
+  </div>
+  <div class="terminal" style="margin-top:clamp(28px,4vw,48px);">
+    <div class="terminal-header">
+      <span style="font-size:11px;color:var(--dim);">nmd_cfa_verdict.exe</span>
+    </div>
+    <div class="terminal-body">
+      <div><span class="cmd">VERDICT</span>: CFA penalty is <span class="warn">real but manageable</span>.</div>
+      <div style="margin-top:8px;">Profile benefits (mix, thickness, payment history) can <span class="ok">outweigh</span> the CFA stigma.</div>
+      <div style="margin-top:8px;">Key: how many CFAs on file and what your <span class="val">overall profile looks like</span>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 The 25 Loans Case -->
+<section>
+  <div class="sh"><span class="sh-bracket">[</span><span class="sh-text">Real Profile Intel</span><span class="sh-bracket">]</span><span class="sh-num">04 / 06</span></div>
+  <h2>25 AFFIRM<br><span class="accent">LOANS</span></h2>
+  <div class="data-row" style="margin-top:clamp(28px,4vw,52px);">
+    <span class="data-key">SITUATION</span>
+    <span class="data-val">Profile with <span class="hi">25 Affirm installment loans</span> reporting to Experian. All paid on time. Significant installment history built via BNPL purchases.</span>
+  </div>
+  <div class="data-row">
+    <span class="data-key">THICKNESS</span>
+    <span class="data-val">25 trade lines dramatically thickens an otherwise thin credit file. FICO rewards depth of history. <span class="hi">Each on-time payment is a positive data point.</span></span>
+  </div>
+  <div class="data-row">
+    <span class="data-key">CFA COUNT</span>
+    <span class="data-val">25 CFAs on one bureau creates a <span class="warn">concentration risk</span>. Modern models penalize this less, but FICO 8 still sees "finance company heavy" profile as higher risk.</span>
+  </div>
+  <div class="data-row">
+    <span class="data-key">NMD READ</span>
+    <span class="data-val"><span class="hi">Multiple lines = NMD approved.</span> We always want more positive accounts on the report. The key is pairing Affirm history with bank-class installments (auto loan, personal loan) to balance the CFA weight.</span>
+  </div>
+  <div class="data-row">
+    <span class="data-key">STRATEGY</span>
+    <span class="data-val">Use Affirm to build thickness on a thin file. Never let it be your only installment history. Add one Marcus or credit union personal loan and watch the CFA concern become a footnote.</span>
+  </div>
+</section>
+
+<!-- 05 BNPL Strategy -->
+<section>
+  <div class="sh"><span class="sh-bracket">[</span><span class="sh-text">NMD Framework</span><span class="sh-bracket">]</span><span class="sh-num">05 / 06</span></div>
+  <h2>BNPL AS<br><span class="accent">STRATEGY</span></h2>
+  <div class="two-col">
+    <div>
+      <div style="font-size:10px;letter-spacing:5px;color:var(--green);margin-bottom:20px;">USE BNPL WHEN</div>
+      <div class="data-row" style="padding-top:0;">
+        <span class="data-key">THIN FILE</span>
+        <span class="data-val">Under 5 accounts. Every trade line counts. Affirm adds thickness fast.</span>
+      </div>
+      <div class="data-row">
+        <span class="data-key">NO INST.</span>
+        <span class="data-val">Zero installment history. Affirm adds the loan type without a hard pull on Pay in 4.</span>
+      </div>
+      <div class="data-row">
+        <span class="data-key">PAYMENT HIST</span>
+        <span class="data-val">Perfect payment history needed. Every on-time builds your 35% factor.</span>
+      </div>
+      <div class="data-row" style="border-bottom:none;">
+        <span class="data-key">FILE BUILD</span>
+        <span class="data-val">Strategic purchases you'd make anyway. Don't buy junk just to report.</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;letter-spacing:5px;color:var(--red);margin-bottom:20px;">AVOID BNPL WHEN</div>
+      <div class="data-row" style="padding-top:0;">
+        <span class="data-key">PRIME FILE</span>
+        <span class="data-val">Strong file with bank credit. CFA penalty outweighs any thickness benefit.</span>
+      </div>
+      <div class="data-row">
+        <span class="data-key">MORTGAGE</span>
+        <span class="data-val">FICO 2/4/5 used for mortgages may weigh CFAs differently. Avoid before home purchase.</span>
+      </div>
+      <div class="data-row">
+        <span class="data-key">MISS RISK</span>
+        <span class="data-val">If there's any chance you miss a payment, don't run it. BNPL late = negative reporting.</span>
+      </div>
+      <div class="data-row" style="border-bottom:none;">
+        <span class="data-key">SPENDING</span>
+        <span class="data-val">Don't use BNPL to overspend. This is a credit building tool, not a financing lifestyle.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CTA -->
+<section class="cta-section">
+  <div class="sh"><span class="sh-bracket">[</span><span class="sh-text">NMD Intelligence</span><span class="sh-bracket">]</span><span class="sh-num">06 / 06</span></div>
+  <div class="cta-big">BNPL<br><span class="hollow">IS A</span><br>TOOL.</div>
+  <p class="cta-sub">Not a score killer. Not a score booster by default. What you do with it determines the outcome. Multiple lines, clean payment history, balanced with bank-class credit — that's the NMD way to run BNPL.</p>
+  <div class="cta-cmd">NMD Credit Intelligence</div>
+  <div class="orb" style="bottom:-100px;right:-100px;"></div>
+</section>
+
+<script>
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  pb.style.width=(window.scrollY/h*100)+'%';
+});
+</script>
+</body>
+</html>

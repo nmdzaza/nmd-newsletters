@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Credit 101 — NMD</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Sans+Condensed:wght@300;400;600;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blueprint:#0a1628;
+  --blueprint-2:#0d1d33;
+  --blueprint-3:#111f35;
+  --line:#1e3a5f;
+  --blue-bright:#4d9ef7;
+  --blue-dim:rgba(77,158,247,0.5);
+  --blue-ghost:rgba(77,158,247,0.08);
+  --white:#e8f4fd;
+  --white-dim:rgba(232,244,253,0.55);
+  --white-dimmer:rgba(232,244,253,0.25);
+  --orange:#ff7b35;
+  --green:#2ecc71;
+  --red:#e74c3c;
+  --yellow:#f0c93a;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--blueprint);font-family:'IBM Plex Mono',monospace;color:var(--white);-webkit-font-smoothing:antialiased;}
+
+/* Blueprint grid background */
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(77,158,247,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(77,158,247,0.06) 1px,transparent 1px),linear-gradient(rgba(77,158,247,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(77,158,247,0.03) 1px,transparent 1px);background-size:80px 80px,80px 80px,20px 20px,20px 20px;pointer-events:none;z-index:0;}
+
+/* Progress */
+.pb{position:fixed;top:0;left:0;height:2px;background:var(--blue-bright);width:0%;z-index:200;box-shadow:0 0 8px var(--blue-bright);}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(20px);height:52px;padding:0 clamp(20px,5vw,80px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);}
+.nav-brand{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:8px;color:var(--white);text-transform:uppercase;}
+.nav-right{font-size:10px;letter-spacing:3px;color:var(--white-dimmer);}
+.nav-badge{background:var(--blue-bright);color:var(--blueprint);font-size:9px;letter-spacing:3px;padding:3px 8px;font-weight:600;}
+
+/* Section */
+section{min-height:100svh;padding:calc(52px + clamp(60px,8vw,100px)) clamp(24px,7vw,140px) clamp(60px,8vw,100px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;z-index:1;}
+section:nth-child(even){background:rgba(13,29,51,0.5);}
+
+/* Section header */
+.sh{display:flex;align-items:center;gap:16px;margin-bottom:clamp(32px,5vw,60px);}
+.sh-line{height:1px;background:var(--line);flex:1;}
+.sh-code{font-size:9px;letter-spacing:4px;color:var(--blue-dim);font-style:italic;}
+.sh-num{font-size:9px;letter-spacing:3px;color:var(--blue-bright);}
+.sh-corner{width:8px;height:8px;border-top:1px solid var(--blue-bright);border-left:1px solid var(--blue-bright);flex-shrink:0;}
+
+/* Typography */
+h1{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:clamp(40px,7vw,96px);font-weight:700;line-height:0.92;letter-spacing:-2px;text-transform:uppercase;}
+h1 .hi{color:var(--blue-bright);}
+h2{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:clamp(28px,4.5vw,62px);font-weight:700;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;}
+h2 .hi{color:var(--blue-bright);}
+
+.label{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--blue-dim);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.label::before{content:'';display:block;width:20px;height:1px;background:var(--blue-bright);}
+.sub{font-family:'IBM Plex Serif',serif;font-size:clamp(13px,1.4vw,16px);color:var(--white-dim);line-height:1.9;margin-top:clamp(20px,3vw,36px);max-width:640px;font-weight:300;font-style:italic;}
+
+/* Blueprint annotation box */
+.anno{position:relative;padding:clamp(24px,4vw,48px);border:1px solid var(--line);margin-top:clamp(24px,3.5vw,44px);background:var(--blue-ghost);}
+.anno::before{content:'';position:absolute;top:-1px;left:-1px;width:12px;height:12px;border-top:2px solid var(--blue-bright);border-left:2px solid var(--blue-bright);}
+.anno::after{content:'';position:absolute;bottom:-1px;right:-1px;width:12px;height:12px;border-bottom:2px solid var(--blue-bright);border-right:2px solid var(--blue-bright);}
+.anno-label{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue-bright);margin-bottom:16px;display:block;}
+.anno p{font-size:clamp(12px,1.2vw,14px);color:var(--white-dim);line-height:1.8;}
+.anno p span{color:var(--white);}
+
+/* Build sequence */
+.sequence{margin-top:clamp(28px,4vw,52px);display:flex;flex-direction:column;gap:0;border:1px solid var(--line);}
+.seq-item{display:grid;grid-template-columns:60px 180px 1fr;gap:0;border-bottom:1px solid var(--line);min-height:80px;}
+.seq-item:last-child{border-bottom:none;}
+.seq-n{background:var(--blue-bright);color:var(--blueprint);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Sans Condensed',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:700;}
+.seq-phase{background:var(--blueprint-3);padding:clamp(12px,2vw,20px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);}
+.seq-phase h3{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:clamp(11px,1.2vw,14px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);}
+.seq-phase span{font-size:9px;letter-spacing:2px;color:var(--blue-dim);margin-top:4px;display:block;}
+.seq-body{padding:clamp(12px,2vw,20px);display:flex;align-items:center;}
+.seq-body p{font-size:clamp(11px,1.1vw,13px);color:var(--white-dim);line-height:1.7;}
+.seq-body p strong{color:var(--white);}
+
+/* Spec table */
+.spec-table{width:100%;border-collapse:collapse;margin-top:clamp(24px,4vw,48px);}
+.spec-table th{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue-dim);padding:clamp(10px,1.5vw,16px) clamp(12px,2vw,24px);text-align:left;border-bottom:2px solid var(--blue-bright);}
+.spec-table td{font-size:clamp(11px,1.1vw,13px);padding:clamp(12px,1.5vw,18px) clamp(12px,2vw,24px);border-bottom:1px solid var(--line);color:var(--white-dim);vertical-align:top;}
+.spec-table td:first-child{color:var(--white);font-weight:400;}
+.spec-table tr:last-child td{border-bottom:none;}
+.spec-table tr:hover td{background:var(--blue-ghost);}
+.badge{display:inline-block;font-size:8px;letter-spacing:3px;padding:3px 8px;font-weight:600;}
+.badge.green{background:rgba(46,204,113,0.15);color:var(--green);border:1px solid rgba(46,204,113,0.3);}
+.badge.red{background:rgba(231,76,60,0.15);color:var(--red);border:1px solid rgba(231,76,60,0.3);}
+.badge.yellow{background:rgba(240,201,58,0.15);color:var(--yellow);border:1px solid rgba(240,201,58,0.3);}
+
+/* Entity comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:clamp(24px,4vw,48px);border:1px solid var(--line);}
+.compare-col{background:var(--blueprint-2);padding:clamp(20px,3vw,36px);}
+.compare-head{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:clamp(14px,1.5vw,18px);font-weight:700;letter-spacing:3px;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:20px;}
+.compare-head.active{color:var(--blue-bright);}
+.compare-item{display:flex;gap:12px;margin-bottom:clamp(10px,1.5vw,16px);font-size:clamp(11px,1.1vw,13px);color:var(--white-dim);line-height:1.6;}
+.compare-item::before{content:'→';color:var(--blue-dim);flex-shrink:0;}
+.compare-item.good::before{content:'✓';color:var(--green);}
+.compare-item.bad::before{content:'✗';color:var(--red);}
+
+/* CTA section */
+.cta-section{background:var(--blueprint-3) !important;}
+.cta-big{font-family:'IBM Plex Sans Condensed',sans-serif;font-size:clamp(48px,9vw,130px);font-weight:700;line-height:0.88;text-transform:uppercase;letter-spacing:-2px;}
+.cta-big .outline{color:transparent;-webkit-text-stroke:1px var(--line);}
+.cta-big .hi{color:var(--blue-bright);}
+.cta-sub{font-family:'IBM Plex Serif',serif;font-size:clamp(13px,1.4vw,16px);color:var(--white-dim);line-height:1.9;margin-top:clamp(20px,3vw,36px);max-width:580px;font-style:italic;}
+.cta-code{display:inline-block;margin-top:clamp(28px,4vw,48px);font-size:10px;letter-spacing:5px;border:1px solid var(--line);padding:14px 36px;color:var(--blue-bright);}
+
+@media(max-width:768px){
+  .seq-item{grid-template-columns:50px 1fr;}
+  .seq-phase{display:none;}
+  .compare{grid-template-columns:1fr;}
+  .spec-table th,.spec-table td{padding:10px 12px;}
+}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+<nav>
+  <span class="nav-brand">NMD</span>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span class="nav-badge">BIZ CREDIT</span>
+    <span class="nav-right">Build 101</span>
+  </div>
+</nav>
+
+<!-- 01 Hero -->
+<section>
+  <div class="sh"><div class="sh-corner"></div><div class="sh-line"></div><span class="sh-code">/* NMD Credit Intelligence */</span><div class="sh-line" style="max-width:40px;"></div><span class="sh-num">01 / 06</span></div>
+  <div class="label">Business Credit Framework</div>
+  <h1>Build <span class="hi">Business</span><br>Credit<br>Right.</h1>
+  <p class="sub">Everyone wants business credit. Almost nobody builds it correctly. NMD's framework takes you from entity formation to a fully separated business credit profile — with real lines, not gimmicks.</p>
+</section>
+
+<!-- 02 The Truth First -->
+<section>
+  <div class="sh"><div class="sh-corner"></div><div class="sh-line"></div><span class="sh-code">/* Reality Check */</span><div class="sh-line" style="max-width:40px;"></div><span class="sh-num">02 / 06</span></div>
+  <h2>The <span class="hi">Truth</span><br>Nobody Tells You</h2>
+  <div class="anno" style="margin-top:clamp(28px,4vw,52px);">
+    <span class="anno-label">System.note — Read Before Proceeding</span>
+    <p><span>Most major business credit cards require a personal guarantee.</span> Chase Ink, Amex Business, Capital One Spark — all PG. This means your personal credit is on the line for approval. That's not failure mode — that's the game. <span>Your personal credit is the launchpad. Business credit is what you build on top of it.</span></p>
+  </div>
+  <div class="anno" style="margin-top:20px;">
+    <span class="anno-label">System.note — Separation Intelligence</span>
+    <p><span>Most business cards do NOT report to your personal bureaus</span> — unless you default. This is the core advantage. You can carry business balances, use business credit heavily, and it stays off your personal utilization calculation. <span>The business profile is a parallel universe of credit — build it correctly and it amplifies everything.</span></p>
+  </div>
+</section>
+
+<!-- 03 Entity Foundation -->
+<section>
+  <div class="sh"><div class="sh-corner"></div><div class="sh-line"></div><span class="sh-code">/* Entity Architecture */</span><div class="sh-line" style="max-width:40px;"></div><span class="sh-num">03 / 06</span></div>
+  <h2><span class="hi">LLC</span> vs<br>Sole Prop</h2>
+  <div class="compare">
+    <div class="compare-col">
+      <div class="compare-head active">LLC — The Right Move</div>
+      <div class="compare-item good">Separate legal entity from personal assets</div>
+      <div class="compare-item good">Can build Dun & Bradstreet profile independently</div>
+      <div class="compare-item good">EIN separates business from personal SSN</div>
+      <div class="compare-item good">Bank accounts, trade lines, vendor credit all under business</div>
+      <div class="compare-item good">Entity change resets business credit file (useful in some situations)</div>
+      <div class="compare-item good">Professional credibility with vendors and lenders</div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-head">Sole Prop — Limitations</div>
+      <div class="compare-item bad">No legal separation — you are the business</div>
+      <div class="compare-item bad">Business liabilities reach personal assets</div>
+      <div class="compare-item bad">Harder to build separate credit identity</div>
+      <div class="compare-item bad">Uses SSN — everything ties to personal profile</div>
+      <div class="compare-item bad">Less credibility with net-30 vendors</div>
+      <div class="compare-item">May still qualify for some business cards</div>
+    </div>
+  </div>
+  <div class="anno" style="margin-top:24px;">
+    <span class="anno-label">NMD Directive</span>
+    <p>Form the LLC. Get the EIN. Register with DUNS (now called Credibility Corp / D&B). These are the first three moves — no exceptions. <span>Free. Takes a week. Non-negotiable foundation.</span></p>
+  </div>
+</section>
+
+<!-- 04 The Build Sequence -->
+<section>
+  <div class="sh"><div class="sh-corner"></div><div class="sh-line"></div><span class="sh-code">/* NMD Build Sequence */</span><div class="sh-line" style="max-width:40px;"></div><span class="sh-num">04 / 06</span></div>
+  <h2>The NMD<br><span class="hi">Sequence</span></h2>
+  <div class="sequence">
+    <div class="seq-item">
+      <div class="seq-n">01</div>
+      <div class="seq-phase"><h3>Entity Formation</h3><span>Foundation Layer</span></div>
+      <div class="seq-body"><p>LLC + EIN + dedicated business bank account (minimum 3 months aged). <strong>DUNS number registration</strong> — free, takes 30 days. This is your business credit identity.</p></div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-n">02</div>
+      <div class="seq-phase"><h3>Net-30 Vendors</h3><span>First Credit Layer</span></div>
+      <div class="seq-body"><p><strong>Uline, Quill, Grainger</strong> — apply as a business. Get approved with net-30 terms. These report to D&B and build your Paydex score. 3 trade lines minimum before moving to step 3.</p></div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-n">03</div>
+      <div class="seq-phase"><h3>Amex Business</h3><span>First Card Layer</span></div>
+      <div class="seq-body"><p>American Express is the easiest entry point into business credit cards. <strong>Business Checking or Personal relationship helps.</strong> Amex Business Blue Plus or Business Green as starter cards. PG required.</p></div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-n">04</div>
+      <div class="seq-phase"><h3>Bank Relationship</h3><span>Depth Layer</span></div>
+      <div class="seq-body"><p>Chase Ink (requires 750+ personal FICO typically), Capital One Spark, or Citi Business. Each requires personal guarantee but <strong>builds business credit separately</strong>. Chase 5/24 rule applies to business cards.</p></div>
+    </div>
+    <div class="seq-item">
+      <div class="seq-n">05</div>
+      <div class="seq-phase"><h3>Scale</h3><span>Leverage Layer</span></div>
+      <div class="seq-body"><p>With 12+ months of clean business credit history: <strong>Brex, Ramp, or bill.com</strong> for no-PG corporate cards (revenue-based approval). Business lines of credit from banks. SBA products become accessible.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 Issuer Requirements -->
+<section>
+  <div class="sh"><div class="sh-corner"></div><div class="sh-line"></div><span class="sh-code">/* Issuer Intelligence */</span><div class="sh-line" style="max-width:40px;"></div><span class="sh-num">05 / 06</span></div>
+  <h2>Major Issuer<br><span class="hi">Requirements</span></h2>
+  <table class="spec-table">
+    <thead>
+      <tr>
+        <th>Issuer</th>
+        <th>Min Personal FICO</th>
+        <th>Biz Report</th>
+        <th>5/24 Rule</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>American Express</td>
+        <td>670+</td>
+        <td><span class="badge green">Rarely Reports</span></td>
+        <td><span class="badge green">No Rule</span></td>
+        <td>Easiest entry. Best for thin personal files. Charge cards have no preset limit.</td>
+      </tr>
+      <tr>
+        <td>Chase (Ink)</td>
+        <td>720+ preferred</td>
+        <td><span class="badge green">Rarely Reports</span></td>
+        <td><span class="badge red">5/24 Applies</span></td>
+        <td>Best rewards ecosystem. 5/24 is hard rule — under 5 new personal cards in 24 months required.</td>
+      </tr>
+      <tr>
+        <td>Capital One (Spark)</td>
+        <td>700+</td>
+        <td><span class="badge yellow">Sometimes</span></td>
+        <td><span class="badge green">No Rule</span></td>
+        <td>Cap One pulls all 3 bureaus. May report to personal Equifax — verify before applying.</td>
+      </tr>
+      <tr>
+        <td>Citi Business</td>
+        <td>680+</td>
+        <td><span class="badge green">Rarely Reports</span></td>
+        <td><span class="badge green">No Rule</span></td>
+        <td>Less known but solid option. No 5/24 equivalent. Good for diversification.</td>
+      </tr>
+      <tr>
+        <td>Brex / Ramp</td>
+        <td>N/A (revenue-based)</td>
+        <td><span class="badge green">Does Not Report</span></td>
+        <td><span class="badge green">No PG</span></td>
+        <td>No personal guarantee. Revenue and bank balance drive approval. Fintech-first corporate cards.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 06 CTA -->
+<section class="cta-section">
+  <div class="sh"><div class="sh-corner"></div><div class="sh-line"></div><span class="sh-code">/* NMD Intelligence */</span><div class="sh-line" style="max-width:40px;"></div><span class="sh-num">06 / 06</span></div>
+  <div class="cta-big"><span class="outline">BUILD</span><br>THE<br><span class="hi">RIGHT</span><br>WAY.</div>
+  <p class="cta-sub">Entity. EIN. D&B. Net-30s. Amex. Bank card. Scale. Five stages, executed in sequence, with clean personal credit as the launchpad. NMD has run this playbook across hundreds of businesses. The blueprint doesn't change — only the speed of execution.</p>
+  <div class="cta-code">NMD // BUSINESS CREDIT FRAMEWORK</div>
+</section>
+
+<script>
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  pb.style.width=(window.scrollY/h*100)+'%';
+});
+</script>
+</body>
+</html>

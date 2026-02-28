@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt Consolidation — NMD</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0705;
+  --paper:#f2ece3;
+  --bone:#e8ddd0;
+  --crimson:#9b1d20;
+  --crimson-deep:#6b1214;
+  --crimson-muted:rgba(155,29,32,0.12);
+  --charcoal:#1a1412;
+  --grey:#6b6560;
+  --rule:#c8bfb4;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);font-family:'Libre Baskerville',serif;color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+/* Progress bar */
+.pb{position:fixed;top:0;left:0;height:3px;background:var(--crimson);width:0%;z-index:200;transition:width 0.1s;}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--ink);height:56px;padding:0 clamp(20px,5vw,80px);display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--crimson);}
+.nav-brand{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;letter-spacing:8px;color:var(--paper);text-transform:uppercase;}
+.nav-right{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:4px;color:rgba(242,236,227,0.4);text-transform:uppercase;}
+
+/* Section base */
+section{min-height:100svh;padding:calc(56px + clamp(60px,8vw,110px)) clamp(24px,7vw,140px) clamp(60px,8vw,110px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+section:nth-child(odd){background:var(--paper);}
+section:nth-child(even){background:var(--bone);}
+
+/* Section header rule */
+.sh{display:flex;align-items:center;gap:20px;margin-bottom:clamp(32px,5vw,64px);}
+.sh-line{flex:1;height:1px;background:var(--rule);}
+.sh-text{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--grey);}
+.sh-num{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;color:var(--crimson);}
+
+/* Hero */
+.hero-tag{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--crimson);margin-bottom:20px;display:block;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,110px);font-weight:900;line-height:0.92;letter-spacing:-2px;color:var(--ink);}
+h1 em{color:var(--crimson);font-style:italic;}
+.hero-sub{font-size:clamp(14px,1.5vw,18px);color:var(--grey);line-height:1.8;margin-top:clamp(24px,3vw,40px);max-width:600px;font-style:italic;}
+.hero-rule{width:80px;height:4px;background:var(--crimson);margin:clamp(24px,3vw,40px) 0;}
+
+/* Pull quote */
+.pull{border-left:5px solid var(--crimson);padding:clamp(20px,3vw,36px) clamp(20px,3vw,36px);margin:clamp(28px,4vw,52px) 0;background:white;}
+.pull p{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,30px);font-style:italic;line-height:1.4;color:var(--ink);}
+.pull cite{display:block;margin-top:16px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--crimson);}
+
+/* Stat grid editorial */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border-top:2px solid var(--ink);margin-top:clamp(24px,4vw,52px);}
+.stat-cell{padding:clamp(20px,3vw,36px) clamp(16px,2vw,28px);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.stat-cell:last-child{border-right:none;}
+.stat-n{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,72px);font-weight:900;color:var(--crimson);line-height:1;}
+.stat-n.pos{color:#1a6b3a;}
+.stat-n.neg{color:var(--crimson);}
+.stat-l{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--grey);margin-top:8px;display:block;}
+.stat-d{font-size:clamp(11px,1.1vw,13px);color:var(--grey);margin-top:8px;line-height:1.6;}
+
+/* Two column layout */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px);align-items:start;margin-top:clamp(28px,4vw,52px);}
+.col-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--crimson);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--crimson);}
+h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,64px);font-weight:900;line-height:1.05;letter-spacing:-1px;}
+h2 em{color:var(--crimson);font-style:italic;}
+
+/* Body copy */
+.body{font-size:clamp(13px,1.3vw,16px);line-height:1.9;color:var(--grey);}
+.body + .body{margin-top:1em;}
+
+/* Step list editorial */
+.step-list{margin-top:clamp(24px,3vw,44px);}
+.step-item{display:grid;grid-template-columns:80px 1fr;gap:clamp(16px,2vw,28px);padding:clamp(20px,2.5vw,32px) 0;border-bottom:1px solid var(--rule);}
+.step-item:last-child{border-bottom:none;}
+.step-n{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,72px);font-weight:900;color:var(--crimson-muted);line-height:1;}
+.step-n span{font-size:0.4em;color:var(--crimson);vertical-align:super;}
+.step-content h3{font-family:'Oswald',sans-serif;font-size:clamp(14px,1.6vw,19px);font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+.step-content p{font-size:clamp(12px,1.2vw,14px);color:var(--grey);line-height:1.7;}
+
+/* Formula box */
+.formula{background:var(--ink);padding:clamp(32px,5vw,64px);margin-top:clamp(28px,4vw,52px);}
+.formula .eq{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,40px);font-style:italic;color:var(--paper);line-height:1.3;}
+.formula .eq em{color:var(--crimson);}
+.formula .eq-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(242,236,227,0.35);margin-top:20px;display:block;}
+
+/* Warning box */
+.warn{border:2px solid var(--crimson);padding:clamp(20px,3vw,36px);margin-top:clamp(24px,3vw,40px);background:var(--crimson-muted);}
+.warn-label{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--crimson);margin-bottom:12px;display:block;}
+.warn p{font-size:clamp(13px,1.3vw,15px);line-height:1.7;}
+
+/* CTA */
+.cta-section{background:var(--ink) !important;}
+.cta-section .sh-text,.cta-section .sh-num{color:rgba(242,236,227,0.4);}
+.cta-section .sh-line{background:rgba(242,236,227,0.1);}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,80px);font-weight:900;color:var(--paper);line-height:1.0;letter-spacing:-1px;}
+.cta-title em{color:var(--crimson);font-style:italic;}
+.cta-body{font-size:clamp(13px,1.3vw,16px);color:rgba(242,236,227,0.55);line-height:1.8;margin-top:clamp(20px,3vw,36px);max-width:580px;font-style:italic;}
+.cta-tag{display:inline-block;margin-top:clamp(28px,4vw,48px);font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--crimson);border:1px solid var(--crimson);padding:14px 36px;}
+
+/* Big number overlay */
+.bg-num{position:absolute;right:clamp(20px,4vw,60px);bottom:clamp(20px,4vw,60px);font-family:'Oswald',sans-serif;font-size:clamp(100px,18vw,260px);font-weight:700;letter-spacing:-6px;color:rgba(10,7,5,0.04);line-height:1;pointer-events:none;user-select:none;}
+.cta-section .bg-num{color:rgba(242,236,227,0.03);}
+
+@media(max-width:768px){.two-col{grid-template-columns:1fr;}.stat-row{grid-template-columns:1fr 1fr;}.step-item{grid-template-columns:60px 1fr;}}
+@media(max-width:480px){.stat-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+<nav><span class="nav-brand">NMD</span><span class="nav-right">Debt Consolidation & Your Score</span></nav>
+
+<!-- 01 Hero -->
+<section>
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">NMD Credit Intelligence</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">01 / 08</span></div>
+  <span class="hero-tag">Debt Consolidation Strategy</span>
+  <h1>Will It<br><em>Actually</em><br>Boost?</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">Debt consolidation is one of the most misunderstood plays in credit strategy. We break down exactly what happens to your FICO — what spikes, what dips, and how to engineer the outcome you actually want.</p>
+  <div class="bg-num">DC</div>
+</section>
+
+<!-- 02 The Mechanics -->
+<section>
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">The Core Mechanic</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">02 / 08</span></div>
+  <h2>What Happens<br>to Your <em>File</em></h2>
+  <div class="stat-row">
+    <div class="stat-cell">
+      <span class="stat-n" style="color:var(--crimson);">30%</span>
+      <span class="stat-l">Amounts Owed Weight</span>
+      <span class="stat-d">Revolving utilization drops to near 0% when cards are paid via consolidation loan. This is the largest immediate lever in your score.</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n neg">−5</span>
+      <span class="stat-l">Hard Inquiry Hit</span>
+      <span class="stat-d">One hard pull on loan application. Typically 3–7 points, recovered within 12 months of on-time payments.</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n" style="color:var(--charcoal);font-size:clamp(24px,3.5vw,50px);">↓ AAoA</span>
+      <span class="stat-l">Avg Age of Accounts</span>
+      <span class="stat-d">New installment loan lowers your AAoA temporarily. 15% weight. Fades as the account seasons over time.</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n pos">+Mix</span>
+      <span class="stat-l">Credit Mix Boost</span>
+      <span class="stat-d">If you only held revolving accounts, adding installment improves mix — 10% of your FICO score.</span>
+    </div>
+  </div>
+  <div class="bg-num">01</div>
+</section>
+
+<!-- 03 The Golden Rule -->
+<section>
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">The Math</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">03 / 08</span></div>
+  <div class="two-col">
+    <div>
+      <h2>The<br>Golden<br><em>Rule</em></h2>
+    </div>
+    <div>
+      <div class="col-label">NMD Intel</div>
+      <div class="formula">
+        <div class="eq">80% utilization → 0% utilization = <em>score to the moon</em></div>
+        <span class="eq-label">Assuming clean payment history — most impactful single move for high-util files</span>
+      </div>
+    </div>
+  </div>
+  <div class="pull">
+    <p>"Profiles carrying $22K across maxed cards at 86% utilization — approved for a $22K personal loan at a credit union. Cards report zero. Score spikes dramatically. The math is simple: kill the revolving debt, keep the cards open."</p>
+    <cite>NMD Intelligence — Consolidation Impact Analysis</cite>
+  </div>
+  <div class="bg-num">02</div>
+</section>
+
+<!-- 04 Pros & Cons -->
+<section>
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">Full Picture</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">04 / 08</span></div>
+  <h2>What Goes Up.<br>What <em>Dips.</em></h2>
+  <div class="two-col">
+    <div>
+      <div class="col-label" style="color:#1a6b3a;border-bottom-color:#1a6b3a;">What Goes Up</div>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-n" style="color:rgba(26,107,58,0.15);">01</div>
+          <div class="step-content"><h3>Utilization Score</h3><p>Revolving balance drops to zero. FICO 8 rewards this aggressively — often 40–100 pt gains on maxed files.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n" style="color:rgba(26,107,58,0.15);">02</div>
+          <div class="step-content"><h3>Credit Mix</h3><p>New installment account diversifies your profile. 10% weight, often underestimated.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n" style="color:rgba(26,107,58,0.15);">03</div>
+          <div class="step-content"><h3>Cash Flow</h3><p>Lower interest rate + single payment. Frees capital for strategic deployment.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="col-label">What Dips</div>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-n">01</div>
+          <div class="step-content"><h3>Hard Inquiry</h3><p>3–7 points, 12 month recovery window. Minor in context of the overall gain.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">02</div>
+          <div class="step-content"><h3>Average Account Age</h3><p>New account lowers AAoA. Temporary. The account will season and this becomes neutral.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">03</div>
+          <div class="step-content"><h3>Thin Installment History</h3><p>If this is your first installment, FICO recalculates your mix — usually net positive, but there's a brief adjustment.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-num">03</div>
+</section>
+
+<!-- 05 Execution Rules -->
+<section>
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">NMD Execution</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">05 / 08</span></div>
+  <h2>Run It <em>Right</em><br>Or Don't Run It</h2>
+  <div class="step-list" style="margin-top:clamp(28px,4vw,52px);">
+    <div class="step-item">
+      <div class="step-n">I</div>
+      <div class="step-content"><h3>Keep the Cards Open</h3><p>Closing cards kills utilization ratio. The whole play is the available credit staying open. Paid-off + open = score maximized.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">II</div>
+      <div class="step-content"><h3>Never Reload the Cards</h3><p>You just reset your utilization. Do not carry balances back up. This is not a loan-and-spend strategy. It's a score engineering move.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">III</div>
+      <div class="step-content"><h3>Credit Union First</h3><p>Credit unions offer better terms for consolidation and often approve members other banks won't touch. Marcus by Goldman Sachs is the premium alternative.</p></div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">IV</div>
+      <div class="step-content"><h3>Shop in a 14-Day Window</h3><p>FICO clusters rate-shopping inquiries within 14–45 days depending on the scoring model. Multiple lender checks count as one hit.</p></div>
+    </div>
+  </div>
+  <div class="bg-num">IV</div>
+</section>
+
+<!-- 06 Timeline -->
+<section>
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">Recovery Timeline</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">06 / 08</span></div>
+  <h2>The <em>Timeline</em><br>After You Close</h2>
+  <div class="stat-row" style="border-top:2px solid var(--ink);">
+    <div class="stat-cell">
+      <span class="stat-n" style="font-size:clamp(28px,4vw,56px);color:var(--crimson);">Day 30</span>
+      <span class="stat-l">First Statement Drop</span>
+      <span class="stat-d">Cards report $0 balance. Utilization collapses. Expect the largest single score movement here — this is the main event.</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n" style="font-size:clamp(28px,4vw,56px);color:var(--grey);">Month 3</span>
+      <span class="stat-l">Score Stabilizes</span>
+      <span class="stat-d">Inquiry impact fades. Payment history on new loan begins to build positive momentum. File starts to look seasoned.</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-n" style="font-size:clamp(28px,4vw,56px);color:#1a6b3a;">Month 12+</span>
+      <span class="stat-l">New Tier Access</span>
+      <span class="stat-d">Full inquiry recovery. Strong installment history now on file. Premium card approvals become realistic. The profile has transformed.</span>
+    </div>
+  </div>
+  <div class="bg-num">T</div>
+</section>
+
+<!-- 07 When to Hold -->
+<section>
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">Strategic Intelligence</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">07 / 08</span></div>
+  <h2>When to <em>Run</em><br>vs When to Hold</h2>
+  <div class="two-col">
+    <div>
+      <div class="col-label" style="color:#1a6b3a;border-bottom-color:#1a6b3a;">Run the Play When</div>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-n" style="color:rgba(26,107,58,0.15);">✓</div>
+          <div class="step-content"><h3>High Utilization (50%+)</h3><p>The score boost from dropping utilization will far outweigh the inquiry hit. Math works heavily in your favor.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n" style="color:rgba(26,107,58,0.15);">✓</div>
+          <div class="step-content"><h3>Thin Installment File</h3><p>No personal loan on record? Adding one diversifies mix. Both score and profile quality improve.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n" style="color:rgba(26,107,58,0.15);">✓</div>
+          <div class="step-content"><h3>Rate Is Sub-20%</h3><p>Higher-rate consolidation rarely makes financial sense. Target &lt;15% to make this a true financial win alongside the score win.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="col-label">Hold When</div>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-n">✗</div>
+          <div class="step-content"><h3>Mortgage Application Soon</h3><p>New installment loan + inquiry can move rates. Wait until mortgage closes before any consolidation activity.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">✗</div>
+          <div class="step-content"><h3>Utilization Already Low</h3><p>If you're at 20% or less, the utilization gain is marginal. The inquiry cost might not be worth it.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">✗</div>
+          <div class="step-content"><h3>Recent Derogatory Marks</h3><p>Collections or lates in the last 12 months will tank approval odds. Clean the file first, then consolidate.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-num">?</div>
+</section>
+
+<!-- 08 CTA -->
+<section class="cta-section">
+  <div class="sh"><div class="sh-line"></div><span class="sh-text">NMD Intelligence</span><div class="sh-line" style="max-width:60px;"></div><span class="sh-num">08 / 08</span></div>
+  <h2 class="cta-title">This Is<br>the <em>Move.</em><br>Run It Right.</h2>
+  <p class="cta-body">Consolidation isn't magic — it's mechanics. Kill the revolving balances. Keep the cards. Don't reload. NMD has built this play into hundreds of client profiles. The results don't lie.</p>
+  <div class="cta-tag">NMD Credit Intelligence</div>
+  <div class="bg-num" style="color:rgba(242,236,227,0.03);">DC</div>
+</section>
+
+<script>
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  pb.style.width=(window.scrollY/h*100)+'%';
+});
+</script>
+</body>
+</html>
