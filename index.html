@@ -7,23 +7,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: #e8e4df; font-family: Inter, sans-serif; min-height: 100vh; color: #111; }
-    header { background: #0d0d0d; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
+    body { background-color: #0d0d0d; font-family: Inter, sans-serif; min-height: 100vh; color: #f5f0e8; }
+    header { background: #080808; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1a1a1a; }
     .logo { display: flex; flex-direction: column; gap: 2px; }
-    .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
-    .logo-sub { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; }
-    .header-tag { font-size: 10px; letter-spacing: 3px; color: #555; text-transform: uppercase; font-weight: 500; }
-    .hero { padding: 80px 48px 60px; border-bottom: 1px solid #ccc; }
-    .hero-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #888; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-    .hero-label::before { content: ''; display: block; width: 32px; height: 2px; background: #1a8fdf; }
-    h1 { font-family: Playfair Display, serif; font-size: clamp(48px, 7vw, 96px); font-weight: 900; line-height: 1.0; color: #111; max-width: 800px; }
-    h1 em { font-style: italic; color: #555; }
-    .hero-desc { margin-top: 28px; font-size: 16px; color: #555; max-width: 480px; line-height: 1.7; }
-    .grid-section { padding: 60px 48px 80px; }
-    .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #888; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid #ccc; }
+    .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #555; text-transform: uppercase; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav a:hover { color: #c9a84c; }
+    .hero { padding: 80px 48px 72px; border-bottom: 1px solid #1a1a1a; }
+    .hero-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #555; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: #c9a84c; }
+    h1 { font-family: Playfair Display, serif; font-size: clamp(48px, 7vw, 96px); font-weight: 900; line-height: 1.0; color: #f5f0e8; max-width: 800px; }
+    h1 em { font-style: italic; color: #c9a84c; }
+    .hero-desc { margin-top: 28px; font-size: 15px; color: #666; max-width: 480px; line-height: 1.75; }
+    .grid-section { padding: 60px 48px 80px; border-top: 1px solid #1a1a1a; }
+    .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #444; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid #1a1a1a; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
     .card { background: #0d0d0d; border-radius: 4px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
     .card-accent { height: 3px; width: 100%; }
     .card-body { padding: 32px 28px 28px; flex: 1; display: flex; flex-direction: column; }
     .card-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
@@ -33,12 +35,12 @@
     .card-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
     .card-arrow { font-size: 18px; color: #444; transition: color 0.2s, transform 0.2s; }
     .card:hover .card-arrow { color: #fff; }
-    footer { background: #0d0d0d; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
-    .footer-left, .footer-right { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    footer { background: #080808; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #1a1a1a; }
+    .footer-left, .footer-right { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
     @media (max-width: 640px) { header, .hero, .grid-section, footer { padding-left: 24px; padding-right: 24px; } }
 
     /* NMD FILMS — scrolling video sections */
-    .films-section { background: #0d0d0d; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+    .films-section { background: #0d0d0d; }
     .films-header { padding: 40px 48px 28px; border-bottom: 1px solid #1a1a1a; }
     .films-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #555; }
     .film-row {
@@ -80,7 +82,11 @@
       <span class="logo-nmd">NMD</span>
       <span class="logo-sub">No Money Down</span>
     </div>
-    <span class="header-tag">Credit Intelligence</span>
+    <nav class="header-nav">
+      <a href="nmd-videos.html">Films</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
+    </nav>
   </header>
   <section class="hero">
     <div class="hero-label">Latest Editions</div>
@@ -567,11 +573,11 @@
     </div>
   </section>
   <footer>
-    <span class="footer-left">NMD - No Money Down</span>
+    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
     <span class="footer-right" style="display:flex;gap:24px;align-items:center;">
-      <a href="nmd-videos.html" style="color:#888;text-decoration:none;font-size:10px;letter-spacing:3px;text-transform:uppercase;">🎬 Videos</a>
-      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" style="color:#888;text-decoration:none;font-size:10px;letter-spacing:3px;text-transform:uppercase;">Telegram</a>
-      <span>Credit Intelligence</span>
+      <a href="nmd-videos.html" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Films</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Gumroad</a>
     </span>
   </footer>
 </body>
