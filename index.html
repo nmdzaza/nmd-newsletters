@@ -36,6 +36,42 @@
     footer { background: #0d0d0d; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
     .footer-left, .footer-right { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
     @media (max-width: 640px) { header, .hero, .grid-section, footer { padding-left: 24px; padding-right: 24px; } }
+
+    /* NMD FILMS — scrolling video sections */
+    .films-section { background: #0d0d0d; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+    .films-header { padding: 40px 48px 28px; border-bottom: 1px solid #1a1a1a; }
+    .films-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #555; }
+    .film-row {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      border-bottom: 1px solid #1a1a1a;
+      min-height: 420px;
+    }
+    .film-row.flip { grid-template-columns: 2fr 3fr; }
+    .film-row.flip .film-video { order: 2; }
+    .film-row.flip .film-text { order: 1; }
+    .film-video { overflow: hidden; }
+    .film-video video { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 320px; }
+    .film-text {
+      padding: 52px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: #0d0d0d;
+    }
+    .film-num { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #2a2a2a; margin-bottom: 14px; }
+    .film-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; margin-bottom: 14px; }
+    .film-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 2.2vw, 32px);
+      font-weight: 700; color: #f5f0e8; line-height: 1.2; margin-bottom: 20px;
+    }
+    .film-desc { font-size: 13px; color: #666; line-height: 1.8; max-width: 300px; }
+    @media (max-width: 768px) {
+      .film-row, .film-row.flip { grid-template-columns: 1fr; min-height: auto; }
+      .film-row.flip .film-video { order: 1; }
+      .film-row.flip .film-text { order: 2; }
+      .film-text { padding: 36px 24px; }
+      .films-header { padding-left: 24px; padding-right: 24px; }
+    }
   </style>
 </head>
 <body>
@@ -51,19 +87,87 @@
     <h1>The credit moves<br><em>everyone's</em> watching.</h1>
     <p class="hero-desc">NMD breaks down the biggest shifts in credit, banking, and financial products so you always know what it means for you.</p>
   </section>
-  <!-- VIDEO SECTION -->
-  <section style="background:#0d0d0d;padding:0;position:relative;overflow:hidden;">
-    <video autoplay muted loop playsinline
-      style="width:100%;display:block;max-height:560px;object-fit:cover;opacity:0.92;">
-      <source src="nmd-dealership.mp4" type="video/mp4">
-    </video>
-    <div style="position:absolute;bottom:0;left:0;right:0;
-      background:linear-gradient(to top,#0d0d0d 0%,transparent 100%);
-      height:120px;"></div>
-    <div style="position:absolute;bottom:32px;left:48px;">
-      <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;">NMD Solutions</div>
-      <div style="font-size:14px;color:#fff;letter-spacing:1px;font-family:Inter,sans-serif;">AI built for real sales teams.</div>
+  <!-- NMD FILMS — scrolling video sections -->
+  <section class="films-section">
+    <div class="films-header">
+      <div class="films-label">NMD · Films</div>
     </div>
+
+    <!-- 001 — Dealership AI -->
+    <div class="film-row">
+      <div class="film-video">
+        <video autoplay muted loop playsinline>
+          <source src="nmd-dealership.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="film-text">
+        <div class="film-num">001</div>
+        <div class="film-tag">NMD Solutions</div>
+        <div class="film-title">AI built for real sales teams.</div>
+        <div class="film-desc">Four modules. One workflow. Dead leads worked, social buyers sourced, trade-ins conquered, pipeline updated — all inside Claude Desktop. No dashboards. No extra logins. Just revenue.</div>
+      </div>
+    </div>
+
+    <!-- 002 — 5 Tools -->
+    <div class="film-row flip">
+      <div class="film-video">
+        <video autoplay muted loop playsinline>
+          <source src="nmd-v2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="film-text">
+        <div class="film-num">002</div>
+        <div class="film-tag">NMD Solutions</div>
+        <div class="film-title">5 Tools. One System. Zero Wasted Time.</div>
+        <div class="film-desc">Credit disputes automated. Content engine running. Newsletter system publishing. Lead pipeline generating. Video campaigns dropping. Everything connected. Everything working.</div>
+      </div>
+    </div>
+
+    <!-- 003 — Systems Work While You Rest -->
+    <div class="film-row">
+      <div class="film-video">
+        <video autoplay muted loop playsinline>
+          <source src="nmd-v3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="film-text">
+        <div class="film-num">003</div>
+        <div class="film-tag">NMD Lifestyle</div>
+        <div class="film-title">Systems That Work While You Rest.</div>
+        <div class="film-desc">New leads coming in. Newsletter opens climbing. Analytics moving. You built the system — now it runs. That's what NMD means. That's what the Credit Goat looks like in 2026.</div>
+      </div>
+    </div>
+
+    <!-- 004 — One Person. Full Operation. -->
+    <div class="film-row flip">
+      <div class="film-video">
+        <video autoplay muted loop playsinline>
+          <source src="nmd-v4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="film-text">
+        <div class="film-num">004</div>
+        <div class="film-tag">NMD Infrastructure</div>
+        <div class="film-title">One Person. Full AI Operation.</div>
+        <div class="film-desc">No team. No agency. Built from scratch. Credit dispute tool. Content engine. Newsletter system. Lead pipelines. Video campaigns. All of it. One person. All AI-powered.</div>
+      </div>
+    </div>
+
+    <!-- 005 — Healthcare Fraud -->
+    <div class="film-row">
+      <div class="film-video">
+        <video autoplay muted loop playsinline>
+          <source src="nmd-v5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="film-text">
+        <div class="film-num">005</div>
+        <div class="film-tag">Industry News</div>
+        <div class="film-title">Doctor Jailed 8.5 Years: $145M Healthcare Fraud.</div>
+        <div class="film-desc">$145 million billed. $90 million paid out. Compounded creams mixed by untrained teens, billed to the government at $16,000 each. NMD breaks down the case and what it means for you.</div>
+      </div>
+    </div>
+
   </section>
 
   <section class="grid-section">
