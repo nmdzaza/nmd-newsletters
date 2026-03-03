@@ -39,29 +39,15 @@
     .tools-hero h1 em { font-style: italic; color: #555; }
     .tools-hero p { font-size: 15px; color: #555; max-width: 520px; line-height: 1.7; }
 
-    /* API KEY BAR */
-    .api-bar {
+    /* CLAUDE NOTICE BAR */
+    .claude-bar {
       background: #dedad4; border-bottom: 1px solid #ccc;
-      padding: 16px 48px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      padding: 14px 48px; display: flex; align-items: center; gap: 10px;
     }
-    .api-bar label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #888; white-space: nowrap; }
-    .api-bar input {
-      flex: 1; max-width: 360px; background: #fff; border: 1px solid #ccc;
-      color: #111; padding: 10px 14px; font-size: 13px; font-family: monospace;
-      outline: none; transition: border-color 0.2s;
-    }
-    .api-bar input:focus { border-color: #1a8fdf; }
-    .api-bar input::placeholder { color: #aaa; }
-    .api-save {
-      background: none; border: 1px solid #bbb; color: #888;
-      padding: 10px 20px; font-size: 9px; letter-spacing: 2px;
-      text-transform: uppercase; cursor: pointer; transition: all 0.2s;
-    }
-    .api-save:hover { border-color: #111; color: #111; }
-    .api-status { font-size: 10px; color: #aaa; letter-spacing: 1px; }
-    .api-status.saved { color: #2ec27e; }
-    .api-note { font-size: 10px; color: #aaa; letter-spacing: 0; }
-    .api-note a { color: #888; }
+    .claude-bar-dot { width: 8px; height: 8px; background: #2ec27e; border-radius: 50%; flex-shrink: 0; }
+    .claude-bar-text { font-size: 12px; color: #666; }
+    .claude-bar-text a { color: #111; font-weight: 600; text-decoration: none; }
+    .claude-bar-text a:hover { text-decoration: underline; }
 
     /* TAB BAR */
     .tab-bar {
@@ -115,30 +101,27 @@
     .run-btn:hover { background: #333; }
     .run-btn:disabled { background: #ccc; color: #999; cursor: not-allowed; }
 
-    /* LOADING */
-    .loading {
-      display: none; align-items: center; gap: 12px; margin-top: 20px;
-      color: #888; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    /* TOAST */
+    .toast {
+      display: none; align-items: center; gap: 10px; margin-top: 20px;
+      background: #f0f7f0; border: 1px solid #b6ddb6; border-radius: 4px;
+      padding: 14px 20px; font-size: 13px; color: #2a6e2a;
     }
-    .loading.visible { display: flex; }
-    .spinner {
-      width: 16px; height: 16px; border: 2px solid #ccc;
-      border-top-color: #111; border-radius: 50%;
-      animation: spin 0.8s linear infinite; flex-shrink: 0;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .toast.visible { display: flex; }
+    .toast-dot { width: 8px; height: 8px; background: #2ec27e; border-radius: 50%; flex-shrink: 0; }
+    .toast a { color: #111; font-weight: 600; }
 
-    /* OUTPUT */
-    .output-area { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 32px; display: none; }
-    .output-area.visible { display: block; }
-    .output-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 16px; }
-    .output-box {
-      background: #fff; border: 1px solid #ccc;
-      padding: 28px 32px; font-size: 14px; color: #222;
-      line-height: 1.85; white-space: pre-wrap;
-      max-height: 640px; overflow-y: auto;
+    /* PROMPT BACKUP */
+    .prompt-backup { margin-top: 24px; display: none; }
+    .prompt-backup.visible { display: block; }
+    .prompt-backup-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 10px; }
+    .prompt-box {
+      background: #fff; border: 1px solid #ddd;
+      padding: 20px 24px; font-size: 13px; color: #555;
+      line-height: 1.75; white-space: pre-wrap; max-height: 280px; overflow-y: auto;
+      font-family: monospace;
     }
-    .output-actions { display: flex; gap: 12px; margin-top: 16px; }
+    .prompt-actions { display: flex; gap: 12px; margin-top: 12px; }
     .output-btn {
       background: none; border: 1px solid #ccc; color: #888;
       padding: 10px 22px; font-size: 9px; letter-spacing: 2px;
@@ -160,7 +143,7 @@
     .footer-links a:hover { color: #c9a84c; }
 
     @media (max-width: 768px) {
-      header, .tools-hero, .api-bar, .tab-bar, .tool-panel, footer { padding-left: 24px; padding-right: 24px; }
+      header, .tools-hero, .claude-bar, .tab-bar, .tool-panel, footer { padding-left: 24px; padding-right: 24px; }
       .tool-form { grid-template-columns: 1fr; }
       .tab { padding: 16px 20px; }
     }
@@ -185,15 +168,12 @@
   <div class="tools-hero">
     <div class="tools-hero-tag">NMD Solutions</div>
     <h1>AI tools that<br><em>work</em> for you.</h1>
-    <p>Five plugins. Pick your niche, fill in your info, and let the AI run. Dealership sales, credit repair, social content, lead gen, newsletters — all live, right here.</p>
+    <p>Five plugins. Pick your niche, fill in your info, and click Launch. It opens Claude with your prompt fully loaded — just hit send. Free Claude account works.</p>
   </div>
 
-  <div class="api-bar">
-    <label>Claude API Key</label>
-    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." autocomplete="off">
-    <button class="api-save" onclick="saveApiKey()">Save Key</button>
-    <span class="api-status" id="apiStatus"></span>
-    <span class="api-note">Your key is stored locally in your browser only. &nbsp;<a href="https://console.anthropic.com/" target="_blank">Get a key →</a></span>
+  <div class="claude-bar">
+    <div class="claude-bar-dot"></div>
+    <span class="claude-bar-text">Powered by Claude AI &mdash; just <a href="https://claude.ai" target="_blank">log into Claude.ai</a> in your browser and the tools run instantly. No API key needed.</span>
   </div>
 
   <div class="tab-bar">
@@ -247,14 +227,14 @@
         <textarea id="d-scenario" rows="5" placeholder="e.g. Customer came in 3 weeks ago, interested in a 2024 F-150, went cold after seeing the payment. Phone and email — no response for 18 days."></textarea>
       </div>
     </div>
-    <button class="run-btn" onclick="runTool('dealership', this)">Run Dealership AI</button>
-    <div class="loading" id="loading-dealership"><div class="spinner"></div>Running tool...</div>
-    <div class="output-area" id="output-dealership">
-      <div class="output-label">Output</div>
-      <div class="output-box" id="output-text-dealership"></div>
-      <div class="output-actions">
-        <button class="output-btn" onclick="copyOutput('dealership', this)">Copy Output</button>
-        <button class="output-btn" onclick="clearOutput('dealership')">Clear</button>
+    <button class="run-btn" onclick="launchTool('dealership', this)">Launch in Claude &#8594;</button>
+    <div class="toast" id="toast-dealership"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
+    <div class="prompt-backup" id="backup-dealership">
+      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+      <div class="prompt-box" id="prompt-text-dealership"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('dealership', this)">Copy Prompt</button>
+        <button class="output-btn" onclick="clearBackup('dealership')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -302,14 +282,14 @@
         <textarea id="c-notes" rows="3" placeholder="e.g. I disputed the Capital One collection before with no result. The Discover late was during a job loss period."></textarea>
       </div>
     </div>
-    <button class="run-btn" onclick="runTool('credit', this)">Run Credit Repair AI</button>
-    <div class="loading" id="loading-credit"><div class="spinner"></div>Running tool...</div>
-    <div class="output-area" id="output-credit">
-      <div class="output-label">Output</div>
-      <div class="output-box" id="output-text-credit"></div>
-      <div class="output-actions">
-        <button class="output-btn" onclick="copyOutput('credit', this)">Copy Output</button>
-        <button class="output-btn" onclick="clearOutput('credit')">Clear</button>
+    <button class="run-btn" onclick="launchTool('credit', this)">Launch in Claude &#8594;</button>
+    <div class="toast" id="toast-credit"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
+    <div class="prompt-backup" id="backup-credit">
+      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+      <div class="prompt-box" id="prompt-text-credit"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('credit', this)">Copy Prompt</button>
+        <button class="output-btn" onclick="clearBackup('credit')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -368,14 +348,14 @@
         </select>
       </div>
     </div>
-    <button class="run-btn" onclick="runTool('social', this)">Run Social AI</button>
-    <div class="loading" id="loading-social"><div class="spinner"></div>Running tool...</div>
-    <div class="output-area" id="output-social">
-      <div class="output-label">Output</div>
-      <div class="output-box" id="output-text-social"></div>
-      <div class="output-actions">
-        <button class="output-btn" onclick="copyOutput('social', this)">Copy Output</button>
-        <button class="output-btn" onclick="clearOutput('social')">Clear</button>
+    <button class="run-btn" onclick="launchTool('social', this)">Launch in Claude &#8594;</button>
+    <div class="toast" id="toast-social"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
+    <div class="prompt-backup" id="backup-social">
+      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+      <div class="prompt-box" id="prompt-text-social"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('social', this)">Copy Prompt</button>
+        <button class="output-btn" onclick="clearBackup('social')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -424,14 +404,14 @@
         </select>
       </div>
     </div>
-    <button class="run-btn" onclick="runTool('leadgen', this)">Run Lead Gen AI</button>
-    <div class="loading" id="loading-leadgen"><div class="spinner"></div>Running tool...</div>
-    <div class="output-area" id="output-leadgen">
-      <div class="output-label">Output</div>
-      <div class="output-box" id="output-text-leadgen"></div>
-      <div class="output-actions">
-        <button class="output-btn" onclick="copyOutput('leadgen', this)">Copy Output</button>
-        <button class="output-btn" onclick="clearOutput('leadgen')">Clear</button>
+    <button class="run-btn" onclick="launchTool('leadgen', this)">Launch in Claude &#8594;</button>
+    <div class="toast" id="toast-leadgen"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
+    <div class="prompt-backup" id="backup-leadgen">
+      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+      <div class="prompt-box" id="prompt-text-leadgen"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('leadgen', this)">Copy Prompt</button>
+        <button class="output-btn" onclick="clearBackup('leadgen')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -473,14 +453,14 @@
         <input type="text" id="n-cta" placeholder="e.g. Join our Telegram for daily credit moves">
       </div>
     </div>
-    <button class="run-btn" onclick="runTool('newsletter', this)">Run Newsletter AI</button>
-    <div class="loading" id="loading-newsletter"><div class="spinner"></div>Running tool...</div>
-    <div class="output-area" id="output-newsletter">
-      <div class="output-label">Output</div>
-      <div class="output-box" id="output-text-newsletter"></div>
-      <div class="output-actions">
-        <button class="output-btn" onclick="copyOutput('newsletter', this)">Copy Output</button>
-        <button class="output-btn" onclick="clearOutput('newsletter')">Clear</button>
+    <button class="run-btn" onclick="launchTool('newsletter', this)">Launch in Claude &#8594;</button>
+    <div class="toast" id="toast-newsletter"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
+    <div class="prompt-backup" id="backup-newsletter">
+      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+      <div class="prompt-box" id="prompt-text-newsletter"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('newsletter', this)">Copy Prompt</button>
+        <button class="output-btn" onclick="clearBackup('newsletter')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -497,25 +477,6 @@
   </footer>
 
   <script>
-    // ── API KEY ──────────────────────────────────────────────────
-    const apiKeyInput = document.getElementById('apiKeyInput');
-    const apiStatus   = document.getElementById('apiStatus');
-
-    const saved = localStorage.getItem('nmd_claude_key');
-    if (saved) {
-      apiKeyInput.value = saved;
-      apiStatus.textContent = '● Key saved';
-      apiStatus.className = 'api-status saved';
-    }
-
-    function saveApiKey() {
-      const key = apiKeyInput.value.trim();
-      if (!key) return;
-      localStorage.setItem('nmd_claude_key', key);
-      apiStatus.textContent = '● Key saved';
-      apiStatus.className = 'api-status saved';
-    }
-
     // ── TABS ─────────────────────────────────────────────────────
     function switchTab(el, name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -664,71 +625,33 @@ Write in a ${tone} voice. This should feel like it came from someone who genuine
       }
     }
 
-    // ── RUN TOOL ─────────────────────────────────────────────────
-    async function runTool(tool, btn) {
-      const apiKey = localStorage.getItem('nmd_claude_key') || apiKeyInput.value.trim();
-      if (!apiKey) {
-        alert('Enter and save your Claude API key at the top of the page first.');
-        apiKeyInput.focus();
-        return;
-      }
+    // ── LAUNCH TOOL ──────────────────────────────────────────────
+    function launchTool(tool, btn) {
+      const prompt = buildPrompt(tool);
 
-      const prompt     = buildPrompt(tool);
-      const loadingEl  = document.getElementById('loading-' + tool);
-      const outputArea = document.getElementById('output-' + tool);
-      const outputText = document.getElementById('output-text-' + tool);
+      // Try to open Claude.ai with prompt pre-filled via URL param
+      const url = 'https://claude.ai/new?q=' + encodeURIComponent(prompt);
+      window.open(url, '_blank');
 
-      loadingEl.classList.add('visible');
-      btn.disabled = true;
-      outputArea.classList.remove('visible');
+      // Copy prompt to clipboard as backup
+      navigator.clipboard.writeText(prompt).catch(() => {});
 
-      try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: {
-            'x-api-key': apiKey,
-            'anthropic-version': '2023-06-01',
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify({
-            model: 'claude-haiku-4-5-20251001',
-            max_tokens: 2048,
-            messages: [{ role: 'user', content: prompt }]
-          })
-        });
+      // Show toast
+      document.getElementById('toast-' + tool).classList.add('visible');
 
-        if (!res.ok) {
-          const err = await res.json().catch(() => ({}));
-          throw new Error(err.error?.message || `HTTP ${res.status}`);
-        }
+      // Show prompt backup
+      document.getElementById('prompt-text-' + tool).textContent = prompt;
+      document.getElementById('backup-' + tool).classList.add('visible');
 
-        const data = await res.json();
-        outputText.textContent = data.content[0].text;
-        outputArea.classList.add('visible');
-
-      } catch (err) {
-        // CORS fallback — browser can't reach api.anthropic.com directly
-        // Show the assembled prompt so user can copy → paste into Claude.ai
-        if (err.name === 'TypeError' || err.message.toLowerCase().includes('failed to fetch') || err.message.toLowerCase().includes('cors')) {
-          outputText.textContent =
-            '⚠  Browser security (CORS) is blocking the direct API call.\n\n' +
-            'Your prompt is fully built below — copy it and paste it into Claude.ai to run the tool:\n' +
-            'https://claude.ai/new\n\n' +
-            '─────────────────────────────────────────\n\n' +
-            prompt;
-        } else {
-          outputText.textContent = '⚠  Error: ' + err.message + '\n\nCheck your API key and try again.';
-        }
-        outputArea.classList.add('visible');
-      } finally {
-        loadingEl.classList.remove('visible');
-        btn.disabled = false;
-      }
+      // Auto-hide toast after 8 seconds
+      setTimeout(() => {
+        document.getElementById('toast-' + tool).classList.remove('visible');
+      }, 8000);
     }
 
-    // ── COPY / CLEAR ──────────────────────────────────────────────
-    function copyOutput(tool, btn) {
-      const text = document.getElementById('output-text-' + tool).textContent;
+    // ── COPY / CLEAR ─────────────────────────────────────────────
+    function copyPrompt(tool, btn) {
+      const text = document.getElementById('prompt-text-' + tool).textContent;
       navigator.clipboard.writeText(text).then(() => {
         const orig = btn.textContent;
         btn.textContent = 'Copied!';
@@ -736,9 +659,9 @@ Write in a ${tone} voice. This should feel like it came from someone who genuine
       });
     }
 
-    function clearOutput(tool) {
-      document.getElementById('output-' + tool).classList.remove('visible');
-      document.getElementById('output-text-' + tool).textContent = '';
+    function clearBackup(tool) {
+      document.getElementById('backup-' + tool).classList.remove('visible');
+      document.getElementById('toast-' + tool).classList.remove('visible');
     }
   </script>
 </body>
