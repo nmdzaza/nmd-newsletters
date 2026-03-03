@@ -39,15 +39,33 @@
     .tools-hero h1 em { font-style: italic; color: #555; }
     .tools-hero p { font-size: 15px; color: #555; max-width: 520px; line-height: 1.7; }
 
-    /* CLAUDE NOTICE BAR */
-    .claude-bar {
-      background: #dedad4; border-bottom: 1px solid #ccc;
-      padding: 14px 48px; display: flex; align-items: center; gap: 10px;
+    /* CLAUDE BANNER */
+    .claude-banner {
+      background: linear-gradient(135deg, #e07030 0%, #c85520 100%);
+      padding: 22px 48px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+      border-bottom: 3px solid #a84010;
     }
-    .claude-bar-dot { width: 8px; height: 8px; background: #2ec27e; border-radius: 50%; flex-shrink: 0; }
-    .claude-bar-text { font-size: 12px; color: #666; }
-    .claude-bar-text a { color: #111; font-weight: 600; text-decoration: none; }
-    .claude-bar-text a:hover { text-decoration: underline; }
+    .claude-banner-left { display: flex; align-items: center; gap: 18px; }
+    .claude-logo-wrap {
+      width: 48px; height: 48px; background: rgba(255,255,255,0.18);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .claude-banner-copy { display: flex; flex-direction: column; gap: 4px; }
+    .claude-banner-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); font-weight: 600;
+    }
+    .claude-banner-headline { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.2; }
+    .claude-banner-sub { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 2px; line-height: 1.4; }
+    .claude-banner-btn {
+      background: #fff; color: #c85520; text-decoration: none;
+      padding: 12px 28px; font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; white-space: nowrap;
+      transition: all 0.2s; flex-shrink: 0; border: 2px solid transparent;
+    }
+    .claude-banner-btn:hover { background: transparent; color: #fff; border-color: #fff; }
 
     /* TAB BAR */
     .tab-bar {
@@ -150,7 +168,9 @@
     .footer-links a:hover { color: #c9a84c; }
 
     @media (max-width: 768px) {
-      header, .tools-hero, .claude-bar, .tab-bar, .tool-panel, footer { padding-left: 24px; padding-right: 24px; }
+      header, .tools-hero, .claude-banner, .tab-bar, .tool-panel, footer { padding-left: 24px; padding-right: 24px; }
+      .claude-banner { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .claude-banner-btn { align-self: stretch; text-align: center; }
       .tool-form { grid-template-columns: 1fr; }
       .tab { padding: 16px 20px; }
     }
@@ -178,9 +198,23 @@
     <p>Five plugins. Pick your niche, fill in your info, and click Launch. It opens Claude with your prompt fully loaded — just hit send. Free Claude account works.</p>
   </div>
 
-  <div class="claude-bar">
-    <div class="claude-bar-dot"></div>
-    <span class="claude-bar-text">Powered by Claude AI &mdash; just <a href="https://claude.ai" target="_blank">log into Claude.ai</a> in your browser and the tools run instantly. No API key needed.</span>
+  <div class="claude-banner">
+    <div class="claude-banner-left">
+      <div class="claude-logo-wrap">
+        <!-- Claude asterisk logo mark -->
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12.5" y="1" width="5" height="28" rx="2.5" fill="white"/>
+          <rect x="12.5" y="1" width="5" height="28" rx="2.5" fill="white" transform="rotate(60 15 15)"/>
+          <rect x="12.5" y="1" width="5" height="28" rx="2.5" fill="white" transform="rotate(120 15 15)"/>
+        </svg>
+      </div>
+      <div class="claude-banner-copy">
+        <div class="claude-banner-label">Powered by</div>
+        <div class="claude-banner-headline">Claude AI</div>
+        <div class="claude-banner-sub">Log in at Claude.ai — free account works. No API key needed.</div>
+      </div>
+    </div>
+    <a href="https://claude.ai" target="_blank" class="claude-banner-btn">Open Claude.ai &#8594;</a>
   </div>
 
   <div class="tab-bar">
