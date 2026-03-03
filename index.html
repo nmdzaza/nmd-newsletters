@@ -84,6 +84,68 @@
       .film-video { width: 100%; max-width: 160px; border-radius: 10px; }
       .films-section { padding-left: 24px; padding-right: 24px; }
     }
+
+    /* NMD SOLUTIONS SECTION */
+    .solutions-section {
+      background: #0d0d0d;
+      padding: 80px 48px;
+      border-top: 1px solid #1a1a1a;
+    }
+    .solutions-inner {
+      display: flex;
+      gap: 72px;
+      align-items: flex-start;
+      max-width: 1200px;
+    }
+    .solutions-left { flex: 0 0 380px; }
+    .solutions-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .solutions-tag::before { content:''; display:block; width:28px; height:1px; background:#c9a84c; }
+    .solutions-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 24px;
+    }
+    .solutions-headline em { font-style: italic; color: #c9a84c; }
+    .solutions-sub {
+      font-size: 15px; color: #777; line-height: 1.75; margin-bottom: 36px;
+    }
+    .solutions-cta {
+      display: inline-block;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #c9a84c; text-decoration: none;
+      border: 1px solid #c9a84c; padding: 14px 28px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .solutions-cta:hover { background: #c9a84c; color: #000; }
+    .solutions-right {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .solutions-card {
+      background: #111;
+      padding: 32px 28px;
+    }
+    .sol-icon { font-size: 22px; margin-bottom: 14px; }
+    .sol-title {
+      font-size: 13px; font-weight: 600; letter-spacing: 1px;
+      color: #f5f0e8; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .sol-desc { font-size: 13px; color: #666; line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .solutions-inner { flex-direction: column; gap: 48px; }
+      .solutions-left { flex: none; }
+      .solutions-section { padding-left: 24px; padding-right: 24px; }
+    }
+    @media (max-width: 600px) {
+      .solutions-right { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -184,6 +246,40 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- NMD SOLUTIONS — What We Do -->
+  <section class="solutions-section">
+    <div class="solutions-inner">
+      <div class="solutions-left">
+        <div class="solutions-tag">NMD Solutions</div>
+        <h2 class="solutions-headline">We build AI that<br>works for <em>your</em> business.</h2>
+        <p class="solutions-sub">Not a template. Not a dashboard. A custom system built specifically for what you do — and the people you're trying to reach.</p>
+        <a class="solutions-cta" href="https://nmdzaza.github.io/nmd-solutions/" target="_blank">See What We Build &#8594;</a>
+      </div>
+      <div class="solutions-right">
+        <div class="solutions-card">
+          <div class="sol-icon">⚡</div>
+          <div class="sol-title">Lead Automation</div>
+          <div class="sol-desc">Dead leads revived. Cold prospects warmed. Your pipeline filled automatically — without you lifting a finger.</div>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-icon">📲</div>
+          <div class="sol-title">Social Media on Autopilot</div>
+          <div class="sol-desc">Content created, scheduled, and posted. Your brand stays active and growing while you focus on closing.</div>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-icon">🛠️</div>
+          <div class="sol-title">Custom Tools for Any Niche</div>
+          <div class="sol-desc">Car dealerships, credit services, local businesses — we build the exact system your operation needs from scratch.</div>
+        </div>
+        <div class="solutions-card">
+          <div class="sol-icon">🤝</div>
+          <div class="sol-title">Personal Guidance & Full Support</div>
+          <div class="sol-desc">You tell us what you want. We build it, set it up, and walk you through everything. NMD stays in your corner.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="grid-section">
