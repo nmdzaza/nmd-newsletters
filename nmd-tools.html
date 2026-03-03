@@ -658,21 +658,28 @@ Write in a ${tone} voice. This should feel like it came from someone who genuine
     }
 
     // ── LAUNCH TOOL ──────────────────────────────────────────────
-    function launchTool(tool, btn) {
+    async function launchTool(tool, btn) {
       const prompt = buildPrompt(tool);
 
-      // Open Claude.ai in a new tab
-      window.open('https://claude.ai/new', '_blank');
-
-      // Copy prompt to clipboard automatically
-      navigator.clipboard.writeText(prompt).catch(() => {});
-
-      // Fill the prompt backup box and show the step-by-step instructions
+      // Fill and show the step box FIRST (before anything changes focus)
       document.getElementById('prompt-text-' + tool).textContent = prompt;
       document.getElementById('stepbox-' + tool).classList.add('visible');
-
-      // Scroll step box into view
       document.getElementById('stepbox-' + tool).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Copy to clipboard BEFORE opening new tab (opening tab steals focus and kills clipboard)
+      try {
+        await navigator.clipboard.writeText(prompt);
+        // Update step 2 to confirm copy succeeded
+        const step2 = document.querySelector('#stepbox-' + tool + ' .steps .step:nth-child(2) .step-text');
+        if (step2) {
+          step2.innerHTML = 'Your prompt was <strong>copied ✓</strong> — ready to paste';
+        }
+      } catch(e) {
+        // Clipboard failed — step box shows backup prompt so user can copy manually
+      }
+
+      // Open Claude AFTER clipboard is written
+      window.open('https://claude.ai/new', '_blank');
     }
 
     // ── COPY / CLEAR ─────────────────────────────────────────────
