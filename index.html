@@ -46,19 +46,19 @@
     .film-row {
       display: flex;
       align-items: flex-start;
-      gap: 56px;
-      padding-bottom: 56px;
-      margin-bottom: 56px;
+      gap: 36px;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
       border-bottom: 1px solid #d0ccc6;
     }
     .film-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .film-row.flip { flex-direction: row-reverse; }
     .film-video {
       flex-shrink: 0;
-      width: 260px;
-      border-radius: 16px;
+      width: 160px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
     .film-video video {
       width: 100%;
@@ -81,7 +81,7 @@
     .film-desc { font-size: 15px; color: #666; line-height: 1.8; max-width: 480px; }
     @media (max-width: 768px) {
       .film-row, .film-row.flip { flex-direction: column; gap: 24px; }
-      .film-video { width: 100%; max-width: 300px; border-radius: 12px; }
+      .film-video { width: 100%; max-width: 160px; border-radius: 10px; }
       .films-section { padding-left: 24px; padding-right: 24px; }
     }
   </style>
