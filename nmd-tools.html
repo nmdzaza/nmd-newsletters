@@ -101,27 +101,34 @@
     .run-btn:hover { background: #333; }
     .run-btn:disabled { background: #ccc; color: #999; cursor: not-allowed; }
 
-    /* TOAST */
-    .toast {
-      display: none; align-items: center; gap: 10px; margin-top: 20px;
-      background: #f0f7f0; border: 1px solid #b6ddb6; border-radius: 4px;
-      padding: 14px 20px; font-size: 13px; color: #2a6e2a;
+    /* STEP BOX — shows after launch */
+    .step-box {
+      display: none; margin-top: 24px;
+      background: #fff; border: 2px solid #111; padding: 28px 32px;
     }
-    .toast.visible { display: flex; }
-    .toast-dot { width: 8px; height: 8px; background: #2ec27e; border-radius: 50%; flex-shrink: 0; }
-    .toast a { color: #111; font-weight: 600; }
-
-    /* PROMPT BACKUP */
-    .prompt-backup { margin-top: 24px; display: none; }
-    .prompt-backup.visible { display: block; }
-    .prompt-backup-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 10px; }
+    .step-box.visible { display: block; }
+    .step-box-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 20px; }
+    .steps { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+    .step { display: flex; align-items: flex-start; gap: 14px; }
+    .step-num {
+      flex-shrink: 0; width: 28px; height: 28px; background: #111; color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+    }
+    .step-text { font-size: 14px; color: #444; line-height: 1.5; padding-top: 4px; }
+    .step-text strong { color: #111; }
+    .step-text code {
+      background: #f0ede8; border: 1px solid #ddd; padding: 2px 8px;
+      font-family: monospace; font-size: 13px; color: #111; border-radius: 2px;
+    }
+    .prompt-section-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 10px; }
     .prompt-box {
-      background: #fff; border: 1px solid #ddd;
-      padding: 20px 24px; font-size: 13px; color: #555;
-      line-height: 1.75; white-space: pre-wrap; max-height: 280px; overflow-y: auto;
+      background: #f8f6f3; border: 1px solid #ddd;
+      padding: 16px 20px; font-size: 12px; color: #666;
+      line-height: 1.7; white-space: pre-wrap; max-height: 200px; overflow-y: auto;
       font-family: monospace;
     }
-    .prompt-actions { display: flex; gap: 12px; margin-top: 12px; }
+    .prompt-actions { display: flex; gap: 12px; margin-top: 14px; }
     .output-btn {
       background: none; border: 1px solid #ccc; color: #888;
       padding: 10px 22px; font-size: 9px; letter-spacing: 2px;
@@ -228,13 +235,18 @@
       </div>
     </div>
     <button class="run-btn" onclick="launchTool('dealership', this)">Launch in Claude &#8594;</button>
-    <div class="toast" id="toast-dealership"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
-    <div class="prompt-backup" id="backup-dealership">
-      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+    <div class="step-box" id="stepbox-dealership">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
       <div class="prompt-box" id="prompt-text-dealership"></div>
       <div class="prompt-actions">
-        <button class="output-btn" onclick="copyPrompt('dealership', this)">Copy Prompt</button>
-        <button class="output-btn" onclick="clearBackup('dealership')">Dismiss</button>
+        <button class="output-btn" onclick="copyPrompt('dealership', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('dealership')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -283,13 +295,18 @@
       </div>
     </div>
     <button class="run-btn" onclick="launchTool('credit', this)">Launch in Claude &#8594;</button>
-    <div class="toast" id="toast-credit"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
-    <div class="prompt-backup" id="backup-credit">
-      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+    <div class="step-box" id="stepbox-credit">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
       <div class="prompt-box" id="prompt-text-credit"></div>
       <div class="prompt-actions">
-        <button class="output-btn" onclick="copyPrompt('credit', this)">Copy Prompt</button>
-        <button class="output-btn" onclick="clearBackup('credit')">Dismiss</button>
+        <button class="output-btn" onclick="copyPrompt('credit', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('credit')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -349,13 +366,18 @@
       </div>
     </div>
     <button class="run-btn" onclick="launchTool('social', this)">Launch in Claude &#8594;</button>
-    <div class="toast" id="toast-social"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
-    <div class="prompt-backup" id="backup-social">
-      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+    <div class="step-box" id="stepbox-social">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
       <div class="prompt-box" id="prompt-text-social"></div>
       <div class="prompt-actions">
-        <button class="output-btn" onclick="copyPrompt('social', this)">Copy Prompt</button>
-        <button class="output-btn" onclick="clearBackup('social')">Dismiss</button>
+        <button class="output-btn" onclick="copyPrompt('social', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('social')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -405,13 +427,18 @@
       </div>
     </div>
     <button class="run-btn" onclick="launchTool('leadgen', this)">Launch in Claude &#8594;</button>
-    <div class="toast" id="toast-leadgen"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
-    <div class="prompt-backup" id="backup-leadgen">
-      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+    <div class="step-box" id="stepbox-leadgen">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
       <div class="prompt-box" id="prompt-text-leadgen"></div>
       <div class="prompt-actions">
-        <button class="output-btn" onclick="copyPrompt('leadgen', this)">Copy Prompt</button>
-        <button class="output-btn" onclick="clearBackup('leadgen')">Dismiss</button>
+        <button class="output-btn" onclick="copyPrompt('leadgen', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('leadgen')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -454,13 +481,18 @@
       </div>
     </div>
     <button class="run-btn" onclick="launchTool('newsletter', this)">Launch in Claude &#8594;</button>
-    <div class="toast" id="toast-newsletter"><div class="toast-dot"></div>Claude is opening with your prompt loaded — just hit send. &nbsp;<a href="https://claude.ai/new" target="_blank">Click here if it didn't open →</a></div>
-    <div class="prompt-backup" id="backup-newsletter">
-      <div class="prompt-backup-label">Prompt (backup — copy &amp; paste if needed)</div>
+    <div class="step-box" id="stepbox-newsletter">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
       <div class="prompt-box" id="prompt-text-newsletter"></div>
       <div class="prompt-actions">
-        <button class="output-btn" onclick="copyPrompt('newsletter', this)">Copy Prompt</button>
-        <button class="output-btn" onclick="clearBackup('newsletter')">Dismiss</button>
+        <button class="output-btn" onclick="copyPrompt('newsletter', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('newsletter')">Dismiss</button>
       </div>
     </div>
   </div>
@@ -629,24 +661,18 @@ Write in a ${tone} voice. This should feel like it came from someone who genuine
     function launchTool(tool, btn) {
       const prompt = buildPrompt(tool);
 
-      // Try to open Claude.ai with prompt pre-filled via URL param
-      const url = 'https://claude.ai/new?q=' + encodeURIComponent(prompt);
-      window.open(url, '_blank');
+      // Open Claude.ai in a new tab
+      window.open('https://claude.ai/new', '_blank');
 
-      // Copy prompt to clipboard as backup
+      // Copy prompt to clipboard automatically
       navigator.clipboard.writeText(prompt).catch(() => {});
 
-      // Show toast
-      document.getElementById('toast-' + tool).classList.add('visible');
-
-      // Show prompt backup
+      // Fill the prompt backup box and show the step-by-step instructions
       document.getElementById('prompt-text-' + tool).textContent = prompt;
-      document.getElementById('backup-' + tool).classList.add('visible');
+      document.getElementById('stepbox-' + tool).classList.add('visible');
 
-      // Auto-hide toast after 8 seconds
-      setTimeout(() => {
-        document.getElementById('toast-' + tool).classList.remove('visible');
-      }, 8000);
+      // Scroll step box into view
+      document.getElementById('stepbox-' + tool).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     // ── COPY / CLEAR ─────────────────────────────────────────────
@@ -659,9 +685,8 @@ Write in a ${tone} voice. This should feel like it came from someone who genuine
       });
     }
 
-    function clearBackup(tool) {
-      document.getElementById('backup-' + tool).classList.remove('visible');
-      document.getElementById('toast-' + tool).classList.remove('visible');
+    function clearStepBox(tool) {
+      document.getElementById('stepbox-' + tool).classList.remove('visible');
     }
   </script>
 </body>
