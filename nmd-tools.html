@@ -154,6 +154,37 @@
     }
     .output-btn:hover { border-color: #111; color: #111; }
 
+    /* EMAIL CAPTURE — inside step box */
+    .email-capture {
+      margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;
+    }
+    .email-capture-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 8px;
+    }
+    .email-capture-line {
+      font-size: 13px; color: #555; margin-bottom: 12px; line-height: 1.5;
+    }
+    .email-capture-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .email-input {
+      flex: 1; min-width: 200px; background: #fff; border: 1px solid #ccc; color: #111;
+      padding: 12px 14px; font-size: 14px; font-family: Inter, sans-serif;
+      outline: none; transition: border-color 0.2s;
+    }
+    .email-input:focus { border-color: #111; }
+    .email-input.error { border-color: #c00; }
+    .email-submit-btn {
+      background: #111; color: #fff; border: none;
+      padding: 12px 24px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .email-submit-btn:hover { background: #333; }
+    .email-submit-btn:disabled { background: #bbb; cursor: not-allowed; }
+    .email-capture-confirm {
+      display: none; font-size: 13px; color: #111;
+      font-weight: 600; padding: 10px 0; line-height: 1.5;
+    }
+
     /* UPSELL SECTION */
     .upsell-section {
       background: #111; padding: 72px 48px; border-top: 1px solid #222;
@@ -331,6 +362,15 @@
         <button class="output-btn" onclick="copyPrompt('dealership', this)">Copy Again</button>
         <button class="output-btn" onclick="clearStepBox('dealership')">Dismiss</button>
       </div>
+      <div class="email-capture" id="email-capture-dealership">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-dealership" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('dealership', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-dealership">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
     </div>
   </div>
 
@@ -390,6 +430,15 @@
       <div class="prompt-actions">
         <button class="output-btn" onclick="copyPrompt('credit', this)">Copy Again</button>
         <button class="output-btn" onclick="clearStepBox('credit')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-credit">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-credit" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('credit', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-credit">✓ You're in — we'll hit you when new tools drop.</div>
       </div>
     </div>
   </div>
@@ -462,6 +511,15 @@
         <button class="output-btn" onclick="copyPrompt('social', this)">Copy Again</button>
         <button class="output-btn" onclick="clearStepBox('social')">Dismiss</button>
       </div>
+      <div class="email-capture" id="email-capture-social">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-social" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('social', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-social">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
     </div>
   </div>
 
@@ -523,6 +581,15 @@
         <button class="output-btn" onclick="copyPrompt('leadgen', this)">Copy Again</button>
         <button class="output-btn" onclick="clearStepBox('leadgen')">Dismiss</button>
       </div>
+      <div class="email-capture" id="email-capture-leadgen">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-leadgen" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('leadgen', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-leadgen">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
     </div>
   </div>
 
@@ -576,6 +643,15 @@
       <div class="prompt-actions">
         <button class="output-btn" onclick="copyPrompt('newsletter', this)">Copy Again</button>
         <button class="output-btn" onclick="clearStepBox('newsletter')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-newsletter">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-newsletter" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('newsletter', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-newsletter">✓ You're in — we'll hit you when new tools drop.</div>
       </div>
     </div>
   </div>
@@ -818,6 +894,67 @@ Write in a ${tone} voice. This should feel like it came from someone who genuine
 
     function clearStepBox(tool) {
       document.getElementById('stepbox-' + tool).classList.remove('visible');
+    }
+
+    // ── EMAIL CAPTURE ─────────────────────────────────────────────
+    // On page load: if email already saved, hide all capture sections
+    (function initEmailCapture() {
+      if (localStorage.getItem('nmd_email')) {
+        document.querySelectorAll('.email-capture').forEach(el => el.style.display = 'none');
+      }
+    })();
+
+    async function submitEmail(tool, btn) {
+      const emailEl = document.getElementById('email-input-' + tool);
+      const email = emailEl ? emailEl.value.trim() : '';
+
+      // Basic validation
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+        return;
+      }
+      if (emailEl) emailEl.classList.remove('error');
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        // Web3Forms — free, 250 submissions/month, no full account needed.
+        // Get your access key in 30 seconds at web3forms.com — enter your email, they send it instantly.
+        // Replace YOUR_WEB3FORMS_KEY below with the key they send you.
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: 'YOUR_WEB3FORMS_KEY',
+            subject: 'New NMD Tools Subscriber',
+            email: email,
+            tool_used: tool,
+            source: window.location.href
+          })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          // Save to localStorage — won't ask again on any future visit
+          localStorage.setItem('nmd_email', email);
+          // Hide ALL capture sections (across all tabs)
+          document.querySelectorAll('.email-capture').forEach(el => el.style.display = 'none');
+          // Show confirmation in this step box
+          const captureEl = document.getElementById('email-capture-' + tool);
+          if (captureEl) {
+            captureEl.style.display = 'block';
+            captureEl.innerHTML = '<div class="email-capture-confirm" style="display:block;">✓ You\'re in — we\'ll hit you when new tools drop.</div>';
+          }
+        } else {
+          btn.textContent = 'Try Again';
+          btn.disabled = false;
+        }
+      } catch(e) {
+        // Network error — fail silently so UX doesn't break, let them try again
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
     }
   </script>
 </body>
