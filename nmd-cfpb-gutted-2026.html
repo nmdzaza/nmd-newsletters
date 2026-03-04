@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="The CFPB lost its enforcement power in 2025. What does that mean for your credit disputes, debt collector protections, and the FCRA rules you've been relying on? NMD breaks it down.">
+  <meta name="keywords" content="CFPB, consumer protection, credit disputes, FCRA, debt collectors, 2026">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The CFPB Got Gutted — What It Means for Your Credit Disputes in 2026 | NMD">
+  <meta property="og:description" content="The CFPB lost its enforcement power in 2025. What does that mean for your credit disputes, debt collector protections, and the FCRA rules you've been relying on? NMD breaks it down.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-cfpb-gutted-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The CFPB Got Gutted — What It Means for Your Credit Disputes in 2026 | NMD">
+  <meta name="twitter:description" content="The CFPB lost its enforcement power. NMD breaks down what that means for disputes, collectors, and your credit file.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CFPB Got Gutted — What It Means for Your Credit Disputes in 2026 | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-input.error { border-color: #c00; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Credit Intelligence · March 2026</div>
+    <h1>The CFPB got gutted.<br><em>Here's what that costs you.</em></h1>
+    <p class="article-dek">The agency that enforced your dispute rights, capped collector harassment, and removed medical debt from reports just lost its teeth. NMD breaks down what it means for your file — and how to protect yourself without the government's help.</p>
+    <div class="article-meta">
+      <span>📅 March 2026</span>
+      <span>✍️ NMD ZAZA</span>
+      <span>⏱ 6 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>What actually happened to the CFPB</h2>
+
+      <p>In early 2025, the Consumer Financial Protection Bureau — the agency created after the 2008 financial crisis specifically to protect you from predatory lenders, junk fees, and bad-faith credit reporting — was effectively dismantled. Not abolished by Congress. Gutted from the inside.</p>
+
+      <p>The Trump administration moved to slash the agency's budget to near zero, halted active enforcement cases, and placed it under DOGE oversight. Hundreds of staff were laid off or placed on administrative leave. Active investigations into major credit bureaus, debt collectors, and mortgage servicers were paused or dropped entirely.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">⚠ What This Means</div>
+        <p>The CFPB was the primary enforcement arm for the Fair Credit Reporting Act (FCRA), the Fair Debt Collection Practices Act (FDCPA), and the Equal Credit Opportunity Act (ECOA). With it sidelined, the rules still exist on paper — but there's no federal cop on the beat to enforce them.</p>
+      </div>
+
+      <p>The laws haven't changed. The FCRA still says bureaus must investigate disputes. The FDCPA still prohibits collectors from calling you 47 times a day. But enforcement? That just got a lot harder to trigger.</p>
+
+      <hr class="divider">
+
+      <h2>The six areas where you'll feel it most</h2>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>What Changed</th>
+            <th>Risk Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Credit Dispute Enforcement</strong></td>
+            <td>Bureaus had less fear of CFPB action for ignoring valid disputes</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Medical Debt Rule</strong></td>
+            <td>CFPB's 2025 medical debt removal rule is in legal limbo — implementation stalled</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Debt Collector Rules</strong></td>
+            <td>CFPB's 2021 collection contact limits may go unenforced at federal level</td>
+            <td><span class="tag yellow">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Bureau Accuracy Standards</strong></td>
+            <td>Ongoing Equifax, Experian, TransUnion investigations paused</td>
+            <td><span class="tag yellow">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Junk Fee Oversight</strong></td>
+            <td>Credit card late fee caps struck down. $30+ late fees are back.</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>BNPL Regulation</strong></td>
+            <td>Planned BNPL credit reporting rules shelved indefinitely</td>
+            <td><span class="tag yellow">Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="divider">
+
+      <h2>The medical debt rule — the biggest casualty</h2>
+
+      <p>This one hurts the most. In January 2025, the CFPB finalized a rule that would have <strong>removed all medical debt from credit reports</strong> — affecting an estimated 15 million Americans and adding an average of 20 points to impacted scores.</p>
+
+      <p>The rule was supposed to take effect in 2026. But with the CFPB defanged, major credit bureaus and lenders have challenged it in court, and implementation is frozen pending legal resolution. Three bureaus had already announced they were voluntarily removing medical collections under $500 — that piece is still in place. But the full rule? On ice.</p>
+
+      <div class="callout info">
+        <div class="callout-label">💡 What Still Works</div>
+        <p>Equifax, Experian, and TransUnion all voluntarily stopped reporting paid medical debt and unpaid medical collections under $500. That wasn't the CFPB — that was public pressure. Those changes remain. It's the larger medical debts that are back in limbo.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>Your dispute rights still exist — you just have to work harder</h2>
+
+      <p>Here's what most people miss in the panic: <strong>the FCRA is still federal law</strong>. The CFPB being sidelined doesn't repeal the statute. What it means is that when bureaus violate it, the federal enforcement mechanism is weakened. But you still have options.</p>
+
+      <blockquote>
+        <p>"The law didn't go anywhere. The federal cop did. That means your private right of action — suing in federal court — just became more important than ever."</p>
+      </blockquote>
+
+      <p>Under the FCRA, you have a private right of action. You can sue a credit bureau or furnisher directly in federal district court if they violate your rights. You can get actual damages, statutory damages up to $1,000 per violation, and attorney's fees. Many consumer protection attorneys take these cases on contingency because the fee-shifting provision makes it worth their time.</p>
+
+      <p>State attorneys general also have independent enforcement authority. New York, California, and Illinois have been aggressive about filling the CFPB gap. If you're in a consumer-friendly state, the state AG's office is now your best friend for complaint escalation.</p>
+
+      <hr class="divider">
+
+      <h2>The NMD move — how to protect your file right now</h2>
+
+      <p>The game hasn't ended. It's just moved to a different table. Here's exactly where to focus your energy:</p>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <div><strong>Pull all three reports now.</strong> AnnualCreditReport.com — free every week. Document everything. Screenshot your current file. If a dispute goes ignored and you need to escalate legally, you need a paper trail from before the dispute, not after.</div>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <div><strong>File disputes through certified mail, not online.</strong> Online disputes through bureau portals are easier to ignore. A certified mail dispute creates a documented paper trail with timestamps. Bureaus know this puts you in better legal standing — they treat it differently.</div>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <div><strong>Add the CFPB complaint anyway.</strong> The bureau is still accepting complaints. Even with reduced enforcement capacity, a complaint on record matters if you ever escalate to a lawsuit. File it. Every time.</div>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <div><strong>Escalate to your state AG if a dispute is ignored.</strong> Search "[your state] attorney general credit report complaint." Most have a consumer protection division with active enforcement. This hits differently than a CFPB complaint right now.</div>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <div><strong>Know the 30-day rule cold.</strong> Bureaus have 30 days to investigate a dispute. On day 31 with no response, they're in violation. That's when you call a consumer law attorney. The CFPB gap makes private litigation more viable — attorneys are actively filing these cases.</div>
+        </li>
+      </ul>
+
+      <div class="callout good">
+        <div class="callout-label">✓ Still Works</div>
+        <p>The NMD Dispute Tool generates FCRA-compliant dispute letters that cite specific statute sections. This matters more now — a properly formatted dispute letter with legal citations is harder to dismiss than a generic online form submission.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>Debt collectors — the FDCPA is still your weapon</h2>
+
+      <p>The Fair Debt Collection Practices Act has been on the books since 1977. The CFPB's 2021 Regulation F updated the contact rules (no more than 7 calls in 7 days for a single debt, restrictions on social media contact), and those regulations are still legally in effect even with reduced federal enforcement.</p>
+
+      <p>What's changed: collectors know federal enforcement is thin. Violations are going up. Your move is to document everything and know that <strong>each FDCPA violation is worth up to $1,000 in statutory damages</strong> plus actual damages plus attorney fees. Class actions have been filed for less.</p>
+
+      <p>If a collector violates the FDCPA — calls too many times, fails to send a debt validation notice, contacts you after a cease communication letter — send a written cease and desist, document the violations, and contact a consumer law attorney. FDCPA litigation is one of the few areas where plaintiffs consistently win.</p>
+
+      <hr class="divider">
+
+      <h2>The bottom line</h2>
+
+      <p>The CFPB being gutted is real, and it matters. But the credit system was never clean, and the rules were never fully enforced even when the CFPB was at full strength. The difference is now you need to be your own enforcement mechanism.</p>
+
+      <p>That means better documentation. Certified mail. State-level complaints. Private rights of action. And the kind of credit intelligence that keeps your file clean so you're not in a dispute fight in the first place.</p>
+
+      <p>That's what NMD is here for. The game changed — we adjusted. Stay locked in.</p>
+
+      <p><em>— Za | NMD ZAZA 🐐</em></p>
+
+      <div class="cta-box">
+        <div class="cta-label">Take Action with NMD</div>
+        <h2>Your dispute rights didn't disappear. Use them.</h2>
+        <p>The NMD Dispute Tool generates FCRA-compliant letters. The Telegram has real-time strategy. Both are free.</p>
+        <div class="cta-links">
+          <a class="cta-btn primary" href="nmd-tools.html">Run the Dispute Tool</a>
+          <a class="cta-btn secondary" href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Join NMD Telegram</a>
+          <a class="cta-btn secondary" href="index.html">More Newsletters</a>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Post to X
+        </a>
+        <a class="share-tg-btn" href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+          Telegram
+        </a>
+        <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+
+      <div class="article-subscribe" id="article-subscribe-cfpb">
+        <div class="as-tag">NMD Credit Intelligence</div>
+        <div class="as-headline">Get every drop free.</div>
+        <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+        <div class="as-row" id="as-row-cfpb">
+          <input type="email" class="as-input" id="as-email-cfpb" placeholder="your@email.com">
+          <button class="as-btn" onclick="submitArticleEmail('cfpb', this)">Subscribe</button>
+        </div>
+        <div class="as-confirm" id="as-confirm-cfpb">✓ You're in — next drop coming to your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">In This Edition</div>
+        <div class="sidebar-links">
+          <a href="#" class="sidebar-link">What happened to the CFPB</a>
+          <a href="#" class="sidebar-link">6 areas affected</a>
+          <a href="#" class="sidebar-link">Medical debt rule status</a>
+          <a href="#" class="sidebar-link">Your dispute rights now</a>
+          <a href="#" class="sidebar-link">The NMD 5-step move</a>
+          <a href="#" class="sidebar-link">Debt collector rules</a>
+        </div>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">Free Tool</div>
+        <div class="sidebar-cta-headline">Run the NMD Dispute Tool</div>
+        <div class="sidebar-cta-desc">FCRA-compliant letters. No login. No API key. Built in Claude.</div>
+        <a href="nmd-tools.html" class="sidebar-cta-btn">Launch Free Tool →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD — No Money Down ZAZA</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Progress bar
+    const prog = document.getElementById('prog');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (window.scrollY / h * 100) + '%';
+    });
+
+    // X share setup
+    (function() {
+      var xBtn = document.getElementById('share-x');
+      if (xBtn) {
+        var t = encodeURIComponent('The CFPB got gutted — here\'s what it costs your credit disputes in 2026 via @nmdzaza');
+        var u = encodeURIComponent(window.location.href);
+        xBtn.href = 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u;
+      }
+    })();
+
+    // Copy link
+    function copyArticleLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link';
+        }, 2500);
+      });
+    }
+
+    // Subscribe
+    (function() {
+      if (localStorage.getItem('nmd_email')) {
+        var el = document.getElementById('article-subscribe-cfpb');
+        if (el) el.style.display = 'none';
+      }
+    })();
+
+    async function submitArticleEmail(uid, btn) {
+      var emailEl = document.getElementById('as-email-' + uid);
+      var email = emailEl ? emailEl.value.trim() : '';
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+        return;
+      }
+      if (emailEl) emailEl.classList.remove('error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+            subject: 'New NMD Subscriber — Article Page',
+            email: email,
+            source: window.location.pathname
+          })
+        });
+        var data = await res.json();
+        if (data.success) {
+          localStorage.setItem('nmd_email', email);
+          document.getElementById('as-row-' + uid).style.display = 'none';
+          document.getElementById('as-confirm-' + uid).style.display = 'block';
+        } else {
+          btn.textContent = 'Try Again'; btn.disabled = false;
+        }
+      } catch(e) {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

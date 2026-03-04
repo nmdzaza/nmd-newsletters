@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="FICO 10T looks at 24 months of your payment history, not just your current balances. NMD breaks down what trended data means and how to position yourself.">
+  <meta name="keywords" content="FICO 10T, trended data, credit score, payment history, FICO scoring">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="FICO 10T and Trended Data — How Your Payment History Just Got More Complicated">
+  <meta property="og:description" content="FICO 10T looks at 24 months of your payment history, not just your current balances. NMD breaks down what trended data means and how to position yourself.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-fico-10t-trended-data.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FICO 10T and Trended Data — How Your Payment History Just Got More Complicated">
+  <meta name="twitter:description" content="FICO 10T looks at 24 months of your payment history, not just your current balances. NMD breaks down what trended data means and how to position yourself.">
+  <meta name="twitter:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:site" content="@nmdzaza">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FICO 10T Is Watching Your Last 24 Months — Not Just Today — NMD Credit Intelligence</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -77,6 +93,39 @@
   .article-subscribe .as-confirm {
     display: none; font-size: 13px; color: #c9a84c; font-weight: 600; padding: 12px 0 0;
   }
+
+  /* ── SOCIAL SHARE ── */
+  .share-strip {
+    display: flex; align-items: center; gap: 16px;
+    padding: 28px 0; border-top: 1px solid #e0dbd0;
+    flex-wrap: wrap;
+  }
+  .share-label {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: #aaa; white-space: nowrap;
+  }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; border: 1px solid;
+    cursor: pointer; background: none; font-family: inherit;
+  }
+  .share-btn.x-btn {
+    color: #fff; background: #000; border-color: #000;
+  }
+  .share-btn.x-btn:hover { background: #1a1a1a; }
+  .share-btn.copy-btn {
+    color: #111; background: #f5f2eb; border-color: #ccc;
+  }
+  .share-btn.copy-btn:hover { border-color: #999; }
+  .share-btn.copy-btn.copied { color: #c9a84c; border-color: #c9a84c; }
+  .share-tg-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+    color: #fff; background: #0088cc; border: 1px solid #0088cc;
+  }
+  .share-tg-btn:hover { background: #0077bb; }
 </style>
 </head>
 <body>
@@ -173,6 +222,21 @@
   </div>
 
   
+<div class="share-strip">
+  <span class="share-label">Share</span>
+  <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    Post to X
+  </a>
+  <a class="share-tg-btn" href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+    Telegram
+  </a>
+  <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    Copy Link
+  </button>
+</div>
 <div class="article-subscribe" id="article-subscribe-nmd_fico_10t_trended">
   <div class="as-tag">NMD Credit Intelligence</div>
   <div class="as-headline">Get every drop free.</div>
