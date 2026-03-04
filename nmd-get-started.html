@@ -190,15 +190,17 @@
     .tip-text a:hover { text-decoration: underline; }
 
     .os-tabs {
-      display: flex; gap: 0; margin-bottom: 12px;
+      display: flex; gap: 0; margin-bottom: 12px; flex-wrap: nowrap;
     }
     .os-tab {
       font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      font-weight: 700; padding: 8px 16px; cursor: pointer;
+      font-weight: 700; padding: 8px 20px; cursor: pointer;
       background: #f0ece7; color: #777; border: 1px solid #ccc;
-      transition: all 0.15s;
+      transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+      white-space: nowrap; user-select: none;
+      position: relative; margin-right: -1px;
     }
-    .os-tab.active { background: #c9a84c11; color: #c9a84c; border-color: #c9a84c55; }
+    .os-tab.active { background: #c9a84c11; color: #c9a84c; border-color: #c9a84c55; z-index: 1; }
 
     .os-content { display: none; }
     .os-content.active { display: block; }
