@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    background: #0d0d0d;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex; align-items: stretch;
+  }
+  .left {
+    width: 56px;
+    background: #c9a84c;
+    flex-shrink: 0;
+  }
+  .main {
+    flex: 1;
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .tag {
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: #c9a84c;
+  }
+  .headline {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.0;
+    letter-spacing: -1px;
+  }
+  .headline em {
+    font-style: italic;
+    color: #888;
+  }
+  .sub {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.5;
+    max-width: 680px;
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 28px;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .brand-nmd {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+  .brand-sub {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #444;
+  }
+  .badge {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 600;
+  }
+  /* decorative circles */
+  .circle1 {
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid #1a1a1a;
+    pointer-events: none;
+  }
+  .circle2 {
+    position: absolute;
+    right: 40px; top: 40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 1px solid #c9a84c22;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <div class="left"></div>
+  <div class="main">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="top">
+      <div class="tag">Credit Intelligence</div>
+      <div class="headline">The credit moves<br><em>you need to know.</em></div>
+      <div class="sub">Breaking credit news, bureau shifts, dispute strategy, and free AI tools — from NMD ZAZA · The Credit Goat 🐐</div>
+    </div>
+    <div class="bottom">
+      <div class="brand">
+        <div class="brand-nmd">NMD</div>
+        <div class="brand-sub">nmdzaza.github.io/nmd-newsletters</div>
+      </div>
+      <div class="badge">Free · Always</div>
+    </div>
+  </div>
+</body>
+</html>
