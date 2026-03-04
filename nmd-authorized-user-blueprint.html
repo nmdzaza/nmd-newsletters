@@ -36,7 +36,49 @@
     .footer { text-align: center; font-size: 12px; color: #555; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; line-height: 2; }
     .footer a { color: #c9a84c; text-decoration: none; }
     .back-link { display: inline-block; font-size: 12px; color: #c9a84c; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 30px; }
-  </style>
+  
+  /* ── ARTICLE SUBSCRIBE STRIP ── */
+  .article-subscribe {
+    background: #0d0d0d;
+    padding: 48px 40px;
+    margin: 48px 0 0;
+  }
+  .article-subscribe .as-tag {
+    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c9a84c; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .article-subscribe .as-tag::before {
+    content: ''; display: block; width: 20px; height: 2px; background: #c9a84c;
+  }
+  .article-subscribe .as-headline {
+    font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .article-subscribe .as-desc {
+    font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px;
+  }
+  .article-subscribe .as-row { display: flex; max-width: 480px; }
+  .article-subscribe .as-input {
+    flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+    color: #fff; padding: 13px 16px; font-size: 14px;
+    font-family: inherit; outline: none; transition: border-color 0.2s;
+  }
+  .article-subscribe .as-input:focus { border-color: #555; }
+  .article-subscribe .as-input::placeholder { color: #444; }
+  .article-subscribe .as-input.error { border-color: #c00; }
+  .article-subscribe .as-btn {
+    background: #c9a84c; color: #111; border: none;
+    padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; cursor: pointer;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .article-subscribe .as-btn:hover { background: #e0c060; }
+  .article-subscribe .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+  .article-subscribe .as-confirm {
+    display: none; font-size: 13px; color: #c9a84c; font-weight: 600; padding: 12px 0 0;
+  }
+</style>
 </head>
 <body>
   <a class="back-link" href="https://nmdzaza.github.io/nmd-newsletters/">← All Newsletters</a>
@@ -110,6 +152,18 @@
     </div>
   </div>
 
+  
+<div class="article-subscribe" id="article-subscribe-nmd_authorized_user_">
+  <div class="as-tag">NMD Credit Intelligence</div>
+  <div class="as-headline">Get every drop free.</div>
+  <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+  <div class="as-row" id="as-row-nmd_authorized_user_">
+    <input type="email" class="as-input" id="as-email-nmd_authorized_user_" placeholder="your@email.com">
+    <button class="as-btn" onclick="submitArticleEmail('nmd_authorized_user_', this)">Subscribe</button>
+  </div>
+  <div class="as-confirm" id="as-confirm-nmd_authorized_user_">✓ You're in — next drop coming to your inbox.</div>
+</div>
+
   <div class="footer">
     <a href="https://nmdzaza.github.io/nmd-newsletters/">← All Newsletters</a> ·
     <a href="https://t.me/+pmgwMuufQ7cyNWEx">Telegram</a> ·
@@ -117,5 +171,49 @@
     <br><br>NMD ZAZA · The Credit Goat 🐐<br>
     <span style="color:#444;">© 2026 NMD — No Money Down</span>
   </div>
+
+<script>
+  (function() {
+    if (localStorage.getItem('nmd_email')) {
+      var el = document.querySelector('.article-subscribe');
+      if (el) el.style.display = 'none';
+    }
+  })();
+
+  async function submitArticleEmail(uid, btn) {
+    var emailEl = document.getElementById('as-email-' + uid);
+    var email = emailEl ? emailEl.value.trim() : '';
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+      return;
+    }
+    if (emailEl) emailEl.classList.remove('error');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+          subject: 'New NMD Subscriber — Article Page',
+          email: email,
+          source: window.location.pathname
+        })
+      });
+      var data = await res.json();
+      if (data.success) {
+        localStorage.setItem('nmd_email', email);
+        document.getElementById('as-row-' + uid).style.display = 'none';
+        document.getElementById('as-confirm-' + uid).style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    } catch(e) {
+      btn.textContent = 'Try Again'; btn.disabled = false;
+    }
+  }
+</script>
+
 </body>
 </html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMD Solutions — Work With The Credit Goat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #e8e4df; color: #111; font-family: Inter, sans-serif; min-height: 100vh; }
+
+    /* HEADER */
+    header {
+      background: #0d0d0d; padding: 24px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { display: flex; flex-direction: column; gap: 2px; }
+    .logo-nmd { font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #555; text-transform: uppercase; }
+    .header-nav a {
+      color: #555; text-decoration: none; font-size: 10px;
+      letter-spacing: 2px; text-transform: uppercase; margin-left: 28px; transition: color 0.2s;
+    }
+    .header-nav a:hover, .header-nav a.active { color: #c9a84c; }
+
+    /* HERO */
+    .hero { background: #0d0d0d; padding: 80px 48px 72px; border-bottom: 1px solid #1a1a1a; }
+    .hero-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .hero-tag::before { content: ''; display: block; width: 32px; height: 2px; background: #c9a84c; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 68px); font-weight: 900;
+      color: #fff; line-height: 1.05; margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: italic; color: #c9a84c; }
+    .hero p { font-size: 16px; color: #888; max-width: 520px; line-height: 1.75; margin-bottom: 40px; }
+    .hero-cta {
+      display: inline-block; background: #c9a84c; color: #111;
+      text-decoration: none; padding: 16px 40px; font-size: 10px;
+      letter-spacing: 3px; text-transform: uppercase; font-weight: 700; transition: all 0.2s;
+    }
+    .hero-cta:hover { background: #e0c060; }
+
+    /* SERVICES */
+    .services-section { padding: 80px 48px; }
+    .section-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #888; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .section-tag::before { content: ''; display: block; width: 32px; height: 2px; background: #1a8fdf; }
+    .section-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px); font-weight: 900;
+      color: #111; line-height: 1.1; margin-bottom: 52px;
+    }
+    .section-headline em { font-style: italic; color: #555; }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+    .service-card {
+      background: #fff; padding: 40px 32px;
+      border: 1px solid #e0dbd5; transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: #111; }
+    .service-num { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #ccc; margin-bottom: 20px; }
+    .service-title {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      font-weight: 700; color: #111; margin-bottom: 14px; line-height: 1.2;
+    }
+    .service-desc { font-size: 13px; color: #666; line-height: 1.75; margin-bottom: 24px; }
+    .service-includes { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .service-includes li {
+      font-size: 12px; color: #555; padding-left: 18px;
+      position: relative; line-height: 1.5;
+    }
+    .service-includes li::before { content: '—'; position: absolute; left: 0; color: #aaa; }
+
+    /* HOW IT WORKS */
+    .how-section { background: #111; padding: 80px 48px; }
+    .how-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #555; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .how-tag::before { content: ''; display: block; width: 32px; height: 2px; background: #c9a84c; }
+    .how-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 900;
+      color: #fff; line-height: 1.1; margin-bottom: 52px;
+    }
+    .how-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+    .how-step { display: flex; flex-direction: column; gap: 16px; }
+    .how-step-num {
+      font-size: 48px; font-weight: 700; color: #1e1e1e;
+      font-family: 'Playfair Display', serif; line-height: 1;
+    }
+    .how-step-title { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.2; }
+    .how-step-desc { font-size: 13px; color: #666; line-height: 1.75; }
+
+    /* PRODUCTS */
+    .products-section { padding: 80px 48px; border-top: 1px solid #ccc; }
+    .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; }
+    .product-card {
+      background: #fff; border: 1px solid #e0dbd5; padding: 36px 32px;
+      transition: border-color 0.2s;
+    }
+    .product-card:hover { border-color: #111; }
+    .product-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 16px; }
+    .product-title {
+      font-family: 'Playfair Display', serif; font-size: 20px;
+      font-weight: 700; color: #111; margin-bottom: 10px;
+    }
+    .product-desc { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 20px; }
+    .product-price { font-size: 28px; font-weight: 700; color: #111; margin-bottom: 20px; }
+    .product-price span { font-size: 13px; color: #aaa; font-weight: 400; }
+    .product-btn {
+      display: block; text-align: center; background: #111; color: #fff;
+      text-decoration: none; padding: 14px; font-size: 9px;
+      letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: all 0.2s;
+    }
+    .product-btn:hover { background: #333; }
+    .product-btn.gold { background: #c9a84c; color: #111; }
+    .product-btn.gold:hover { background: #e0c060; }
+
+    /* CONTACT CTA */
+    .contact-section { background: #e8e4df; padding: 80px 48px; border-top: 1px solid #ccc; }
+    .contact-inner { max-width: 600px; }
+    .contact-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #888; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .contact-tag::before { content: ''; display: block; width: 32px; height: 2px; background: #111; }
+    .contact-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 900;
+      color: #111; line-height: 1.1; margin-bottom: 16px;
+    }
+    .contact-headline em { font-style: italic; color: #555; }
+    .contact-desc { font-size: 15px; color: #666; line-height: 1.75; margin-bottom: 32px; max-width: 480px; }
+    .contact-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .contact-btn {
+      display: inline-block; background: #111; color: #fff;
+      text-decoration: none; padding: 16px 36px; font-size: 10px;
+      letter-spacing: 3px; text-transform: uppercase; font-weight: 700; transition: all 0.2s;
+    }
+    .contact-btn:hover { background: #333; }
+    .contact-btn.outline {
+      background: transparent; color: #111; border: 2px solid #111;
+    }
+    .contact-btn.outline:hover { background: #111; color: #fff; }
+
+    /* FOOTER */
+    footer {
+      background: #0d0d0d; padding: 32px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #222;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #444; }
+    .footer-links a {
+      color: #444; text-decoration: none; font-size: 9px;
+      letter-spacing: 2px; text-transform: uppercase; margin-left: 24px; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #c9a84c; }
+
+    @media (max-width: 768px) {
+      header, .hero, .services-section, .how-section, .products-section, .contact-section, footer { padding-left: 24px; padding-right: 24px; }
+      .services-grid, .how-steps { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<!-- NMD Analytics — replace G-XXXXXXXXXX with your Google Analytics 4 Measurement ID -->
+<!-- Get your ID free at analytics.google.com → Admin → Data Streams → Web Stream -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <span class="logo-nmd">NMD</span>
+      <span class="logo-sub">No Money Down</span>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-solutions.html" class="active">Solutions</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">NMD Solutions</div>
+    <h1>Credit repair is<br><em>what we do.</em></h1>
+    <p>The Credit Goat has helped hundreds of people remove negatives, build scores, and get approved — when everyone else said no. Here's how we can work together.</p>
+    <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" class="hero-cta">Get Started on Telegram &#8594;</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section">
+    <div class="section-tag">What We Do</div>
+    <div class="section-headline">Three ways we<br><em>move your credit.</em></div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-title">Credit Dispute Consulting</div>
+        <div class="service-desc">We identify exactly what's holding your score down and build a removal strategy — bureau by bureau, item by item.</div>
+        <ul class="service-includes">
+          <li>Full credit report analysis</li>
+          <li>Priority ranking of all negative items</li>
+          <li>Custom dispute letters, ready to send</li>
+          <li>FCRA & FDCPA strategy</li>
+          <li>Follow-up sequence if disputes are ignored</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-title">Score Building Strategy</div>
+        <div class="service-desc">Whether you're at 480 or 680, there's a specific path to where you need to be. We map it out and walk it with you.</div>
+        <ul class="service-includes">
+          <li>Utilization optimization plan</li>
+          <li>Authorized user strategy</li>
+          <li>Secured card &amp; credit builder playbook</li>
+          <li>30/60/90 day score roadmap</li>
+          <li>Pre-application score prep</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-title">AI Tools &amp; Education</div>
+        <div class="service-desc">Use our free AI-powered tools to run dispute letters, build outreach campaigns, and write newsletter content — no tech knowledge required.</div>
+        <ul class="service-includes">
+          <li>Credit Repair AI tool — free</li>
+          <li>Lead Gen &amp; Social tools — free</li>
+          <li>Newsletter builder — free</li>
+          <li>AI Plugin Blueprint guide — $47</li>
+          <li>Vibe Build full system — $197</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="how-tag">The Process</div>
+    <div class="how-headline">How it works.</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <div class="how-step-title">Join the Telegram</div>
+        <div class="how-step-desc">Start in the community. Post your situation, ask your questions. The Credit Goat is in there daily. Free access, real answers.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <div class="how-step-title">Get Your Plan</div>
+        <div class="how-step-desc">Use the free Credit Repair AI tool to generate your full action plan — or DM directly for personalized consulting on your specific file.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <div class="how-step-title">Execute and Win</div>
+        <div class="how-step-desc">Send the letters, apply the strategy, watch the score move. People go from 500s to 700s. It takes time — but it works.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section">
+    <div class="section-tag">Learn to Build</div>
+    <div class="section-headline" style="margin-bottom:36px;">Want to build your<br><em>own AI tools?</em></div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-tag">Start Here</div>
+        <div class="product-title">The AI Plugin Blueprint</div>
+        <div class="product-desc">Build a working, branded AI tool page in one afternoon. The exact template, prompt formula, and step-by-step guide — from zero to live.</div>
+        <div class="product-price">$47 <span>one-time</span></div>
+        <a href="https://nmdzaza.gumroad.com/l/pmtqt" target="_blank" class="product-btn">Get the Blueprint &#8594;</a>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">Full System</div>
+        <div class="product-title">Vibe Build with NMD</div>
+        <div class="product-desc">The complete system — how to build AI-powered business tools, package them, and sell them. From idea to income, no code required.</div>
+        <div class="product-price">$197 <span>one-time</span></div>
+        <a href="https://nmdzaza.gumroad.com/l/yovefh" target="_blank" class="product-btn gold">Get Vibe Build &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <div class="contact-inner">
+      <div class="contact-tag">Work With Us</div>
+      <div class="contact-headline">Ready to<br><em>move your score?</em></div>
+      <div class="contact-desc">Start in the Telegram. Drop your situation. The Credit Goat and the community will point you in the right direction — no cost to ask.</div>
+      <div class="contact-links">
+        <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" class="contact-btn">Join Telegram &#8594;</a>
+        <a href="nmd-tools.html" class="contact-btn outline">Try the Free Tools</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">NMD ZAZA · The Credit Goat 🐐</div>
+    <div class="footer-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
+    </div>
+  </footer>
+
+</body>
+</html>

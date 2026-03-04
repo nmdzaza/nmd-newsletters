@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NMD ZAZA — Company AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0a0a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding: 60px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #333;
+  align-self: flex-start;
+  margin-left: calc(50% - 270px);
+}
+
+/* 540 × 960 = 9:16 */
+.slide {
+  width: 540px;
+  height: 960px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 1 — COVER
+═══════════════════════════════════════════ */
+.c1 {
+  background: #000;
+}
+
+.c1-noise {
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.c1-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.c1-radial {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(201,168,76,0.22) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.c1-tag {
+  position: absolute;
+  top: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #c9a84c;
+  padding: 7px 20px;
+  white-space: nowrap;
+}
+.c1-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #000;
+  animation: blink 1s ease-in-out infinite;
+}
+.c1-tag-text {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.c1-emblem {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+}
+.c1-emblem-ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid #c9a84c;
+  border-radius: 50%;
+}
+.c1-emblem-ring2 {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50%;
+}
+.c1-emblem-lbl {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #c9a84c;
+}
+
+.c1-eyebrow {
+  position: absolute;
+  top: 220px;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.5);
+}
+
+.c1-headline {
+  position: absolute;
+  top: 250px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 90px;
+  line-height: 0.88;
+  letter-spacing: 3px;
+  color: #fff;
+  padding: 0 20px;
+}
+.c1-headline em {
+  font-style: normal;
+  color: #c9a84c;
+}
+
+.c1-rule {
+  position: absolute;
+  top: 558px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(to bottom, #c9a84c 0%, transparent 100%);
+}
+
+.c1-tagline {
+  position: absolute;
+  top: 538px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 8px;
+  color: rgba(255,255,255,0.25);
+}
+
+.c1-stats {
+  position: absolute;
+  top: 654px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+.c1-stat {
+  text-align: center;
+  padding: 0 32px;
+}
+.c1-stat + .c1-stat {
+  border-left: 1px solid rgba(201,168,76,0.2);
+}
+.c1-stat-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: #c9a84c;
+  line-height: 1;
+}
+.c1-stat-l {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-top: 4px;
+}
+
+.c1-brand {
+  position: absolute;
+  bottom: 36px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 10px;
+  color: rgba(255,255,255,0.12);
+}
+
+.c1-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #c9a84c 50%, transparent 100%);
+}
+
+/* ═══════════════════════════════════════════
+   SLIDES 2–4: PLATFORM POSTS
+═══════════════════════════════════════════ */
+.plt {
+  background: #050505;
+}
+
+/* top accent stripe — color set per-slide */
+.plt-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+/* platform header row */
+.plt-head {
+  position: absolute;
+  top: 50px;
+  left: 40px; right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.plt-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.plt-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.plt-icon svg { width: 24px; height: 24px; fill: #fff; }
+.plt-icon-lbl {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  line-height: 1;
+}
+.plt-name {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.plt-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c9a84c;
+}
+.plt-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c9a84c;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+/* big text block */
+.plt-copy {
+  position: absolute;
+  top: 148px;
+  left: 40px; right: 40px;
+}
+.plt-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.6);
+  margin-bottom: 16px;
+}
+.plt-h {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 70px;
+  line-height: 0.9;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.plt-h em {
+  font-style: normal;
+  color: #c9a84c;
+}
+
+/* post preview card */
+.plt-card {
+  position: absolute;
+  top: 430px;
+  left: 40px; right: 40px;
+  background: #0c0c0c;
+  border-radius: 10px;
+  border: 1px solid #1a1a1a;
+  padding: 22px;
+}
+.plt-card-accent {
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
+.plt-card-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.plt-card-ava {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9a84c, #7a5f1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  color: #000;
+  flex-shrink: 0;
+}
+.plt-card-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+.plt-card-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 1px;
+}
+.plt-card-body {
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.6);
+}
+.plt-card-body strong {
+  color: #c9a84c;
+  font-weight: 700;
+}
+.plt-card-tags {
+  margin-top: 12px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.6;
+}
+.plt-card-tags span {
+  color: rgba(255,255,255,0.4);
+}
+
+/* success banner */
+.plt-success {
+  position: absolute;
+  bottom: 56px;
+  left: 40px; right: 40px;
+  background: rgba(39,174,96,0.1);
+  border: 1px solid rgba(39,174,96,0.25);
+  border-radius: 8px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #27ae60;
+}
+.plt-success-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #27ae60;
+  background: rgba(39,174,96,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.plt-brand {
+  position: absolute;
+  bottom: 24px;
+  right: 40px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: rgba(255,255,255,0.1);
+}
+
+/* ── LinkedIn specifics ── */
+.li .plt-bar  { background: linear-gradient(90deg, transparent, #0a66c2 40%, #c9a84c 80%, transparent); }
+.li .plt-icon { background: #0a66c2; }
+.li .plt-name { color: #0a66c2; }
+.li .plt-card-accent { background: #0a66c2; }
+
+/* ── Facebook specifics ── */
+.fb .plt-bar  { background: linear-gradient(90deg, transparent, #1877f2 40%, #c9a84c 80%, transparent); }
+.fb .plt-icon { background: #1877f2; }
+.fb .plt-name { color: #1877f2; }
+.fb .plt-card { background: #0a0a0a; border-color: #181818; }
+.fb .plt-card-accent { background: #1877f2; }
+.fb-page-hdr {
+  background: linear-gradient(120deg, #1877f2, #0c4aad);
+  margin: -22px -22px 16px;
+  border-radius: 10px 10px 0 0;
+  padding: 16px 20px;
+}
+.fb-page-hdr-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.fb-page-hdr-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2px;
+}
+.fb-page-stats {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 12px;
+}
+.fb-page-stat {
+  flex: 1;
+  text-align: center;
+}
+.fb-page-stat-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: #c9a84c;
+}
+.fb-page-stat-l {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── Twitter/X specifics ── */
+.tw .plt-bar  { background: linear-gradient(90deg, transparent, #e7e7e7 40%, #c9a84c 80%, transparent); }
+.tw .plt-icon { background: #000; border: 1.5px solid #e7e7e7; }
+.tw .plt-name { color: #e7e7e7; }
+.tw .plt-card-accent { background: #e7e7e7; }
+.tw-xlogo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 5 — NEWSLETTER
+═══════════════════════════════════════════ */
+.nl {
+  background: #040404;
+}
+.nl-glow {
+  position: absolute;
+  top: -80px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+.nl-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+}
+.nl-head {
+  position: absolute;
+  top: 50px;
+  left: 40px; right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nl-badge {
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 4px;
+  padding: 5px 14px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c9a84c;
+}
+.nl-date {
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 1px;
+}
+.nl-copy {
+  position: absolute;
+  top: 130px;
+  left: 40px; right: 40px;
+}
+.nl-ey {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.6);
+  margin-bottom: 16px;
+}
+.nl-h {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  line-height: 0.88;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.nl-h em { font-style: normal; color: #c9a84c; }
+
+.nl-mock {
+  position: absolute;
+  top: 422px;
+  left: 40px; right: 40px;
+  background: #0c0c0c;
+  border: 1px solid #181818;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.nl-mock-hdr {
+  background: #c9a84c;
+  padding: 10px 18px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #000;
+}
+.nl-mock-title {
+  padding: 18px 18px 8px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.nl-mock-desc {
+  padding: 0 18px 16px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.35);
+}
+.nl-mock-url {
+  padding: 11px 18px;
+  background: #0a0a0a;
+  border-top: 1px solid #151515;
+  font-size: 10px;
+  color: #c9a84c;
+  word-break: break-all;
+  letter-spacing: 0.3px;
+}
+
+.nl-commit {
+  position: absolute;
+  bottom: 56px;
+  left: 40px; right: 40px;
+  background: rgba(39,174,96,0.07);
+  border: 1px solid rgba(39,174,96,0.2);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nl-commit-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.nl-commit-hash {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #27ae60;
+  letter-spacing: 1px;
+}
+.nl-commit-msg {
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 2px;
+}
+.nl-brand {
+  position: absolute;
+  bottom: 24px;
+  right: 40px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: rgba(255,255,255,0.1);
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 6 — CAROUSEL
+═══════════════════════════════════════════ */
+.cr {
+  background: #040404;
+}
+.cr-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #e1306c 40%, #c9a84c 80%, transparent);
+}
+.cr-head {
+  position: absolute;
+  top: 50px;
+  left: 40px; right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cr-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cr-igicon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.cr-name {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e1306c;
+}
+.cr-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c9a84c;
+}
+.cr-live::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c9a84c;
+  animation: blink 1.2s ease-in-out infinite;
+}
+.cr-copy {
+  position: absolute;
+  top: 148px;
+  left: 40px; right: 40px;
+}
+.cr-ey {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.6);
+  margin-bottom: 16px;
+}
+.cr-h {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 70px;
+  line-height: 0.9;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.cr-h em { font-style: normal; color: #c9a84c; }
+
+.cr-grid {
+  position: absolute;
+  top: 420px;
+  left: 40px; right: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cr-tile {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.cr-tile::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.cr-t1 { background: #0d0d0d; border: 1px solid rgba(201,168,76,0.4); }
+.cr-t1::after { background: #c9a84c; }
+.cr-t1 .cr-tnum { color: #c9a84c; }
+.cr-t1 .cr-tlbl { color: rgba(201,168,76,0.6); }
+
+.cr-t2 { background: #080810; border: 1px solid rgba(100,100,255,0.25); }
+.cr-t2::after { background: #6666ff; }
+.cr-t2 .cr-tnum { color: #8888ff; }
+.cr-t2 .cr-tlbl { color: rgba(136,136,255,0.5); }
+
+.cr-t3 { background: #100808; border: 1px solid rgba(255,80,80,0.2); }
+.cr-t3::after { background: #ff5050; }
+.cr-t3 .cr-tnum { color: #ff7070; }
+.cr-t3 .cr-tlbl { color: rgba(255,112,112,0.5); }
+
+.cr-t4 { background: #080e08; border: 1px solid rgba(60,180,60,0.2); }
+.cr-t4::after { background: #3cb43c; }
+.cr-t4 .cr-tnum { color: #60cc60; }
+.cr-t4 .cr-tlbl { color: rgba(96,204,96,0.5); }
+
+.cr-t5 { background: #0d0908; border: 1px solid rgba(255,150,50,0.2); }
+.cr-t5::after { background: #ff9632; }
+.cr-t5 .cr-tnum { color: #ffaa50; }
+.cr-t5 .cr-tlbl { color: rgba(255,170,80,0.5); }
+
+.cr-t6 { background: #0d0d0d; border: 1px solid rgba(201,168,76,0.4); }
+.cr-t6::after { background: #c9a84c; }
+.cr-t6 .cr-tnum { color: #c9a84c; }
+.cr-t6 .cr-tlbl { color: rgba(201,168,76,0.6); }
+
+.cr-tnum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  line-height: 1;
+}
+.cr-tlbl {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.cr-note {
+  position: absolute;
+  top: 760px;
+  left: 40px; right: 40px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+}
+.cr-note em { font-style: normal; color: rgba(201,168,76,0.5); }
+.cr-brand {
+  position: absolute;
+  bottom: 24px;
+  right: 40px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: rgba(255,255,255,0.1);
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 7 — BRAG STATS
+═══════════════════════════════════════════ */
+.bs {
+  background: #000;
+}
+.bs-bg {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(201,168,76,0.03) 0px,
+    rgba(201,168,76,0.03) 1px,
+    transparent 1px,
+    transparent 28px
+  );
+}
+.bs-glow {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.16) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.bs-eyebrow {
+  position: absolute;
+  top: 62px;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.45);
+}
+.bs-headline {
+  position: absolute;
+  top: 96px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 82px;
+  line-height: 0.88;
+  letter-spacing: 3px;
+  color: #fff;
+}
+.bs-headline em {
+  font-style: normal;
+  color: #c9a84c;
+}
+
+.bs-rule {
+  position: absolute;
+  top: 334px;
+  left: 40px; right: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+}
+
+.bs-grid {
+  position: absolute;
+  top: 356px;
+  left: 40px; right: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.bs-box {
+  background: rgba(201,168,76,0.03);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 10px;
+  padding: 18px 16px 16px;
+  position: relative;
+  overflow: hidden;
+}
+.bs-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, rgba(201,168,76,0.3));
+}
+.bs-box-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: #c9a84c;
+}
+.bs-box-l {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.bs-list {
+  position: absolute;
+  top: 640px;
+  left: 40px; right: 40px;
+}
+.bs-list-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+  margin-bottom: 12px;
+}
+.bs-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 9px;
+  line-height: 1.4;
+}
+.bs-item::before {
+  content: '▸';
+  color: #c9a84c;
+  font-size: 10px;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.bs-cta {
+  position: absolute;
+  bottom: 40px;
+  left: 40px; right: 40px;
+  background: #c9a84c;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.bs-cta-main {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: #000;
+  line-height: 1;
+}
+.bs-cta-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+  margin-top: 5px;
+}
+
+
+  /* ── ARTICLE SUBSCRIBE STRIP ── */
+  .article-subscribe {
+    background: #0d0d0d;
+    padding: 48px 40px;
+    margin: 48px 0 0;
+  }
+  .article-subscribe .as-tag {
+    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c9a84c; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .article-subscribe .as-tag::before {
+    content: ''; display: block; width: 20px; height: 2px; background: #c9a84c;
+  }
+  .article-subscribe .as-headline {
+    font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .article-subscribe .as-desc {
+    font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px;
+  }
+  .article-subscribe .as-row { display: flex; max-width: 480px; }
+  .article-subscribe .as-input {
+    flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+    color: #fff; padding: 13px 16px; font-size: 14px;
+    font-family: inherit; outline: none; transition: border-color 0.2s;
+  }
+  .article-subscribe .as-input:focus { border-color: #555; }
+  .article-subscribe .as-input::placeholder { color: #444; }
+  .article-subscribe .as-input.error { border-color: #c00; }
+  .article-subscribe .as-btn {
+    background: #c9a84c; color: #111; border: none;
+    padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; cursor: pointer;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .article-subscribe .as-btn:hover { background: #e0c060; }
+  .article-subscribe .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+  .article-subscribe .as-confirm {
+    display: none; font-size: 13px; color: #c9a84c; font-weight: 600; padding: 12px 0 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     SLIDE 1 — COVER
+══════════════════════════════ -->
+<div class="label">01 &mdash; Cover</div>
+<div class="slide c1">
+  <div class="c1-noise"></div>
+  <div class="c1-grid"></div>
+  <div class="c1-radial"></div>
+
+  <div class="c1-tag">
+    <div class="c1-tag-dot"></div>
+    <div class="c1-tag-text">Breaking &mdash; New Invention</div>
+  </div>
+
+  <div class="c1-emblem">
+    <div class="c1-emblem-ring"></div>
+    <div class="c1-emblem-ring2"></div>
+    <div class="c1-emblem-lbl">AI</div>
+  </div>
+
+  <div class="c1-eyebrow">NMD ZAZA &mdash; Company AI</div>
+
+  <div class="c1-headline">
+    THE AI<br>THAT<br><em>RUNS</em><br>THE<br>BRAND
+  </div>
+
+  <div class="c1-tagline">ONE SESSION &middot; FULL BLAST</div>
+  <div class="c1-rule"></div>
+
+  <div class="c1-stats">
+    <div class="c1-stat">
+      <div class="c1-stat-n">6</div>
+      <div class="c1-stat-l">Platforms</div>
+    </div>
+    <div class="c1-stat">
+      <div class="c1-stat-n">100%</div>
+      <div class="c1-stat-l">Automated</div>
+    </div>
+    <div class="c1-stat">
+      <div class="c1-stat-n">0</div>
+      <div class="c1-stat-l">Hours Wasted</div>
+    </div>
+  </div>
+
+  <div class="c1-brand">NMD ZAZA</div>
+  <div class="c1-bar"></div>
+</div>
+
+<!-- ══════════════════════════════
+     SLIDE 2 — LINKEDIN
+══════════════════════════════ -->
+<div class="label">02 &mdash; LinkedIn</div>
+<div class="slide plt li">
+  <div class="plt-bar"></div>
+  <div class="plt-head">
+    <div class="plt-badge">
+      <div class="plt-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </div>
+      <div class="plt-name">LinkedIn</div>
+    </div>
+    <div class="plt-live"><div class="plt-live-dot"></div>LIVE</div>
+  </div>
+
+  <div class="plt-copy">
+    <div class="plt-eyebrow">AI Executed &middot; Autonomous Post</div>
+    <div class="plt-h">AI<br>WROTE<br>&amp; <em>POSTED</em><br>TO<br>LINKEDIN</div>
+  </div>
+
+  <div class="plt-card">
+    <div class="plt-card-accent"></div>
+    <div class="plt-card-author">
+      <div class="plt-card-ava">NMD</div>
+      <div>
+        <div class="plt-card-name">NMD Digital Solutions</div>
+        <div class="plt-card-sub">Credit Education &middot; Financial Intelligence</div>
+      </div>
+    </div>
+    <div class="plt-card-body">
+      <strong>Capital One stopped reporting to Experian.</strong><br>
+      Months of on-time payments &mdash; invisible to one bureau. The AI caught it, wrote the alert, and pushed it to 500+ connections in real time. No copywriter. No scheduler. Just the system.
+    </div>
+  </div>
+
+  <div class="plt-success">
+    <div class="plt-success-check">✓</div>
+    Post Successful &middot; Live on LinkedIn
+  </div>
+  <div class="plt-brand">NMD ZAZA</div>
+</div>
+
+<!-- ══════════════════════════════
+     SLIDE 3 — FACEBOOK
+══════════════════════════════ -->
+<div class="label">03 &mdash; Facebook</div>
+<div class="slide plt fb">
+  <div class="plt-bar"></div>
+  <div class="plt-head">
+    <div class="plt-badge">
+      <div class="plt-icon"><div class="plt-icon-lbl">f</div></div>
+      <div class="plt-name">Facebook</div>
+    </div>
+    <div class="plt-live"><div class="plt-live-dot"></div>POSTED</div>
+  </div>
+
+  <div class="plt-copy">
+    <div class="plt-eyebrow">AI Navigated &middot; Auto-Selected NMD Page</div>
+    <div class="plt-h">AI HIT<br>THE<br><em>NMD</em><br>PAGE<br>NEXT</div>
+  </div>
+
+  <div class="plt-card">
+    <div class="plt-card-accent"></div>
+    <div class="fb-page-hdr">
+      <div class="fb-page-hdr-name">NO MONEY DOWN ZA</div>
+      <div class="fb-page-hdr-sub">NMD ZAZA &middot; Official Brand Page &middot; Credit + Finance Education</div>
+    </div>
+    <div class="fb-page-stats">
+      <div class="fb-page-stat"><div class="fb-page-stat-n">10K+</div><div class="fb-page-stat-l">Reach</div></div>
+      <div class="fb-page-stat"><div class="fb-page-stat-n">AUTO</div><div class="fb-page-stat-l">Mode</div></div>
+      <div class="fb-page-stat"><div class="fb-page-stat-n">ON</div><div class="fb-page-stat-l">Brand</div></div>
+    </div>
+    <div class="plt-card-body">
+      <strong>ALERT: Capital One isn't reporting to Experian.</strong> Your score is being silently suppressed. NMD ZAZA breaks it down &mdash; dispute the gap, fix your score.
+    </div>
+  </div>
+
+  <div class="plt-success">
+    <div class="plt-success-check">✓</div>
+    Posted to NO MONEY DOWN ZA Page
+  </div>
+  <div class="plt-brand">NMD ZAZA</div>
+</div>
+
+<!-- ══════════════════════════════
+     SLIDE 4 — TWITTER / X
+══════════════════════════════ -->
+<div class="label">04 &mdash; Twitter / X</div>
+<div class="slide plt tw">
+  <div class="plt-bar"></div>
+  <div class="plt-head">
+    <div class="plt-badge">
+      <div class="plt-icon"><div class="tw-xlogo">&#120143;</div></div>
+      <div class="plt-name">X &mdash; Twitter</div>
+    </div>
+    <div class="plt-live"><div class="plt-live-dot"></div>POSTED</div>
+  </div>
+
+  <div class="plt-copy">
+    <div class="plt-eyebrow">AI Composed &middot; Thread Live</div>
+    <div class="plt-h">AI<br>DROPPED<br>THE <em>THREAD</em><br>ON X<br>TOO</div>
+  </div>
+
+  <div class="plt-card">
+    <div class="plt-card-accent"></div>
+    <div class="plt-card-author">
+      <div class="plt-card-ava">NZ</div>
+      <div>
+        <div class="plt-card-name">NMD ZAZA</div>
+        <div class="plt-card-sub">@NMDZAZA &middot; Credit Intelligence</div>
+      </div>
+    </div>
+    <div class="plt-card-body">
+      <strong>&#128680; Capital One stopped reporting to Experian.</strong><br><br>
+      That means months of on-time payments are invisible to one bureau &mdash; and your score is paying for it silently.<br><br>
+      Here's the dispute playbook &#8595;
+    </div>
+    <div class="plt-card-tags">
+      <span>#CreditRepair</span> &nbsp;<span>#FCRA2026</span> &nbsp;<span>#NMDZaza</span> &nbsp;<span>#CapitalOne</span>
+    </div>
+  </div>
+
+  <div class="plt-success">
+    <div class="plt-success-check">✓</div>
+    Thread Posted &middot; Live on X / Twitter
+  </div>
+  <div class="plt-brand">NMD ZAZA</div>
+</div>
+
+<!-- ══════════════════════════════
+     SLIDE 5 — NEWSLETTER
+══════════════════════════════ -->
+<div class="label">05 &mdash; Newsletter Deployed</div>
+<div class="slide nl">
+  <div class="nl-glow"></div>
+  <div class="nl-bar"></div>
+
+  <div class="nl-head">
+    <div class="nl-badge">&#9889;&nbsp; Deployed Live</div>
+    <div class="nl-date">GitHub Pages &middot; March 2026</div>
+  </div>
+
+  <div class="nl-copy">
+    <div class="nl-ey">AI Authored &middot; AI Deployed</div>
+    <div class="nl-h">FULL<br>NEWSLETTER<br><em>SHIPPED</em><br>TO WEB</div>
+  </div>
+
+  <div class="nl-mock">
+    <div class="nl-mock-hdr">NMD ZAZA &mdash; Newsletter Intelligence</div>
+    <div class="nl-mock-title">Capital One Stopped Reporting to Experian &mdash; Here's What to Do</div>
+    <div class="nl-mock-desc">AI wrote the full article: FCRA 2026 breakdown, bureau gap context, dispute playbook, 5-step action guide, and CTAs linked to NMD products &amp; Telegram.</div>
+    <div class="nl-mock-url">nmdzaza.github.io/nmd-newsletters/nmd-capital-one-experian-gap.html</div>
+  </div>
+
+  <div class="nl-commit">
+    <div class="nl-commit-icon">&#9651;</div>
+    <div>
+      <div class="nl-commit-hash">git commit 9fe6428</div>
+      <div class="nl-commit-msg">AI: add Capital One/Experian gap newsletter + update index</div>
+    </div>
+  </div>
+
+  <div class="nl-brand">NMD ZAZA</div>
+</div>
+
+<!-- ══════════════════════════════
+     SLIDE 6 — CAROUSEL
+══════════════════════════════ -->
+<div class="label">06 &mdash; Instagram Carousel Built</div>
+<div class="slide cr">
+  <div class="cr-bar"></div>
+
+  <div class="cr-head">
+    <div class="cr-badge">
+      <div class="cr-igicon">&#128248;</div>
+      <div class="cr-name">Instagram</div>
+    </div>
+    <div class="cr-live">Built</div>
+  </div>
+
+  <div class="cr-copy">
+    <div class="cr-ey">AI Designed &middot; 6 Slides &middot; Zero Canva</div>
+    <div class="cr-h">6-SLIDE<br>CAROUSEL<br>BUILT BY<br><em>AI</em></div>
+  </div>
+
+  <div class="cr-grid">
+    <div class="cr-tile cr-t1"><div class="cr-tnum">01</div><div class="cr-tlbl">Cover</div></div>
+    <div class="cr-tile cr-t2"><div class="cr-tnum">02</div><div class="cr-tlbl">The Problem</div></div>
+    <div class="cr-tile cr-t3"><div class="cr-tnum">03</div><div class="cr-tlbl">Score Impact</div></div>
+    <div class="cr-tile cr-t4"><div class="cr-tnum">04</div><div class="cr-tlbl">FCRA 2026</div></div>
+    <div class="cr-tile cr-t5"><div class="cr-tnum">05</div><div class="cr-tlbl">Action Steps</div></div>
+    <div class="cr-tile cr-t6"><div class="cr-tnum">06</div><div class="cr-tlbl">CTA</div></div>
+  </div>
+
+  <div class="cr-note">1080 &times; 1080 &middot; Dark / Gold &middot; NMD Branded &middot; <em>Zero Canva</em></div>
+  <div class="cr-brand">NMD ZAZA</div>
+</div>
+
+<!-- ══════════════════════════════
+     SLIDE 7 — BRAG STATS
+══════════════════════════════ -->
+<div class="label">07 &mdash; Brag Stats</div>
+<div class="slide bs">
+  <div class="bs-bg"></div>
+  <div class="bs-glow"></div>
+
+  <div class="bs-eyebrow">One Session &mdash; Full Output</div>
+  <div class="bs-headline">THE<br>AI DID<br><em>ALL</em><br>OF THIS</div>
+
+  <div class="bs-rule"></div>
+
+  <div class="bs-grid">
+    <div class="bs-box"><div class="bs-box-n">3</div><div class="bs-box-l">Social Platforms Posted</div></div>
+    <div class="bs-box"><div class="bs-box-n">1</div><div class="bs-box-l">Newsletter Live on Web</div></div>
+    <div class="bs-box"><div class="bs-box-n">6</div><div class="bs-box-l">Carousel Slides Designed</div></div>
+    <div class="bs-box"><div class="bs-box-n">7</div><div class="bs-box-l">Dev Servers Mapped</div></div>
+  </div>
+
+  <div class="bs-list">
+    <div class="bs-list-lbl">Everything the AI did</div>
+    <div class="bs-item">Wrote &amp; posted to LinkedIn — 1,500+ characters, zero edits</div>
+    <div class="bs-item">Navigated to NO MONEY DOWN ZA Facebook page &amp; posted</div>
+    <div class="bs-item">Composed &amp; posted a thread to X / Twitter</div>
+    <div class="bs-item">Built full newsletter article, committed &amp; pushed to GitHub Pages</div>
+    <div class="bs-item">Designed 6-slide Instagram carousel from scratch — no Canva</div>
+    <div class="bs-item">Detected &amp; mapped 7 dev servers into launch.json</div>
+  </div>
+
+  <div class="bs-cta">
+    <div class="bs-cta-main">NMD ZAZA &mdash; Company AI is Real</div>
+    <div class="bs-cta-sub">This is what the future of brand management looks like</div>
+  </div>
+</div>
+
+
+<div class="article-subscribe" id="article-subscribe-nmd_proof_of_work">
+  <div class="as-tag">NMD Credit Intelligence</div>
+  <div class="as-headline">Get every drop free.</div>
+  <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+  <div class="as-row" id="as-row-nmd_proof_of_work">
+    <input type="email" class="as-input" id="as-email-nmd_proof_of_work" placeholder="your@email.com">
+    <button class="as-btn" onclick="submitArticleEmail('nmd_proof_of_work', this)">Subscribe</button>
+  </div>
+  <div class="as-confirm" id="as-confirm-nmd_proof_of_work">✓ You're in — next drop coming to your inbox.</div>
+</div>
+
+
+<script>
+  (function() {
+    if (localStorage.getItem('nmd_email')) {
+      var el = document.querySelector('.article-subscribe');
+      if (el) el.style.display = 'none';
+    }
+  })();
+
+  async function submitArticleEmail(uid, btn) {
+    var emailEl = document.getElementById('as-email-' + uid);
+    var email = emailEl ? emailEl.value.trim() : '';
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+      return;
+    }
+    if (emailEl) emailEl.classList.remove('error');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+          subject: 'New NMD Subscriber — Article Page',
+          email: email,
+          source: window.location.pathname
+        })
+      });
+      var data = await res.json();
+      if (data.success) {
+        localStorage.setItem('nmd_email', email);
+        document.getElementById('as-row-' + uid).style.display = 'none';
+        document.getElementById('as-confirm-' + uid).style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    } catch(e) {
+      btn.textContent = 'Try Again'; btn.disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>
