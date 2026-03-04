@@ -1,0 +1,307 @@
+/*
+ * NMD Effects Engine — Styles v1.0
+ * Drop-in: add <link rel="stylesheet" href="nmd-effects.css"> in <head>
+ * Works on all NMD pages — no build step, no dependencies
+ */
+
+/* ── STICKY HEADER + HIDE/SHOW ─────────────────────────────────── */
+header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+header.nmd-header-hidden {
+  transform: translateY(-100%) !important;
+}
+
+/* ── NEWS TICKER ───────────────────────────────────────────────── */
+.nmd-ticker-wrap {
+  background: #0d0d0d;
+  border-bottom: 1px solid #1e1e1e;
+  overflow: hidden;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 73px;
+  z-index: 999;
+}
+.nmd-ticker-label {
+  flex-shrink: 0;
+  background: #c9a84c;
+  color: #111;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: Inter, sans-serif;
+}
+.nmd-ticker-track-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+}
+.nmd-ticker-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 100%;
+  will-change: transform;
+  animation: nmd-ticker 38s linear infinite;
+}
+.nmd-ticker-track:hover {
+  animation-play-state: paused;
+}
+.nmd-ticker-track span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #aaa;
+  padding: 0 28px;
+  font-family: Inter, sans-serif;
+  transition: color 0.2s;
+}
+.nmd-ticker-track span.nmd-ticker-sep {
+  color: #c9a84c;
+  padding: 0 4px;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.nmd-ticker-track span a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nmd-ticker-track span a:hover,
+.nmd-ticker-track span:hover {
+  color: #c9a84c;
+}
+@keyframes nmd-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── GRAIN TEXTURE OVERLAY ─────────────────────────────────────── */
+.nmd-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99990;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 280px 280px;
+  background-repeat: repeat;
+}
+
+/* ── CUSTOM CURSOR ─────────────────────────────────────────────── */
+.nmd-cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: #c9a84c;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  will-change: transform;
+  transition: opacity 0.3s, width 0.2s, height 0.2s, background 0.2s;
+  transform: translate(-50%, -50%);
+}
+.nmd-cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(201, 168, 76, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99997;
+  will-change: transform;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, opacity 0.3s;
+}
+.nmd-cursor-dot.is-hovering {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+}
+.nmd-cursor-ring.is-hovering {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(201, 168, 76, 0.8);
+}
+.nmd-cursor-dot.is-clicking {
+  width: 4px;
+  height: 4px;
+  background: #c9a84c;
+}
+.nmd-cursor-ring.is-clicking {
+  width: 28px;
+  height: 28px;
+}
+
+/* ── READING PROGRESS BAR ──────────────────────────────────────── */
+.nmd-progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c 0%, #e0c060 100%);
+  z-index: 99995;
+  width: 0%;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* ── BREAKING PULSE DOT ────────────────────────────────────────── */
+.nmd-breaking {
+  position: relative;
+}
+.nmd-breaking::before {
+  content: '';
+  display: inline-block;
+  width: 5px; height: 5px;
+  background: currentColor;
+  border-radius: 50%;
+  margin-right: 7px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  animation: nmd-pulse-dot 1.6s ease-in-out infinite;
+}
+@keyframes nmd-pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.25; transform: scale(0.5); }
+}
+
+/* ── SHIMMER LINE ──────────────────────────────────────────────── */
+.nmd-shimmer-line {
+  position: relative;
+  overflow: hidden;
+}
+.nmd-shimmer-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.15) 50%, transparent 100%);
+  transform: translateX(-100%);
+  animation: nmd-shimmer 3.5s ease-in-out infinite;
+}
+@keyframes nmd-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* ── MAGNETIC BUTTON OVERRIDE ──────────────────────────────────── */
+.cta-primary,
+.cta-secondary,
+.sub-submit,
+.popup-submit-btn {
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.3s ease !important;
+  will-change: transform;
+}
+.cta-primary:hover,
+.cta-secondary:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* ── CARD HOVER UPGRADE ────────────────────────────────────────── */
+.card {
+  transition:
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.35s ease !important;
+}
+.card:hover {
+  transform: translateY(-6px) scale(1.01) !important;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.7) !important;
+}
+.card:hover .card-title {
+  color: #fff !important;
+}
+
+/* ── FILM VIDEO HOVER ──────────────────────────────────────────── */
+.film-video {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+}
+.film-row:hover .film-video {
+  transform: scale(1.025);
+  box-shadow: 0 24px 72px rgba(0,0,0,0.35) !important;
+}
+
+/* ── NAV LINK UNDERLINE ANIMATION ──────────────────────────────── */
+.header-nav a {
+  position: relative;
+}
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: #c9a84c;
+  transition: width 0.25s ease;
+}
+.header-nav a:hover::after,
+.header-nav a.active::after {
+  width: 100%;
+}
+
+/* ── SECTION DIVIDER ACCENT ────────────────────────────────────── */
+.section-label {
+  background: linear-gradient(90deg, rgba(201,168,76,0.06) 0%, transparent 60%);
+}
+
+/* ── LOGO HOVER ────────────────────────────────────────────────── */
+.logo {
+  transition: opacity 0.2s ease;
+}
+.logo:hover {
+  opacity: 0.7;
+}
+
+/* ── SCROLL REVEAL INITIAL STATES ──────────────────────────────── */
+/* Set via JS — these are fallbacks for JS-off environments */
+@media (prefers-reduced-motion: no-preference) {
+  .nmd-will-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .nmd-will-reveal-left {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+}
+
+/* ── MOBILE ────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nmd-cursor-dot,
+  .nmd-cursor-ring {
+    display: none !important;
+  }
+  .nmd-ticker-wrap {
+    top: 63px;
+  }
+}
+@media (max-width: 480px) {
+  .nmd-ticker-wrap {
+    display: none;
+  }
+}
+
+/* ── REDUCED MOTION ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .nmd-ticker-track { animation: none !important; }
+  .nmd-breaking::before { animation: none !important; }
+  .nmd-shimmer-line::after { animation: none !important; }
+  .nmd-cursor-dot,
+  .nmd-cursor-ring { display: none !important; }
+}
