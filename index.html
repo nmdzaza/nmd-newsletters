@@ -39,6 +39,93 @@
     .footer-left, .footer-right { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
     @media (max-width: 640px) { header, .hero, .grid-section, footer { padding-left: 24px; padding-right: 24px; } }
 
+    /* ── NEWSLETTER POPUP ─────────────────────────────── */
+    .popup-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.82); z-index: 9999;
+      align-items: center; justify-content: center;
+      padding: 20px; backdrop-filter: blur(3px);
+    }
+    .popup-overlay.open { display: flex; }
+    .popup-card {
+      background: #0d0d0d; max-width: 560px; width: 100%;
+      border: 1px solid #222; position: relative;
+      animation: popupIn 0.32s ease;
+    }
+    @keyframes popupIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .popup-close {
+      position: absolute; top: 14px; right: 18px;
+      background: none; border: none; color: #444;
+      font-size: 20px; cursor: pointer; line-height: 1;
+      padding: 4px; transition: color 0.2s;
+    }
+    .popup-close:hover { color: #fff; }
+    .popup-featured {
+      padding: 36px 40px 28px; border-bottom: 1px solid #1c1c1c;
+    }
+    .popup-featured-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .popup-featured-tag::before { content: ''; display: block; width: 24px; height: 2px; background: #c9a84c; }
+    .popup-article-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 26px); font-weight: 700;
+      color: #fff; line-height: 1.2; margin-bottom: 12px;
+    }
+    .popup-article-desc { font-size: 13px; color: #666; line-height: 1.65; margin-bottom: 20px; }
+    .popup-read-link {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #c9a84c; text-decoration: none; font-weight: 700; transition: color 0.2s;
+    }
+    .popup-read-link:hover { color: #fff; }
+    .popup-subscribe { padding: 28px 40px 36px; }
+    .popup-subscribe-label {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #333; margin-bottom: 10px;
+    }
+    .popup-subscribe-headline {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .popup-subscribe-sub { font-size: 13px; color: #555; margin-bottom: 20px; line-height: 1.5; }
+    .popup-form-row { display: flex; }
+    .popup-email-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 14px 16px; font-size: 14px;
+      font-family: Inter, sans-serif; outline: none; transition: border-color 0.2s;
+    }
+    .popup-email-input:focus { border-color: #555; }
+    .popup-email-input::placeholder { color: #3a3a3a; }
+    .popup-email-input.error { border-color: #c00; }
+    .popup-submit-btn {
+      background: #fff; color: #111; border: none;
+      padding: 14px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .popup-submit-btn:hover { background: #c9a84c; }
+    .popup-submit-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+    .popup-confirm {
+      display: none; font-size: 13px; color: #c9a84c;
+      font-weight: 600; padding: 14px 0 0; line-height: 1.5;
+    }
+    .popup-no-thanks {
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: #2a2a2a; cursor: pointer; margin-top: 18px;
+      display: inline-block; transition: color 0.2s;
+    }
+    .popup-no-thanks:hover { color: #555; }
+    @media (max-width: 600px) {
+      .popup-featured, .popup-subscribe { padding-left: 24px; padding-right: 24px; }
+      .popup-form-row { flex-direction: column; }
+      .popup-email-input { border-right: 1px solid #2a2a2a; border-bottom: none; }
+      .popup-submit-btn { width: 100%; }
+    }
+
     /* NMD FILMS — portrait video sections */
     .films-section { background: #e8e4df; padding: 60px 48px; border-top: 1px solid #d0ccc6; border-bottom: 1px solid #d0ccc6; }
     .films-header { margin-bottom: 48px; padding-bottom: 20px; border-bottom: 1px solid #d0ccc6; }
@@ -591,5 +678,94 @@
       <a href="https://nmdzaza.gumroad.com/" target="_blank" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Gumroad</a>
     </span>
   </footer>
+
+  <!-- ── NEWSLETTER POPUP ──────────────────────────────────── -->
+  <div class="popup-overlay" id="nmd-popup">
+    <div class="popup-card">
+      <button class="popup-close" onclick="closePopup()">&#10005;</button>
+
+      <!-- Featured article -->
+      <div class="popup-featured">
+        <div class="popup-featured-tag">Latest Drop</div>
+        <div class="popup-article-headline">Capital One stopped reporting to Experian.</div>
+        <div class="popup-article-desc">Months of on-time payments — invisible to one bureau. What the reporting gap means for your score and what to do before it costs you an approval.</div>
+        <a href="nmd-capital-one-experian-gap.html" class="popup-read-link" onclick="closePopup()">Read this edition &#8594;</a>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="popup-subscribe">
+        <div class="popup-subscribe-label">NMD Credit Intelligence</div>
+        <div class="popup-subscribe-headline">Stay ahead of every credit move.</div>
+        <div class="popup-subscribe-sub">Breaking credit news. Strategy. New tools. Direct to your inbox — free.</div>
+        <div class="popup-form-row">
+          <input type="email" class="popup-email-input" id="popup-email" placeholder="your@email.com">
+          <button class="popup-submit-btn" onclick="submitPopupEmail(this)">Subscribe</button>
+        </div>
+        <div class="popup-confirm" id="popup-confirm">&#10003; You're in — watch your inbox for the next drop.</div>
+        <div class="popup-no-thanks" onclick="closePopup()">No thanks</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── POPUP LOGIC ───────────────────────────────────────────
+    (function() {
+      // Skip if already subscribed
+      if (localStorage.getItem('nmd_email')) return;
+      // Skip if dismissed within the last 7 days
+      const dismissed = localStorage.getItem('nmd_popup_dismissed');
+      if (dismissed && Date.now() - parseInt(dismissed) < 7 * 24 * 60 * 60 * 1000) return;
+      // Show after 2.5 seconds
+      setTimeout(function() {
+        document.getElementById('nmd-popup').classList.add('open');
+      }, 2500);
+    })();
+
+    // Close on backdrop click
+    document.getElementById('nmd-popup').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+
+    function closePopup() {
+      document.getElementById('nmd-popup').classList.remove('open');
+      localStorage.setItem('nmd_popup_dismissed', Date.now().toString());
+    }
+
+    async function submitPopupEmail(btn) {
+      const emailEl = document.getElementById('popup-email');
+      const email = emailEl.value.trim();
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        emailEl.classList.add('error'); emailEl.focus(); return;
+      }
+      emailEl.classList.remove('error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+            subject: 'New NMD Newsletter Subscriber',
+            email: email,
+            source: 'Homepage popup',
+            page: window.location.href
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          localStorage.setItem('nmd_email', email);
+          document.querySelector('.popup-form-row').style.display = 'none';
+          document.querySelector('.popup-no-thanks').style.display = 'none';
+          document.getElementById('popup-confirm').style.display = 'block';
+          setTimeout(function() { closePopup(); }, 2800);
+        } else {
+          btn.textContent = 'Try Again'; btn.disabled = false;
+        }
+      } catch(e) {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    }
+  </script>
 </body>
 </html>
