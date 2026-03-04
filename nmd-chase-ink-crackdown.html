@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chase Just Locked Down the Most Popular Business Card Stacking Strategy — NMD Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #f5f0e8; max-width: 720px; margin: 0 auto; padding: 0; }
+    header { background: #0d0d0d; padding: 28px 48px; border-bottom: 1px solid #1e1e1e; display: flex; align-items: center; justify-content: space-between; }
+    .logo-nmd { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 6px; color: #fff; text-transform: uppercase; text-decoration: none; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #444; text-transform: uppercase; margin-top: 2px; }
+    .back-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: #7c3aed; }
+
+    .article-wrap { padding: 56px 48px 80px; }
+
+    .section-label {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #7c3aed; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: #7c3aed; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900; line-height: 1.1;
+      color: #fff; margin-bottom: 24px;
+    }
+
+    .lede {
+      font-size: 19px; color: #a78bfa; line-height: 1.55;
+      border-left: 3px solid #7c3aed; padding-left: 18px;
+      margin-bottom: 40px;
+    }
+
+    /* ELITE STRATEGY — memo / intel style */
+    .intel-block {
+      background: #0a0a0a; border: 1px solid #1e1e1e;
+      padding: 24px 28px; margin: 28px 0;
+      position: relative;
+    }
+    .intel-block::before {
+      content: 'INTEL'; position: absolute; top: -1px; left: 24px;
+      font-size: 8px; letter-spacing: 4px; background: #7c3aed;
+      color: #fff; padding: 4px 10px;
+    }
+    .intel-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 10px; margin-top: 8px; }
+    .intel-body { font-size: 14px; color: #888; line-height: 1.7; }
+
+    /* BEFORE / AFTER */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+    .compare-card { background: #111; border: 1px solid #1e1e1e; padding: 22px 20px; }
+    .compare-card.before { border-top: 3px solid #34d399; }
+    .compare-card.after { border-top: 3px solid #ef4444; }
+    .compare-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+    .compare-card.before .compare-label { color: #34d399; }
+    .compare-card.after .compare-label { color: #ef4444; }
+    .compare-list { list-style: none; }
+    .compare-list li { font-size: 13px; color: #888; padding: 6px 0; border-bottom: 1px solid #1a1a1a; padding-left: 16px; position: relative; line-height: 1.5; }
+    .compare-card.before .compare-list li::before { content: '✓'; color: #34d399; position: absolute; left: 0; font-size: 11px; }
+    .compare-card.after .compare-list li::before { content: '✗'; color: #ef4444; position: absolute; left: 0; font-size: 11px; }
+    .compare-list li:last-child { border-bottom: none; }
+
+    p { font-size: 16px; line-height: 1.75; margin-bottom: 20px; color: #c8c3ba; }
+    strong { color: #fff; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; margin: 40px 0 16px; }
+    .divider { border: none; border-top: 1px solid #1e1e1e; margin: 36px 0; }
+
+    /* THE PLAYS */
+    .play-block {
+      margin: 20px 0;
+      border-left: 2px solid #7c3aed;
+      padding-left: 20px;
+    }
+    .play-number { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #7c3aed; margin-bottom: 8px; }
+    .play-title { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .play-body { font-size: 14px; color: #888; line-height: 1.65; }
+
+    /* SEQUENCE TABLE */
+    .sequence { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .sequence th { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #555; text-align: left; padding: 10px 12px; border-bottom: 1px solid #1e1e1e; }
+    .sequence td { font-size: 13px; color: #888; padding: 12px; border-bottom: 1px solid #111; line-height: 1.5; }
+    .sequence td:first-child { color: #a78bfa; font-weight: 600; }
+    .sequence tr:last-child td { border-bottom: none; }
+
+    .verdict-box {
+      background: linear-gradient(135deg, #0f0a1e 0%, #0d0d0d 100%);
+      border: 1px solid #7c3aed; padding: 28px 32px; margin: 36px 0;
+    }
+    .verdict-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #7c3aed; margin-bottom: 14px; }
+    .verdict-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; margin-bottom: 12px; }
+    .verdict-body { font-size: 14px; color: #888; line-height: 1.7; }
+
+    .cta-box { background: #111; border: 1px solid #7c3aed; padding: 28px 32px; margin: 40px 0; }
+    .cta-box strong { font-size: 17px; display: block; margin-bottom: 10px; color: #fff; }
+    .cta-box p { font-size: 14px; color: #888; margin: 0; }
+    .cta-box a { color: #a78bfa; }
+
+    .signoff { font-size: 15px; color: #666; margin-top: 40px; padding-top: 24px; border-top: 1px solid #1e1e1e; }
+    .signoff strong { color: #c9a84c; }
+
+    footer { background: #000; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #333; }
+    .footer-right { display: flex; gap: 24px; }
+    .footer-right a { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #333; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: #7c3aed; }
+
+    @media (max-width: 640px) {
+      header, .article-wrap, footer { padding-left: 24px; padding-right: 24px; }
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a href="index.html" class="logo-nmd">NMD</a>
+      <div class="logo-sub">No Money Down · Credit Intelligence</div>
+    </div>
+    <a href="index.html" class="back-link">← All Newsletters</a>
+  </header>
+
+  <div class="article-wrap">
+
+    <div class="section-label">Elite Strategy · Business Credit</div>
+
+    <h1>Chase just locked down the most popular business card stacking strategy. Here's the new play.</h1>
+
+    <div class="lede">
+      The Ink Cash + Ink Unlimited rotation — the go-to move for entrepreneurs stacking no-annual-fee business credit — just got shut down. Chase changed the rules. Here's exactly what changed, what the damage is, and what the new play looks like.
+    </div>
+
+    <div class="intel-block">
+      <div class="intel-title">What Chase Changed</div>
+      <div class="intel-body">Chase added new sign-up bonus restrictions across its Ink business card portfolio, eliminating the long-standing strategy of earning bonuses on both the Ink Business Cash and Ink Business Unlimited cards, or recycling back to them every 24 months. The new "family rules" block bonus eligibility across the entire Ink product line — not just individual cards.</div>
+    </div>
+
+    <p>For years, the Ink card strategy was one of the cleanest plays in business credit. Two no-annual-fee cards. Combined spend bonuses that were among the most accessible in the market. And a 24-month reset that let you cycle back through and pick up new bonuses. Smart business owners were using this to stack Chase Ultimate Rewards points and build real credit limits — all with zero annual fee drag.</p>
+
+    <p><strong>That play is done.</strong></p>
+
+    <h2>Before and After — what the strategy looked like.</h2>
+
+    <div class="compare-grid">
+      <div class="compare-card before">
+        <div class="compare-label">Old Play</div>
+        <ul class="compare-list">
+          <li>Apply for Ink Cash — earn welcome bonus</li>
+          <li>Apply for Ink Unlimited — earn second bonus</li>
+          <li>Wait 24 months — recycle back to both</li>
+          <li>Stack Ultimate Rewards points indefinitely</li>
+          <li>Build two separate credit limits on business EIN</li>
+          <li>Zero annual fees on either card</li>
+        </ul>
+      </div>
+      <div class="compare-card after">
+        <div class="compare-label">New Rules</div>
+        <ul class="compare-list">
+          <li>Ink family bonus rules block cross-card eligibility</li>
+          <li>Hold one Ink card = blocks bonus on other Ink cards</li>
+          <li>24-month cycle no longer resets the block</li>
+          <li>Cannot earn bonus on Ink Cash if you hold Ink Unlimited (and vice versa)</li>
+          <li>New applications still possible — bonuses are blocked</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Why Chase did this.</h2>
+
+    <p>Chase has been watching the stacking community for years. The Ink strategy wasn't a secret — it was openly discussed in every credit forum. When a play gets that mainstream, issuers adjust. Chase has done this before with the 5/24 rule on personal cards. Now the Ink line gets the same treatment.</p>
+
+    <div class="intel-block">
+      <div class="intel-title">The Capital One Pattern</div>
+      <div class="intel-body">Capital One simultaneously tightened bonus eligibility on Venture-branded cards with a similar "family rule." This is an industry-wide signal: issuers are moving to prevent bonus stacking across product families. Expect Amex and Citi to follow with additional restrictions on their business lines in 2026.</div>
+    </div>
+
+    <p>The cards themselves are still valuable. The credit limits still build. The Chase 5/24 rule still doesn't count business cards toward your personal card application count. What's gone is the <em>free money on demand</em> part — not the credit-building utility.</p>
+
+    <h2>The new plays for business credit in 2026.</h2>
+
+    <div class="play-block">
+      <div class="play-number">Play 01</div>
+      <div class="play-title">Shift to Amex Business — the family rules don't cross issuers.</div>
+      <div class="play-body">Amex Blue Business Cash and Amex Blue Business Plus both offer strong welcome bonuses and don't report to personal credit bureaus. With Chase's Ink now locked, Amex becomes the primary no-annual-fee business card target. Amex's own 1-in-90-day rule applies but the product families are separate — Amex Business Gold and Business Platinum still have their own bonus tracks.</div>
+    </div>
+
+    <div class="play-block">
+      <div class="play-number">Play 02</div>
+      <div class="play-title">Use the Ink cards for credit limit — not the bonus.</div>
+      <div class="play-body">Even without the stacking bonus, Ink Cash and Ink Unlimited are legitimate business credit tools. High limits. No annual fee. Doesn't count toward 5/24 once approved. If you don't hold either card, you can still get one — you just won't get the bonus if you're blocked by the family rule. The credit line still counts on your business file.</div>
+    </div>
+
+    <div class="play-block">
+      <div class="play-number">Play 03</div>
+      <div class="play-title">Prioritize net 30 vendors + D&amp;B over card stacking right now.</div>
+      <div class="play-body">Business card stacking has always been a credit limit play, not a credit score play. Your D&amp;B PAYDEX and Experian Business Intelliscore are what lenders check for funding. While the card landscape shifts, pivot to building your business bureau files through vendor accounts. Five net 30 accounts reporting on-time payments does more for your fundability than three business cards with blocked bonuses.</div>
+    </div>
+
+    <div class="play-block">
+      <div class="play-number">Play 04</div>
+      <div class="play-title">Bank of America and US Bank business cards — underutilized, still open.</div>
+      <div class="play-body">The community has been so Chase-focused that BofA Business Advantage and US Bank Business cards are relatively uncrowded. Both have their own bonus structures, both report to business bureaus, and neither has implemented Ink-style family restrictions yet. This window won't last forever.</div>
+    </div>
+
+    <h2>The new sequence for business card building.</h2>
+
+    <table class="sequence">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Card / Product</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1st</td>
+          <td>Amex Blue Business Cash or Blue Business Plus</td>
+          <td>Strong limit, no annual fee, separate Amex family — bonus still accessible</td>
+        </tr>
+        <tr>
+          <td>2nd</td>
+          <td>Chase Ink (one card — Cash or Unlimited)</td>
+          <td>Credit limit value even without the stacking bonus — keeps business file active</td>
+        </tr>
+        <tr>
+          <td>3rd</td>
+          <td>BofA Business Advantage or US Bank Business</td>
+          <td>Diversify across issuers — spreads risk and builds multi-bureau business profile</td>
+        </tr>
+        <tr>
+          <td>4th</td>
+          <td>Amex Business Gold or Platinum (if high spend)</td>
+          <td>Annual fee justified by rewards. Large limit. Strong signal to lenders.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="verdict-box">
+      <div class="verdict-label">The Verdict</div>
+      <div class="verdict-title">Chase changed the game. The game didn't end.</div>
+      <div class="verdict-body">Business credit card stacking was always about building credit limits and establishing business payment history — not just the welcome bonus. That mission hasn't changed. The tactics shift. The players who adapt fastest are the ones still getting approved while everyone else is complaining about the new rules.</div>
+    </div>
+
+    <div class="cta-box">
+      <strong>Need the full business credit build sequence for 2026?</strong>
+      <p>Full breakdown on EIN setup, vendor accounts, and business card strategy is in the community: <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Join Telegram ↗</a><br>
+      Personal credit cleanup to prep your FICO SBSS: <a href="https://credit-dispute-colle-6tyb.bolt.host/" target="_blank">Dispute Tool ↗</a></p>
+    </div>
+
+    <div class="signoff">
+      Stay locked in — <strong>Za | NMD ZAZA 🐐</strong>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAYDEX 80 — The Business Credit Score Lenders Actually Check Before Your FICO — NMD Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #f5f0e8; max-width: 720px; margin: 0 auto; padding: 0; }
+    header { background: #0d0d0d; padding: 28px 48px; border-bottom: 1px solid #1e1e1e; display: flex; align-items: center; justify-content: space-between; }
+    .logo-nmd { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 6px; color: #fff; text-transform: uppercase; text-decoration: none; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #444; text-transform: uppercase; margin-top: 2px; }
+    .back-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: #c9a84c; }
+
+    .article-wrap { padding: 56px 48px 80px; }
+
+    .section-label {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: #c9a84c; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900; line-height: 1.1;
+      color: #fff; margin-bottom: 24px;
+    }
+
+    .lede {
+      font-size: 19px; color: #c9a84c; line-height: 1.55;
+      border-left: 3px solid #c9a84c; padding-left: 18px;
+      margin-bottom: 40px;
+    }
+
+    p { font-size: 16px; line-height: 1.75; margin-bottom: 20px; color: #c8c3ba; }
+    strong { color: #fff; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: #fff; margin: 44px 0 16px; }
+    h3 { font-size: 18px; font-weight: 600; color: #fff; margin: 28px 0 12px; }
+    .divider { border: none; border-top: 1px solid #1e1e1e; margin: 36px 0; }
+
+    /* CREDIT GUIDE — definition boxes, score scale, explainer breakdowns */
+    .definition {
+      background: #0a0a0a; border: 1px solid #2a2a2a;
+      border-left: 3px solid #c9a84c; padding: 20px 24px; margin: 24px 0;
+    }
+    .definition-term { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; margin-bottom: 8px; }
+    .definition-body { font-size: 15px; color: #c8c3ba; line-height: 1.65; }
+
+    /* SCORE SCALE */
+    .score-scale { margin: 32px 0; }
+    .scale-bar-wrap { position: relative; height: 12px; background: #1a1a1a; border-radius: 2px; margin: 12px 0 28px; overflow: visible; }
+    .scale-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #ef4444 0%, #f0b429 40%, #34d399 70%, #c9a84c 100%); }
+    .scale-labels { display: flex; justify-content: space-between; margin-top: -4px; }
+    .scale-label-item { text-align: center; }
+    .scale-num { font-size: 13px; font-weight: 700; }
+    .scale-desc { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #555; margin-top: 3px; }
+
+    .score-row { display: grid; grid-template-columns: 80px 1fr; gap: 16px; align-items: start; padding: 16px 0; border-bottom: 1px solid #111; }
+    .score-row:last-child { border-bottom: none; }
+    .score-badge { background: #111; border: 1px solid #1e1e1e; padding: 12px 8px; text-align: center; border-radius: 2px; }
+    .score-badge-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; }
+    .score-badge-label { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-top: 4px; }
+    .score-meaning { font-size: 14px; color: #888; line-height: 1.6; }
+    .score-meaning strong { color: #fff; font-size: 15px; display: block; margin-bottom: 4px; }
+
+    /* SCORE MODELS COMPARISON */
+    .models-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 28px 0; }
+    .model-card { background: #111; border: 1px solid #1e1e1e; padding: 20px 16px; }
+    .model-name { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; margin-bottom: 8px; }
+    .model-range { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff; }
+    .model-bureau { font-size: 11px; color: #555; margin-top: 4px; }
+    .model-focus { font-size: 12px; color: #777; margin-top: 10px; line-height: 1.5; }
+
+    /* STEP BY STEP */
+    .steps { list-style: none; margin: 24px 0; }
+    .step-item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #111; align-items: flex-start; }
+    .step-item:last-child { border-bottom: none; }
+    .step-icon { width: 36px; height: 36px; background: #c9a84c; color: #000; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; border-radius: 2px; }
+    .step-content { flex: 1; }
+    .step-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .step-body { font-size: 13px; color: #777; line-height: 1.65; }
+    .step-note { font-size: 11px; color: #c9a84c; margin-top: 6px; letter-spacing: 1px; }
+
+    /* TIMELINE */
+    .timeline { margin: 28px 0; }
+    .timeline-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #111; align-items: flex-start; }
+    .timeline-row:last-child { border-bottom: none; }
+    .timeline-month { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; width: 72px; flex-shrink: 0; padding-top: 3px; }
+    .timeline-action { font-size: 14px; color: #888; line-height: 1.6; }
+    .timeline-action strong { color: #fff; }
+
+    .callout {
+      background: #111; border-left: 3px solid #c9a84c;
+      padding: 16px 20px; margin: 24px 0;
+      font-size: 15px; color: #c8c3ba; line-height: 1.65; font-style: italic;
+    }
+
+    .cta-box { background: #111; border: 1px solid #c9a84c; padding: 28px 32px; margin: 40px 0; }
+    .cta-box strong { font-size: 17px; display: block; margin-bottom: 10px; color: #fff; }
+    .cta-box p { font-size: 14px; color: #888; margin: 0; }
+    .cta-box a { color: #c9a84c; }
+
+    .signoff { font-size: 15px; color: #666; margin-top: 40px; padding-top: 24px; border-top: 1px solid #1e1e1e; }
+    .signoff strong { color: #c9a84c; }
+
+    footer { background: #000; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #333; }
+    .footer-right { display: flex; gap: 24px; }
+    .footer-right a { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #333; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: #c9a84c; }
+
+    @media (max-width: 640px) {
+      header, .article-wrap, footer { padding-left: 24px; padding-right: 24px; }
+      .models-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a href="index.html" class="logo-nmd">NMD</a>
+      <div class="logo-sub">No Money Down · Credit Intelligence</div>
+    </div>
+    <a href="index.html" class="back-link">← All Newsletters</a>
+  </header>
+
+  <div class="article-wrap">
+
+    <div class="section-label">Business Credit Guide · Scoring</div>
+
+    <h1>PAYDEX 80 — the business credit score lenders check before they ever look at your FICO.</h1>
+
+    <div class="lede">
+      Most business owners don't know their PAYDEX score exists. The lenders they're applying to do. Here's how the entire business credit scoring system works — and exactly how to build the numbers that actually get you approved.
+    </div>
+
+    <p>When you apply for a business loan, lenders aren't just pulling your personal FICO. They're running your <strong>EIN</strong> through a completely separate credit system — one most entrepreneurs have never heard of. Three bureaus. Three different scoring models. And a combined score that can quietly kill your application before a human ever reviews it.</p>
+
+    <p>Understanding this system isn't optional. It's the difference between a funded business and a pile of rejection letters.</p>
+
+    <h2>The three scoring models you need to know.</h2>
+
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="model-name">D&amp;B PAYDEX</div>
+        <div class="model-range">1–100</div>
+        <div class="model-bureau">Dun &amp; Bradstreet</div>
+        <div class="model-focus">Pure payment behavior. Did you pay on time, early, or late? Nothing else.</div>
+      </div>
+      <div class="model-card">
+        <div class="model-name">Intelliscore Plus</div>
+        <div class="model-range">1–100</div>
+        <div class="model-bureau">Experian Business</div>
+        <div class="model-focus">Payment history + business age + industry risk + financial stress indicators.</div>
+      </div>
+      <div class="model-card">
+        <div class="model-name">FICO SBSS</div>
+        <div class="model-range">0–300</div>
+        <div class="model-bureau">Blended Score</div>
+        <div class="model-focus">Combines personal FICO + D&amp;B + Experian Business into one SBA gateway score.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>PAYDEX — the score that runs everything.</h2>
+
+    <div class="definition">
+      <div class="definition-term">What Is PAYDEX?</div>
+      <div class="definition-body">The Dun &amp; Bradstreet PAYDEX score measures how quickly your business pays its bills. It runs on a 1–100 scale and is calculated entirely from payment experiences reported by your vendors. Unlike your personal FICO, it does not factor in utilization, account age, or inquiries. It is solely: did you pay, and when?</div>
+    </div>
+
+    <h3>What every score level actually means.</h3>
+
+    <div class="steps">
+      <div class="score-row">
+        <div class="score-badge">
+          <div class="score-badge-num" style="color:#ef4444;">1–49</div>
+          <div class="score-badge-label">Danger</div>
+        </div>
+        <div class="score-meaning">
+          <strong>Severely late payments — 30 to 120+ days past due</strong>
+          This range signals a business that doesn't pay its bills. No legitimate lender will approve business financing with a PAYDEX in this range. Vendor accounts will be denied or require cash up front.
+        </div>
+      </div>
+      <div class="score-row">
+        <div class="score-badge">
+          <div class="score-badge-num" style="color:#f0b429;">50–79</div>
+          <div class="score-badge-label">Risky</div>
+        </div>
+        <div class="score-meaning">
+          <strong>Slow-pay range — late but paying eventually</strong>
+          This range tells lenders your business pays its bills, but slowly. Some vendors will extend terms. Most institutional lenders will not. This is the "we'll review it further" range — meaning they'll look at everything else twice as hard.
+        </div>
+      </div>
+      <div class="score-row">
+        <div class="score-badge">
+          <div class="score-badge-num" style="color:#34d399;">80</div>
+          <div class="score-badge-label">On Time</div>
+        </div>
+        <div class="score-meaning">
+          <strong>Payments made exactly on the due date — the standard target</strong>
+          A PAYDEX of 80 is the baseline target. It means your business consistently pays invoices on their due date. This is considered a strong score and is the minimum you should be working toward before approaching lenders.
+        </div>
+      </div>
+      <div class="score-row">
+        <div class="score-badge">
+          <div class="score-badge-num" style="color:#c9a84c;">90–100</div>
+          <div class="score-badge-label">Early Pay</div>
+        </div>
+        <div class="score-meaning">
+          <strong>Payments made ahead of the due date — the elite range</strong>
+          Scores above 80 reflect early payment. A 90 means you typically pay 15 days early. A 100 means you're paying 30+ days ahead of terms. This range signals exceptional financial management and opens doors to net 60 and net 90 terms with major vendors.
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>How to build your PAYDEX from zero.</h2>
+
+    <p>Your business doesn't have a PAYDEX score until vendors report payment experiences to Dun &amp; Bradstreet. <strong>A DUNS number is not enough.</strong> You need tradelines — vendors who extend credit to your business and report how you pay them.</p>
+
+    <div class="callout">
+      "The most common mistake: business owners get their EIN, open a DUNS number, and then wonder why they can't get approved anywhere. You don't have a score — you have an empty file. An empty file is not the same as a clean file."
+    </div>
+
+    <ol class="steps">
+      <li class="step-item">
+        <div class="step-icon">1</div>
+        <div class="step-content">
+          <div class="step-title">Get your DUNS number — for free.</div>
+          <div class="step-body">Go directly to Dun &amp; Bradstreet and register for a DUNS number. It's free. Skip any paid "expedited" services — you don't need them. Your DUNS number is your business's credit identity with D&amp;B. Every vendor who reports payment experiences with your company will attach them to this number.</div>
+          <div class="step-note">→ dnb.com/duns-number.html</div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-icon">2</div>
+        <div class="step-content">
+          <div class="step-title">Open 3–5 net 30 vendor accounts that report to D&amp;B.</div>
+          <div class="step-body">Not every vendor reports. You need ones that specifically report payment data to D&amp;B and/or Experian Business. Quill, Uline, Grainger, and Crown Office Supplies are widely recognized vendors that report. Open accounts with each, make small purchases, and pay early — 10 to 15 days before the invoice due date to maximize your score.</div>
+          <div class="step-note">→ Target 5 reporting tradelines as your first milestone</div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-icon">3</div>
+        <div class="step-content">
+          <div class="step-title">Pay invoices early — not just on time.</div>
+          <div class="step-body">An 80 is the target, but the scoring math rewards early payment. If you pay net 30 invoices on day 15, you'll build toward 85–90 range faster. The goal is a PAYDEX in the 80s before you apply for any significant financing. Three to six months of on-time or early payments can get a new file there if you start right.</div>
+          <div class="step-note">→ Paying early = higher PAYDEX = better terms from vendors AND lenders</div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-icon">4</div>
+        <div class="step-content">
+          <div class="step-title">Monitor your D&amp;B report — errors happen.</div>
+          <div class="step-body">D&amp;B allows business owners to access and dispute their credit file. Check it regularly. Misreported payment dates, wrong vendor account statuses, or data linked to the wrong DUNS number are all common issues — and all correctable if you catch them early. One vendor reporting you as 30 days late when you paid on time can knock your PAYDEX 15 points.</div>
+          <div class="step-note">→ Check your D&B file at least quarterly</div>
+        </div>
+      </li>
+    </ol>
+
+    <hr class="divider">
+
+    <h2>The FICO SBSS — where personal and business credit merge.</h2>
+
+    <p>The FICO Small Business Scoring Service (SBSS) runs on a 0–300 scale. It takes your personal credit score, your D&amp;B file, your Experian Business file, and your Equifax Business data — and blends all of it into one number that SBA lenders were previously required to screen against.</p>
+
+    <p>As of March 1, 2026, the SBA dropped the mandatory SBSS requirement for 7(a) loans under $350,000. But most lenders will still run it. <strong>A score near 160–165 is where you want to be.</strong></p>
+
+    <div class="callout">
+      The SBSS is why your personal credit still matters for business funding. A perfect PAYDEX with a 580 personal FICO is still going to struggle at institutional lenders. Both sides of the file need to be clean.
+    </div>
+
+    <h2>Your 90-day build timeline.</h2>
+
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-month">Week 1–2</div>
+        <div class="timeline-action"><strong>Foundation setup.</strong> Get DUNS number. Verify LLC is active with state. Open dedicated business checking account. Make sure personal FICO is being worked on simultaneously.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">Week 3–4</div>
+        <div class="timeline-action"><strong>First vendor accounts.</strong> Apply to 3 net 30 vendors that report to D&amp;B. Make small purchases. Pay immediately if cash allows — or calendar the early payment date.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">Days 30–60</div>
+        <div class="timeline-action"><strong>First reporting cycle.</strong> Vendors typically report once per month. Your first PAYDEX score will appear 30–45 days after your first payment is processed and reported. Check your D&amp;B file to verify the data landed correctly.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">Days 60–90</div>
+        <div class="timeline-action"><strong>Expand and reinforce.</strong> Add 2 more vendor accounts. Verify all 5 are reporting. Continue early payment on all accounts. Your PAYDEX should be building toward 80+ by day 90 with clean, early payment history across all tradelines.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">Day 90+</div>
+        <div class="timeline-action"><strong>Approach lenders.</strong> With a PAYDEX of 80+, 5 vendor tradelines, a dedicated business account with 90 days of history, and your personal FICO cleaned up — you now have a fundable business profile. Apply for business credit cards and then institutional financing.</div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <strong>Start with your personal FICO — it feeds your SBSS score.</strong>
+      <p>Clean your personal credit file: <a href="https://credit-dispute-colle-6tyb.bolt.host/" target="_blank">credit-dispute-colle-6tyb.bolt.host</a><br>
+      Full business credit build walkthrough in the community: <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Join Telegram ↗</a></p>
+    </div>
+
+    <div class="signoff">
+      Stay locked in — <strong>Za | NMD ZAZA 🐐</strong>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
+    </div>
+  </footer>
+</body>
+</html>
