@@ -154,6 +154,54 @@
     }
     .output-btn:hover { border-color: #111; color: #111; }
 
+    /* UPSELL SECTION */
+    .upsell-section {
+      background: #111; padding: 72px 48px; border-top: 1px solid #222;
+    }
+    .upsell-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #555; margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .upsell-tag::before { content: ''; display: block; width: 28px; height: 2px; background: #c9a84c; }
+    .upsell-headline {
+      font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 16px;
+    }
+    .upsell-headline em { font-style: italic; color: #c9a84c; }
+    .upsell-sub { font-size: 14px; color: #666; max-width: 480px; line-height: 1.7; margin-bottom: 52px; }
+    .upsell-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; }
+    .upsell-card {
+      background: #1a1a1a; border: 1px solid #2a2a2a; padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 0; transition: border-color 0.2s;
+    }
+    .upsell-card:hover { border-color: #444; }
+    .upsell-card-tag {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: #555; margin-bottom: 20px;
+    }
+    .upsell-card h3 {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.2;
+    }
+    .upsell-card p { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 28px; flex: 1; }
+    .upsell-card-price { font-size: 32px; font-weight: 700; color: #c9a84c; margin-bottom: 24px; }
+    .upsell-card-price span { font-size: 14px; color: #555; font-weight: 400; }
+    .upsell-card-includes { margin-bottom: 28px; }
+    .upsell-card-includes li {
+      font-size: 12px; color: #666; line-height: 1.8; list-style: none;
+      padding-left: 16px; position: relative;
+    }
+    .upsell-card-includes li::before { content: '✓'; position: absolute; left: 0; color: #c9a84c; font-weight: 700; }
+    .upsell-btn {
+      display: block; text-align: center; background: #fff; color: #111;
+      text-decoration: none; padding: 14px 28px; font-size: 10px;
+      letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: all 0.2s; border: 2px solid transparent; margin-top: auto;
+    }
+    .upsell-btn:hover { background: transparent; color: #fff; border-color: #fff; }
+    .upsell-btn.gold { background: #c9a84c; color: #111; }
+    .upsell-btn.gold:hover { background: transparent; color: #c9a84c; border-color: #c9a84c; }
+
     /* FOOTER */
     footer {
       background: #0d0d0d; padding: 32px 48px;
@@ -168,11 +216,12 @@
     .footer-links a:hover { color: #c9a84c; }
 
     @media (max-width: 768px) {
-      header, .tools-hero, .claude-banner, .tab-bar, .tool-panel, footer { padding-left: 24px; padding-right: 24px; }
+      header, .tools-hero, .claude-banner, .tab-bar, .tool-panel, .upsell-section, footer { padding-left: 24px; padding-right: 24px; }
       .claude-banner { flex-direction: column; align-items: flex-start; gap: 16px; }
       .claude-banner-btn { align-self: stretch; text-align: center; }
       .tool-form { grid-template-columns: 1fr; }
       .tab { padding: 16px 20px; }
+      .upsell-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -528,6 +577,47 @@
         <button class="output-btn" onclick="copyPrompt('newsletter', this)">Copy Again</button>
         <button class="output-btn" onclick="clearStepBox('newsletter')">Dismiss</button>
       </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ UPSELL -->
+  <div class="upsell-section">
+    <div class="upsell-tag">NMD Solutions</div>
+    <div class="upsell-headline">Want to build<br><em>your own</em>?</div>
+    <p class="upsell-sub">You just used the tools. Now learn how they were built — and build yours. No coding. Just Claude and a clear vision.</p>
+    <div class="upsell-cards">
+
+      <div class="upsell-card">
+        <div class="upsell-card-tag">Start Here</div>
+        <h3>The AI Plugin Blueprint</h3>
+        <p>Build a working, branded AI tool page in one afternoon. The exact template, the prompt formula, and a step-by-step guide — from zero to live.</p>
+        <div class="upsell-card-price">$47 <span>one-time</span></div>
+        <ul class="upsell-card-includes">
+          <li>Full PDF guide — start to finish</li>
+          <li>The NMD template HTML file</li>
+          <li>5 ready-to-adapt prompt systems</li>
+          <li>GitHub Pages deploy walkthrough</li>
+          <li>Gumroad connection guide</li>
+        </ul>
+        <a href="https://nmdzaza.gumroad.com/l/pmtqt" target="_blank" class="upsell-btn">Get the Blueprint &#8594;</a>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-card-tag">Full System</div>
+        <h3>Vibe Build with NMD</h3>
+        <p>The complete system — how to build AI-powered business tools, package them, and sell them. From idea to income, no code required.</p>
+        <div class="upsell-card-price">$197 <span>one-time</span></div>
+        <ul class="upsell-card-includes">
+          <li>Full Vibe Build guide (PDF)</li>
+          <li>AI Plugin Blueprint included free</li>
+          <li>The NMD template HTML file</li>
+          <li>All 5 prompt systems</li>
+          <li>Gumroad product strategy guide</li>
+          <li>Lifetime updates</li>
+        </ul>
+        <a href="https://nmdzaza.gumroad.com/l/yovefh" target="_blank" class="upsell-btn gold">Get Vibe Build &#8594;</a>
+      </div>
+
     </div>
   </div>
 
