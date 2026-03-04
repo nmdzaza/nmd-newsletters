@@ -16,74 +16,74 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K7VFHF48M5');</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{background:#0d0d0d;color:#e8e4df;font-family:Inter,sans-serif;min-height:100vh;}
+    body{background:#e8e4df;color:#111;font-family:Inter,sans-serif;min-height:100vh;}
 
-    header{background:#0d0d0d;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1a1a1a;position:sticky;top:0;z-index:100;}
+    header{background:#0d0d0d;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #222;position:sticky;top:0;z-index:100;}
     .logo{display:flex;flex-direction:column;gap:2px;text-decoration:none;}
     .logo-nmd{font-weight:700;font-size:24px;letter-spacing:6px;color:#fff;text-transform:uppercase;}
-    .logo-sub{font-size:9px;letter-spacing:4px;color:#555;text-transform:uppercase;}
-    .header-nav a{color:#555;text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-left:28px;transition:color 0.2s;}
+    .logo-sub{font-size:9px;letter-spacing:4px;color:#888;text-transform:uppercase;}
+    .header-nav a{color:#888;text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-left:28px;transition:color 0.2s;}
     .header-nav a:hover,.header-nav a.active{color:#c9a84c;}
 
     /* HERO */
-    .hero{padding:80px 48px 64px;border-bottom:1px solid #1a1a1a;}
+    .hero{padding:80px 48px 64px;border-bottom:1px solid #d0ccc6;}
     .hero-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
     .hero-tag::before{content:'';display:block;width:32px;height:2px;background:#c9a84c;}
-    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:900;color:#111;line-height:1.1;margin-bottom:20px;}
     .hero h1 span{color:#c9a84c;}
-    .hero-sub{font-size:17px;color:#666;line-height:1.7;max-width:620px;margin-bottom:36px;}
+    .hero-sub{font-size:17px;color:#555;line-height:1.7;max-width:620px;margin-bottom:36px;}
     .hero-cta{display:inline-flex;align-items:center;gap:12px;}
     .btn-gold{background:#c9a84c;color:#0d0d0d;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:opacity 0.2s;}
     .btn-gold:hover{opacity:0.85;}
-    .btn-ghost{background:transparent;color:#c9a84c;border:1px solid #c9a84c33;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;text-decoration:none;transition:all 0.2s;}
+    .btn-ghost{background:transparent;color:#c9a84c;border:1px solid #c9a84c66;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;text-decoration:none;transition:all 0.2s;}
     .btn-ghost:hover{border-color:#c9a84c;}
 
     /* PLUGIN SECTIONS */
-    .plugin-section{border-bottom:1px solid #1a1a1a;}
+    .plugin-section{border-bottom:1px solid #d0ccc6;}
     .plugin-hero{display:grid;grid-template-columns:1fr 1fr;min-height:400px;}
-    .plugin-info{padding:64px 48px;display:flex;flex-direction:column;justify-content:space-between;}
-    .plugin-visual{background:#080808;border-left:1px solid #1a1a1a;padding:48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
-    .plugin-num{position:absolute;right:-20px;top:-20px;font-size:180px;font-weight:900;color:#c9a84c08;font-family:'Playfair Display',serif;line-height:1;pointer-events:none;}
+    .plugin-info{padding:64px 48px;display:flex;flex-direction:column;justify-content:space-between;background:#e8e4df;}
+    .plugin-visual{background:#0d0d0d;border-left:1px solid #222;padding:48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+    .plugin-num{position:absolute;right:-20px;top:-20px;font-size:180px;font-weight:900;color:#c9a84c0d;font-family:'Playfair Display',serif;line-height:1;pointer-events:none;}
 
     .plugin-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:16px;}
-    .plugin-name{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#333;font-weight:700;margin-bottom:8px;font-family:'Courier New',monospace;}
-    .plugin-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.15;}
-    .plugin-desc{font-size:15px;color:#666;line-height:1.7;margin-bottom:28px;}
+    .plugin-name{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:8px;font-family:'Courier New',monospace;}
+    .plugin-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:900;color:#111;margin-bottom:16px;line-height:1.15;}
+    .plugin-desc{font-size:15px;color:#555;line-height:1.7;margin-bottom:28px;}
 
     .skills-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
-    .skill-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#555;border:1px solid #222;padding:5px 10px;}
+    .skill-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#777;border:1px solid #c8c4be;padding:5px 10px;}
 
-    .install-block{background:#060606;border:1px solid #1e1e1e;border-left:3px solid #c9a84c;padding:16px 20px;margin-bottom:16px;}
-    .install-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+    .install-block{background:#0d0d0d;border:1px solid #222;border-left:3px solid #c9a84c;padding:16px 20px;margin-bottom:16px;}
+    .install-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:8px;}
     .install-cmd{font-family:'Courier New',monospace;font-size:13px;color:#c9a84c;word-break:break-all;}
-    .install-cmd .dim{color:#333;}
+    .install-cmd .dim{color:#555;}
 
     .feature-list{list-style:none;}
-    .feature-list li{font-size:13px;color:#555;padding:8px 0;border-bottom:1px solid #111;display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+    .feature-list li{font-size:13px;color:#aaa;padding:8px 0;border-bottom:1px solid #1a1a1a;display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
     .feature-list li::before{content:'→';color:#c9a84c;flex-shrink:0;margin-top:1px;}
 
     .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
     .badge{font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:5px 10px;font-weight:700;}
-    .badge.green{color:#4caf74;border:1px solid #4caf7433;background:#4caf7408;}
-    .badge.gold{color:#c9a84c;border:1px solid #c9a84c33;background:#c9a84c08;}
-    .badge.gray{color:#444;border:1px solid #222;}
+    .badge.green{color:#2e7d4f;border:1px solid #2e7d4f44;background:#2e7d4f0d;}
+    .badge.gold{color:#c9a84c;border:1px solid #c9a84c55;background:#c9a84c0d;}
+    .badge.gray{color:#777;border:1px solid #ccc;}
 
     /* COMING SOON PLUGIN */
     .plugin-coming{opacity:0.5;}
 
     /* INSTALL SECTION */
     .install-section{padding:80px 48px;max-width:800px;}
-    .section-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#444;font-weight:700;margin-bottom:24px;}
-    .install-section h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:12px;}
-    .install-section p{font-size:15px;color:#666;margin-bottom:36px;line-height:1.7;}
+    .section-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:24px;}
+    .install-section h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#111;margin-bottom:12px;}
+    .install-section p{font-size:15px;color:#555;margin-bottom:36px;line-height:1.7;}
 
-    .big-cmd{background:#060606;border:1px solid #1e1e1e;border-left:4px solid #c9a84c;padding:20px 24px;margin-bottom:16px;}
-    .big-cmd .comment{font-family:'Courier New',monospace;font-size:12px;color:#333;margin-bottom:8px;}
+    .big-cmd{background:#0d0d0d;border:1px solid #222;border-left:4px solid #c9a84c;padding:20px 24px;margin-bottom:16px;}
+    .big-cmd .comment{font-family:'Courier New',monospace;font-size:12px;color:#555;margin-bottom:8px;}
     .big-cmd .cmd{font-family:'Courier New',monospace;font-size:15px;color:#c9a84c;word-break:break-all;}
 
-    footer{padding:40px 48px;border-top:1px solid #1a1a1a;display:flex;align-items:center;justify-content:space-between;}
+    footer{background:#0d0d0d;padding:40px 48px;border-top:1px solid #222;display:flex;align-items:center;justify-content:space-between;}
     .footer-brand{font-size:20px;font-weight:700;letter-spacing:6px;color:#fff;}
-    .footer-right{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#333;}
+    .footer-right{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;}
 
     @media(max-width:900px){
       .plugin-hero{grid-template-columns:1fr;}
@@ -233,7 +233,7 @@
         </div>
         <div class="install-block">
           <div class="install-label">Notify me when it drops</div>
-          <div class="install-cmd" style="color:#333;">— In development —</div>
+          <div class="install-cmd" style="color:#555;">— In development —</div>
         </div>
         <div class="badge-row">
           <span class="badge gray">In Development</span>
