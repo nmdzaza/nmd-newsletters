@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMD Plugins — AI Tools for Claude Code</title>
+  <meta name="description" content="Download NMD AI plugins for Claude Code. Car sales suite, social media engine, credit repair tools. Real automation — not just prompts.">
+  <meta property="og:title" content="NMD Plugins — Real AI Tools for Claude Code">
+  <meta property="og:description" content="Car sales AI, social media engine, credit repair tools. Install in one command. Runs on your machine.">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-plugins.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K7VFHF48M5');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#0d0d0d;color:#e8e4df;font-family:Inter,sans-serif;min-height:100vh;}
+
+    header{background:#0d0d0d;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1a1a1a;position:sticky;top:0;z-index:100;}
+    .logo{display:flex;flex-direction:column;gap:2px;text-decoration:none;}
+    .logo-nmd{font-weight:700;font-size:24px;letter-spacing:6px;color:#fff;text-transform:uppercase;}
+    .logo-sub{font-size:9px;letter-spacing:4px;color:#555;text-transform:uppercase;}
+    .header-nav a{color:#555;text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-left:28px;transition:color 0.2s;}
+    .header-nav a:hover,.header-nav a.active{color:#c9a84c;}
+
+    /* HERO */
+    .hero{padding:80px 48px 64px;border-bottom:1px solid #1a1a1a;}
+    .hero-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .hero-tag::before{content:'';display:block;width:32px;height:2px;background:#c9a84c;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
+    .hero h1 span{color:#c9a84c;}
+    .hero-sub{font-size:17px;color:#666;line-height:1.7;max-width:620px;margin-bottom:36px;}
+    .hero-cta{display:inline-flex;align-items:center;gap:12px;}
+    .btn-gold{background:#c9a84c;color:#0d0d0d;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:opacity 0.2s;}
+    .btn-gold:hover{opacity:0.85;}
+    .btn-ghost{background:transparent;color:#c9a84c;border:1px solid #c9a84c33;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;text-decoration:none;transition:all 0.2s;}
+    .btn-ghost:hover{border-color:#c9a84c;}
+
+    /* PLUGIN SECTIONS */
+    .plugin-section{border-bottom:1px solid #1a1a1a;}
+    .plugin-hero{display:grid;grid-template-columns:1fr 1fr;min-height:400px;}
+    .plugin-info{padding:64px 48px;display:flex;flex-direction:column;justify-content:space-between;}
+    .plugin-visual{background:#080808;border-left:1px solid #1a1a1a;padding:48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+    .plugin-num{position:absolute;right:-20px;top:-20px;font-size:180px;font-weight:900;color:#c9a84c08;font-family:'Playfair Display',serif;line-height:1;pointer-events:none;}
+
+    .plugin-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:16px;}
+    .plugin-name{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#333;font-weight:700;margin-bottom:8px;font-family:'Courier New',monospace;}
+    .plugin-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.15;}
+    .plugin-desc{font-size:15px;color:#666;line-height:1.7;margin-bottom:28px;}
+
+    .skills-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+    .skill-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#555;border:1px solid #222;padding:5px 10px;}
+
+    .install-block{background:#060606;border:1px solid #1e1e1e;border-left:3px solid #c9a84c;padding:16px 20px;margin-bottom:16px;}
+    .install-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+    .install-cmd{font-family:'Courier New',monospace;font-size:13px;color:#c9a84c;word-break:break-all;}
+    .install-cmd .dim{color:#333;}
+
+    .feature-list{list-style:none;}
+    .feature-list li{font-size:13px;color:#555;padding:8px 0;border-bottom:1px solid #111;display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+    .feature-list li::before{content:'→';color:#c9a84c;flex-shrink:0;margin-top:1px;}
+
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+    .badge{font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:5px 10px;font-weight:700;}
+    .badge.green{color:#4caf74;border:1px solid #4caf7433;background:#4caf7408;}
+    .badge.gold{color:#c9a84c;border:1px solid #c9a84c33;background:#c9a84c08;}
+    .badge.gray{color:#444;border:1px solid #222;}
+
+    /* COMING SOON PLUGIN */
+    .plugin-coming{opacity:0.5;}
+
+    /* INSTALL SECTION */
+    .install-section{padding:80px 48px;max-width:800px;}
+    .section-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#444;font-weight:700;margin-bottom:24px;}
+    .install-section h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:12px;}
+    .install-section p{font-size:15px;color:#666;margin-bottom:36px;line-height:1.7;}
+
+    .big-cmd{background:#060606;border:1px solid #1e1e1e;border-left:4px solid #c9a84c;padding:20px 24px;margin-bottom:16px;}
+    .big-cmd .comment{font-family:'Courier New',monospace;font-size:12px;color:#333;margin-bottom:8px;}
+    .big-cmd .cmd{font-family:'Courier New',monospace;font-size:15px;color:#c9a84c;word-break:break-all;}
+
+    footer{padding:40px 48px;border-top:1px solid #1a1a1a;display:flex;align-items:center;justify-content:space-between;}
+    .footer-brand{font-size:20px;font-weight:700;letter-spacing:6px;color:#fff;}
+    .footer-right{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#333;}
+
+    @media(max-width:900px){
+      .plugin-hero{grid-template-columns:1fr;}
+      .plugin-visual{display:none;}
+      header{padding:20px 24px;}
+      .header-nav{display:none;}
+      .hero,.plugin-info,.install-section{padding-left:24px;padding-right:24px;}
+      footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <span class="logo-nmd">NMD</span>
+    <span class="logo-sub">No Money Down</span>
+  </a>
+  <nav class="header-nav">
+    <a href="index.html">Home</a>
+    <a href="nmd-plugins.html" class="active">Plugins</a>
+    <a href="nmd-tools.html">Tools</a>
+    <a href="nmd-get-started.html">Get Started</a>
+    <a href="nmd-about.html">About</a>
+    <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">NMD Plugin Suite</div>
+  <h1>AI tools that<br><span>actually do the work.</span></h1>
+  <p class="hero-sub">These run inside Claude Code on your computer. They open browsers, source leads, write letters, and post content — not just tell you what to do.</p>
+  <div class="hero-cta">
+    <a href="nmd-get-started.html" class="btn-gold">Get Set Up →</a>
+    <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" class="btn-ghost">GitHub →</a>
+  </div>
+</section>
+
+<!-- PLUGIN 1: CAR SALES SUITE -->
+<section class="plugin-section">
+  <div class="plugin-hero">
+    <div class="plugin-info">
+      <div>
+        <div class="plugin-tag">Plugin 01</div>
+        <div class="plugin-name">car-sales-suite</div>
+        <h2 class="plugin-title">Car Sales AI Suite</h2>
+        <p class="plugin-desc">Full AI system for car dealership sales associates. Works your lead list, sources new leads from Craigslist, CarGurus, Reddit, OfferUp, and AutoTrader, and generates personalized outreach for every lead type. Set up once — runs your whole pipeline.</p>
+        <div class="skills-list">
+          <span class="skill-tag">car-sales</span>
+          <span class="skill-tag">conquest-leads</span>
+          <span class="skill-tag">buyer-leads</span>
+          <span class="skill-tag">dealer-onboarding</span>
+        </div>
+        <div class="install-block">
+          <div class="install-label">Official marketplace (recommended)</div>
+          <div class="install-cmd"><span class="dim">/plugin install </span>car-sales-suite@claude-plugin-directory</div>
+        </div>
+        <div class="install-block">
+          <div class="install-label">One-line install</div>
+          <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s car-sales-suite</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge green">✓ In Official Marketplace</span>
+          <span class="badge gold">Free</span>
+          <span class="badge gray">No API Key</span>
+        </div>
+      </div>
+    </div>
+    <div class="plugin-visual">
+      <div class="plugin-num">01</div>
+      <ul class="feature-list">
+        <li>Works hot, warm, and dead leads with custom outreach per type</li>
+        <li>Pulls car details from any dealership website link</li>
+        <li>Builds full car packages with financing, trade-in, and next steps</li>
+        <li>Scans Craigslist, CarGurus, AutoTrader, OfferUp for conquest leads</li>
+        <li>Finds buyers on Reddit, Twitter/X, and subprime finance forums</li>
+        <li>Works denied financing leads and old dead leads who may now qualify</li>
+        <li>Drafts iMessages and emails for your review before sending</li>
+        <li>Saves all leads to a local CSV — your own CRM</li>
+        <li>Run /dealer-onboarding once — every session after is automatic</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PLUGIN 2: SOCIAL SUITE -->
+<section class="plugin-section">
+  <div class="plugin-hero">
+    <div class="plugin-info">
+      <div>
+        <div class="plugin-tag">Plugin 02</div>
+        <div class="plugin-name">nmd-social-suite</div>
+        <h2 class="plugin-title">Social Media Content Engine</h2>
+        <p class="plugin-desc">One command drops content on every platform simultaneously. Instagram captions, Facebook posts, tweet threads, LinkedIn articles, full blog posts, newsletter editions, and credit forum posts — all written and posted in one session. Auto-posts via your browser. Pulls from your saved brand profile so it always sounds like you.</p>
+        <div class="skills-list">
+          <span class="skill-tag">social</span>
+          <span class="skill-tag">social-setup</span>
+        </div>
+        <div class="install-block">
+          <div class="install-label">One-line install</div>
+          <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s social</div>
+        </div>
+        <div class="install-block">
+          <div class="install-label">After install — run setup once</div>
+          <div class="install-cmd"><span class="dim">> </span>/social-setup</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge gold">GitHub Install</span>
+          <span class="badge gold">Free</span>
+          <span class="badge gray">No API Key</span>
+        </div>
+      </div>
+    </div>
+    <div class="plugin-visual">
+      <div class="plugin-num">02</div>
+      <ul class="feature-list">
+        <li>Type /social — posts hit every platform in one session</li>
+        <li>Instagram, Facebook, X/Twitter, LinkedIn, blog, newsletter, forums</li>
+        <li>Saves your brand profile once — knows your voice every time</li>
+        <li>Pulls from your favorite blog and repurposes the content everywhere</li>
+        <li>Writes full long-form SEO blog articles with /social blog</li>
+        <li>Generates complete newsletter editions with /social newsletter</li>
+        <li>Posts to credit/finance forums with proper community tone</li>
+        <li>Creates detailed AI image prompts for every post</li>
+        <li>Generates AI video scripts and hooks with /social video</li>
+        <li>Auto-opens your browser and posts — you just confirm</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PLUGIN 3: COMING SOON -->
+<section class="plugin-section plugin-coming">
+  <div class="plugin-hero">
+    <div class="plugin-info">
+      <div>
+        <div class="plugin-tag">Plugin 03 — Coming Soon</div>
+        <div class="plugin-name">credit-repair-pro</div>
+        <h2 class="plugin-title">Credit Repair AI</h2>
+        <p class="plugin-desc">Full credit dispute automation. Pulls your credit report, identifies every error and negative item, writes bureau dispute letters, goodwill letters, and debt validation responses — personalized to your file. Tracks timelines, follows up automatically.</p>
+        <div class="skills-list">
+          <span class="skill-tag">credit-dispute</span>
+          <span class="skill-tag">bureau-letters</span>
+          <span class="skill-tag">score-tracker</span>
+          <span class="skill-tag">goodwill</span>
+        </div>
+        <div class="install-block">
+          <div class="install-label">Notify me when it drops</div>
+          <div class="install-cmd" style="color:#333;">— In development —</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge gray">In Development</span>
+          <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" style="text-decoration:none;"><span class="badge gold">Join Telegram for early access</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="plugin-visual">
+      <div class="plugin-num">03</div>
+      <ul class="feature-list">
+        <li>Reads your actual credit report — all three bureaus</li>
+        <li>Identifies errors, late pays, collections, and incorrect balances</li>
+        <li>Writes dispute letters for each bureau — Equifax, Experian, TransUnion</li>
+        <li>Generates goodwill letters for on-time accounts with old lates</li>
+        <li>Writes debt validation letters for every collection account</li>
+        <li>Tracks 30/60/90 day dispute windows automatically</li>
+        <li>Saves all letters and timelines locally — your dispute case file</li>
+        <li>Follows NMD dispute strategy — the same playbook in the newsletter</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL ALL -->
+<section class="install-section">
+  <div class="section-tag">Install Everything</div>
+  <h2>One command. All plugins.</h2>
+  <p>Installs all available NMD plugins to your Claude Code setup. Takes 30 seconds. Run it after you have Claude Code installed.</p>
+
+  <div class="big-cmd">
+    <div class="comment"># Install all NMD plugins at once:</div>
+    <div class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash</div>
+  </div>
+
+  <div class="big-cmd">
+    <div class="comment"># Or install just what you need:</div>
+    <div class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s social</div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <a href="nmd-get-started.html" class="btn-gold">Full Setup Guide →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">NMD</div>
+  <div class="footer-right">github.com/nmdzaza/nmd-plugins · Free · Always</div>
+</footer>
+
+</body>
+</html>
