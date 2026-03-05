@@ -13,7 +13,7 @@
     body { background: #0d0d0d; font-family: Inter, sans-serif; min-height: 100vh; color: #e8e4df; overflow-x: hidden; }
 
     /* ── HEADER ─────────────────────────────────────────────── */
-    header { background: rgba(13,13,13,0.92); padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+    header { background: #0d0d0d; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 100; }
     .logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
     .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
     .logo-sub { font-size: 9px; letter-spacing: 4px; color: #555; text-transform: uppercase; }
@@ -34,6 +34,8 @@
       position: absolute;
       inset: 0;
       z-index: 0;
+      will-change: transform;
+      contain: strict;
     }
     /* Gradient fade at bottom so hero blends into next section */
     .nmd-hero::after {
@@ -858,27 +860,47 @@
   <script src="nmd-effects.js"></script>
 
   <script>
-    // ── VANTA.JS NET (Three.js gold particle field) ───────────
+    // ── VANTA.JS NET — pauses when hero off-screen ────────────
     // github.com/tengbao/vanta | github.com/mrdoob/three.js
     (function initVanta() {
       if (typeof VANTA === 'undefined' || typeof THREE === 'undefined') return;
-      VANTA.NET({
+
+      var vantaEffect = VANTA.NET({
         el: '#vanta-bg',
         THREE: THREE,
         mouseControls: true,
-        touchControls: true,
+        touchControls: false,   /* off on mobile — saves battery */
         gyroControls: false,
         minHeight: 200.0,
         minWidth: 200.0,
         scale: 1.0,
-        scaleMobile: 0.8,
-        color: 0xc9a84c,           /* NMD gold */
-        backgroundColor: 0x0d0d0d, /* NMD dark */
-        points: 9.0,
-        maxDistance: 23.0,
-        spacing: 18.0,
+        scaleMobile: 0.6,
+        color: 0xc9a84c,
+        backgroundColor: 0x0d0d0d,
+        points: 6.0,            /* reduced from 9 for perf */
+        maxDistance: 20.0,      /* reduced from 23 */
+        spacing: 22.0,          /* increased = fewer connections */
         showDots: true
       });
+
+      /* Pause render loop when hero is off screen */
+      var hero = document.querySelector('.nmd-hero');
+      if (hero && vantaEffect && vantaEffect.renderer) {
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              vantaEffect.renderer.setAnimationLoop(null); /* clear first */
+              vantaEffect.restart ? vantaEffect.restart() : null;
+            } else {
+              /* Stop WebGL render loop when hero not visible */
+              if (vantaEffect.renderer) {
+                vantaEffect.renderer.setAnimationLoop(null);
+              }
+            }
+          });
+        }, { threshold: 0.01 });
+        io.observe(hero);
+      }
     })();
 
     // ── SUBSCRIBE FORM ────────────────────────────────────────
