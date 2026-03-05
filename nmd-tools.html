@@ -320,6 +320,10 @@
     <div class="tab" data-tab="newsletter" onclick="switchTab(this, 'newsletter')">Newsletter</div>
     <div class="tab" data-tab="lien" onclick="switchTab(this, 'lien')">Lien Finder</div>
     <div class="tab" data-tab="probate" onclick="switchTab(this, 'probate')">Probate Hunter</div>
+    <div class="tab" data-tab="cashbuyer" onclick="switchTab(this, 'cashbuyer')">Cash Buyer Builder</div>
+    <div class="tab" data-tab="comps" onclick="switchTab(this, 'comps')">Comps Finder</div>
+    <div class="tab" data-tab="deal" onclick="switchTab(this, 'deal')">Deal Analyzer</div>
+    <div class="tab" data-tab="skiptrace" onclick="switchTab(this, 'skiptrace')">Skip Tracer</div>
   </div>
 
   <!-- ═══════════════════════════════════════════════ DEALERSHIP -->
@@ -913,6 +917,315 @@
     </div>
   </div>
 
+  <!-- CASH BUYER BUILDER PANEL -->
+  <div class="tool-panel" id="panel-cashbuyer">
+    <div class="tool-intro">
+      <h2>Cash Buyer Builder</h2>
+      <p>Build your local cash buyer list from county recorder data. The AI searches for recent deed transfers with no accompanying mortgage — the fingerprint of a cash purchase — then ranks buyers by purchase frequency so you know who to call first when you lock up a deal.</p>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-group">
+        <label>County</label>
+        <input type="text" id="cb-county" placeholder="e.g. Maricopa County">
+      </div>
+
+      <div class="form-group">
+        <label>State</label>
+        <select id="cb-state">
+          <option value="">— Select State —</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Purchases Within</label>
+        <select id="cb-range">
+          <option value="last 30 days">Last 30 days</option>
+          <option value="last 60 days">Last 60 days</option>
+          <option value="last 90 days">Last 90 days</option>
+          <option value="last 6 months">Last 6 months</option>
+          <option value="last 12 months">Last 12 months</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Minimum Purchase Price</label>
+        <select id="cb-minprice">
+          <option value="any purchase price">No minimum</option>
+          <option value="$50,000 or more">$50k+</option>
+          <option value="$100,000 or more">$100k+</option>
+          <option value="$150,000 or more">$150k+</option>
+          <option value="$200,000 or more">$200k+</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Property Type</label>
+        <select id="cb-type">
+          <option value="all property types">All Types</option>
+          <option value="residential only — single family, condo, townhome, multi-family">Residential Only</option>
+          <option value="commercial only">Commercial Only</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="run-btn" onclick="launchTool('cashbuyer', this)">Launch in Claude &#8594;</button>
+
+    <div class="step-box" id="stepbox-cashbuyer">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-cashbuyer"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('cashbuyer', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('cashbuyer')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-cashbuyer">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-cashbuyer" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('cashbuyer', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-cashbuyer">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPS FINDER PANEL -->
+  <div class="tool-panel" id="panel-comps">
+    <div class="tool-intro">
+      <h2>Comps Finder</h2>
+      <p>Pull recent comparable sales for any address and get a clean ARV — After Repair Value. The AI searches Zillow, Redfin, and the county assessor, filters out outliers, and outputs a recommended valuation with confidence rating so you know your numbers before you make an offer.</p>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Property Address</label>
+        <input type="text" id="cp-address" placeholder="e.g. 1234 Main St, Phoenix, AZ 85001">
+      </div>
+
+      <div class="form-group">
+        <label>Property Type</label>
+        <select id="cp-type">
+          <option value="single family residential">Single Family</option>
+          <option value="condo or townhome">Condo / Townhome</option>
+          <option value="multi-family (2–4 units)">Multi-Family (2–4 units)</option>
+          <option value="vacant land">Vacant Land</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Comp Radius</label>
+        <select id="cp-radius">
+          <option value="0.25 miles">0.25 miles</option>
+          <option value="0.5 miles" selected>0.5 miles (recommended)</option>
+          <option value="1 mile">1 mile</option>
+          <option value="2 miles">2 miles</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Sales Within</label>
+        <select id="cp-range">
+          <option value="last 3 months">Last 3 months</option>
+          <option value="last 6 months" selected>Last 6 months (recommended)</option>
+          <option value="last 12 months">Last 12 months</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Condition of Subject</label>
+        <select id="cp-condition">
+          <option value="distressed — needs full renovation. ARV assumes fully renovated comparable to retail comps">Distressed (needs work)</option>
+          <option value="average condition — some updates needed but livable">Average condition</option>
+          <option value="good condition — recently updated or move-in ready">Good / Updated</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="run-btn" onclick="launchTool('comps', this)">Launch in Claude &#8594;</button>
+
+    <div class="step-box" id="stepbox-comps">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-comps"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('comps', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('comps')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-comps">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-comps" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('comps', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-comps">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEAL ANALYZER PANEL -->
+  <div class="tool-panel" id="panel-deal">
+    <div class="tool-intro">
+      <h2>Deal Analyzer</h2>
+      <p>Run the numbers on any wholesale deal before you make the call. Input your ARV, repair estimate, and desired fee — the AI calculates your MAO, recommended offer, assignment spread, buyer profit, and deal grade so you know if it's an A deal or a hard pass.</p>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Property Address</label>
+        <input type="text" id="da-address" placeholder="e.g. 1234 Main St, Phoenix, AZ 85001">
+      </div>
+
+      <div class="form-group">
+        <label>ARV (After Repair Value)</label>
+        <input type="text" id="da-arv" placeholder="e.g. 250000">
+      </div>
+
+      <div class="form-group">
+        <label>Repair Estimate</label>
+        <select id="da-repairs">
+          <option value="light cosmetic repairs ($15–25 per sqft estimate)">Light cosmetic ($15–25/sqft)</option>
+          <option value="medium rehab — kitchen, baths, cosmetic ($30–45 per sqft estimate)">Medium rehab ($30–45/sqft)</option>
+          <option value="full gut renovation ($50–75 per sqft estimate)">Full gut ($50–75/sqft)</option>
+          <option value="extreme — structural or fire/flood damage ($80–120 per sqft estimate)">Extreme / structural ($80–120/sqft)</option>
+          <option value="custom — I will specify the exact dollar amount below">Custom amount</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Custom Repair Amount (if known)</label>
+        <input type="text" id="da-repair-custom" placeholder="e.g. 35000 — leave blank to use tier above">
+      </div>
+
+      <div class="form-group">
+        <label>Desired Assignment Fee</label>
+        <select id="da-fee">
+          <option value="$5,000">$5,000</option>
+          <option value="$10,000" selected>$10,000</option>
+          <option value="$15,000">$15,000</option>
+          <option value="$20,000">$20,000</option>
+          <option value="$25,000">$25,000</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Formula</label>
+        <select id="da-formula">
+          <option value="standard 70% rule">70% Rule (standard)</option>
+          <option value="65% rule — conservative, for heavy rehabs or thin markets">65% Rule (conservative)</option>
+          <option value="75% rule — aggressive, for cosmetic flips in hot markets">75% Rule (hot market)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="run-btn" onclick="launchTool('deal', this)">Launch in Claude &#8594;</button>
+
+    <div class="step-box" id="stepbox-deal">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-deal"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('deal', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('deal')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-deal">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-deal" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('deal', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-deal">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKIP TRACER PANEL -->
+  <div class="tool-panel" id="panel-skiptrace">
+    <div class="tool-intro">
+      <h2>Skip Tracer</h2>
+      <p>Find the phone number and email for any property owner or estate executor using public records only. The AI searches county assessor files, court records, voter registration, and people-search aggregators — then rates every contact HIGH, MEDIUM, or LOW confidence before you make the call.</p>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="st-name" placeholder="e.g. John Smith">
+      </div>
+
+      <div class="form-group">
+        <label>Property or Mailing Address</label>
+        <input type="text" id="st-address" placeholder="e.g. 1234 Main St, Phoenix, AZ 85001">
+      </div>
+
+      <div class="form-group">
+        <label>County</label>
+        <input type="text" id="st-county" placeholder="e.g. Maricopa County">
+      </div>
+
+      <div class="form-group">
+        <label>State</label>
+        <select id="st-state">
+          <option value="">— Select State —</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Target Type</label>
+        <select id="st-target">
+          <option value="property owner — search for current phone number and email">Property Owner</option>
+          <option value="estate executor or personal representative — also search for probate attorney and family member contacts">Estate Executor</option>
+          <option value="LLC or trust owner — search Secretary of State for the human behind the entity, then find their contact">LLC / Trust Owner</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="run-btn" onclick="launchTool('skiptrace', this)">Launch in Claude &#8594;</button>
+
+    <div class="step-box" id="stepbox-skiptrace">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-skiptrace"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('skiptrace', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('skiptrace')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-skiptrace">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-skiptrace" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('skiptrace', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-skiptrace">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-brand">NMD ZAZA · The Credit Goat 🐐</div>
     <div class="footer-links">
@@ -1131,7 +1444,6 @@ Then list all liens found by category (mechanic's, tax, HOA, judgment, UCC, fede
 
 Important: Be clear about what you found vs. what you could not access. Never interpret legal implications — report the facts and advise the user to consult a title attorney for interpretation.`;
       }
-    }
 
       if (tool === 'probate') {
         const county  = document.getElementById('pb-county').value.trim() || 'the specified county';
@@ -1184,6 +1496,153 @@ After all 3 steps, deliver the full NMD Probate Hunter Report:
 - Note: "Save to ~/probate-leads/${county.replace(/\s+/g,'-').toLowerCase()}-${new Date().toISOString().slice(0,10)}.csv"
 `;
       }
+
+      if (tool === 'cashbuyer') {
+        const county   = document.getElementById('cb-county').value.trim() || 'the specified county';
+        const state    = document.getElementById('cb-state').value          || 'Unknown State';
+        const range    = document.getElementById('cb-range').value;
+        const minprice = document.getElementById('cb-minprice').value;
+        const type     = document.getElementById('cb-type').value;
+
+        return `You are a real estate data specialist. Your job is to build a local cash buyer list from county recorder data for ${county}, ${state}.
+
+SEARCH REQUEST:
+County: ${county}
+State: ${state}
+Date range: ${range}
+Minimum purchase price: ${minprice}
+Property type: ${type}
+Search date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+Run all 3 steps in order.
+
+STEP 1 — COUNTY RECORDER: FIND RECENT DEED TRANSFERS
+Navigate to the ${county}, ${state} county recorder's public document search portal.
+Search for: WARRANTY DEED, GRANT DEED, SPECIAL WARRANTY DEED filed within ${range}.
+Filter to ${minprice} and ${type}.
+Cash purchase detection: A cash buyer records a deed with NO deed of trust on the same date. A financed buyer records both on the same date — skip those.
+
+For each cash purchase capture: buyer name (grantee), property address, purchase price, property type, date, document number.
+
+STEP 2 — CROSS-REFERENCE AND RANK
+For each buyer found:
+- Search the recorder for that buyer's name across the last 12 months. Count total purchases.
+- Identify entity type: LLC/Corp/Trust = almost certainly an investor (priority). Individual at same address as property = likely owner-occupant (skip).
+- Priority tiers: A = LLC/Corp with 3+ purchases; B = individual investor with 2+ purchases; C = single purchase LLC; Skip = owner-occupant indicators.
+
+STEP 3 — BUILD AND SAVE THE LIST
+Output a ranked buyer list table with: buyer name, entity type, purchase count (12 months), most recent purchase date and address, average price, priority tier.
+Note: "Save to ~/wholesale-tools/buyers-${county.replace(/\s+/g,'-').toLowerCase()}-${new Date().toISOString().slice(0,10)}.csv"
+
+Close with a summary: deeds scanned, cash purchases found, A-tier / B-tier / C-tier / skipped counts.`;
+      }
+
+      if (tool === 'comps') {
+        const address   = document.getElementById('cp-address').value.trim() || 'the specified property';
+        const type      = document.getElementById('cp-type').value;
+        const radius    = document.getElementById('cp-radius').value;
+        const range     = document.getElementById('cp-range').value;
+        const condition = document.getElementById('cp-condition').value;
+
+        return `You are a real estate valuation specialist. Your job is to pull recent comparable sales for a subject property and calculate a reliable ARV (After Repair Value).
+
+SUBJECT PROPERTY: ${address}
+Property type: ${type}
+Condition: ${condition}
+Comp radius: ${radius}
+Sales within: ${range}
+Search date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+Run all 3 steps in order.
+
+STEP 1 — SUBJECT PROPERTY DETAILS
+Navigate to the county assessor for this property's county. Look up ${address} and capture: APN, beds/baths, square footage (living area), year built, lot size, property type, last sale date and price, current assessed value.
+
+STEP 2 — FIND COMPARABLE SALES
+Search Zillow and Redfin for properties sold within ${radius} of ${address} in the ${range}.
+Filter: same property type (${type}), ±1 bed, ±1 bath, ±20% square footage.
+For each comp capture: address, sale date, sale price, beds/baths, sqft, price per sqft, distance from subject, days on market, condition notes.
+Exclude bank sales, short sales, and estate sales at steep discounts — distressed sales skew ARV low.
+Target 3–6 solid comps. If fewer than 3 exist, expand radius and/or date range and note it.
+
+STEP 3 — CALCULATE ARV
+1. Calculate price per sqft for each comp.
+2. Remove highest and lowest outliers if 5+ comps available.
+3. Calculate: Low ARV = (lowest $/sqft) × subject sqft; Mid ARV = (median $/sqft) × subject sqft; High ARV = (highest $/sqft) × subject sqft.
+4. Recommended ARV = Mid ARV (use Low if comps are thin or condition is distressed).
+5. Rate confidence: HIGH (5+ comps, tight cluster), MEDIUM (3–4 comps), LOW (fewer than 3 or high variance).
+
+Output the full NMD Comps Finder ARV Report with all comps listed and the ARV box showing Low / Mid / High and recommended ARV.`;
+      }
+
+      if (tool === 'deal') {
+        const address      = document.getElementById('da-address').value.trim() || 'the specified property';
+        const arv          = document.getElementById('da-arv').value.trim()      || '0';
+        const repairs      = document.getElementById('da-repairs').value;
+        const repairCustom = document.getElementById('da-repair-custom').value.trim();
+        const fee          = document.getElementById('da-fee').value;
+        const formula      = document.getElementById('da-formula').value;
+        const repairNote   = repairCustom ? `Custom repair amount specified: $${repairCustom}. Use this exact dollar figure.` : `Use the repair tier estimate: ${repairs}. Estimate based on subject property square footage from the assessor if available.`;
+
+        return `You are a real estate deal analyst. Run the numbers on this wholesale deal and tell me exactly what to offer, what the deal is worth, and whether it's worth pursuing.
+
+DEAL INPUTS:
+Property: ${address}
+ARV (After Repair Value): $${arv}
+Repair estimate: ${repairs}
+${repairNote}
+Desired assignment fee: ${fee}
+Formula: ${formula}
+Analysis date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+1. Extract the percentage from the formula (70%, 65%, or 75%).
+2. Calculate MAO: (ARV × formula%) − repairs − assignment fee = MAO (ceiling, do not offer more than this).
+3. Calculate recommended offer: MAO minus a 5–10% negotiation buffer.
+4. Calculate cash buyer's projected profit: ARV − buyer's purchase price − repairs − ~$5,000 closing costs. Buyer needs minimum 15% of ARV to net — flag if below.
+5. Grade the deal: A (fee $15k+, buyer profit 20%+ ARV), B (fee $8–15k, buyer profit 15–20%), C (fee $5–8k, profit just above 15%), Pass (buyer profit below 15% or no room for fee).
+6. If Pass: explain exactly why and suggest alternatives (retail listing, creative finance, negotiate harder).
+7. Run a sensitivity table showing how the deal grades change if ARV shifts ±$10k and repairs shift ±$10k.
+
+Output the full NMD Deal Analyzer report with: inputs, deal math, profit breakdown, deal grade box with recommended offer and fee, and sensitivity table.`;
+      }
+
+      if (tool === 'skiptrace') {
+        const name    = document.getElementById('st-name').value.trim()    || 'the target individual';
+        const address = document.getElementById('st-address').value.trim() || '';
+        const county  = document.getElementById('st-county').value.trim()  || 'the county';
+        const state   = document.getElementById('st-state').value          || 'Unknown State';
+        const target  = document.getElementById('st-target').value;
+
+        return `You are a public records research specialist. Your job is to find current contact information for a target individual using only publicly available sources.
+
+TARGET: ${name}
+Property / last known address: ${address || 'not provided — search by name and county'}
+County: ${county}
+State: ${state}
+Target type: ${target}
+Search date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+Run all 4 steps in order, stopping early if strong HIGH-confidence contact info is found.
+
+STEP 1 — COUNTY ASSESSOR / RECORDER
+Search ${county}, ${state} assessor for ${name}${address ? ' at ' + address : ''}. Capture: owner name as it appears on record, mailing address (where tax bills go — often different from property address), ownership entity type (individual, LLC, trust). If LLC or Trust: search ${state} Secretary of State for the registered agent.
+
+STEP 2 — PUBLIC RECORDS AGGREGATORS
+Search the following sites using name + state: WhitePages.com, TruePeopleSearch.com, FastPeopleSearch.com, Spokeo.com. For each result capture: phone numbers (note mobile vs landline), email addresses, current and past addresses, age. Cross-reference age and address history with assessor records to confirm identity match.
+
+STEP 3 — COURT RECORDS
+Search ${county} court portal for any cases involving ${name}. Capture any current addresses, employer info, or phone numbers from filings.${target.includes('executor') ? ' Also search the probate court specifically for this estate — executor filings list current addresses and sometimes the attorney of record.' : ''}
+
+STEP 4 — SOCIAL / BUSINESS VERIFICATION (if needed)
+If steps 1–3 don't yield a confirmed phone number: search LinkedIn and Facebook for ${name} in ${state}. For LLC owners, check the ${state} Secretary of State for registered agent address and phone.${target.includes('executor') ? ' For estate leads: search for obituary of the deceased — obituaries often list executor name and city. Search funeral home listings.' : ''}
+
+Output the full NMD Skip Tracer Contact Report with: confirmed identity section, all phone numbers and emails by confidence level, recommended outreach order, and identity confidence rating (HIGH / MEDIUM / LOW) with sources checked.`;
+      }
+    }
 
     // ── LAUNCH TOOL ──────────────────────────────────────────────
     async function launchTool(tool, btn) {
