@@ -1,4 +1,142 @@
-<!DOCTYPE html>
+/**
+ * NMD Films Page Generator
+ * ─────────────────────────────────────────────────────────────
+ * Scans the /higgsfield/ folder and rebuilds nmd-videos.html
+ * with one section per subfolder, containing all videos + images.
+ *
+ * Usage:  node generate-videos-page.js
+ * ─────────────────────────────────────────────────────────────
+ */
+
+const fs   = require('fs');
+const path = require('path');
+
+const HIGGSFIELD_DIR = path.join(__dirname, 'higgsfield');
+const OUTPUT_FILE    = path.join(__dirname, 'nmd-videos.html');
+
+const VIDEO_EXTS = ['.mp4', '.mov', '.webm', '.m4v'];
+const IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
+
+// Folder name → "Formatted Title"
+function formatTitle(name) {
+  return name
+    .replace(/[-_]/g, ' ')
+    .split(' ')
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+// Read all subfolders in higgsfield/
+function getFolders() {
+  if (!fs.existsSync(HIGGSFIELD_DIR)) return [];
+  return fs.readdirSync(HIGGSFIELD_DIR, { withFileTypes: true })
+    .filter(d => d.isDirectory() && !d.name.startsWith('.') && !d.name.startsWith('_'))
+    .map(d => d.name)
+    .sort();
+}
+
+// Read files in a folder
+function getFiles(folderName) {
+  const dir = path.join(HIGGSFIELD_DIR, folderName);
+  return fs.readdirSync(dir)
+    .filter(f => !f.startsWith('.') && f !== 'description.txt');
+}
+
+// Read optional description.txt
+function getDescription(folderName) {
+  const f = path.join(HIGGSFIELD_DIR, folderName, 'description.txt');
+  if (!fs.existsSync(f)) return '';
+  return fs.readFileSync(f, 'utf8').trim();
+}
+
+// Generate HTML for one video card
+function videoCard(folderName, filename) {
+  const ext = path.extname(filename).toLowerCase();
+  const mimeMap = { '.mp4': 'video/mp4', '.mov': 'video/quicktime', '.webm': 'video/webm', '.m4v': 'video/mp4' };
+  return `
+        <div class="p-card p-video">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="higgsfield/${folderName}/${filename}" type="${mimeMap[ext] || 'video/mp4'}">
+          </video>
+          <div class="p-card-bar">
+            <span class="p-card-tag">Video · Higgsfield AI</span>
+            <span class="p-card-name">${filename.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ')}</span>
+          </div>
+        </div>`;
+}
+
+// Generate HTML for one image card
+function imageCard(folderName, filename) {
+  return `
+        <div class="p-card p-image">
+          <img src="higgsfield/${folderName}/${filename}" alt="${formatTitle(folderName)}" loading="lazy">
+          <div class="p-card-bar">
+            <span class="p-card-tag">Visual · Higgsfield AI</span>
+            <span class="p-card-name">${filename.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ')}</span>
+          </div>
+        </div>`;
+}
+
+// Generate one full portfolio section
+function generateSection(folderName) {
+  const title       = formatTitle(folderName);
+  const description = getDescription(folderName);
+  const files       = getFiles(folderName);
+  const videos      = files.filter(f => VIDEO_EXTS.includes(path.extname(f).toLowerCase()));
+  const images      = files.filter(f => IMAGE_EXTS.includes(path.extname(f).toLowerCase()));
+  const total       = videos.length + images.length;
+
+  if (total === 0) return ''; // skip empty folders
+
+  const cards = [
+    ...videos.map(v => videoCard(folderName, v)),
+    ...images.map(i => imageCard(folderName, i)),
+  ].join('');
+
+  return `
+  <!-- ── ${title.toUpperCase()} ────────────────────────────── -->
+  <section class="portfolio-section" id="proj-${folderName}">
+    <div class="p-section-head">
+      <div class="p-section-info">
+        <div class="p-section-eyebrow">AI Generated · Higgsfield</div>
+        <h2 class="p-section-title">${title}</h2>
+        ${description ? `<p class="p-section-desc">${description}</p>` : ''}
+      </div>
+      <div class="p-section-count">${total} piece${total !== 1 ? 's' : ''}</div>
+    </div>
+    <div class="p-grid">
+      ${cards}
+    </div>
+  </section>`;
+}
+
+// ── BUILD PAGE ─────────────────────────────────────────────
+function build() {
+  const folders  = getFolders();
+  const sections = folders.map(generateSection).filter(Boolean).join('\n');
+
+  const noContent = sections.trim() === ''
+    ? `
+  <div class="no-content">
+    <p>No projects yet — drop your Higgsfield videos and images into <code>higgsfield/[project-name]/</code> and run this script again.</p>
+  </div>` : '';
+
+  const html = buildPage(sections || noContent);
+  fs.writeFileSync(OUTPUT_FILE, html, 'utf8');
+  console.log(`\n✅  nmd-videos.html rebuilt`);
+  console.log(`    ${folders.length} project section${folders.length !== 1 ? 's' : ''} generated`);
+  folders.forEach(f => {
+    const files = getFiles(f);
+    const v = files.filter(x => VIDEO_EXTS.includes(path.extname(x).toLowerCase())).length;
+    const i = files.filter(x => IMAGE_EXTS.includes(path.extname(x).toLowerCase())).length;
+    console.log(`    • ${formatTitle(f)} — ${v} video${v !== 1 ? 's' : ''}, ${i} image${i !== 1 ? 's' : ''}`);
+  });
+  console.log('\n  git add . && git commit -m "Update Films" && git push\n');
+}
+
+// ── PAGE TEMPLATE ──────────────────────────────────────────
+function buildPage(portfolioSections) {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -311,10 +449,7 @@
 
   <!-- GENERATED PORTFOLIO SECTIONS — rebuilt by generate-videos-page.js -->
   <!-- GENERATED-SECTIONS-START -->
-
-  <div class="no-content">
-    <p>No projects yet — drop your Higgsfield videos and images into <code>higgsfield/[project-name]/</code> and run this script again.</p>
-  </div>
+${portfolioSections}
   <!-- GENERATED-SECTIONS-END -->
 
   <!-- BOTTOM CTA -->
@@ -358,4 +493,8 @@
   </script>
 
 </body>
-</html>
+</html>`;
+}
+
+// Run
+build();

@@ -1,0 +1,36 @@
+──────────────────────────────────────────────────
+ NMD HIGGSFIELD PORTFOLIO — HOW TO ADD CONTENT
+──────────────────────────────────────────────────
+
+1. CREATE A FOLDER with your client or project name.
+   The folder name becomes the section title on the page.
+
+   Examples:
+     higgsfield/lofty/
+     higgsfield/dealership/
+     higgsfield/nmd-brand/
+     higgsfield/real-estate-promo/
+
+2. DROP FILES IN — any mix of:
+   Videos: .mp4  .mov  .webm
+   Images: .jpg  .jpeg  .png  .webp
+
+3. OPTIONAL: add a description.txt inside the folder.
+   One line of text shown under the section title.
+   Example: "Lifestyle and property content for Lofty Real Estate."
+
+4. REBUILD THE PAGE by running this command from the repo root:
+     node generate-videos-page.js
+
+5. COMMIT AND PUSH:
+     git add . && git commit -m "Add [project] to Films" && git push
+
+──────────────────────────────────────────────────
+ TIPS
+──────────────────────────────────────────────────
+- Folder name "lofty" → shows as "Lofty" on page
+- Folder name "real-estate-promo" → shows as "Real Estate Promo"
+- Videos show as 9:16 portrait cards (Higgsfield default)
+- Images auto-fit their grid cell
+- No limit on how many files per folder
+──────────────────────────────────────────────────
