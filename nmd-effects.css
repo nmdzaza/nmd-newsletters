@@ -359,8 +359,12 @@ header.nmd-header-hidden {
   opacity: 0.85;
 }
 
-/* ── HIDE DESKTOP NAV — HAMBURGER ALWAYS ON ─────────────────────── */
-.header-nav {
+/* ── HIDE ALL NAV VARIANTS — HAMBURGER ALWAYS ON ────────────────── */
+header nav,
+header .header-nav,
+header .nmd-nav-links,
+header .header-nav-links,
+header .topbar-nav {
   display: none !important;
 }
 

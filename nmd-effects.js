@@ -165,12 +165,27 @@
     });
   }
 
-  /* ── MOBILE NAV (HAMBURGER → SIDEBAR DRAWER) ───────────────────── */
+  /* ── NAV (HAMBURGER → SIDEBAR DRAWER) ──────────────────────────── */
+  /* Hardcoded standard nav — works on every page regardless of nav class */
+  var NAV_LINKS = [
+    { href: 'index.html',             label: 'Newsletters' },
+    { href: 'nmd-videos.html',        label: 'Films'       },
+    { href: 'nmd-plugins.html',       label: 'Plugins'     },
+    { href: 'nmd-tools.html',         label: 'Tools'       },
+    { href: 'nmd-get-started.html',   label: 'Get Plugins' },
+    { href: 'nmd-solutions.html',     label: 'Solutions'   },
+    { href: 'nmd-about.html',         label: 'About'       },
+    { href: 'nmd-faq.html',           label: 'FAQ'         },
+    { href: 'https://t.me/+pmgwMuufQ7cyNWEx', label: 'Telegram', external: true },
+  ];
+
   function initMobileNav() {
     var header = document.querySelector('header');
     if (!header) return;
-    var desktopNav = header.querySelector('.header-nav');
-    if (!desktopNav) return;
+
+    // Auto-detect current page for active state
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    if (currentPage === '') currentPage = 'index.html';
 
     // — Hamburger button
     var btn = document.createElement('button');
@@ -186,16 +201,26 @@
     overlay.setAttribute('aria-hidden', 'true');
     document.body.appendChild(overlay);
 
-    // — Sidebar drawer
+    // — Sidebar drawer with standard nav links
     var drawer = document.createElement('nav');
     drawer.className = 'nmd-mobile-nav';
     drawer.setAttribute('aria-label', 'Mobile navigation');
     drawer.setAttribute('aria-hidden', 'true');
 
-    // Clone all links from desktop nav into the drawer
-    desktopNav.querySelectorAll('a').forEach(function (link) {
-      drawer.appendChild(link.cloneNode(true));
+    NAV_LINKS.forEach(function (item) {
+      var a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = item.label;
+      if (item.external) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
+      if (item.href === currentPage) {
+        a.classList.add('active');
+      }
+      drawer.appendChild(a);
     });
+
     document.body.appendChild(drawer);
 
     function openNav() {
