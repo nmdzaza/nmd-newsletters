@@ -102,49 +102,10 @@ header.nmd-header-hidden {
   background-repeat: repeat;
 }
 
-/* ── CUSTOM CURSOR ─────────────────────────────────────────────── */
-.nmd-cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 6px; height: 6px;
-  background: #c9a84c;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  will-change: transform;
-  transition: opacity 0.3s, width 0.2s, height 0.2s, background 0.2s;
-  transform: translate(-50%, -50%);
-}
+/* ── CUSTOM CURSOR — DISABLED ──────────────────────────────────── */
+.nmd-cursor-dot,
 .nmd-cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(201, 168, 76, 0.45);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99997;
-  will-change: transform;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, opacity 0.3s;
-}
-.nmd-cursor-dot.is-hovering {
-  width: 8px;
-  height: 8px;
-  background: #fff;
-}
-.nmd-cursor-ring.is-hovering {
-  width: 56px;
-  height: 56px;
-  border-color: rgba(201, 168, 76, 0.8);
-}
-.nmd-cursor-dot.is-clicking {
-  width: 4px;
-  height: 4px;
-  background: #c9a84c;
-}
-.nmd-cursor-ring.is-clicking {
-  width: 28px;
-  height: 28px;
+  display: none !important;
 }
 
 /* ── READING PROGRESS BAR ──────────────────────────────────────── */
@@ -281,10 +242,104 @@ header.nmd-header-hidden {
   }
 }
 
+/* ── HAMBURGER BUTTON ───────────────────────────────────────────── */
+.nmd-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  z-index: 1100;
+  position: relative;
+}
+.nmd-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+  transform-origin: center;
+}
+.nmd-hamburger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nmd-hamburger.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.nmd-hamburger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── MOBILE NAV OVERLAY ─────────────────────────────────────────── */
+.nmd-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.nmd-mobile-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── MOBILE NAV DRAWER ──────────────────────────────────────────── */
+.nmd-mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #0d0d0d;
+  border-left: 1px solid #1e1e1e;
+  z-index: 1050;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 32px 48px;
+  overflow-y: auto;
+}
+.nmd-mobile-nav.open {
+  transform: translateX(0);
+}
+.nmd-mobile-nav a {
+  color: #666;
+  text-decoration: none;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 20px 0;
+  border-bottom: 1px solid #1a1a1a;
+  transition: color 0.2s;
+  display: block;
+}
+.nmd-mobile-nav a:last-child {
+  border-bottom: none;
+}
+.nmd-mobile-nav a:hover,
+.nmd-mobile-nav a.active {
+  color: #c9a84c;
+}
+
 /* ── MOBILE ────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .nmd-cursor-dot,
-  .nmd-cursor-ring {
+  .nmd-hamburger {
+    display: flex;
+  }
+  .header-nav {
     display: none !important;
   }
   .nmd-ticker-wrap {
@@ -302,6 +357,5 @@ header.nmd-header-hidden {
   .nmd-ticker-track { animation: none !important; }
   .nmd-breaking::before { animation: none !important; }
   .nmd-shimmer-line::after { animation: none !important; }
-  .nmd-cursor-dot,
-  .nmd-cursor-ring { display: none !important; }
+  .nmd-mobile-nav { transition: none !important; }
 }

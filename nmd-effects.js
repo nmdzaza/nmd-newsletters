@@ -165,56 +165,69 @@
     });
   }
 
-  /* ── CUSTOM CURSOR ──────────────────────────────────────────────── */
-  function initCursor() {
-    if (isMobile()) return;
+  /* ── MOBILE NAV (HAMBURGER → SIDEBAR DRAWER) ───────────────────── */
+  function initMobileNav() {
+    var header = document.querySelector('header');
+    if (!header) return;
+    var desktopNav = header.querySelector('.header-nav');
+    if (!desktopNav) return;
 
-    var dot  = document.createElement('div');
-    var ring = document.createElement('div');
-    dot.className  = 'nmd-cursor-dot';
-    ring.className = 'nmd-cursor-ring';
-    dot.setAttribute('aria-hidden', 'true');
-    ring.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
+    // — Hamburger button
+    var btn = document.createElement('button');
+    btn.className = 'nmd-hamburger';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+    header.appendChild(btn);
 
-    document.documentElement.style.cursor = 'none';
+    // — Dark overlay backdrop
+    var overlay = document.createElement('div');
+    overlay.className = 'nmd-mobile-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(overlay);
 
-    var mouse = { x: -200, y: -200 };
-    var rpos  = { x: -200, y: -200 };
+    // — Sidebar drawer
+    var drawer = document.createElement('nav');
+    drawer.className = 'nmd-mobile-nav';
+    drawer.setAttribute('aria-label', 'Mobile navigation');
+    drawer.setAttribute('aria-hidden', 'true');
 
-    document.addEventListener('mousemove', function (e) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-      dot.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+    // Clone all links from desktop nav into the drawer
+    desktopNav.querySelectorAll('a').forEach(function (link) {
+      drawer.appendChild(link.cloneNode(true));
+    });
+    document.body.appendChild(drawer);
+
+    function openNav() {
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNav() {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', function () {
+      btn.classList.contains('open') ? closeNav() : openNav();
     });
 
-    (function animateRing() {
-      rpos.x = lerp(rpos.x, mouse.x, 0.11);
-      rpos.y = lerp(rpos.y, mouse.y, 0.11);
-      ring.style.transform = 'translate(' + rpos.x + 'px, ' + rpos.y + 'px)';
-      requestAnimationFrame(animateRing);
-    }());
+    overlay.addEventListener('click', closeNav);
 
-    var hoverTargets = 'a, button, .card, .cta-primary, .cta-secondary, .faq-question, .pillar, .trust-card';
-    document.querySelectorAll(hoverTargets).forEach(function (el) {
-      el.addEventListener('mouseenter', function () {
-        dot.classList.add('is-hovering');
-        ring.classList.add('is-hovering');
-      });
-      el.addEventListener('mouseleave', function () {
-        dot.classList.remove('is-hovering');
-        ring.classList.remove('is-hovering');
-      });
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeNav);
     });
 
-    document.addEventListener('mousedown', function () {
-      dot.classList.add('is-clicking');
-      ring.classList.add('is-clicking');
-    });
-    document.addEventListener('mouseup', function () {
-      dot.classList.remove('is-clicking');
-      ring.classList.remove('is-clicking');
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeNav();
     });
   }
 
@@ -426,7 +439,7 @@
     initBreakingLabels();
     initTextScramble();
     initTicker();
-    initCursor();
+    initMobileNav();
     initMagnetic();
 
     // Load GSAP → ScrollTrigger → Lenis → animations
