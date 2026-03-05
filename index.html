@@ -157,36 +157,152 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── STATS BAR ───────────────────────────────────────────── */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* ── TOOLS SHOWCASE (Laptop + Callouts) ─────────────────── */
+    .tools-section {
+      padding: 100px 48px;
       border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
+      background: #0a0a0a;
     }
-    .stat {
-      padding: 36px 48px;
-      border-right: 1px solid #1a1a1a;
+    .tools-header { text-align: center; margin-bottom: 72px; }
+    .tools-eyebrow { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #c9a84c; margin-bottom: 16px; }
+    .tools-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 700; color: #e8e4df; line-height: 1.1; }
+    .tools-sub { font-size: 15px; color: #555; margin-top: 14px; line-height: 1.7; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    .tools-showcase {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    /* callout columns */
+    .callout-col { display: flex; flex-direction: column; gap: 52px; }
+    .callout-col.left { text-align: right; }
+    .callout-col.right { text-align: left; }
+    .callout { position: relative; }
+    .callout-icon {
+      font-size: 22px; margin-bottom: 10px;
+      display: block;
+    }
+    .callout-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700;
+      color: #e8e4df; margin-bottom: 8px; line-height: 1.2;
+    }
+    .callout-desc { font-size: 13px; color: #555; line-height: 1.65; }
+    .callout-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: #c9a84c; text-decoration: none; margin-top: 10px;
+      font-weight: 600; transition: gap 0.2s;
+    }
+    .callout-link:hover { gap: 10px; }
+    /* divider lines from callout to laptop */
+    .callout-col.left .callout { padding-right: 24px; border-right: 1px solid #1e1e1e; }
+    .callout-col.right .callout { padding-left: 24px; border-left: 1px solid #1e1e1e; }
+
+    /* ── CSS LAPTOP MOCKUP ──── */
+    .laptop-wrap { position: relative; display: flex; flex-direction: column; align-items: center; }
+    .laptop-screen-wrap {
+      width: 340px;
+      background: #1a1a1a;
+      border-radius: 14px 14px 0 0;
+      border: 6px solid #2a2a2a;
+      overflow: hidden;
+      box-shadow: 0 32px 100px rgba(0,0,0,0.8), 0 0 0 1px #333;
       position: relative;
     }
-    .stat:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      font-weight: 900;
-      color: #c9a84c;
-      line-height: 1;
-      margin-bottom: 8px;
+    .laptop-notch {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 6px; background: #222; border-radius: 0 0 6px 6px; z-index: 2;
     }
-    .stat-label {
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #555;
+    .laptop-screen {
+      background: #0d0d0d;
+      padding: 18px 14px 14px;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
     }
-    @media (max-width: 768px) {
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .stat { padding: 28px 24px; border-bottom: 1px solid #1a1a1a; }
+    /* Screen top bar */
+    .screen-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 10px; background: #141414;
+      border-radius: 6px; margin-bottom: 12px;
+    }
+    .screen-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .screen-dot.r { background: #c0392b; }
+    .screen-dot.y { background: #c9a84c; }
+    .screen-dot.g { background: #2ec27e; }
+    .screen-url { font-size: 9px; color: #444; margin-left: 8px; letter-spacing: 1px; font-family: monospace; }
+    /* Animated screen slides */
+    .screen-slides { position: relative; height: 170px; overflow: hidden; }
+    .screen-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      animation: slideRotate 16s infinite;
+      padding: 4px;
+    }
+    .screen-slide:nth-child(1) { animation-delay: 0s; }
+    .screen-slide:nth-child(2) { animation-delay: 4s; }
+    .screen-slide:nth-child(3) { animation-delay: 8s; }
+    .screen-slide:nth-child(4) { animation-delay: 12s; }
+    @keyframes slideRotate {
+      0%   { opacity: 0; transform: translateY(8px); }
+      5%   { opacity: 1; transform: translateY(0); }
+      22%  { opacity: 1; transform: translateY(0); }
+      27%  { opacity: 0; transform: translateY(-8px); }
+      100% { opacity: 0; }
+    }
+    .slide-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; margin-bottom: 8px; }
+    .slide-value { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: #e8e4df; line-height: 1; margin-bottom: 6px; }
+    .slide-sub { font-size: 10px; color: #555; margin-bottom: 12px; }
+    .slide-bar { height: 3px; background: #1e1e1e; border-radius: 2px; overflow: hidden; margin-bottom: 4px; }
+    .slide-bar-fill { height: 100%; background: linear-gradient(to right, #c9a84c, #e8c96d); border-radius: 2px; }
+    .slide-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; background: #111; border-radius: 4px; margin-bottom: 4px; }
+    .slide-row-label { font-size: 9px; color: #666; }
+    .slide-row-val { font-size: 9px; font-weight: 600; }
+    .slide-row-dot { width: 6px; height: 6px; border-radius: 50%; background: #2ec27e; margin-right: 6px; display: inline-block; }
+    /* Laptop base */
+    .laptop-base {
+      width: 380px; height: 18px;
+      background: linear-gradient(to bottom, #2a2a2a, #1e1e1e);
+      border-radius: 0 0 6px 6px;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+    .laptop-base::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 80px; height: 5px;
+      background: #333;
+      border-radius: 0 0 4px 4px;
+    }
+    /* "Explore" link under laptop */
+    .tools-explore {
+      text-align: center;
+      margin-top: 52px;
+    }
+    .tools-explore a {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: #c9a84c; text-decoration: none; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s;
+    }
+    .tools-explore a:hover { gap: 14px; }
+
+    @media (max-width: 900px) {
+      .tools-showcase { grid-template-columns: 1fr; gap: 36px; }
+      .callout-col.left, .callout-col.right { text-align: left; }
+      .callout-col.left .callout { padding-right: 0; border-right: none; border-left: 2px solid #c9a84c; padding-left: 16px; }
+      .callout-col.right .callout { padding-left: 16px; border-left: 2px solid #c9a84c; }
+      .laptop-screen-wrap { width: 100%; max-width: 340px; }
+      .laptop-base { width: 100%; max-width: 380px; }
+      .laptop-wrap { width: 100%; align-items: center; }
+    }
+    @media (max-width: 640px) {
+      .tools-section { padding-left: 24px; padding-right: 24px; }
     }
 
     /* ── FILMS SECTION ───────────────────────────────────────── */
@@ -270,11 +386,53 @@
     .join-confirm { display: none; font-size: 13px; color: #c9a84c; font-weight: 600; padding-top: 12px; }
 
     /* ── FOOTER ──────────────────────────────────────────────── */
-    footer { background: #080808; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #1a1a1a; }
-    .footer-left, .footer-right { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #333; }
-    .footer-right { display: flex; gap: 24px; align-items: center; }
-    .footer-right a { color: #333; text-decoration: none; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; transition: color 0.2s; }
-    .footer-right a:hover { color: #c9a84c; }
+    .site-footer { background: #080808; border-top: 1px solid #1a1a1a; }
+    .footer-top {
+      padding: 60px 48px 48px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      border-bottom: 1px solid #111;
+    }
+    .footer-brand .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 6px; color: #e8e4df; text-transform: uppercase; }
+    .footer-brand .logo-sub { font-size: 8px; letter-spacing: 4px; color: #444; text-transform: uppercase; margin-bottom: 20px; margin-top: 2px; }
+    .footer-brand-desc { font-size: 12px; color: #444; line-height: 1.7; max-width: 220px; margin-top: 12px; }
+    .footer-social { display: flex; gap: 14px; margin-top: 24px; }
+    .footer-social a {
+      width: 32px; height: 32px; border: 1px solid #1e1e1e;
+      display: flex; align-items: center; justify-content: center;
+      color: #444; text-decoration: none; font-size: 12px;
+      transition: all 0.2s; border-radius: 4px;
+    }
+    .footer-social a:hover { border-color: #c9a84c; color: #c9a84c; }
+    .footer-col-title {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: #e8e4df; font-weight: 600; margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a {
+      font-size: 13px; color: #444; text-decoration: none;
+      transition: color 0.2s; line-height: 1.4;
+    }
+    .footer-col ul li a:hover { color: #c9a84c; }
+    .footer-bottom {
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #333; }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #333; text-decoration: none; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: #c9a84c; }
+    @media (max-width: 900px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      .footer-top { grid-template-columns: 1fr 1fr; padding: 40px 24px 32px; }
+      .footer-bottom { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
+    }
 
     @media (max-width: 640px) {
       header, .hero-content, .hero-scroll-hint { padding-left: 24px; padding-right: 24px; }
@@ -362,26 +520,6 @@
     </div>
   </section>
 
-  <!-- ── STATS BAR ──────────────────────────────────────────── -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">30+</div>
-      <div class="stat-label">Intelligence Reports</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">5</div>
-      <div class="stat-label">AI-Powered Tools</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">5</div>
-      <div class="stat-label">Original Films</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">Always Access</div>
-    </div>
-  </div>
-
   <!-- ── NMD FILMS ───────────────────────────────────────────── -->
   <section class="films-section">
     <div class="films-header">
@@ -463,6 +601,114 @@
     </div>
   </section>
 
+  <!-- ── TOOLS SHOWCASE ────────────────────────────────────── -->
+  <section class="tools-section">
+    <div class="tools-header">
+      <div class="tools-eyebrow">NMD · Digital Tools</div>
+      <div class="tools-title">Built for people who move differently.</div>
+      <div class="tools-sub">AI-powered tools that run your credit, content, and lead systems — so you don't have to.</div>
+    </div>
+
+    <div class="tools-showcase">
+
+      <!-- LEFT CALLOUTS -->
+      <div class="callout-col left">
+        <div class="callout">
+          <span class="callout-icon">⚡</span>
+          <div class="callout-title">AI Dispute Engine</div>
+          <div class="callout-desc">Auto-generates FCRA-compliant dispute letters for any item on your credit report. One click — bureau-ready.</div>
+          <a href="nmd-plugins.html" class="callout-link">Explore tool &#8594;</a>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">✍️</span>
+          <div class="callout-title">Content Generator</div>
+          <div class="callout-desc">Social posts, blog articles, video scripts — all written in your voice, on demand. Never run dry.</div>
+          <a href="nmd-tools.html" class="callout-link">Explore tool &#8594;</a>
+        </div>
+      </div>
+
+      <!-- CENTER LAPTOP -->
+      <div class="laptop-wrap">
+        <div class="laptop-screen-wrap">
+          <div class="laptop-notch"></div>
+          <div class="laptop-screen">
+            <div class="screen-bar">
+              <span class="screen-dot r"></span>
+              <span class="screen-dot y"></span>
+              <span class="screen-dot g"></span>
+              <span class="screen-url">nmd · intelligence dashboard</span>
+            </div>
+            <div class="screen-slides">
+
+              <!-- Slide 1 — Credit Score -->
+              <div class="screen-slide">
+                <div class="slide-label">Credit Score Tracker</div>
+                <div class="slide-value">780</div>
+                <div class="slide-sub">+12 points this month · Equifax</div>
+                <div class="slide-bar"><div class="slide-bar-fill" style="width:78%"></div></div>
+                <div class="slide-row"><span><span class="slide-row-dot"></span><span class="slide-row-label">Payment History</span></span><span class="slide-row-val" style="color:#2ec27e">100%</span></div>
+                <div class="slide-row"><span><span class="slide-row-dot" style="background:#c9a84c"></span><span class="slide-row-label">Utilization</span></span><span class="slide-row-val" style="color:#c9a84c">9%</span></div>
+              </div>
+
+              <!-- Slide 2 — Dispute Engine -->
+              <div class="screen-slide">
+                <div class="slide-label">Dispute Engine · Active</div>
+                <div class="slide-value">3</div>
+                <div class="slide-sub">letters sent this week</div>
+                <div class="slide-row"><span><span class="slide-row-dot"></span><span class="slide-row-label">Equifax — Hard Inquiry</span></span><span class="slide-row-val" style="color:#2ec27e">Sent</span></div>
+                <div class="slide-row"><span><span class="slide-row-dot"></span><span class="slide-row-label">TransUnion — Late Pay</span></span><span class="slide-row-val" style="color:#2ec27e">Sent</span></div>
+                <div class="slide-row"><span><span class="slide-row-dot" style="background:#c9a84c"></span><span class="slide-row-label">Experian — Collection</span></span><span class="slide-row-val" style="color:#c9a84c">Pending</span></div>
+              </div>
+
+              <!-- Slide 3 — Lead Pipeline -->
+              <div class="screen-slide">
+                <div class="slide-label">Lead Pipeline · Today</div>
+                <div class="slide-value">47</div>
+                <div class="slide-sub">leads processed automatically</div>
+                <div class="slide-row"><span><span class="slide-row-dot"></span><span class="slide-row-label">New Prospects</span></span><span class="slide-row-val" style="color:#2ec27e">+19</span></div>
+                <div class="slide-row"><span><span class="slide-row-dot"></span><span class="slide-row-label">Follow-ups Sent</span></span><span class="slide-row-val" style="color:#2ec27e">28</span></div>
+                <div class="slide-row"><span><span class="slide-row-dot" style="background:#1a8fdf"></span><span class="slide-row-label">Appointments Set</span></span><span class="slide-row-val" style="color:#1a8fdf">6</span></div>
+              </div>
+
+              <!-- Slide 4 — Newsletter -->
+              <div class="screen-slide">
+                <div class="slide-label">Newsletter System</div>
+                <div class="slide-value">64%</div>
+                <div class="slide-sub">open rate · last edition</div>
+                <div class="slide-row"><span><span class="slide-row-dot"></span><span class="slide-row-label">Subscribers</span></span><span class="slide-row-val" style="color:#2ec27e">+142</span></div>
+                <div class="slide-row"><span><span class="slide-row-dot"></span><span class="slide-row-label">Click Rate</span></span><span class="slide-row-val" style="color:#c9a84c">22%</span></div>
+                <div class="slide-row"><span><span class="slide-row-dot" style="background:#2ec27e"></span><span class="slide-row-label">Next Edition</span></span><span class="slide-row-val" style="color:#2ec27e">Scheduled</span></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
+      </div>
+
+      <!-- RIGHT CALLOUTS -->
+      <div class="callout-col right">
+        <div class="callout">
+          <span class="callout-icon">🎯</span>
+          <div class="callout-title">Lead Pipeline</div>
+          <div class="callout-desc">Pulls prospects, sends follow-ups, books appointments. The whole sequence runs while you're off the clock.</div>
+          <a href="nmd-solutions.html" class="callout-link">Explore tool &#8594;</a>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">📬</span>
+          <div class="callout-title">Newsletter System</div>
+          <div class="callout-desc">Publish, manage subscribers, and track opens — all automated. One system. Zero effort after setup.</div>
+          <a href="nmd-solutions.html" class="callout-link">Explore tool &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tools-explore">
+      <a href="nmd-tools.html">Explore all NMD tools &#8594;</a>
+    </div>
+  </section>
+
   <!-- ── LATEST FROM BLOG ────────────────────────────────────── -->
   <section class="latest-section">
     <div class="section-header">
@@ -534,14 +780,77 @@
   </div>
 
   <!-- ── FOOTER ──────────────────────────────────────────────── -->
-  <footer>
-    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
-    <div class="footer-right">
-      <a href="nmd-blog.html">Blog</a>
-      <a href="nmd-videos.html">Films</a>
-      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
-      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
-      <a href="nmd-faq.html">FAQ</a>
+  <footer class="site-footer">
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand footer-col">
+        <div class="logo-nmd">NMD</div>
+        <div class="logo-sub">No Money Down</div>
+        <div class="footer-brand-desc">Credit intelligence, AI automation, and wealth systems built for people who move differently.</div>
+        <div class="footer-social">
+          <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" title="Telegram">✈</a>
+          <a href="https://nmdzaza.gumroad.com/" target="_blank" title="Gumroad">G</a>
+          <a href="nmd-about.html" title="About">★</a>
+        </div>
+      </div>
+
+      <!-- Read -->
+      <div class="footer-col">
+        <div class="footer-col-title">Read</div>
+        <ul>
+          <li><a href="nmd-blog.html">Blog</a></li>
+          <li><a href="nmd-cfpb-gutted-2026.html">Breaking News</a></li>
+          <li><a href="nmd-sba-sbss-drop-2026.html">Business Funding</a></li>
+          <li><a href="nmd-v2-business-credit-101.html">Credit 101</a></li>
+          <li><a href="nmd-authorized-user-blueprint.html">Strategy Guides</a></li>
+        </ul>
+      </div>
+
+      <!-- Build -->
+      <div class="footer-col">
+        <div class="footer-col-title">Build</div>
+        <ul>
+          <li><a href="nmd-plugins.html">All Plugins</a></li>
+          <li><a href="nmd-tools.html">All Tools</a></li>
+          <li><a href="nmd-get-started.html">Get Started</a></li>
+          <li><a href="nmd-solutions.html">Solutions</a></li>
+          <li><a href="nmd-videos.html">Films</a></li>
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <ul>
+          <li><a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram Community</a></li>
+          <li><a href="nmd-about.html">About NMD</a></li>
+          <li><a href="nmd-faq.html">FAQ</a></li>
+          <li><a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad Store</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="/nmd-newsletters/sitemap.xml">Sitemap</a></li>
+          <li><a href="nmd-faq.html#disclaimer">Disclaimer</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 NMD ZAZA · The Credit Goat 🐐 · All Rights Reserved</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="nmd-faq.html">FAQ</a>
+        <a href="nmd-about.html">About</a>
+      </div>
     </div>
   </footer>
 
