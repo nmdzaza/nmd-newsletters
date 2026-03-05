@@ -319,6 +319,7 @@
     <div class="tab" data-tab="leadgen" onclick="switchTab(this, 'leadgen')">Lead Gen</div>
     <div class="tab" data-tab="newsletter" onclick="switchTab(this, 'newsletter')">Newsletter</div>
     <div class="tab" data-tab="lien" onclick="switchTab(this, 'lien')">Lien Finder</div>
+    <div class="tab" data-tab="probate" onclick="switchTab(this, 'probate')">Probate Hunter</div>
   </div>
 
   <!-- ═══════════════════════════════════════════════ DEALERSHIP -->
@@ -834,6 +835,84 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════ PROBATE HUNTER -->
+  <div class="tool-panel" id="panel-probate">
+    <div class="tool-intro">
+      <h2>Probate Hunter</h2>
+      <p>Find properties where the owner recently died and the estate is in probate — before they ever hit the MLS. The AI searches county court filings, cross-references the assessor for real property, surfaces the executor contact, and generates a ready-to-send outreach letter. Same playbook real estate investors pay thousands to learn.</p>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-group">
+        <label>County</label>
+        <input type="text" id="pb-county" placeholder="e.g. Maricopa County">
+      </div>
+
+      <div class="form-group">
+        <label>State</label>
+        <select id="pb-state">
+          <option value="">— Select State —</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Cases Filed Within</label>
+        <select id="pb-range">
+          <option value="last 30 days">Last 30 days</option>
+          <option value="last 60 days">Last 60 days</option>
+          <option value="last 90 days">Last 90 days</option>
+          <option value="last 6 months">Last 6 months</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Property Type</label>
+        <select id="pb-type">
+          <option value="all real property — residential, commercial, and vacant land">All Real Property</option>
+          <option value="residential property only — single family, condo, townhome, multi-family">Residential Only</option>
+          <option value="commercial property only — retail, office, industrial, mixed-use">Commercial Only</option>
+          <option value="vacant land and undeveloped parcels only">Vacant Land Only</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Output</label>
+        <select id="pb-output">
+          <option value="full report with outreach letters for every property found">Full Report + Outreach Letters</option>
+          <option value="property list only — address, APN, and estimated value per case">Property List Only</option>
+          <option value="contact list only — executor and attorney names and contact info">Contact List Only</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="run-btn" onclick="launchTool('probate', this)">Launch in Claude &#8594;</button>
+
+    <div class="step-box" id="stepbox-probate">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-probate"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('probate', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('probate')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-probate">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-probate" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('probate', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-probate">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-brand">NMD ZAZA · The Credit Goat 🐐</div>
     <div class="footer-links">
@@ -1053,6 +1132,58 @@ Then list all liens found by category (mechanic's, tax, HOA, judgment, UCC, fede
 Important: Be clear about what you found vs. what you could not access. Never interpret legal implications — report the facts and advise the user to consult a title attorney for interpretation.`;
       }
     }
+
+      if (tool === 'probate') {
+        const county  = document.getElementById('pb-county').value.trim() || 'the specified county';
+        const state   = document.getElementById('pb-state').value         || 'Unknown State';
+        const range   = document.getElementById('pb-range').value;
+        const type    = document.getElementById('pb-type').value;
+        const output  = document.getElementById('pb-output').value;
+
+        return `You are a probate real estate research specialist. Your job is to find recently opened probate cases that involve real property in ${county}, ${state} — then surface the property details, executor contact, and a ready-to-send outreach letter for each one.
+
+SEARCH REQUEST:
+County: ${county}
+State: ${state}
+Cases filed: ${range}
+Property filter: ${type}
+Output requested: ${output}
+Search date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+Run all 3 steps in order. Do not skip any step.
+
+STEP 1 — COUNTY PROBATE COURT RECORDS
+Navigate to the ${county}, ${state} public probate court portal.
+Common systems: Tyler Technologies ODYSSEY, CourtConnect, eCourts, MyCase, or the county's own public docket.
+Search for case types: PROBATE, ESTATE, DECEDENT, TESTATE, INTESTATE
+Exclude: GUARDIANSHIP, CONSERVATORSHIP, TRUST (unless combined with estate)
+Date range: ${range}
+Status: OPEN / ACTIVE cases only
+
+For each case capture: case number, deceased name, date filed, executor/personal representative name, attorney of record.
+
+STEP 2 — COUNTY ASSESSOR CROSS-REFERENCE
+For each probate case found, search the ${county} assessor for real property owned by the deceased.
+Search by: deceased person's full name (try last name + first name variations)
+Capture: property address, APN, property type, assessed/estimated value, ownership entity, any tax delinquency.
+FILTER: Only include cases with confirmed real property. Skip personal-property-only estates.
+
+STEP 3 — GENERATE OUTREACH
+For each confirmed property, generate both:
+- Letter A: To the executor/administrator — respectful, direct, cash offer intro
+- Letter B: To the probate attorney — professional, references case number
+
+Keep all letters brief, low-pressure, and compassionate. These are grieving families.
+
+OUTPUT FORMAT:
+After all 3 steps, deliver the full NMD Probate Hunter Report:
+- One section per case with all property details
+- Both outreach letters ready to send
+- Summary: total cases searched, cases with real property, letters ready
+- Note: "Save to ~/probate-leads/${county.replace(/\s+/g,'-').toLowerCase()}-${new Date().toISOString().slice(0,10)}.csv"
+`;
+      }
 
     // ── LAUNCH TOOL ──────────────────────────────────────────────
     async function launchTool(tool, btn) {
