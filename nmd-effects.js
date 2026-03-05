@@ -252,6 +252,128 @@
     });
   }
 
+  /* ── SKELETON LOADERS ───────────────────────────────────────────── */
+  function initSkeletonLoaders() {
+    document.querySelectorAll('.card').forEach(function (card) {
+      card.classList.add('nmd-skeleton');
+    });
+  }
+
+  /* ── AURORA MESH BACKGROUND ─────────────────────────────────────── */
+  function initAurora() {
+    document.querySelectorAll('.hero').forEach(function (hero) {
+      if (hero.querySelector('.nmd-aurora')) return;
+      var el = document.createElement('div');
+      el.className = 'nmd-aurora';
+      el.setAttribute('aria-hidden', 'true');
+      hero.insertBefore(el, hero.firstChild);
+    });
+  }
+
+  /* ── FINANCIAL DATA STREAM ──────────────────────────────────────── */
+  function initDataStream() {
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+    if (hero.querySelector('.nmd-data-stream')) return;
+
+    var canvas = document.createElement('canvas');
+    canvas.className = 'nmd-data-stream';
+    canvas.setAttribute('aria-hidden', 'true');
+    hero.insertBefore(canvas, hero.firstChild);
+
+    var ctx = canvas.getContext('2d');
+    var W, H, raf;
+
+    var TERMS = [
+      '480', '522', '558', '601', '640', '672', '704', '730', '758', '780', '800', '824',
+      'FCRA §611', 'FDCPA', 'FICO 8', 'FICO 9', 'VS 3.0',
+      'EQUIFAX', 'EXPERIAN', 'TRANSUNION',
+      'DISPUTE', 'REMOVAL', 'INQUIRY', 'LATE PMT',
+      '+47 PTS', '+82 PTS', '+120 PTS', 'DELETED ✓',
+      'APPROVED ✓', 'DENIED →', 'PENDING...',
+      '$500 CL', '$2,500', '$10,000', '$25K',
+      'UTIL: 2%', 'UTIL: 8%', 'UTIL: 29%',
+      'CHARGE OFF', 'SETTLED', 'PAID IN FULL',
+      'NMD ZAZA', 'THE GOAT 🐐', 'NO MONEY DOWN',
+      'CREDIT AUDIT', 'REPORT PULL', 'ACTION PLAN',
+      'BUREAU LTR', 'GOODWILL LTR', 'VALIDATION',
+    ];
+
+    var COL_W = 92;
+    var ITEM_H = 26;
+    var columns = [];
+
+    function randTerm() {
+      return TERMS[Math.floor(Math.random() * TERMS.length)];
+    }
+
+    function makeColumn(xPos) {
+      var count = 5 + Math.floor(Math.random() * 6);
+      var items = [];
+      for (var k = 0; k < count; k++) items.push(randTerm());
+      return {
+        x:       xPos,
+        y:       -(Math.random() * (H || 400) * 1.5),
+        speed:   0.22 + Math.random() * 0.42,
+        items:   items,
+        opacity: 0.022 + Math.random() * 0.042,
+        size:    8 + Math.floor(Math.random() * 3),
+      };
+    }
+
+    function resize() {
+      W = canvas.width  = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+      var num = Math.ceil(W / COL_W);
+      columns = [];
+      for (var i = 0; i < num; i++) columns.push(makeColumn(i * COL_W + 10));
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      var totalH;
+
+      columns.forEach(function (col) {
+        col.y += col.speed;
+        totalH = col.items.length * ITEM_H;
+        if (col.y > H + 80) {
+          col.y     = -totalH - Math.random() * 180;
+          col.speed = 0.22 + Math.random() * 0.42;
+          col.opacity = 0.022 + Math.random() * 0.042;
+          col.items = col.items.map(randTerm);
+        }
+
+        ctx.save();
+        ctx.fillStyle = '#c9a84c';
+        ctx.font = col.size + 'px Inter, monospace';
+
+        col.items.forEach(function (term, i) {
+          var iy = col.y + i * ITEM_H;
+          if (iy < -20 || iy > H + 20) return;
+          var fade = Math.min(iy / 80, 1) * Math.min((H - iy) / 80, 1);
+          ctx.globalAlpha = col.opacity * Math.max(0, fade);
+          ctx.fillText(term, col.x, iy);
+        });
+
+        ctx.restore();
+      });
+
+      raf = requestAnimationFrame(draw);
+    }
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+    draw();
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+      } else {
+        draw();
+      }
+    });
+  }
+
   /* ── GSAP SCROLL ANIMATIONS ────────────────────────────────────── */
   function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
@@ -268,13 +390,14 @@
       gsap.from(heroLabel, { opacity: 0, x: -18, duration: 0.7, delay: 0.2, ease: 'power2.out' });
     }
 
-    /* — Newsletter cards: batch stagger */
+    /* — Newsletter cards: batch stagger + skeleton removal */
     var cards = document.querySelectorAll('.card');
     if (cards.length) {
       gsap.set(cards, { opacity: 0, y: 44 });
       ScrollTrigger.batch(cards, {
         start: 'top 90%',
         onEnter: function (batch) {
+          batch.forEach(function (el) { el.classList.remove('nmd-skeleton'); });
           gsap.to(batch, {
             opacity: 1, y: 0,
             duration: 0.72,
@@ -441,6 +564,9 @@
     initTicker();
     initMobileNav();
     initMagnetic();
+    initSkeletonLoaders();
+    initAurora();
+    initDataStream();
 
     // Load GSAP → ScrollTrigger → Lenis → animations
     loadScripts([GSAP_CDN, ST_CDN, LENIS_CDN], function () {
