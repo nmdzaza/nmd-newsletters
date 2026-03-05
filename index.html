@@ -307,27 +307,67 @@
       .tools-section { padding-left: 24px; padding-right: 24px; }
     }
 
-    /* ── FILMS SECTION ───────────────────────────────────────── */
-    .films-section { background: #0d0d0d; padding: 80px 48px; border-top: 1px solid #1a1a1a; }
-    .films-header { margin-bottom: 60px; padding-bottom: 24px; border-bottom: 1px solid #1a1a1a; display: flex; align-items: baseline; justify-content: space-between; }
-    .films-label { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #555; }
-    .films-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: #e8e4df; margin-top: 12px; }
-    .film-row { display: flex; align-items: flex-start; gap: 52px; padding-bottom: 56px; margin-bottom: 56px; border-bottom: 1px solid #1a1a1a; }
-    .film-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .film-row.flip { flex-direction: row-reverse; }
-    .film-video { flex-shrink: 0; width: 260px; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.6); position: relative; }
-    .film-video::after { content: ''; position: absolute; inset: 0; border-radius: 16px; border: 1px solid rgba(201,168,76,0.15); pointer-events: none; }
-    .film-video video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; }
-    .film-text { flex: 1; padding-top: 16px; }
-    .film-num { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #333; margin-bottom: 12px; }
-    .film-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; margin-bottom: 20px; }
-    .film-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 42px); font-weight: 700; color: #e8e4df; line-height: 1.1; margin-bottom: 20px; }
-    .film-desc { font-size: 15px; color: #555; line-height: 1.85; max-width: 480px; }
+    /* ── FILMS SECTION (Horizontal Carousel) ─────────────────── */
+    .films-section { background: #0d0d0d; padding: 80px 0; border-top: 1px solid #1a1a1a; }
+    .films-top { padding: 0 48px 48px; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .films-info { max-width: 620px; }
+    .films-eyebrow { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: #555; margin-bottom: 16px; }
+    .films-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: #e8e4df; line-height: 1.1; margin-bottom: 16px; }
+    .films-pitch { font-size: 15px; color: #555; line-height: 1.75; margin-bottom: 24px; max-width: 520px; }
+    .films-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+    .film-badge { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #c9a84c; border: 1px solid rgba(201,168,76,0.3); padding: 6px 14px; }
+    .films-biz-cta { display: inline-flex; align-items: center; gap: 10px; background: #c9a84c; color: #0d0d0d; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; padding: 14px 28px; text-decoration: none; transition: all 0.25s; }
+    .films-biz-cta:hover { background: #e8c96d; }
+    .films-nav-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; padding-bottom: 4px; }
+    .films-arrow { width: 44px; height: 44px; background: #111; border: 1px solid #1e1e1e; color: #e8e4df; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .films-arrow:hover { border-color: #c9a84c; color: #c9a84c; }
+    /* Carousel track */
+    .films-carousel { position: relative; }
+    .films-track {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0 48px 28px;
+      cursor: grab;
+    }
+    .films-track:active { cursor: grabbing; }
+    .films-track::-webkit-scrollbar { display: none; }
+    /* Edge fade */
+    .films-carousel::before, .films-carousel::after {
+      content: ''; position: absolute; top: 0; bottom: 28px;
+      width: 64px; pointer-events: none; z-index: 2;
+    }
+    .films-carousel::before { left: 0; background: linear-gradient(to right, #0d0d0d, transparent); }
+    .films-carousel::after  { right: 0; background: linear-gradient(to left, #0d0d0d, transparent); }
+    /* Individual card */
+    .film-card { flex-shrink: 0; width: 210px; scroll-snap-align: start; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,0.5); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .film-card:hover { transform: translateY(-6px); box-shadow: 0 28px 80px rgba(0,0,0,0.7); }
+    .film-card video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; }
+    /* Always-visible bottom label */
+    .film-card-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 36px 14px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 100%);
+    }
+    .film-card-tag { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #c9a84c; margin-bottom: 5px; }
+    .film-card-title { font-size: 13px; font-weight: 700; color: #e8e4df; line-height: 1.3; font-family: 'Playfair Display', serif; }
+    /* Gold border on hover */
+    .film-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; border: 1px solid rgba(201,168,76,0); transition: border-color 0.25s; pointer-events: none; }
+    .film-card:hover::after { border-color: rgba(201,168,76,0.45); }
+    /* Bottom view-all row */
+    .films-bottom { padding: 28px 48px 0; display: flex; align-items: center; gap: 16px; }
+    .films-count { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #333; }
 
     @media (max-width: 768px) {
-      .film-row, .film-row.flip { flex-direction: column; gap: 24px; }
-      .film-video { width: 100%; max-width: 180px; border-radius: 12px; }
-      .films-section, .films-header { padding-left: 24px; padding-right: 24px; }
+      .films-top { padding: 0 24px 36px; }
+      .films-track { padding: 0 24px 24px; }
+      .film-card { width: 175px; }
+      .films-carousel::before, .films-carousel::after { width: 32px; }
+      .films-nav-controls { display: none; }
+      .films-bottom { padding: 20px 24px 0; }
     }
 
     /* ── LATEST FROM BLOG ────────────────────────────────────── */
@@ -524,83 +564,102 @@
 
   <!-- ── NMD FILMS ───────────────────────────────────────────── -->
   <section class="films-section">
-    <div class="films-header">
-      <div>
-        <div class="films-label">NMD · Films</div>
-        <div class="films-title">The system, on film.</div>
-      </div>
-      <a href="nmd-videos.html" class="view-all-link">All Films &#8594;</a>
-    </div>
 
-    <div class="film-row">
-      <div class="film-video">
-        <video autoplay muted loop playsinline>
-          <source src="nmd-dealership.mp4" type="video/mp4">
-        </video>
+    <!-- Header + pitch -->
+    <div class="films-top">
+      <div class="films-info">
+        <div class="films-eyebrow">Higgsfield AI · Opus Agent · NMD Films</div>
+        <h2 class="films-title">AI video, built for business.</h2>
+        <p class="films-pitch">We use <strong style="color:#e8e4df;">Higgsfield AI</strong> to generate cinematic video campaigns from a single prompt — then <strong style="color:#e8e4df;">Opus Agent</strong> automatically clips, captions, and optimizes each one for every platform. No crew. No studio. No agency. Just scroll-stopping content, on demand.</p>
+        <div class="films-badges">
+          <span class="film-badge">Higgsfield AI</span>
+          <span class="film-badge">Opus Agent</span>
+          <span class="film-badge">Auto-Captions</span>
+          <span class="film-badge">Multi-Platform</span>
+        </div>
+        <a href="nmd-solutions.html" class="films-biz-cta">Get this for your business &#8594;</a>
       </div>
-      <div class="film-text">
-        <div class="film-num">001</div>
-        <div class="film-tag">NMD Solutions</div>
-        <div class="film-title">AI built for real sales teams.</div>
-        <div class="film-desc">Four modules. One workflow. Dead leads worked, social buyers sourced, trade-ins conquered, pipeline updated — all inside Claude Desktop. No dashboards. No extra logins. Just revenue.</div>
-      </div>
-    </div>
-
-    <div class="film-row flip">
-      <div class="film-video">
-        <video autoplay muted loop playsinline>
-          <source src="nmd-v2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="film-text">
-        <div class="film-num">002</div>
-        <div class="film-tag">NMD Solutions</div>
-        <div class="film-title">5 Tools. One System. Zero Wasted Time.</div>
-        <div class="film-desc">Credit disputes automated. Content engine running. Newsletter system publishing. Lead pipeline generating. Video campaigns dropping. Everything connected. Everything working.</div>
+      <div class="films-nav-controls">
+        <button class="films-arrow" id="filmsLeft" aria-label="Scroll left">&#8592;</button>
+        <button class="films-arrow" id="filmsRight" aria-label="Scroll right">&#8594;</button>
+        <a href="nmd-videos.html" class="view-all-link" style="margin-left:8px;">All Films &#8594;</a>
       </div>
     </div>
 
-    <div class="film-row">
-      <div class="film-video">
-        <video autoplay muted loop playsinline>
-          <source src="nmd-v3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="film-text">
-        <div class="film-num">003</div>
-        <div class="film-tag">NMD Lifestyle</div>
-        <div class="film-title">Systems That Work While You Rest.</div>
-        <div class="film-desc">New leads coming in. Newsletter opens climbing. Analytics moving. You built the system — now it runs. That's what NMD means. That's what the Credit Goat looks like in 2026.</div>
+    <!-- Horizontal scroll carousel -->
+    <!-- ✦ TO ADD MORE VIDEOS: copy any .film-card block below and update src, tag, and title -->
+    <div class="films-carousel">
+      <div class="films-track" id="filmsTrack">
+
+        <div class="film-card">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="nmd-dealership.mp4" type="video/mp4">
+          </video>
+          <div class="film-card-label">
+            <div class="film-card-tag">NMD Solutions</div>
+            <div class="film-card-title">AI Built for Real Sales Teams</div>
+          </div>
+        </div>
+
+        <div class="film-card">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="nmd-v2.mp4" type="video/mp4">
+          </video>
+          <div class="film-card-label">
+            <div class="film-card-tag">NMD Solutions</div>
+            <div class="film-card-title">5 Tools. One System. Zero Wasted Time.</div>
+          </div>
+        </div>
+
+        <div class="film-card">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="nmd-v3.mp4" type="video/mp4">
+          </video>
+          <div class="film-card-label">
+            <div class="film-card-tag">NMD Lifestyle</div>
+            <div class="film-card-title">Systems That Work While You Rest</div>
+          </div>
+        </div>
+
+        <div class="film-card">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="nmd-v4.mp4" type="video/mp4">
+          </video>
+          <div class="film-card-label">
+            <div class="film-card-tag">NMD Infrastructure</div>
+            <div class="film-card-title">One Person. Full AI Operation.</div>
+          </div>
+        </div>
+
+        <div class="film-card">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="nmd-v5.mp4" type="video/mp4">
+          </video>
+          <div class="film-card-label">
+            <div class="film-card-tag">Industry News</div>
+            <div class="film-card-title">Doctor Jailed 8.5 Years: $145M Fraud</div>
+          </div>
+        </div>
+
+        <div class="film-card">
+          <video autoplay muted loop playsinline preload="none">
+            <source src="video_c9c97ee6-4853-4721-92ba-b6050e998882.mp4" type="video/mp4">
+          </video>
+          <div class="film-card-label">
+            <div class="film-card-tag">Higgsfield AI</div>
+            <div class="film-card-title">AI-Generated Campaign</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="film-row flip">
-      <div class="film-video">
-        <video autoplay muted loop playsinline>
-          <source src="nmd-v4.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="film-text">
-        <div class="film-num">004</div>
-        <div class="film-tag">NMD Infrastructure</div>
-        <div class="film-title">One Person. Full AI Operation.</div>
-        <div class="film-desc">No team. No agency. Built from scratch. Credit dispute tool. Content engine. Newsletter system. Lead pipelines. Video campaigns. All of it. One person. All AI-powered.</div>
-      </div>
+    <!-- Bottom row -->
+    <div class="films-bottom">
+      <span class="films-count">6 Films · More dropping regularly</span>
+      <a href="nmd-videos.html" class="view-all-link">View all &#8594;</a>
     </div>
 
-    <div class="film-row">
-      <div class="film-video">
-        <video autoplay muted loop playsinline>
-          <source src="nmd-v5.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="film-text">
-        <div class="film-num">005</div>
-        <div class="film-tag">Industry News</div>
-        <div class="film-title">Doctor Jailed 8.5 Years: $145M Healthcare Fraud.</div>
-        <div class="film-desc">$145 million billed. $90 million paid out. Compounded creams mixed by untrained teens, billed to the government at $16,000 each. NMD breaks down the case and what it means for you.</div>
-      </div>
-    </div>
   </section>
 
   <!-- ── TOOLS SHOWCASE ────────────────────────────────────── -->
@@ -901,6 +960,45 @@
         }, { threshold: 0.01 });
         io.observe(hero);
       }
+    })();
+
+    // ── FILMS CAROUSEL — arrows + drag-to-scroll ──────────────
+    (function initCarousel() {
+      var track = document.getElementById('filmsTrack');
+      if (!track) return;
+      var cardW = 224; // card width + gap
+
+      document.getElementById('filmsLeft').addEventListener('click', function() {
+        track.scrollBy({ left: -cardW * 2, behavior: 'smooth' });
+      });
+      document.getElementById('filmsRight').addEventListener('click', function() {
+        track.scrollBy({ left: cardW * 2, behavior: 'smooth' });
+      });
+
+      // Mouse drag-to-scroll
+      var isDown = false, startX, scrollLeft;
+      track.addEventListener('mousedown', function(e) {
+        isDown = true; track.classList.add('grabbing');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+      track.addEventListener('mouseleave', function() { isDown = false; track.classList.remove('grabbing'); });
+      track.addEventListener('mouseup',    function() { isDown = false; track.classList.remove('grabbing'); });
+      track.addEventListener('mousemove',  function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - track.offsetLeft;
+        track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      });
+
+      // Play videos when visible, pause when off-screen (perf)
+      var videoIO = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          var v = entry.target;
+          entry.isIntersecting ? v.play() : v.pause();
+        });
+      }, { threshold: 0.2 });
+      track.querySelectorAll('video').forEach(function(v) { videoIO.observe(v); });
     })();
 
     // ── SUBSCRIBE FORM ────────────────────────────────────────
