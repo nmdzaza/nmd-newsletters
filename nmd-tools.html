@@ -318,6 +318,7 @@
     <div class="tab" data-tab="social" onclick="switchTab(this, 'social')">Social</div>
     <div class="tab" data-tab="leadgen" onclick="switchTab(this, 'leadgen')">Lead Gen</div>
     <div class="tab" data-tab="newsletter" onclick="switchTab(this, 'newsletter')">Newsletter</div>
+    <div class="tab" data-tab="lien" onclick="switchTab(this, 'lien')">Lien Finder</div>
   </div>
 
   <!-- ═══════════════════════════════════════════════ DEALERSHIP -->
@@ -671,6 +672,127 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════ LIEN FINDER -->
+  <div class="tool-panel" id="panel-lien">
+    <div class="tool-intro">
+      <h2>Lien Finder</h2>
+      <p>Enter a property address or owner name. The AI searches all 5 live databases — county recorder, tax assessor, state UCC, state tax lien, and IRS federal liens — and returns a complete risk report. Same sources title companies use. Done in minutes.</p>
+    </div>
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Search By</label>
+        <select id="li-type">
+          <option value="property address">Property Address</option>
+          <option value="owner name">Owner / Company Name</option>
+          <option value="parcel / APN number">Parcel / APN Number</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Street Address (or Owner Name / APN)</label>
+        <input type="text" id="li-address" placeholder="e.g. 4521 Westheimer Rd, Houston TX 77027">
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="li-city" placeholder="e.g. Houston">
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <select id="li-state">
+          <option value="">— Select State —</option>
+          <option value="Alabama">Alabama</option>
+          <option value="Alaska">Alaska</option>
+          <option value="Arizona">Arizona</option>
+          <option value="Arkansas">Arkansas</option>
+          <option value="California">California</option>
+          <option value="Colorado">Colorado</option>
+          <option value="Connecticut">Connecticut</option>
+          <option value="Delaware">Delaware</option>
+          <option value="Florida">Florida</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Hawaii">Hawaii</option>
+          <option value="Idaho">Idaho</option>
+          <option value="Illinois">Illinois</option>
+          <option value="Indiana">Indiana</option>
+          <option value="Iowa">Iowa</option>
+          <option value="Kansas">Kansas</option>
+          <option value="Kentucky">Kentucky</option>
+          <option value="Louisiana">Louisiana</option>
+          <option value="Maine">Maine</option>
+          <option value="Maryland">Maryland</option>
+          <option value="Massachusetts">Massachusetts</option>
+          <option value="Michigan">Michigan</option>
+          <option value="Minnesota">Minnesota</option>
+          <option value="Mississippi">Mississippi</option>
+          <option value="Missouri">Missouri</option>
+          <option value="Montana">Montana</option>
+          <option value="Nebraska">Nebraska</option>
+          <option value="Nevada">Nevada</option>
+          <option value="New Hampshire">New Hampshire</option>
+          <option value="New Jersey">New Jersey</option>
+          <option value="New Mexico">New Mexico</option>
+          <option value="New York">New York</option>
+          <option value="North Carolina">North Carolina</option>
+          <option value="North Dakota">North Dakota</option>
+          <option value="Ohio">Ohio</option>
+          <option value="Oklahoma">Oklahoma</option>
+          <option value="Oregon">Oregon</option>
+          <option value="Pennsylvania">Pennsylvania</option>
+          <option value="Rhode Island">Rhode Island</option>
+          <option value="South Carolina">South Carolina</option>
+          <option value="South Dakota">South Dakota</option>
+          <option value="Tennessee">Tennessee</option>
+          <option value="Texas">Texas</option>
+          <option value="Utah">Utah</option>
+          <option value="Vermont">Vermont</option>
+          <option value="Virginia">Virginia</option>
+          <option value="Washington">Washington</option>
+          <option value="West Virginia">West Virginia</option>
+          <option value="Wisconsin">Wisconsin</option>
+          <option value="Wyoming">Wyoming</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>County <span style="color:#999;font-weight:400;">(if known)</span></label>
+        <input type="text" id="li-county" placeholder="e.g. Harris County — or leave blank, AI will detect">
+      </div>
+      <div class="form-group">
+        <label>Lien Types to Focus On</label>
+        <select id="li-focus">
+          <option value="all lien types — mechanic's liens, tax liens, HOA liens, judgment liens, UCC filings, and IRS federal tax liens">All Types (Full Search)</option>
+          <option value="mechanic's liens and construction liens only">Mechanic's / Construction Liens</option>
+          <option value="tax liens — property tax delinquency, state tax liens, and IRS federal tax liens">Tax Liens Only</option>
+          <option value="judgment liens and court-ordered liens">Judgment Liens</option>
+          <option value="UCC filings and personal property liens">UCC / Personal Property</option>
+          <option value="HOA liens and homeowner association liens">HOA Liens</option>
+        </select>
+      </div>
+    </div>
+    <button class="run-btn" onclick="launchTool('lien', this)">Launch in Claude &#8594;</button>
+    <div class="step-box" id="stepbox-lien">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Click the message box in Claude and press <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) to paste — then hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-lien"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('lien', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('lien')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-lien">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-lien" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('lien', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-lien">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════════════════════════════════════════ UPSELL -->
   <div class="upsell-section">
     <div class="upsell-tag">NMD Solutions</div>
@@ -869,6 +991,66 @@ Write a complete, publish-ready newsletter edition:
 6. Closing call to action: ${cta}
 
 Write in a ${tone} voice. This should feel like it came from someone who genuinely understands ${audience} and respects their intelligence. No filler. Every sentence earns its place.`;
+      }
+
+      if (tool === 'lien') {
+        const searchType = document.getElementById('li-type').value;
+        const address    = document.getElementById('li-address').value.trim() || 'No address provided';
+        const city       = document.getElementById('li-city').value.trim()    || '';
+        const state      = document.getElementById('li-state').value          || 'Unknown State';
+        const county     = document.getElementById('li-county').value.trim()  || '';
+        const focus      = document.getElementById('li-focus').value;
+        const countyLine = county ? `County: ${county}` : '(detect county from address)';
+        const cityLine   = city ? `City: ${city}` : '';
+        return `You are a professional lien search specialist with access to every public records portal in the United States. You search all 50 states and 3,000+ counties for property and personal liens using live government websites — the same sources title companies and real estate attorneys use.
+
+SEARCH REQUEST:
+Search by: ${searchType}
+${searchType === 'property address' ? `Address: ${address}` : `Name / ID: ${address}`}
+${cityLine}
+State: ${state}
+${countyLine}
+Lien types: ${focus}
+Search date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+Run ALL 5 search types in order. Do not skip any source.
+
+1. COUNTY RECORDER / REGISTER OF DEEDS
+   - Search for: LIEN, MECHANIC LIEN, CLAIM OF LIEN, NOTICE OF LIEN, HOA LIEN, FEDERAL TAX LIEN, JUDGMENT LIEN
+   - Search by both owner name AND property address
+   - Use the county's direct portal if listed in your portal data; otherwise use NETR Online as fallback
+
+2. COUNTY TAX ASSESSOR / COLLECTOR
+   - Check for delinquent property taxes, tax certificates sold to investors, tax lien notices
+   - Flag: DELINQUENT, CERTIFICATE SOLD, TAX LIEN, BACK TAXES
+
+3. STATE UCC SEARCH (Secretary of State)
+   - Search ${state} Secretary of State UCC portal for active UCC-1 filings against this debtor/owner
+   - Note any active financing statements, continuations, or amendments
+
+4. STATE TAX LIEN REGISTRY
+   - Search ${state} revenue/tax department public lien registry
+   - Note if the state does not publish these online
+
+5. FEDERAL TAX LIEN (IRS)
+   - Return to county recorder and filter for: FEDERAL TAX LIEN, IRS LIEN, NOTICE OF FEDERAL TAX LIEN
+   - Also check lienindex.irs.gov if available for this state
+
+After completing all searches, output the full NMD Lien Finder report in this format:
+
+════════════════════════════════════════════
+NMD LIEN FINDER — SEARCH REPORT
+════════════════════════════════════════════
+Property / Subject: ${address}${city ? ', ' + city : ''}${state ? ', ' + state : ''}
+County: ${county || '[detected]'}
+Search Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+Search Types: County Recorder | Tax Assessor | State UCC | State Tax | Federal IRS
+════════════════════════════════════════════
+
+Then list all liens found by category (mechanic's, tax, HOA, judgment, UCC, federal IRS, mortgage/deed of trust), and close with a SEARCH COVERAGE section and a RECOMMENDATION (CLEAR / LOW RISK / LIENS PRESENT / HIGH RISK) with next steps.
+
+Important: Be clear about what you found vs. what you could not access. Never interpret legal implications — report the facts and advise the user to consult a title attorney for interpretation.`;
       }
     }
 
