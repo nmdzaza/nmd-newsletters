@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NMD Blog — Credit Intelligence</title>
+  <meta name="description" content="NMD breaks down the biggest shifts in credit, banking, and financial products so you always know what it means for you." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #e8e4df; font-family: Inter, sans-serif; min-height: 100vh; color: #111; }
+    header { background: #0d0d0d; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
+    .logo { display: flex; flex-direction: column; gap: 2px; }
+    .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #555; text-transform: uppercase; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav a:hover, .header-nav a.active { color: #c9a84c; }
+
+    /* ── BLOG HERO ─────────────────────────────────────── */
+    .blog-hero {
+      padding: 80px 48px 60px;
+      border-bottom: 1px solid #ccc;
+      background: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 400px; height: 100%;
+      background: radial-gradient(ellipse at right center, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: #c9a84c; }
+    .blog-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 900; line-height: 1.0;
+      color: #e8e4df; max-width: 800px;
+    }
+    .blog-hero h1 em { font-style: italic; color: #c9a84c; }
+    .hero-desc {
+      margin-top: 28px; font-size: 16px;
+      color: rgba(232,228,223,0.6); max-width: 520px; line-height: 1.75;
+    }
+
+    /* ── GRID ─────────────────────────────────────────── */
+    .grid-section { padding: 60px 48px 80px; }
+    .section-label {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: #888; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid #ccc;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .card { background: #0d0d0d; border-radius: 4px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+    .card-accent { height: 3px; width: 100%; }
+    .card-body { padding: 32px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .card-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 14px; }
+    .card-desc { font-size: 13px; color: #888; line-height: 1.65; flex: 1; }
+    .card-footer { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid #222; }
+    .card-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
+    .card-arrow { font-size: 18px; color: #444; transition: color 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { color: #fff; }
+
+    footer { background: #0d0d0d; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left, .footer-right { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+
+    @media (max-width: 640px) { header, .blog-hero, .grid-section, footer { padding-left: 24px; padding-right: 24px; } }
+
+    /* ── NEWSLETTER POPUP ─────────────────────────────── */
+    .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 9999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(2px); }
+    .popup-overlay.open { display: flex; }
+    .popup-card { background: #e8e4df; max-width: 560px; width: 100%; border: 1px solid #ccc; position: relative; animation: popupIn 0.32s ease; }
+    @keyframes popupIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .popup-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer; line-height: 1; padding: 4px; transition: color 0.2s; }
+    .popup-close:hover { color: #111; }
+    .popup-featured { padding: 36px 40px 28px; border-bottom: 1px solid #d0ccc6; }
+    .popup-featured-tag { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #c9a84c; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .popup-featured-tag::before { content: ''; display: block; width: 24px; height: 2px; background: #c9a84c; }
+    .popup-article-headline { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 12px; }
+    .popup-article-desc { font-size: 13px; color: #666; line-height: 1.65; margin-bottom: 20px; }
+    .popup-read-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #111; text-decoration: none; font-weight: 700; transition: color 0.2s; }
+    .popup-read-link:hover { color: #c9a84c; }
+    .popup-subscribe { padding: 28px 40px 36px; background: #fff; }
+    .popup-subscribe-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #aaa; margin-bottom: 10px; }
+    .popup-subscribe-headline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #111; margin-bottom: 8px; line-height: 1.2; }
+    .popup-subscribe-sub { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5; }
+    .popup-form-row { display: flex; }
+    .popup-email-input { flex: 1; background: #fff; border: 1px solid #ccc; border-right: none; color: #111; padding: 14px 16px; font-size: 14px; font-family: Inter, sans-serif; outline: none; transition: border-color 0.2s; }
+    .popup-email-input:focus { border-color: #111; }
+    .popup-email-input::placeholder { color: #bbb; }
+    .popup-email-input.error { border-color: #c00; }
+    .popup-submit-btn { background: #111; color: #fff; border: none; padding: 14px 22px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .popup-submit-btn:hover { background: #333; }
+    .popup-submit-btn:disabled { background: #ccc; color: #999; cursor: not-allowed; }
+    .popup-confirm { display: none; font-size: 13px; color: #111; font-weight: 600; padding: 14px 0 0; line-height: 1.5; }
+    .popup-no-thanks { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #bbb; cursor: pointer; margin-top: 18px; display: inline-block; transition: color 0.2s; }
+    .popup-no-thanks:hover { color: #111; }
+    @media (max-width: 600px) { .popup-featured, .popup-subscribe { padding-left: 24px; padding-right: 24px; } .popup-form-row { flex-direction: column; } .popup-email-input { border-right: 1px solid #ccc; border-bottom: none; } .popup-submit-btn { width: 100%; } }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K7VFHF48M5');</script>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-nmd">NMD</span>
+      <span class="logo-sub">No Money Down</span>
+    </a>
+    <nav class="header-nav">
+      <a href="nmd-blog.html" class="active">Blog</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">Plugins</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Plugins</a>
+      <a href="nmd-solutions.html">Solutions</a>
+    </nav>
+  </header>
+
+  <div class="nmd-ticker-wrap" aria-label="Breaking credit news ticker">
+    <div class="nmd-ticker-label">Live</div>
+    <div class="nmd-ticker-track-wrap">
+      <div class="nmd-ticker-track">
+        <span>SBA eliminates SBSS pre-screening for loans under $350K — March 2026</span>
+        <span class="nmd-ticker-sep">·</span>
+        <span>CFPB loses enforcement power — credit dispute rights at risk</span>
+        <span class="nmd-ticker-sep">·</span>
+        <span>FICO 10T expands to mortgage scoring — 24-month history now counts</span>
+        <span class="nmd-ticker-sep">·</span>
+        <span>Capital One halts Experian reporting — file gaps appearing nationwide</span>
+        <span class="nmd-ticker-sep">·</span>
+        <span>Chase Ink family rules updated — business card stacking strategy changes</span>
+        <span class="nmd-ticker-sep">·</span>
+        <span>Medical debt back on credit reports — federal protection struck down</span>
+        <span class="nmd-ticker-sep">·</span>
+        <span>VantageScore 4.0 now factors rent and utility payments</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="blog-hero">
+    <div class="hero-label">Credit Intelligence</div>
+    <h1>The Blog.<br><em>Every move, decoded.</em></h1>
+    <p class="hero-desc">NMD breaks down the biggest shifts in credit, banking, and financial products so you always know what it means for you.</p>
+  </section>
+
+  <section class="grid-section">
+    <div class="section-label">All Articles</div>
+    <div class="grid">
+
+      <a class="card" href="nmd-sba-sbss-drop-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Breaking · Business Funding</div>
+          <div class="card-title">SBA just killed the credit score that was blocking your small business loan.</div>
+          <div class="card-desc">Effective March 1, 2026 — the SBA eliminated mandatory SBSS pre-screening for 7(a) loans under $350,000. The algorithmic gatekeeper that was auto-denying borderline applications is gone. Here's how to move before the window closes.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-bank-approval-reality.html">
+        <div class="card-accent" style="background:#f0b429;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f0b429;">Real Talk · Business Funding</div>
+          <div class="card-title">57% of businesses get approved. Here's how to make sure you're in that group.</div>
+          <div class="card-desc">Only 25% of small business loans get approved at big banks. 85% of lenders are tightening standards due to economic uncertainty. The 57% who get through aren't luckier — they're prepared. Here's what preparation actually looks like.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-chase-ink-crackdown.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#a78bfa;">Elite Strategy · Business Credit</div>
+          <div class="card-title">Chase just locked down the most popular business card stacking strategy.</div>
+          <div class="card-desc">The Ink Cash + Ink Unlimited rotation that entrepreneurs used to stack no-annual-fee business credit is done. New family rules block the bonus cycle. Here's exactly what changed and what the new play looks like.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-paydex-80-blueprint.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Business Credit Guide · Scoring</div>
+          <div class="card-title">PAYDEX 80 — the business credit score lenders check before they look at your FICO.</div>
+          <div class="card-desc">Most business owners don't know their PAYDEX score exists. Three bureau scoring models, a 90-day build timeline, and the exact payment behavior that gets you from zero to fundable — all of it, explained.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-net30-approval-playbook.html">
+        <div class="card-accent" style="background:#34d399;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#34d399;">Business Credit Builders · Playbook</div>
+          <div class="card-title">Net 30 approval playbook — a fundable business credit profile in 60 days.</div>
+          <div class="card-desc">Zero business credit history to a file lenders can see — in 60 days. The step-by-step execution playbook using vendor accounts that report to D&amp;B, Experian Business, and Equifax. Start on day one.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-cfpb-gutted-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#e74c3c;">Breaking · March 2026</div>
+          <div class="card-title">The CFPB got gutted. Here's what that costs your credit disputes.</div>
+          <div class="card-desc">The agency that enforced your dispute rights, capped collector harassment, and removed medical debt from reports just lost its enforcement power. NMD breaks down what changed and exactly how to protect your file without the government's help.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-business-credit-ein.html">
+        <div class="card-accent" style="background:#5b21ff;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Business Credit</div>
+          <div class="card-title">Your EIN is a second credit identity — most business owners never use it.</div>
+          <div class="card-desc">An EIN gives your business its own credit profile — separate from your SSN, invisible to personal score pulls, and capable of carrying six-figure credit lines. Here's how to build it from zero.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-goodwill-letter-strategy.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Late Payment Strategy</div>
+          <div class="card-title">The goodwill letter — how to ask a creditor to remove a late payment and actually win.</div>
+          <div class="card-desc">Late payments stay for 7 years — but the creditor who reported it can remove it voluntarily. The right letter, sent the right way, to the right person. Here's the template.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-freeze-vs-fraud-alert.html">
+        <div class="card-accent" style="background:#1a8fdf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1a8fdf;">Credit Protection</div>
+          <div class="card-title">Credit freeze vs fraud alert — what's the difference and which one you need.</div>
+          <div class="card-desc">Both tools protect your credit but work completely differently. Use the wrong one and you're either exposed or blocking your own approvals. Here's exactly when to use each.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-medical-debt-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Consumer Protection</div>
+          <div class="card-title">Medical debt is back on credit reports — the federal protection got killed.</div>
+          <div class="card-desc">The CFPB rule that would have erased $49 billion in medical debt from 15 million credit reports was struck down. Here's what happened and what you can still do.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-fico-10t-trended-data.html">
+        <div class="card-accent" style="background:#34d399;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#34d399;">Mortgage Intelligence</div>
+          <div class="card-title">FICO 10T is watching your last 24 months — not just today.</div>
+          <div class="card-desc">The new mortgage scoring model doesn't care what your balance is right now. It cares what you've been doing for two years. That changes everything about how to prepare.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-credit-report-errors.html">
+        <div class="card-accent" style="background:#f0b429;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f0b429;">Credit Guide</div>
+          <div class="card-title">One error on your credit report can cost you thousands.</div>
+          <div class="card-desc">1 in 5 credit reports has an error serious enough to affect approval decisions. Mixed files, wrong balances, accounts that aren't yours — they're all removable under the FCRA.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-hard-inquiry-removal.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Credit Guide</div>
+          <div class="card-title">Hard inquiries are costing you points — here's how to fight back.</div>
+          <div class="card-desc">Authorized inquiries stay. Unauthorized ones can be removed. The FCRA gives you the right — most people just don't know how to use it.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-secured-card-graduation.html">
+        <div class="card-accent" style="background:#2ec27e;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#2ec27e;">Credit Builders</div>
+          <div class="card-title">How to graduate from a secured card — and when it actually happens.</div>
+          <div class="card-desc">Not every secured card graduates. The ones that do follow a specific timeline. Here's how Discover, Capital One, and BofA handle graduation — and how to trigger it.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-debt-validation-fdcpa.html">
+        <div class="card-accent" style="background:#e55b3a;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#e55b3a;">Debt Strategy</div>
+          <div class="card-title">Debt collectors have 30 days to prove they own what they say you owe.</div>
+          <div class="card-desc">FDCPA §1692g gives you the right to demand validation — and it freezes all collection activity until they prove the debt is real. Most collectors can't.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-credit-utilization-strategy.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Auto Strategy</div>
+          <div class="card-title">Lower your utilization before you apply — the pre-approval playbook.</div>
+          <div class="card-desc">Your credit score the day you apply is the only one that matters. Utilization moves fast — here's how to drop it in 30 days before a mortgage, auto loan, or any major credit pull.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-2026-score-changes.html">
+        <div class="card-accent" style="background:#2ec27e;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#2ec27e;">Breaking — Credit Guide</div>
+          <div class="card-title">The way credit scores are calculated just changed.</div>
+          <div class="card-desc">Rent. Utilities. Buy now pay later. 2026 scoring models are counting things that never counted before — and most people don't know it's happening.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-authorized-user-blueprint.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Builders</div>
+          <div class="card-title">30 to 80 points in 45 days — the authorized user blueprint.</div>
+          <div class="card-desc">You don't need to open a single new account. Being added to the right card can move your score faster than almost anything else.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-2026-card-strategy.html">
+        <div class="card-accent" style="background:#1a8fdf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1a8fdf;">Elite Strategy</div>
+          <div class="card-title">The 2026 card strategy everyone on myFICO is running.</div>
+          <div class="card-desc">APRs sitting at 23.96%. Issuers tightening up. The credit community mapped out exactly how to play 2026 — here's the breakdown.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="identity-theft-act-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Consumer Protection</div>
+          <div class="card-title">Congress Just Woke Up — $394 Billion in Identity Theft.</div>
+          <div class="card-desc">The Stop Identity Fraud Act of 2026 just hit Congress. 353 million people breached, AI bots stealing billions — and the law that already protects you that nobody talks about.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-capital-one-experian-gap.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking — Bureau Gap</div>
+          <div class="card-title">Capital One stopped reporting to Experian.</div>
+          <div class="card-desc">Months of on-time payments — invisible to one bureau. What the Capital One Experian reporting gap means for your credit score, and what to do before it costs you an approval.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-bankruptcy-target-carousel.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Client Story</div>
+          <div class="card-title">They said bankruptcy would close every door.</div>
+          <div class="card-desc">24 months post BK7 discharge and a client just got approved for a $2,000 credit limit. Here is the story, what it means, and how we got there.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Rebuild</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-boa-my-credit.html">
+        <div class="card-accent" style="background:#5ba4cf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#5ba4cf;">Bank of America</div>
+          <div class="card-title">Bank of America just built its own credit portal.</div>
+          <div class="card-desc">BoA is moving from just supplying a FICO score to a full-featured credit intelligence platform. What the My Credit upgrade means for your credit strategy.</div>
+          <div class="card-footer"><span class="card-date">January 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-cfpb-credit-union-gap.html">
+        <div class="card-accent" style="background:#f0b429;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f0b429;">Consumer Protection</div>
+          <div class="card-title">Your credit union might not be protected.</div>
+          <div class="card-desc">The CFPB is losing its funding. There is a critical gap in the law that leaves anyone with a credit union account including NFCU and PenFed with no federal regulator to complain to.</div>
+          <div class="card-footer"><span class="card-date">2026 - Breaking</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-fico-vs-vantagescore.html">
+        <div class="card-accent" style="background:#a78bfa;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#a78bfa;">Real Talk</div>
+          <div class="card-title">The score you're watching isn't the one they're using.</div>
+          <div class="card-desc">FICO vs VantageScore is not just academic. The score you check every day may be completely different from what lenders actually pull. Here is what to track instead.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Scores</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-pledge-ssl-loan.html">
+        <div class="card-accent" style="background:#34d399;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#34d399;">Credit Builders</div>
+          <div class="card-title">The best score bang per dollar on the market.</div>
+          <div class="card-desc">Navy Federal pledge and share secured loans are the community consensus for maximum score impact per dollar spent. Here is the proven strategy and how to execute it.</div>
+          <div class="card-footer"><span class="card-date">2026 - Strategy</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-vs4-likes-me.html">
+        <div class="card-accent" style="background:#2dd4bf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#2dd4bf;">VantageScore 4.0</div>
+          <div class="card-title">VS4 apparently likes me. Does it like you?</div>
+          <div class="card-desc">VantageScore 4.0 scores differently than FICO. Some borrowers score 14 to 15 points higher. Others get wrecked. Here is who it loves and who it penalizes.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Intel</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-1million-credit-lines.html">
+        <div class="card-accent" style="background:#3b82f6;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#3b82f6;">Elite Strategy</div>
+          <div class="card-title">$1,000,000 in total credit lines.</div>
+          <div class="card-desc">A $1M total credit limit isn't luck. It's years of deliberate file-building, strategic lender relationships, and knowing exactly which cards and which sequence unlocks limits most people never see.</div>
+          <div class="card-footer"><span class="card-date">2026 - TCL Playbook</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-affirm-bnpl.html">
+        <div class="card-accent" style="background:#00ff41;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#00c830;">BNPL Intelligence</div>
+          <div class="card-title">Affirm and your FICO.</div>
+          <div class="card-desc">Buy Now Pay Later is reshaping credit profiles across the country. NMD breaks down exactly how Affirm reports, what the CFA classification means for your score, and when BNPL becomes a strategic asset.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Scores</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-business-cards.html">
+        <div class="card-accent" style="background:#5b21ff;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Business Credit</div>
+          <div class="card-title">Business credit cards, decoded.</div>
+          <div class="card-desc">The right business card can unlock higher limits, better rewards, and keep business spending off your personal report. NMD breaks down the best business credit cards and how to use them strategically.</div>
+          <div class="card-footer"><span class="card-date">2026 - Business</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-business-credit-101.html">
+        <div class="card-accent" style="background:#4d9ef7;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#4d9ef7;">Business Credit</div>
+          <div class="card-title">Business credit 101.</div>
+          <div class="card-desc">Most small business owners are leaving money on the table. Building a business credit profile separate from your personal file unlocks financing, protects your personal score, and opens doors most people don't know exist.</div>
+          <div class="card-footer"><span class="card-date">2026 - Business</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-car-loan.html">
+        <div class="card-accent" style="background:#f59e0b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f59e0b;">Auto Strategy</div>
+          <div class="card-title">Car loans and your credit file.</div>
+          <div class="card-desc">An auto loan is one of the most powerful tools in a credit-building strategy — if you use it correctly. NMD breaks down the timing, the lenders, and the rate leverage that most car buyers never negotiate.</div>
+          <div class="card-footer"><span class="card-date">2026 - Auto Loans</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-debt-consolidation.html">
+        <div class="card-accent" style="background:#ef4444;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#ef4444;">Debt Strategy</div>
+          <div class="card-title">Debt consolidation, done right.</div>
+          <div class="card-desc">Consolidating debt can slash your interest rate and simplify your payments — or wreck your score if done wrong. NMD gives you the full playbook on when to consolidate, which products to use, and what lenders won't tell you.</div>
+          <div class="card-footer"><span class="card-date">2026 - Debt Strategy</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
+    <span class="footer-right" style="display:flex;gap:24px;align-items:center;">
+      <a href="nmd-videos.html" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Films</a>
+      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Gumroad</a>
+    </span>
+  </footer>
+
+  <!-- NEWSLETTER POPUP -->
+  <div class="popup-overlay" id="nmd-popup">
+    <div class="popup-card">
+      <button class="popup-close" onclick="closePopup()">&#10005;</button>
+      <div class="popup-featured">
+        <div class="popup-featured-tag">Latest Drop · March 2026</div>
+        <div class="popup-article-headline">The CFPB got gutted — here's what it costs your disputes.</div>
+        <div class="popup-article-desc">The agency enforcing your credit rights just lost its teeth. NMD breaks down what changed and how to protect your file without the government's help.</div>
+        <a href="nmd-cfpb-gutted-2026.html" class="popup-read-link" onclick="closePopup()">Read this edition &#8594;</a>
+      </div>
+      <div class="popup-subscribe">
+        <div class="popup-subscribe-label">NMD Credit Intelligence</div>
+        <div class="popup-subscribe-headline">Stay ahead of every credit move.</div>
+        <div class="popup-subscribe-sub">Breaking credit news. Strategy. New tools. Direct to your inbox — free.</div>
+        <div class="popup-form-row">
+          <input type="email" class="popup-email-input" id="popup-email" placeholder="your@email.com">
+          <button class="popup-submit-btn" onclick="submitPopupEmail(this)">Subscribe</button>
+        </div>
+        <div class="popup-confirm" id="popup-confirm">&#10003; You're in — watch your inbox for the next drop.</div>
+        <div class="popup-no-thanks" onclick="closePopup()">No thanks</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      if (localStorage.getItem('nmd_email')) return;
+      var dismissed = localStorage.getItem('nmd_popup_dismissed');
+      if (dismissed && Date.now() - parseInt(dismissed) < 7 * 24 * 60 * 60 * 1000) return;
+      setTimeout(function() { document.getElementById('nmd-popup').classList.add('open'); }, 2500);
+    })();
+    document.getElementById('nmd-popup').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
+    function closePopup() { document.getElementById('nmd-popup').classList.remove('open'); localStorage.setItem('nmd_popup_dismissed', Date.now().toString()); }
+    async function submitPopupEmail(btn) {
+      var emailEl = document.getElementById('popup-email');
+      var email = emailEl.value.trim();
+      if (!email || !email.includes('@') || !email.includes('.')) { emailEl.classList.add('error'); emailEl.focus(); return; }
+      emailEl.classList.remove('error'); btn.textContent = 'Sending...'; btn.disabled = true;
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1', subject: 'New NMD Blog Subscriber', email: email, source: 'Blog popup', page: window.location.href }) });
+        var data = await res.json();
+        if (data.success) { localStorage.setItem('nmd_email', email); document.querySelector('.popup-form-row').style.display = 'none'; document.querySelector('.popup-no-thanks').style.display = 'none'; document.getElementById('popup-confirm').style.display = 'block'; setTimeout(closePopup, 2800); }
+        else { btn.textContent = 'Try Again'; btn.disabled = false; }
+      } catch(e) { btn.textContent = 'Try Again'; btn.disabled = false; }
+    }
+  </script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

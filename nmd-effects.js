@@ -168,7 +168,8 @@
   /* ── NAV (HAMBURGER → SIDEBAR DRAWER) ──────────────────────────── */
   /* Hardcoded standard nav — works on every page regardless of nav class */
   var NAV_LINKS = [
-    { href: 'index.html',             label: 'Newsletters' },
+    { href: 'index.html',             label: 'Home'        },
+    { href: 'nmd-blog.html',          label: 'Blog'        },
     { href: 'nmd-videos.html',        label: 'Films'       },
     { href: 'nmd-plugins.html',       label: 'Plugins'     },
     { href: 'nmd-tools.html',         label: 'Tools'       },
