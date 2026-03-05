@@ -242,9 +242,14 @@ header.nmd-header-hidden {
   }
 }
 
+/* ── HIDE DESKTOP NAV — HAMBURGER ALWAYS ON ─────────────────────── */
+.header-nav {
+  display: none !important;
+}
+
 /* ── HAMBURGER BUTTON ───────────────────────────────────────────── */
 .nmd-hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -336,12 +341,6 @@ header.nmd-header-hidden {
 
 /* ── MOBILE ────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .nmd-hamburger {
-    display: flex;
-  }
-  .header-nav {
-    display: none !important;
-  }
   .nmd-ticker-wrap {
     top: 63px;
   }
