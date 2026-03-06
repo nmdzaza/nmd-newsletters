@@ -324,6 +324,12 @@
     <div class="tab" data-tab="comps" onclick="switchTab(this, 'comps')">Comps Finder</div>
     <div class="tab" data-tab="deal" onclick="switchTab(this, 'deal')">Deal Analyzer</div>
     <div class="tab" data-tab="skiptrace" onclick="switchTab(this, 'skiptrace')">Skip Tracer</div>
+    <div class="tab" data-tab="offerwriter" onclick="switchTab(this, 'offerwriter')">Offer Writer</div>
+    <div class="tab" data-tab="pipeline" onclick="switchTab(this, 'pipeline')">Deal Pipeline</div>
+    <div class="tab" data-tab="assignment" onclick="switchTab(this, 'assignment')">Assignment</div>
+    <div class="tab" data-tab="sellerpitch" onclick="switchTab(this, 'sellerpitch')">Seller Pitch</div>
+    <div class="tab" data-tab="mailer" onclick="switchTab(this, 'mailer')">Mailer Campaign</div>
+    <div class="tab" data-tab="mortgage" onclick="switchTab(this, 'mortgage')">Mortgage Leads</div>
   </div>
 
   <!-- ═══════════════════════════════════════════════ DEALERSHIP -->
@@ -1226,6 +1232,405 @@
     </div>
   </div>
 
+  <!-- OFFER WRITER PANEL -->
+  <div class="tool-panel" id="panel-offerwriter">
+    <div class="tool-intro">
+      <h2>Offer Writer</h2>
+      <p>Generate a professional Letter of Intent and a wholesale Purchase &amp; Sale Agreement the moment you're ready to lock up a deal. Fill in the property details below and Claude will produce signed-ready PDF documents saved locally and drafted in Gmail.</p>
+    </div>
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Property Address</label>
+        <input type="text" id="ow-address" placeholder="e.g. 123 Main St, Phoenix, AZ 85001">
+      </div>
+      <div class="form-group">
+        <label>Seller Full Legal Name</label>
+        <input type="text" id="ow-seller" placeholder="e.g. John A. Smith">
+      </div>
+      <div class="form-group">
+        <label>Seller Type</label>
+        <select id="ow-sellertype">
+          <option value="individual homeowner">Individual Homeowner</option>
+          <option value="estate / probate — executor is signing">Probate / Estate</option>
+          <option value="LLC or corporate seller">LLC / Corporate</option>
+          <option value="trust">Trust</option>
+          <option value="pre-foreclosure — urgency close needed">Pre-Foreclosure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Offer Price</label>
+        <input type="text" id="ow-price" placeholder="e.g. 185000">
+      </div>
+      <div class="form-group">
+        <label>Earnest Money</label>
+        <select id="ow-emd">
+          <option value="$100">$100</option>
+          <option value="$250">$250</option>
+          <option value="$500" selected>$500</option>
+          <option value="$1,000">$1,000</option>
+          <option value="$2,500">$2,500</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Closing Timeline</label>
+        <select id="ow-close">
+          <option value="21 calendar days">21 days</option>
+          <option value="30 calendar days" selected>30 days</option>
+          <option value="45 calendar days">45 days</option>
+          <option value="60 calendar days (probate timeline)">60 days (probate)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Documents to Generate</label>
+        <select id="ow-docs">
+          <option value="both LOI and Purchase and Sale Agreement">Both LOI + PSA</option>
+          <option value="Letter of Intent (LOI) only">LOI Only</option>
+          <option value="Purchase and Sale Agreement only">PSA Only</option>
+        </select>
+      </div>
+    </div>
+    <button class="run-btn" onclick="launchTool('offerwriter', this)">Launch in Claude &#8594;</button>
+    <div class="step-box" id="stepbox-offerwriter">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Paste with <code>Cmd+V</code> (Mac) or <code>Ctrl+V</code> (PC) and hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-offerwriter"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('offerwriter', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('offerwriter')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-offerwriter">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-offerwriter" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('offerwriter', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-offerwriter">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEAL PIPELINE PANEL -->
+  <div class="tool-panel" id="panel-pipeline">
+    <div class="tool-intro">
+      <h2>Deal Pipeline</h2>
+      <p>Load your deal board, add new leads, move deals through stages, and see exactly what needs to happen next. Loads from your local ~/pipeline/deals.csv so your board is always up to date. Run this every day to stay on top of your deals.</p>
+    </div>
+    <div class="tool-form">
+      <div class="form-group">
+        <label>What do you want to do?</label>
+        <select id="pl-action">
+          <option value="show my full pipeline board — load deals.csv and display all active deals by stage with next actions">Show my pipeline board</option>
+          <option value="add a new lead to the pipeline">Add a new lead</option>
+          <option value="move a deal to the next stage">Move deal to next stage</option>
+          <option value="show all hot deals — stages 4 through 7 only">Show hot deals only</option>
+          <option value="show stale deals — any deal stuck in the same stage for 7+ days">Show stale deals</option>
+          <option value="show pipeline stats — conversion rates, avg days per stage, total earnings">Show stats report</option>
+          <option value="mark a deal as closed and record the assignment fee">Close a deal</option>
+          <option value="mark a deal as dead and log the reason">Kill a deal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Property Address (if adding or moving a specific deal)</label>
+        <input type="text" id="pl-address" placeholder="e.g. 456 Oak Ave, Tempe, AZ 85281 (leave blank for board view)">
+      </div>
+      <div class="form-group">
+        <label>Notes (optional)</label>
+        <input type="text" id="pl-notes" placeholder="e.g. Seller called back — appointment set for Thursday">
+      </div>
+    </div>
+    <button class="run-btn" onclick="launchTool('pipeline', this)">Launch in Claude &#8594;</button>
+    <div class="step-box" id="stepbox-pipeline">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Paste with <code>Cmd+V</code> / <code>Ctrl+V</code> and hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-pipeline"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('pipeline', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('pipeline')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-pipeline">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-pipeline" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('pipeline', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-pipeline">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASSIGNMENT CONTRACT PANEL -->
+  <div class="tool-panel" id="panel-assignment">
+    <div class="tool-intro">
+      <h2>Assignment Contract</h2>
+      <p>Generate the Assignment of Real Estate Purchase Contract the moment your buyer is ready. Takes your original deal details and the buyer's info — outputs a complete assignment agreement with non-refundable EMD terms and a Buyer Disclosure, saved as PDFs to ~/assignments/.</p>
+    </div>
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Property Address</label>
+        <input type="text" id="ac-address" placeholder="e.g. 123 Main St, Phoenix, AZ 85001">
+      </div>
+      <div class="form-group">
+        <label>Original Seller Name</label>
+        <input type="text" id="ac-seller" placeholder="e.g. John A. Smith (as on PSA)">
+      </div>
+      <div class="form-group">
+        <label>Your Contract Price (what you have it for)</label>
+        <input type="text" id="ac-myprice" placeholder="e.g. 165000">
+      </div>
+      <div class="form-group">
+        <label>Assignment Fee (your profit)</label>
+        <input type="text" id="ac-fee" placeholder="e.g. 12500">
+      </div>
+      <div class="form-group">
+        <label>Cash Buyer Name</label>
+        <input type="text" id="ac-buyer" placeholder="e.g. Desert Sun Investments LLC">
+      </div>
+      <div class="form-group">
+        <label>Non-Refundable EMD from Buyer</label>
+        <select id="ac-emd">
+          <option value="$500">$500</option>
+          <option value="$1,000" selected>$1,000</option>
+          <option value="$2,500">$2,500</option>
+          <option value="$5,000">$5,000</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Closing Date</label>
+        <input type="text" id="ac-close" placeholder="e.g. March 28, 2026">
+      </div>
+    </div>
+    <button class="run-btn" onclick="launchTool('assignment', this)">Launch in Claude &#8594;</button>
+    <div class="step-box" id="stepbox-assignment">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Paste with <code>Cmd+V</code> / <code>Ctrl+V</code> and hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-assignment"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('assignment', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('assignment')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-assignment">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-assignment" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('assignment', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-assignment">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELLER PITCH PANEL -->
+  <div class="tool-panel" id="panel-sellerpitch">
+    <div class="tool-intro">
+      <h2>Seller Pitch</h2>
+      <p>Know exactly what to say before you pick up the phone. Get a full outreach pack — cold call script, voicemail drop, 3-touch SMS sequence, door knock opener, and objection handlers — all customized for your seller's specific situation.</p>
+    </div>
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Seller Name</label>
+        <input type="text" id="sp-name" placeholder="e.g. Robert Martinez">
+      </div>
+      <div class="form-group">
+        <label>Property Address</label>
+        <input type="text" id="sp-address" placeholder="e.g. 789 Desert Ave, Scottsdale, AZ 85251">
+      </div>
+      <div class="form-group">
+        <label>Seller Type</label>
+        <select id="sp-type">
+          <option value="probate — executor managing a deceased family member's estate">Probate / Estate</option>
+          <option value="distressed homeowner — behind on payments or unable to maintain property">Distressed Homeowner</option>
+          <option value="absentee owner — owns the property but lives elsewhere">Absentee Owner</option>
+          <option value="pre-foreclosure — notice of default or trustee's sale already filed">Pre-Foreclosure</option>
+          <option value="FSBO — for sale by owner, listed without an agent">FSBO</option>
+          <option value="tired landlord — fed up with managing rental property or tenants">Tired Landlord</option>
+          <option value="divorce — property must be sold as part of a settlement">Divorce / Court-Ordered Sale</option>
+          <option value="tax delinquent — behind on property taxes">Tax Delinquent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Outreach Pack</label>
+        <select id="sp-pack">
+          <option value="full outreach pack — cold call script, voicemail, 3-touch SMS sequence, door knock opener, and top 5 objection handlers">Full Pack (all channels)</option>
+          <option value="cold call script and objection handlers only">Cold Call + Objections Only</option>
+          <option value="SMS sequence only — first text, 48-hour follow-up, and 7-day close-out">SMS Sequence Only</option>
+          <option value="voicemail script only">Voicemail Only</option>
+          <option value="door knock opener only">Door Knock Only</option>
+        </select>
+      </div>
+    </div>
+    <button class="run-btn" onclick="launchTool('sellerpitch', this)">Launch in Claude &#8594;</button>
+    <div class="step-box" id="stepbox-sellerpitch">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Paste with <code>Cmd+V</code> / <code>Ctrl+V</code> and hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-sellerpitch"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('sellerpitch', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('sellerpitch')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-sellerpitch">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-sellerpitch" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('sellerpitch', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-sellerpitch">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAILER CAMPAIGN PANEL -->
+  <div class="tool-panel" id="panel-mailer">
+    <div class="tool-intro">
+      <h2>Mailer Campaign</h2>
+      <p>Turn a lead list into a stack of personalized, ready-to-mail letters. Give Claude a CSV from probate-hunter, cash-buyer-builder, or your own list — and it generates individual PDF letters for every contact, saves them to a campaign folder, and optionally submits to Lob.com for printing and mailing.</p>
+    </div>
+    <div class="tool-form">
+      <div class="form-group">
+        <label>Lead List CSV Path</label>
+        <input type="text" id="ml-csv" placeholder="e.g. ~/probate-leads/maricopa-2026-03-05.csv">
+      </div>
+      <div class="form-group">
+        <label>Letter Template</label>
+        <select id="ml-template">
+          <option value="probate — respectful, acknowledges estate situation, low-pressure cash offer">Probate / Estate</option>
+          <option value="distressed homeowner — empathetic, fast-close value proposition">Distressed Homeowner</option>
+          <option value="absentee owner — convenience angle, tired of managing from afar">Absentee Owner</option>
+          <option value="pre-foreclosure — solution-focused, protect credit, act fast">Pre-Foreclosure</option>
+          <option value="cash buyer outreach — pitch off-market deals to an active investor">Cash Buyer Outreach</option>
+          <option value="general motivated seller — simple, direct, all-cash offer">General Motivated Seller</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Campaign Name</label>
+        <input type="text" id="ml-name" placeholder="e.g. maricopa-probate-march">
+      </div>
+      <div class="form-group">
+        <label>Mailing Method</label>
+        <select id="ml-method">
+          <option value="generate PDF letters only — save to ~/mailers/ campaign folder">Save PDFs only (print yourself)</option>
+          <option value="generate PDFs and prepare Lob.com API submission with cost estimate">PDFs + Lob.com API (professional mail)</option>
+        </select>
+      </div>
+    </div>
+    <button class="run-btn" onclick="launchTool('mailer', this)">Launch in Claude &#8594;</button>
+    <div class="step-box" id="stepbox-mailer">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Paste with <code>Cmd+V</code> / <code>Ctrl+V</code> and hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-mailer"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('mailer', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('mailer')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-mailer">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-mailer" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('mailer', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-mailer">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORTGAGE LEAD HUNTER PANEL -->
+  <div class="tool-panel" id="panel-mortgage">
+    <div class="tool-intro">
+      <h2>Mortgage Lead Hunter</h2>
+      <p>Pull 100 qualified mortgage leads from public records — refi candidates, divorce filings, pre-foreclosure homeowners, and probate heirs. Every lead skip-traced for phone and email before it hits your CSV. Built for loan officers and referral partners who need real contacts, not social media scrapers.</p>
+    </div>
+    <div class="tool-form">
+      <div class="form-group">
+        <label>County</label>
+        <input type="text" id="mg-county" placeholder="e.g. Maricopa County">
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <select id="mg-state">
+          <option value="">— Select State —</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Lead Breakdown</label>
+        <select id="mg-breakdown">
+          <option value="full — 40 refi candidates, 25 divorce filings, 25 pre-foreclosure, 10 probate heirs (100 total)">Full 100 — All 4 Types</option>
+          <option value="refi candidates only — 40 leads from county recorder deeds 2021–2023">Refi Candidates Only (40)</option>
+          <option value="divorce filings only — 25 leads from family court FC cases last 90 days">Divorce Filings Only (25)</option>
+          <option value="pre-foreclosure only — 25 leads from NOD and trustee sale notices last 60 days">Pre-Foreclosure Only (25)</option>
+          <option value="probate heirs only — 10 leads from probate court PB cases last 90 days">Probate Heirs Only (10)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Loan Officer / Partner Name</label>
+        <input type="text" id="mg-officer" placeholder="e.g. Stick at LumaLend">
+      </div>
+      <div class="form-group">
+        <label>Min Loan Amount</label>
+        <select id="mg-minloan">
+          <option value="any loan amount">No minimum</option>
+          <option value="$150,000 or more">$150k+</option>
+          <option value="$200,000 or more" selected>$200k+</option>
+          <option value="$300,000 or more">$300k+</option>
+          <option value="$400,000 or more">$400k+</option>
+        </select>
+      </div>
+    </div>
+    <button class="run-btn" onclick="launchTool('mortgage', this)">Launch in Claude &#8594;</button>
+    <div class="step-box" id="stepbox-mortgage">
+      <div class="step-box-title">Claude is open — follow these steps</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Claude opened in a new tab — <strong>switch to that tab now</strong></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">Your prompt was <strong>automatically copied</strong> to your clipboard</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Paste with <code>Cmd+V</code> / <code>Ctrl+V</code> and hit send</div></div>
+      </div>
+      <div class="prompt-section-label">Your prompt (backup)</div>
+      <div class="prompt-box" id="prompt-text-mortgage"></div>
+      <div class="prompt-actions">
+        <button class="output-btn" onclick="copyPrompt('mortgage', this)">Copy Again</button>
+        <button class="output-btn" onclick="clearStepBox('mortgage')">Dismiss</button>
+      </div>
+      <div class="email-capture" id="email-capture-mortgage">
+        <div class="email-capture-label">Stay in the loop</div>
+        <div class="email-capture-line">Get notified when new NMD tools drop — no spam, just the drops.</div>
+        <div class="email-capture-row">
+          <input type="email" class="email-input" id="email-input-mortgage" placeholder="your@email.com">
+          <button class="email-submit-btn" onclick="submitEmail('mortgage', this)">Notify Me</button>
+        </div>
+        <div class="email-capture-confirm" id="email-confirm-mortgage">✓ You're in — we'll hit you when new tools drop.</div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-brand">NMD ZAZA · The Credit Goat 🐐</div>
     <div class="footer-links">
@@ -1641,6 +2046,212 @@ STEP 4 — SOCIAL / BUSINESS VERIFICATION (if needed)
 If steps 1–3 don't yield a confirmed phone number: search LinkedIn and Facebook for ${name} in ${state}. For LLC owners, check the ${state} Secretary of State for registered agent address and phone.${target.includes('executor') ? ' For estate leads: search for obituary of the deceased — obituaries often list executor name and city. Search funeral home listings.' : ''}
 
 Output the full NMD Skip Tracer Contact Report with: confirmed identity section, all phone numbers and emails by confidence level, recommended outreach order, and identity confidence rating (HIGH / MEDIUM / LOW) with sources checked.`;
+      }
+
+      if (tool === 'offerwriter') {
+        const address    = document.getElementById('ow-address').value.trim()    || 'the specified property';
+        const seller     = document.getElementById('ow-seller').value.trim()     || 'the seller';
+        const sellertype = document.getElementById('ow-sellertype').value;
+        const price      = document.getElementById('ow-price').value.trim()      || '0';
+        const emd        = document.getElementById('ow-emd').value;
+        const close      = document.getElementById('ow-close').value;
+        const docs       = document.getElementById('ow-docs').value;
+
+        return `You are a real estate transaction specialist. Generate professional wholesale offer documents for the following deal.
+
+DEAL DETAILS:
+Property: ${address}
+Seller: ${seller}
+Seller type: ${sellertype}
+Offer price: $${price}
+Earnest money: ${emd}
+Closing: ${close}
+Documents requested: ${docs}
+Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+1. Read ~/investor-profile.md to load investor name, company, phone, email, and state. If it doesn't exist, ask for investor info before proceeding.
+2. Generate the requested documents (${docs}) using the exact deal details above.
+3. Key requirements for all wholesale contracts: include "and/or assigns" on buyer name, as-is/where-is condition, ${close} closing timeline, ${emd} earnest money, 10 business day inspection period, cash purchase (no financing contingency), seller's default remedy = earnest money as liquidated damages only.
+4. Adjust language for seller type: ${sellertype}.
+5. After generating, use Desktop Commander write_pdf to save: LOI to ~/offers/[address-slug]-[date]-loi.pdf and/or PSA to ~/offers/[address-slug]-[date]-psa.pdf.
+6. Navigate to Gmail and create a draft to investor's email with subject "OFFER READY — ${address} | $${price}" containing both documents inline.
+7. Output confirmation with file paths saved, offer price, earnest money, closing date, and reminder that an attorney should review before signing.
+
+LEGAL NOTE: Include this disclaimer at the top of every document: "⚠️ This document is a template for wholesale real estate transactions. Have a licensed real estate attorney review before signing."`;
+      }
+
+      if (tool === 'pipeline') {
+        const action  = document.getElementById('pl-action').value;
+        const address = document.getElementById('pl-address').value.trim();
+        const notes   = document.getElementById('pl-notes').value.trim();
+
+        return `You are a real estate deal pipeline manager. Your job is to manage the investor's wholesale deal pipeline.
+
+ACTION: ${action}
+${address ? 'Property: ' + address : ''}
+${notes   ? 'Notes: '    + notes   : ''}
+Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+1. Use Desktop Commander read_file to load ~/pipeline/deals.csv. If it doesn't exist, create it with headers: id,address,seller_name,source,stage,arv,offer_price,assignment_fee,buyer_name,close_date,earnest_money,days_in_stage,total_days,date_added,last_updated,notes,dead_reason
+2. Execute the requested action: ${action}
+3. Pipeline stages are: 1=New Lead, 2=Contacted, 3=Appointment Set, 4=Offer Made, 5=Under Contract, 6=Buyer Found, 7=Assigned, 8=Closed, Dead
+4. After any change, save back to ~/pipeline/deals.csv immediately.
+5. Always show the full pipeline dashboard after completing the action — display deal counts per stage and flag any stale deals (same stage 7+ days).
+6. For every active deal, suggest the next action based on its current stage.
+
+Display the NMD Deal Pipeline board in this format:
+NEW LEADS [N] | CONTACTED [N] | APPOINTMENT [N] | OFFER OUT [N] | UNDER CONTRACT [N] 🔥 | BUYER FOUND [N] 🔥 | ASSIGNED [N] | CLOSED [total]
+Then list hot deals (stages 4–7) and any stale warnings.`;
+      }
+
+      if (tool === 'assignment') {
+        const address = document.getElementById('ac-address').value.trim() || 'the specified property';
+        const seller  = document.getElementById('ac-seller').value.trim()  || 'the original seller';
+        const myprice = document.getElementById('ac-myprice').value.trim() || '0';
+        const fee     = document.getElementById('ac-fee').value.trim()     || '0';
+        const buyer   = document.getElementById('ac-buyer').value.trim()   || 'the assignee';
+        const emd     = document.getElementById('ac-emd').value;
+        const close   = document.getElementById('ac-close').value.trim()   || '30 days from signing';
+        const total   = parseInt(myprice.replace(/\D/g,'')) + parseInt(fee.replace(/\D/g,''));
+
+        return `You are a real estate transaction specialist. Generate a wholesale Assignment of Real Estate Purchase Contract for the following deal.
+
+ASSIGNMENT DETAILS:
+Property: ${address}
+Original Seller (on PSA): ${seller}
+Your contract price (what you have it for): $${myprice}
+Assignment fee (your profit): $${fee}
+Buyer pays total: $${isNaN(total) ? myprice + ' + ' + fee : total.toLocaleString()}
+Cash Buyer / Assignee: ${buyer}
+Non-refundable EMD from buyer: ${emd}
+Closing date: ${close}
+Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+1. Read ~/investor-profile.md to load investor (assignor) name, company, phone, email, state. If missing, ask before proceeding.
+2. Generate the complete Assignment of Real Estate Purchase Contract using all details above. Include: full assignment of equitable interest, assumption of PSA obligations, assignment fee breakdown showing contract price + assignment fee = buyer total, non-refundable EMD clause for ${emd} due within 2 business days, as-is acknowledgment by buyer, assignor representations (PSA in force, no prior assignment), buyer disclosure.
+3. Generate a separate Buyer Disclosure document (1 page) confirming buyer knows this is a wholesale assignment and they are paying an assignment fee.
+4. Use Desktop Commander write_pdf to save: assignment contract to ~/assignments/[address-slug]-[date]-assignment.pdf and disclosure to ~/assignments/[address-slug]-[date]-disclosure.pdf.
+5. Update ~/pipeline/deals.csv: move this property to Stage 7 (Assigned), log buyer name and assignment fee.
+6. Navigate to Gmail and send a draft to investor's email: subject "ASSIGNMENT READY — ${address} | Fee: $${fee} | Buyer: ${buyer}" with both documents inline and EMD wire instructions highlighted.
+
+LEGAL NOTE: Include disclaimer at top: "⚠️ Template for wholesale real estate transactions. Have a licensed real estate attorney review before signing."`;
+      }
+
+      if (tool === 'sellerpitch') {
+        const name    = document.getElementById('sp-name').value.trim()    || 'the seller';
+        const address = document.getElementById('sp-address').value.trim() || 'the property';
+        const type    = document.getElementById('sp-type').value;
+        const pack    = document.getElementById('sp-pack').value;
+
+        return `You are a real estate wholesaling sales coach. Generate a complete seller outreach pack for the following lead.
+
+SELLER INFO:
+Name: ${name}
+Property: ${address}
+Seller type: ${type}
+Outreach requested: ${pack}
+Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+1. Read ~/investor-profile.md to load investor name, company, phone, and email for personalization. If missing, ask first.
+2. Generate the ${pack} for a ${type} seller.
+3. Tone calibration: probate = respectful and compassionate, pre-foreclosure = urgent and solution-focused, distressed = empathetic, absentee = convenience-focused, FSBO = direct and confident, landlord = relief-oriented.
+4. All scripts must be word-for-word, ready to use with no filling in needed beyond the seller's name.
+5. Cold call scripts must include: opening, branching responses for "interested / not sure / not interested," qualifying questions, and a soft close (appointment or permission to stay in touch).
+6. Objection handlers must cover: price too low, need to think about it, already have an agent, how do I know you're legit, want to list on MLS.
+7. SMS messages must be under 160 characters each.
+
+Output the full NMD Seller Pitch Pack with each section clearly labeled.`;
+      }
+
+      if (tool === 'mailer') {
+        const csv      = document.getElementById('ml-csv').value.trim()    || '~/leads.csv';
+        const template = document.getElementById('ml-template').value;
+        const name     = document.getElementById('ml-name').value.trim()   || 'campaign-' + new Date().toISOString().slice(0,10);
+        const method   = document.getElementById('ml-method').value;
+
+        return `You are a direct mail campaign specialist for real estate investors. Run a mailer campaign for the following lead list.
+
+CAMPAIGN DETAILS:
+Lead list CSV: ${csv}
+Letter template: ${template}
+Campaign name: ${name}
+Mailing method: ${method}
+Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+
+INSTRUCTIONS:
+1. Read ~/investor-profile.md to load investor name, company, address, phone, and email. If missing, ask first.
+2. Use Desktop Commander read_file to load the CSV at ${csv}. Parse all rows — minimum required per row: recipient name + mailing address.
+3. For each row, generate a personalized letter using the "${template}" template. Substitute all placeholders with data from the row and investor profile. If a field is missing (e.g., executor name), use a graceful fallback ("Dear [Property Owner]").
+4. Use Desktop Commander write_pdf to save each letter as a separate PDF to ~/mailers/${name}/[sanitized-name]-[city].pdf.
+5. Save a campaign log to ~/mailers/${name}/campaign-log.csv with columns: letter_number, recipient_name, mailing_address, template, filename, status.
+6. ${method.includes('Lob') ? 'After generating all PDFs, display the full letter count and estimated Lob.com cost (~$0.95/piece) and ask for confirmation before submitting to Lob API.' : 'Print a summary of all letters generated with file paths.'}
+7. Output the NMD Mailer Campaign summary: total leads, letters generated, PDFs saved to, skipped (with reasons), and next steps.
+
+Do not submit to Lob.com without explicit user confirmation of the count and estimated cost.`;
+      }
+
+      if (tool === 'mortgage') {
+        const county    = document.getElementById('mg-county').value.trim()   || 'the specified county';
+        const state     = document.getElementById('mg-state').value           || 'the specified state';
+        const breakdown = document.getElementById('mg-breakdown').value;
+        const officer   = document.getElementById('mg-officer').value.trim()  || 'the loan officer';
+        const minloan   = document.getElementById('mg-minloan').value;
+        const today     = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        const dateSlug  = new Date().toISOString().slice(0, 10);
+
+        return `You are an expert mortgage lead researcher. Your job is to pull qualified mortgage leads from public records, skip trace each one for phone + email, and deliver a clean CSV ready for outreach.
+
+RUN DATE: ${today}
+COUNTY: ${county}
+STATE: ${state}
+LEAD BREAKDOWN: ${breakdown}
+MIN LOAN AMOUNT: ${minloan}
+LOAN OFFICER / PARTNER: ${officer}
+OUTPUT: ~/mortgage-leads/${county.toLowerCase().replace(/\s+/g,'-')}-${dateSlug}.csv
+
+STEP 1 — Load investor profile
+Read ~/investor-profile.md for your name, company, phone, and email. Confirm: ✅ [NAME] | [COMPANY] | [PHONE]
+
+STEP 2 — Pull leads from public records
+Follow the breakdown above. For each lead type:
+
+REFI CANDIDATES (if included): Search ${county} Recorder deed recordings — Warranty Deeds recorded January 2021 through December 2023. Prioritize loan amounts ${minloan}. Collect: grantee name, property address, loan amount, recording date.
+
+DIVORCE FILINGS (if included): Search ${county} Superior Court docket — case type FC (Family Court), filed last 90 days. Collect: petitioner name, respondent name, case number, property address from disclosures.
+
+PRE-FORECLOSURE (if included): Search ${county} Recorder — document type "NOTICE OF TRUSTEE SALE" or "NOTICE OF DEFAULT", last 60 days. Collect: trustor name, property address, original loan amount, trustee sale date.
+
+PROBATE HEIRS (if included): Search ${county} Superior Court Probate Division — case type PB, filed last 90 days, cases with real property. Collect: personal representative name, property address, estimated value, case number.
+
+STEP 3 — Skip trace every lead (REQUIRED: phone + email on every lead)
+For each lead search in this order: WhitePages → TruePeopleSearch → FastPeopleSearch → Spokeo → BeenVerified → Voter Registration → LinkedIn → Google ("full name" "city" phone OR email).
+
+Rate each contact:
+✅ HIGH — confirmed match on name + address
+⚠ MEDIUM — name match, address nearby
+❌ LOW — name only, no address confirmation (skip, pull next lead)
+
+Only include HIGH and MEDIUM confidence leads in the final output.
+
+STEP 4 — Build the CSV
+Save to: ~/mortgage-leads/${county.toLowerCase().replace(/\s+/g,'-')}-${dateSlug}.csv
+Columns: lead_id, lead_type, first_name, last_name, address, city, state, zip, loan_amount, situation_notes, primary_phone, secondary_phone, primary_email, secondary_email, confidence, source, date_pulled
+
+STEP 5 — Generate the report
+Save to: ~/mortgage-leads/${county.toLowerCase().replace(/\s+/g,'-')}-${dateSlug}-report.md
+
+Report format:
+# NMD MORTGAGE LEAD HUNTER REPORT
+County: ${county} | State: ${state}
+Run Date: ${today} | Partner: ${officer}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LEAD BREAKDOWN / CONTACT INFO STATS / TOP 10 HOTTEST LEADS (pre-foreclosure first, then divorce, then refi) / NEXT STEPS
+
+Every lead must have a phone number AND email. No contact info = replace with next lead. Do not stop until the requested count is reached.`;
       }
     }
 
