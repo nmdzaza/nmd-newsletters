@@ -68,19 +68,53 @@
     }
     .claude-banner-btn:hover { background: transparent; color: #fff; border-color: #fff; }
 
-    /* TAB BAR */
-    .tab-bar {
-      background: #e8e4df; border-bottom: 2px solid #ccc;
-      padding: 0 48px; display: flex; overflow-x: auto;
+    /* EMPLOYEE SELECTOR */
+    .employee-selector {
+      background: #111; border-bottom: 3px solid #1a8fdf;
+      padding: 36px 48px;
     }
-    .tab {
-      padding: 20px 32px; font-size: 10px; letter-spacing: 2px;
-      text-transform: uppercase; color: #aaa; cursor: pointer;
-      border-bottom: 2px solid transparent; margin-bottom: -2px;
-      white-space: nowrap; transition: all 0.2s; user-select: none;
+    .employee-selector-eyebrow {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #555; margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
     }
-    .tab:hover { color: #555; }
-    .tab.active { color: #111; border-bottom-color: #111; }
+    .employee-selector-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: #1a8fdf; }
+    .employee-selector-headline {
+      font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 34px);
+      font-weight: 900; color: #fff; margin-bottom: 24px; line-height: 1.1;
+    }
+    .employee-selector-headline em { font-style: italic; color: #1a8fdf; }
+    .employee-selector-row {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .employee-dropdown {
+      flex: 1; min-width: 280px; max-width: 520px;
+      background: #1a1a1a; border: 2px solid #333; color: #fff;
+      padding: 16px 20px; font-size: 14px; font-family: Inter, sans-serif;
+      outline: none; cursor: pointer; transition: border-color 0.2s;
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .employee-dropdown:focus { border-color: #1a8fdf; }
+    .employee-dropdown option { background: #1a1a1a; color: #fff; }
+    .employee-dropdown optgroup { color: #555; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+    .employee-count-badge {
+      background: #1a8fdf; color: #fff; padding: 8px 18px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: 700; white-space: nowrap; flex-shrink: 0;
+    }
+    .employee-grid {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+    }
+    .employee-chip {
+      background: #1a1a1a; border: 1px solid #2a2a2a; color: #666;
+      padding: 7px 14px; font-size: 10px; letter-spacing: 1.5px;
+      text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+      user-select: none;
+    }
+    .employee-chip:hover { border-color: #555; color: #ccc; }
+    .employee-chip.active { border-color: #1a8fdf; color: #1a8fdf; background: rgba(26,143,223,0.08); }
 
     /* TOOL PANELS */
     .tool-panel { display: none; padding: 52px 48px 80px; max-width: 1100px; }
@@ -248,11 +282,11 @@
     .footer-links a:hover { color: #c9a84c; }
 
     @media (max-width: 768px) {
-      header, .tools-hero, .claude-banner, .tab-bar, .tool-panel, .upsell-section, footer { padding-left: 24px; padding-right: 24px; }
+      header, .tools-hero, .claude-banner, .employee-selector, .tool-panel, .upsell-section, footer { padding-left: 24px; padding-right: 24px; }
       .claude-banner { flex-direction: column; align-items: flex-start; gap: 16px; }
       .claude-banner-btn { align-self: stretch; text-align: center; }
       .tool-form { grid-template-columns: 1fr; }
-      .tab { padding: 16px 20px; }
+      .employee-dropdown { max-width: 100%; }
       .upsell-cards { grid-template-columns: 1fr; }
     }
   </style>
@@ -312,24 +346,55 @@
     <a href="https://claude.ai" target="_blank" class="claude-banner-btn">Open Claude.ai &#8594;</a>
   </div>
 
-  <div class="tab-bar">
-    <div class="tab active" data-tab="dealership" onclick="switchTab(this, 'dealership')">Dealership</div>
-    <div class="tab" data-tab="credit" onclick="switchTab(this, 'credit')">Credit Repair</div>
-    <div class="tab" data-tab="social" onclick="switchTab(this, 'social')">Social</div>
-    <div class="tab" data-tab="leadgen" onclick="switchTab(this, 'leadgen')">Lead Gen</div>
-    <div class="tab" data-tab="newsletter" onclick="switchTab(this, 'newsletter')">Newsletter</div>
-    <div class="tab" data-tab="lien" onclick="switchTab(this, 'lien')">Lien Finder</div>
-    <div class="tab" data-tab="probate" onclick="switchTab(this, 'probate')">Probate Hunter</div>
-    <div class="tab" data-tab="cashbuyer" onclick="switchTab(this, 'cashbuyer')">Cash Buyer Builder</div>
-    <div class="tab" data-tab="comps" onclick="switchTab(this, 'comps')">Comps Finder</div>
-    <div class="tab" data-tab="deal" onclick="switchTab(this, 'deal')">Deal Analyzer</div>
-    <div class="tab" data-tab="skiptrace" onclick="switchTab(this, 'skiptrace')">Skip Tracer</div>
-    <div class="tab" data-tab="offerwriter" onclick="switchTab(this, 'offerwriter')">Offer Writer</div>
-    <div class="tab" data-tab="pipeline" onclick="switchTab(this, 'pipeline')">Deal Pipeline</div>
-    <div class="tab" data-tab="assignment" onclick="switchTab(this, 'assignment')">Assignment</div>
-    <div class="tab" data-tab="sellerpitch" onclick="switchTab(this, 'sellerpitch')">Seller Pitch</div>
-    <div class="tab" data-tab="mailer" onclick="switchTab(this, 'mailer')">Mailer Campaign</div>
-    <div class="tab" data-tab="mortgage" onclick="switchTab(this, 'mortgage')">Mortgage Leads</div>
+  <!-- ═══════════════ EMPLOYEE SELECTOR ═══════════════ -->
+  <div class="employee-selector">
+    <div class="employee-selector-eyebrow">NMD AI Team</div>
+    <div class="employee-selector-headline">Try our <em>AI employees.</em></div>
+    <div class="employee-selector-row">
+      <select class="employee-dropdown" id="employee-dropdown" onchange="switchTab(null, this.value)">
+        <optgroup label="— Real Estate —">
+          <option value="lien">Lien Finder</option>
+          <option value="probate">Probate Hunter</option>
+          <option value="cashbuyer">Cash Buyer Builder</option>
+          <option value="comps">Comps Finder</option>
+          <option value="deal">Deal Analyzer</option>
+          <option value="skiptrace">Skip Tracer</option>
+          <option value="offerwriter">Offer Writer</option>
+          <option value="pipeline">Deal Pipeline</option>
+          <option value="assignment">Assignment</option>
+          <option value="sellerpitch">Seller Pitch</option>
+          <option value="mailer">Mailer Campaign</option>
+          <option value="mortgage">Mortgage Leads</option>
+          <option value="leadgen">Lead Gen</option>
+        </optgroup>
+        <optgroup label="— Business —">
+          <option value="dealership">Dealership AI</option>
+          <option value="credit">Credit Repair</option>
+          <option value="social">Social Media</option>
+          <option value="newsletter">Newsletter</option>
+        </optgroup>
+      </select>
+      <div class="employee-count-badge">17 AI Employees</div>
+    </div>
+    <div class="employee-grid" id="employee-grid">
+      <div class="employee-chip" onclick="selectEmployee('lien')">Lien Finder</div>
+      <div class="employee-chip" onclick="selectEmployee('probate')">Probate Hunter</div>
+      <div class="employee-chip" onclick="selectEmployee('cashbuyer')">Cash Buyer Builder</div>
+      <div class="employee-chip" onclick="selectEmployee('comps')">Comps Finder</div>
+      <div class="employee-chip" onclick="selectEmployee('deal')">Deal Analyzer</div>
+      <div class="employee-chip" onclick="selectEmployee('skiptrace')">Skip Tracer</div>
+      <div class="employee-chip" onclick="selectEmployee('offerwriter')">Offer Writer</div>
+      <div class="employee-chip" onclick="selectEmployee('pipeline')">Deal Pipeline</div>
+      <div class="employee-chip" onclick="selectEmployee('assignment')">Assignment</div>
+      <div class="employee-chip" onclick="selectEmployee('sellerpitch')">Seller Pitch</div>
+      <div class="employee-chip" onclick="selectEmployee('mailer')">Mailer Campaign</div>
+      <div class="employee-chip" onclick="selectEmployee('mortgage')">Mortgage Leads</div>
+      <div class="employee-chip" onclick="selectEmployee('leadgen')">Lead Gen</div>
+      <div class="employee-chip" onclick="selectEmployee('dealership')">Dealership AI</div>
+      <div class="employee-chip" onclick="selectEmployee('credit')">Credit Repair</div>
+      <div class="employee-chip" onclick="selectEmployee('social')">Social Media</div>
+      <div class="employee-chip" onclick="selectEmployee('newsletter')">Newsletter</div>
+    </div>
   </div>
 
   <!-- ═══════════════════════════════════════════════ DEALERSHIP -->
@@ -1645,10 +1710,23 @@
   <script>
     // ── TABS ─────────────────────────────────────────────────────
     function switchTab(el, name) {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      // hide all panels
       document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
-      el.classList.add('active');
       document.getElementById('panel-' + name).classList.add('active');
+      // sync dropdown
+      var dd = document.getElementById('employee-dropdown');
+      if (dd) dd.value = name;
+      // sync chips
+      document.querySelectorAll('.employee-chip').forEach(c => {
+        c.classList.toggle('active', c.getAttribute('onclick').includes("'" + name + "'"));
+      });
+    }
+
+    function selectEmployee(name) {
+      switchTab(null, name);
+      // scroll to panel
+      var panel = document.getElementById('panel-' + name);
+      if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // ── PROMPT BUILDERS ──────────────────────────────────────────
@@ -2356,5 +2434,12 @@ Every lead must have a phone number AND email. No contact info = replace with ne
     }
   </script>
   <script src="nmd-effects.js"></script>
+  <script>
+    // Init — set default active employee on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // default to lien finder (first real estate employee)
+      switchTab(null, 'lien');
+    });
+  </script>
 </body>
 </html>
