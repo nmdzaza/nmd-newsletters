@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NMD Plugins — AI Tools for Claude Code</title>
-  <meta name="description" content="Download NMD AI plugins for Claude Code. Car sales suite, social media engine, credit repair tools. Real automation — not just prompts.">
-  <meta property="og:title" content="NMD Plugins — Real AI Tools for Claude Code">
-  <meta property="og:description" content="Car sales AI, social media engine, credit repair tools. Install in one command. Runs on your machine.">
+  <title>NMD AI Team — Meet Your AI Employees</title>
+  <meta name="description" content="Meet your NMD AI team. 17 specialized AI employees built for real estate, car sales, credit repair, and social media. Each one trained for a specific job inside Claude Code.">
+  <meta property="og:title" content="NMD AI Team — Meet Your AI Employees">
+  <meta property="og:description" content="Not chatbots. AI employees. They find leads, write contracts, run comps, and post content. Built for Claude Code. Free.">
   <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
   <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-plugins.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -47,7 +47,8 @@
 
     .plugin-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:16px;}
     .plugin-name{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:8px;font-family:'Courier New',monospace;}
-    .plugin-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:900;color:#111;margin-bottom:16px;line-height:1.15;}
+    .plugin-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:900;color:#111;margin-bottom:6px;line-height:1.15;}
+    .plugin-role{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#888;font-weight:600;margin-bottom:16px;}
     .plugin-desc{font-size:15px;color:#555;line-height:1.7;margin-bottom:28px;}
 
     .skills-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
@@ -71,7 +72,17 @@
     /* COMING SOON PLUGIN */
     .plugin-coming{opacity:0.5;}
 
-    /* INSTALL SECTION */
+    /* TEAM ROSTER */
+    .roster-section{padding:80px 48px;border-bottom:1px solid #d0ccc6;}
+    .roster-section h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#111;margin-bottom:8px;}
+    .roster-sub{font-size:15px;color:#555;margin-bottom:40px;line-height:1.6;}
+    .roster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+    .roster-card{background:#0d0d0d;border:1px solid #222;padding:20px;display:flex;flex-direction:column;gap:6px;}
+    .roster-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;}
+    .roster-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;font-weight:700;}
+    .roster-skill{font-size:10px;letter-spacing:2px;color:#555;font-family:'Courier New',monospace;margin-top:4px;}
+
+    /* HIRE SECTION */
     .install-section{padding:80px 48px;max-width:800px;}
     .section-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:24px;}
     .install-section h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#111;margin-bottom:12px;}
@@ -90,8 +101,9 @@
       .plugin-visual{display:none;}
       header{padding:20px 24px;}
       .header-nav{display:none;}
-      .hero,.plugin-info,.install-section{padding-left:24px;padding-right:24px;}
+      .hero,.plugin-info,.install-section,.roster-section{padding-left:24px;padding-right:24px;}
       footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center;}
+      .roster-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
     }
   </style>
   <link rel="stylesheet" href="nmd-effects.css">
@@ -103,38 +115,65 @@
     <span class="logo-nmd">NMD</span>
     <span class="logo-sub">No Money Down</span>
   </a>
-      <nav class="header-nav">
-      <a href="index.html">Newsletters</a>
-      <a href="nmd-videos.html">Films</a>
-      <a href="nmd-plugins.html" class="active">Plugins</a>
-      <a href="nmd-tools.html">Tools</a>
-      <a href="nmd-get-started.html">Get Plugins</a>
-      <a href="nmd-solutions.html">Solutions</a>
-      <a href="nmd-about.html">About</a>
-      <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
-    </nav>
+  <nav class="header-nav">
+    <a href="index.html">Newsletters</a>
+    <a href="nmd-videos.html">Films</a>
+    <a href="nmd-plugins.html" class="active">AI Team</a>
+    <a href="nmd-tools.html">Tools</a>
+    <a href="nmd-get-started.html">Get Started</a>
+    <a href="nmd-solutions.html">Solutions</a>
+    <a href="nmd-about.html">About</a>
+    <a href="https://t.me/+pmgwMuufQ7cyNWEx" target="_blank">Telegram</a>
+  </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">NMD Plugin Suite</div>
-  <h1>AI tools that<br><span>actually do the work.</span></h1>
-  <p class="hero-sub">These run inside Claude Code on your computer. They open browsers, source leads, write letters, and post content — not just tell you what to do.</p>
+  <div class="hero-tag">NMD AI Team</div>
+  <h1>Not chatbots.<br><span>AI employees.</span></h1>
+  <p class="hero-sub">17 specialists, each trained for one job, running inside Claude Code on your computer. They find leads, write contracts, run comps, post content, and close deals. You manage the team.</p>
   <div class="hero-cta">
-    <a href="nmd-get-started.html" class="btn-gold">Get Set Up →</a>
+    <a href="nmd-get-started.html" class="btn-gold">Build Your Team →</a>
     <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" class="btn-ghost">GitHub →</a>
   </div>
 </section>
 
-<!-- PLUGIN 1: CAR SALES SUITE -->
+<!-- TEAM ROSTER -->
+<section class="roster-section">
+  <div class="section-tag">Your Full Team</div>
+  <h2>17 AI employees. One command to hire them all.</h2>
+  <p class="roster-sub">Each employee lives in your Claude Code setup and runs locally on your machine. No subscriptions. No SaaS. Your team, your data.</p>
+  <div class="roster-grid">
+    <div class="roster-card"><div class="roster-name">Tony</div><div class="roster-role">Car Sales AI</div><div class="roster-skill">car-sales-suite</div></div>
+    <div class="roster-card"><div class="roster-name">Claire</div><div class="roster-role">Credit Repair</div><div class="roster-skill">credit-repair-ai</div></div>
+    <div class="roster-card"><div class="roster-name">Stella</div><div class="roster-role">Social Media</div><div class="roster-skill">social</div></div>
+    <div class="roster-card"><div class="roster-name">Lucy</div><div class="roster-role">Lead Generator</div><div class="roster-skill">lead-gen-ai</div></div>
+    <div class="roster-card"><div class="roster-name">Noah</div><div class="roster-role">Newsletter Writer</div><div class="roster-skill">newsletter-ai</div></div>
+    <div class="roster-card"><div class="roster-name">Lena</div><div class="roster-role">Lien Investigator</div><div class="roster-skill">lien-finder</div></div>
+    <div class="roster-card"><div class="roster-name">Victor</div><div class="roster-role">Estate Investigator</div><div class="roster-skill">probate-hunter</div></div>
+    <div class="roster-card"><div class="roster-name">Blake</div><div class="roster-role">Buyer Relations</div><div class="roster-skill">cash-buyer-builder</div></div>
+    <div class="roster-card"><div class="roster-name">Val</div><div class="roster-role">Valuation Analyst</div><div class="roster-skill">comps-finder</div></div>
+    <div class="roster-card"><div class="roster-name">Nina</div><div class="roster-role">Deal Analyst</div><div class="roster-skill">deal-analyzer</div></div>
+    <div class="roster-card"><div class="roster-name">Chase</div><div class="roster-role">Skip Tracer</div><div class="roster-skill">skip-tracer</div></div>
+    <div class="roster-card"><div class="roster-name">Leo</div><div class="roster-role">Contracts</div><div class="roster-skill">offer-writer</div></div>
+    <div class="roster-card"><div class="roster-name">Parker</div><div class="roster-role">Operations</div><div class="roster-skill">deal-pipeline</div></div>
+    <div class="roster-card"><div class="roster-name">Ava</div><div class="roster-role">Assignments</div><div class="roster-skill">assignment-contract</div></div>
+    <div class="roster-card"><div class="roster-name">Sofia</div><div class="roster-role">Sales Coach</div><div class="roster-skill">seller-pitch</div></div>
+    <div class="roster-card"><div class="roster-name">Maya</div><div class="roster-role">Direct Mail</div><div class="roster-skill">mailer-campaign</div></div>
+    <div class="roster-card"><div class="roster-name">Marco</div><div class="roster-role">Lead Hunter</div><div class="roster-skill">mortgage-lead-hunter</div></div>
+  </div>
+</section>
+
+<!-- EMPLOYEE 01: TONY — CAR SALES AI -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 01</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">car-sales-suite</div>
-        <h2 class="plugin-title">Car Sales AI Suite</h2>
-        <p class="plugin-desc">Full AI system for car dealership sales associates. Works your lead list, sources new leads from Craigslist, CarGurus, Reddit, OfferUp, and AutoTrader, and generates personalized outreach for every lead type. Set up once — runs your whole pipeline.</p>
+        <h2 class="plugin-title">Tony</h2>
+        <div class="plugin-role">Car Sales AI</div>
+        <p class="plugin-desc">Full AI system for car dealership sales associates. Tony works your lead list, sources new leads from Craigslist, CarGurus, Reddit, OfferUp, and AutoTrader, and generates personalized outreach for every lead type. Set up once — Tony runs your whole pipeline.</p>
         <div class="skills-list">
           <span class="skill-tag">car-sales</span>
           <span class="skill-tag">conquest-leads</span>
@@ -146,7 +185,7 @@
           <div class="install-cmd"><span class="dim">/plugin install </span>car-sales-suite@claude-plugin-directory</div>
         </div>
         <div class="install-block">
-          <div class="install-label">One-line install</div>
+          <div class="install-label">Hire Tony:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s car-sales-suite</div>
         </div>
         <div class="badge-row">
@@ -173,15 +212,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 2: CREDIT REPAIR -->
+<!-- EMPLOYEE 02: CLAIRE — CREDIT REPAIR -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 02</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">credit-repair-ai</div>
-        <h2 class="plugin-title">Credit Repair AI</h2>
-        <p class="plugin-desc">We dispute your credit for you. Every error, negative item, and collection account across all three bureaus — Equifax, Experian, TransUnion. Dispute letters, goodwill letters, and debt validation responses written and submitted. You track the results. We handle the paperwork.</p>
+        <h2 class="plugin-title">Claire</h2>
+        <div class="plugin-role">Credit Repair Specialist</div>
+        <p class="plugin-desc">Claire disputes your credit for you. Every error, negative item, and collection account across all three bureaus — Equifax, Experian, TransUnion. Dispute letters, goodwill letters, and debt validation responses written and submitted. You track the results. Claire handles the paperwork.</p>
         <div class="skills-list">
           <span class="skill-tag">credit-dispute</span>
           <span class="skill-tag">bureau-letters</span>
@@ -190,13 +230,13 @@
           <span class="skill-tag">score-tracker</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install credit-repair-ai:</div>
+          <div class="install-label">Hire Claire:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s credit-repair-ai</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Claire →</span></a>
         </div>
       </div>
     </div>
@@ -216,21 +256,22 @@
   </div>
 </section>
 
-<!-- PLUGIN 3: SOCIAL SUITE -->
+<!-- EMPLOYEE 03: STELLA — SOCIAL MEDIA -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 03</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">nmd-social-suite</div>
-        <h2 class="plugin-title">Social Media Content Engine</h2>
-        <p class="plugin-desc">One command drops content on every platform simultaneously. Instagram captions, Facebook posts, tweet threads, LinkedIn articles, full blog posts, newsletter editions, and credit forum posts — all written and posted in one session. Auto-posts via your browser. Pulls from your saved brand profile so it always sounds like you.</p>
+        <h2 class="plugin-title">Stella</h2>
+        <div class="plugin-role">Social Media Manager</div>
+        <p class="plugin-desc">One command and Stella drops content on every platform simultaneously. Instagram captions, Facebook posts, tweet threads, LinkedIn articles, full blog posts, newsletter editions, and credit forum posts — all written and posted in one session. Auto-posts via your browser. Always sounds like you.</p>
         <div class="skills-list">
           <span class="skill-tag">social</span>
           <span class="skill-tag">social-setup</span>
         </div>
         <div class="install-block">
-          <div class="install-label">One-line install</div>
+          <div class="install-label">Hire Stella:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s social</div>
         </div>
         <div class="install-block">
@@ -262,15 +303,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 04 — LEAD GEN -->
+<!-- EMPLOYEE 04: LUCY — LEAD GEN -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 04</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">lead-gen-ai</div>
-        <h2 class="plugin-title">Lead Gen AI</h2>
-        <p class="plugin-desc">We find the people already looking for what you sell. Motivated buyers, private sellers, subprime leads, expired listings, and people actively posting across Craigslist, CarGurus, Reddit, OfferUp, and Facebook Marketplace — sourced, qualified, and ready for outreach.</p>
+        <h2 class="plugin-title">Lucy</h2>
+        <div class="plugin-role">Lead Generator</div>
+        <p class="plugin-desc">Lucy finds the people already looking for what you sell. Motivated buyers, private sellers, subprime leads, expired listings, and people actively posting across Craigslist, CarGurus, Reddit, OfferUp, and Facebook Marketplace — sourced, qualified, and ready for outreach.</p>
         <div class="skills-list">
           <span class="skill-tag">buyer-leads</span>
           <span class="skill-tag">conquest-leads</span>
@@ -279,13 +321,13 @@
           <span class="skill-tag">crm-pipeline</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install lead-gen-ai:</div>
+          <div class="install-label">Hire Lucy:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s lead-gen-ai</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Lucy →</span></a>
         </div>
       </div>
     </div>
@@ -305,15 +347,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 05 — NEWSLETTER -->
+<!-- EMPLOYEE 05: NOAH — NEWSLETTER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 05</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">newsletter-ai</div>
-        <h2 class="plugin-title">Newsletter AI</h2>
-        <p class="plugin-desc">A branded email newsletter written and sent for your business every week. Written in your voice, covering your industry. Keeps your audience warm, builds your list, and shows up consistently — so you don't have to think about it. One session. Done.</p>
+        <h2 class="plugin-title">Noah</h2>
+        <div class="plugin-role">Newsletter Writer</div>
+        <p class="plugin-desc">Noah writes and sends a branded email newsletter for your business every week. Written in your voice, covering your industry. Keeps your audience warm, builds your list, and shows up consistently — so you don't have to think about it. One session. Done.</p>
         <div class="skills-list">
           <span class="skill-tag">newsletter</span>
           <span class="skill-tag">email-copy</span>
@@ -322,13 +365,13 @@
           <span class="skill-tag">content-calendar</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install newsletter-ai:</div>
+          <div class="install-label">Hire Noah:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s newsletter-ai</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Noah →</span></a>
         </div>
       </div>
     </div>
@@ -348,15 +391,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 06 — LIEN FINDER -->
+<!-- EMPLOYEE 06: LENA — LIEN FINDER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 06 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">lien-finder</div>
-        <h2 class="plugin-title">Lien Finder</h2>
-        <p class="plugin-desc">Search all 50 states and 3,000+ counties for property liens in minutes. Runs 5 live database checks — county recorder, tax assessor, state UCC, state tax lien, and federal IRS — the exact sources title companies and real estate attorneys use. Get a complete risk report with every search.</p>
+        <h2 class="plugin-title">Lena</h2>
+        <div class="plugin-role">Lien Investigator</div>
+        <p class="plugin-desc">Lena searches all 50 states and 3,000+ counties for property liens in minutes. She runs 5 live database checks — county recorder, tax assessor, state UCC, state tax lien, and federal IRS — the exact sources title companies and real estate attorneys use. Full risk report every time.</p>
         <div class="skills-list">
           <span class="skill-tag">lien-finder</span>
           <span class="skill-tag">county-recorder</span>
@@ -365,13 +409,13 @@
           <span class="skill-tag">tax-liens</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install lien-finder:</div>
+          <div class="install-label">Hire Lena:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s lien-finder</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Lena →</span></a>
         </div>
       </div>
     </div>
@@ -385,7 +429,7 @@
         <li>Tyler Technologies, Fidlar, and GovOS platform support (covers 1,000+ counties)</li>
         <li>NETR Online fallback for every unmapped county in the country</li>
         <li>Full report — CLEAR / LOW RISK / LIENS PRESENT / HIGH RISK with next steps</li>
-        <li>Title companies charge $150–400 for this search. You get it in minutes.</li>
+        <li>Title companies charge $150–400 for this search. Lena does it in minutes.</li>
       </ul>
     </div>
   </div>
@@ -394,7 +438,7 @@
       <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
       <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
       <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-      <span style="font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-left:8px;">Live Demo — 1346 N 41st Ave, Phoenix AZ</span>
+      <span style="font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-left:8px;">Lena Live — 1346 N 41st Ave, Phoenix AZ</span>
     </div>
     <video autoplay muted loop playsinline style="width:100%;display:block;max-height:520px;object-fit:cover;">
       <source src="lien-finder-demo.mp4" type="video/mp4">
@@ -402,15 +446,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 07 — PROBATE HUNTER -->
+<!-- EMPLOYEE 07: VICTOR — PROBATE HUNTER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 07 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">probate-hunter</div>
-        <h2 class="plugin-title">Probate Hunter</h2>
-        <p class="plugin-desc">Find properties in probate before they ever hit the market. Search county court filings for newly opened estate cases, cross-reference the deceased's name with assessor records to confirm real property, surface the executor and probate attorney contact, and generate a ready-to-send outreach letter — all in one session.</p>
+        <h2 class="plugin-title">Victor</h2>
+        <div class="plugin-role">Estate Investigator</div>
+        <p class="plugin-desc">Victor finds properties in probate before they ever hit the market. He searches county court filings for newly opened estate cases, cross-references the deceased's name with assessor records to confirm real property, surfaces the executor and probate attorney contact, and generates a ready-to-send outreach letter — all in one session.</p>
         <div class="skills-list">
           <span class="skill-tag">probate-hunter</span>
           <span class="skill-tag">probate-search</span>
@@ -419,13 +464,13 @@
           <span class="skill-tag">executor-outreach</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install probate-hunter:</div>
+          <div class="install-label">Hire Victor:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s probate-hunter</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Victor →</span></a>
         </div>
       </div>
     </div>
@@ -438,22 +483,23 @@
         <li>Returns property address, APN, estimated value, and property type</li>
         <li>Finds executor/administrator name and probate attorney contact</li>
         <li>Generates two outreach letters per property — one to executor, one to attorney</li>
-        <li>Integrates with Lien Finder — flags any active liens before you reach out</li>
+        <li>Integrates with Lena — flags any active liens before you reach out</li>
         <li>Saves every case to a local CSV — your recurring probate lead pipeline</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- PLUGIN 08 — CASH BUYER BUILDER -->
+<!-- EMPLOYEE 08: BLAKE — CASH BUYER BUILDER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 08 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">cash-buyer-builder</div>
-        <h2 class="plugin-title">Cash Buyer Builder</h2>
-        <p class="plugin-desc">Build a local cash buyer list straight from county recorder data. Find investors who bought property recently with no mortgage — the signature of a cash purchase. Know your buyers before you lock up your first deal.</p>
+        <h2 class="plugin-title">Blake</h2>
+        <div class="plugin-role">Buyer Relations</div>
+        <p class="plugin-desc">Blake builds your local cash buyer list straight from county recorder data. He finds investors who bought property recently with no mortgage — the signature of a cash purchase. Know your buyers before you lock up your first deal.</p>
         <div class="skills-list">
           <span class="skill-tag">cash-buyer-builder</span>
           <span class="skill-tag">buyer-list</span>
@@ -461,13 +507,13 @@
           <span class="skill-tag">wholesale</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install cash-buyer-builder:</div>
+          <div class="install-label">Hire Blake:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s cash-buyer-builder</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Blake →</span></a>
         </div>
       </div>
     </div>
@@ -480,22 +526,23 @@
         <li>Flags buyers with 3+ purchases in the last 12 months as priority A-tier</li>
         <li>Captures mailing address, purchase price, and property type for each buyer</li>
         <li>Deduplicates across multiple deed types (warranty, grant, trustee)</li>
-        <li>Integrates with Skip Tracer — get phone and email for every buyer on the list</li>
+        <li>Integrates with Chase — get phone and email for every buyer on the list</li>
         <li>Saves every session to a local CSV — your permanent buyer pipeline</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- PLUGIN 09 — COMPS FINDER -->
+<!-- EMPLOYEE 09: VAL — COMPS FINDER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 09 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">comps-finder</div>
-        <h2 class="plugin-title">Comps Finder</h2>
-        <p class="plugin-desc">Pull recent comparable sales for any address and get a clean ARV — After Repair Value — in minutes. Searches Zillow, Redfin, and county assessor records, filters outliers, and outputs a recommended offer-ready valuation with confidence rating.</p>
+        <h2 class="plugin-title">Val</h2>
+        <div class="plugin-role">Valuation Analyst</div>
+        <p class="plugin-desc">Val pulls recent comparable sales for any address and delivers a clean ARV in minutes. She searches Zillow, Redfin, and county assessor records, filters outliers, and outputs a recommended offer-ready valuation with a confidence rating.</p>
         <div class="skills-list">
           <span class="skill-tag">comps-finder</span>
           <span class="skill-tag">arv</span>
@@ -503,13 +550,13 @@
           <span class="skill-tag">valuation</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install comps-finder:</div>
+          <div class="install-label">Hire Val:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s comps-finder</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Val →</span></a>
         </div>
       </div>
     </div>
@@ -523,21 +570,22 @@
         <li>Calculates price per sqft for each comp and derives low/mid/high ARV range</li>
         <li>Rates confidence HIGH / MEDIUM / LOW based on comp count and spread</li>
         <li>Expands radius and date range automatically when comps are thin</li>
-        <li>Integrates with Deal Analyzer — feeds ARV directly into the deal math</li>
+        <li>Integrates with Nina — feeds ARV directly into the deal math</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- PLUGIN 10 — DEAL ANALYZER -->
+<!-- EMPLOYEE 10: NINA — DEAL ANALYZER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 10 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">deal-analyzer</div>
-        <h2 class="plugin-title">Deal Analyzer</h2>
-        <p class="plugin-desc">Run the numbers on any wholesale deal before you pick up the phone. Input ARV, repair estimate, and desired fee — get your MAO, recommended offer, assignment spread, buyer profit, and deal grade. Know if it's an A deal or a pass before you waste a minute.</p>
+        <h2 class="plugin-title">Nina</h2>
+        <div class="plugin-role">Deal Analyst</div>
+        <p class="plugin-desc">Run the numbers on any wholesale deal before you pick up the phone. Give Nina ARV, repair estimate, and desired fee — she gives you MAO, recommended offer, assignment spread, buyer profit, and deal grade. Know if it's an A deal or a pass before you waste a minute.</p>
         <div class="skills-list">
           <span class="skill-tag">deal-analyzer</span>
           <span class="skill-tag">mao</span>
@@ -545,13 +593,13 @@
           <span class="skill-tag">70-percent-rule</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install deal-analyzer:</div>
+          <div class="install-label">Hire Nina:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s deal-analyzer</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Nina →</span></a>
         </div>
       </div>
     </div>
@@ -571,15 +619,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 11 — SKIP TRACER -->
+<!-- EMPLOYEE 11: CHASE — SKIP TRACER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 11 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">skip-tracer</div>
-        <h2 class="plugin-title">Skip Tracer</h2>
-        <p class="plugin-desc">Find the phone number and email for any property owner or estate executor using public records — county assessor, court filings, voter registration, and people-search aggregators. Get a contact with a confidence rating before you make the call.</p>
+        <h2 class="plugin-title">Chase</h2>
+        <div class="plugin-role">Skip Tracer</div>
+        <p class="plugin-desc">Chase finds the phone number and email for any property owner or estate executor using public records — county assessor, court filings, voter registration, and people-search aggregators. He delivers a contact with a confidence rating before you make the call.</p>
         <div class="skills-list">
           <span class="skill-tag">skip-tracer</span>
           <span class="skill-tag">contact-finder</span>
@@ -587,13 +636,13 @@
           <span class="skill-tag">outreach</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install skip-tracer:</div>
+          <div class="install-label">Hire Chase:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s skip-tracer</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Chase →</span></a>
         </div>
       </div>
     </div>
@@ -613,15 +662,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 12 — OFFER WRITER -->
+<!-- EMPLOYEE 12: LEO — OFFER WRITER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 12 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">offer-writer</div>
-        <h2 class="plugin-title">Offer Writer</h2>
-        <p class="plugin-desc">Generate a professional Letter of Intent and a wholesale Purchase &amp; Sale Agreement the moment you're ready to lock up a deal. Takes your MAO, seller name, and deal terms — outputs signed-ready PDF documents saved to your local offers folder and drafted in Gmail.</p>
+        <h2 class="plugin-title">Leo</h2>
+        <div class="plugin-role">Contracts Specialist</div>
+        <p class="plugin-desc">Leo generates a professional Letter of Intent and a wholesale Purchase &amp; Sale Agreement the moment you're ready to lock up a deal. Give him your MAO, seller name, and deal terms — he outputs signed-ready PDF documents saved locally and drafted in Gmail.</p>
         <div class="skills-list">
           <span class="skill-tag">offer-writer</span>
           <span class="skill-tag">purchase-agreement</span>
@@ -629,13 +679,13 @@
           <span class="skill-tag">wholesale-contracts</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install offer-writer:</div>
+          <div class="install-label">Hire Leo:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s offer-writer</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Leo →</span></a>
         </div>
       </div>
     </div>
@@ -655,15 +705,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 13 — DEAL PIPELINE -->
+<!-- EMPLOYEE 13: PARKER — DEAL PIPELINE -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 13 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">deal-pipeline</div>
-        <h2 class="plugin-title">Deal Pipeline</h2>
-        <p class="plugin-desc">Track every wholesale deal from first lead to closed assignment. A visual pipeline board with 8 stages — from New Lead to Closed — that persists across sessions. See your hot deals, flag stale ones, log notes, and record profits. Your entire operation on one board.</p>
+        <h2 class="plugin-title">Parker</h2>
+        <div class="plugin-role">Operations Manager</div>
+        <p class="plugin-desc">Parker tracks every wholesale deal from first lead to closed assignment. A visual pipeline board with 8 stages — from New Lead to Closed — that persists across sessions. He flags stale deals, suggests next actions, logs notes, and records profits. Your entire operation on one board.</p>
         <div class="skills-list">
           <span class="skill-tag">deal-pipeline</span>
           <span class="skill-tag">deal-tracker</span>
@@ -671,13 +722,13 @@
           <span class="skill-tag">wholesale-crm</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install deal-pipeline:</div>
+          <div class="install-label">Hire Parker:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s deal-pipeline</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Parker →</span></a>
         </div>
       </div>
     </div>
@@ -697,15 +748,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 14 — ASSIGNMENT CONTRACT -->
+<!-- EMPLOYEE 14: AVA — ASSIGNMENT CONTRACT -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 14 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">assignment-contract</div>
-        <h2 class="plugin-title">Assignment Contract</h2>
-        <p class="plugin-desc">Generate the Assignment of Real Estate Purchase Contract the moment your buyer is ready to close. Takes your original PSA details and buyer info — outputs a complete assignment agreement with non-refundable EMD terms, buyer disclosure, and wire instructions. Saved as PDF and sent to Gmail.</p>
+        <h2 class="plugin-title">Ava</h2>
+        <div class="plugin-role">Assignment Specialist</div>
+        <p class="plugin-desc">Ava generates the Assignment of Real Estate Purchase Contract the moment your buyer is ready to close. Give her your original PSA details and buyer info — she outputs a complete assignment agreement with non-refundable EMD terms, buyer disclosure, and wire instructions. PDF saved and Gmail drafted.</p>
         <div class="skills-list">
           <span class="skill-tag">assignment-contract</span>
           <span class="skill-tag">wholesale-assignment</span>
@@ -713,13 +765,13 @@
           <span class="skill-tag">buyer-closing</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install assignment-contract:</div>
+          <div class="install-label">Hire Ava:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s assignment-contract</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Ava →</span></a>
         </div>
       </div>
     </div>
@@ -732,22 +784,23 @@
         <li>Buyer Disclosure included — investor-to-investor acknowledgment</li>
         <li>Pulls original PSA details from your deal pipeline automatically</li>
         <li>Adjusts for LLC buyers, estate buyers, and individual cash buyers</li>
-        <li>Saves PDFs to ~/assignments/ and updates pipeline to Stage 7: Assigned</li>
+        <li>Saves PDFs to ~/assignments/ and updates Parker's pipeline to Stage 7: Assigned</li>
         <li>Gmail draft sent with both documents and wire instructions highlighted</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- PLUGIN 15 — SELLER PITCH -->
+<!-- EMPLOYEE 15: SOFIA — SELLER PITCH -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 15 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">seller-pitch</div>
-        <h2 class="plugin-title">Seller Pitch</h2>
-        <p class="plugin-desc">Know exactly what to say before you pick up the phone. Word-for-word cold call scripts, voicemail drops, SMS sequences, door knock openers, and objection handlers — all customized for probate, distressed, absentee, pre-foreclosure, FSBO, tired landlord, and divorce situations.</p>
+        <h2 class="plugin-title">Sofia</h2>
+        <div class="plugin-role">Sales Coach</div>
+        <p class="plugin-desc">Sofia tells you exactly what to say before you pick up the phone. Word-for-word cold call scripts, voicemail drops, SMS sequences, door knock openers, and objection handlers — all customized for probate, distressed, absentee, pre-foreclosure, FSBO, tired landlord, and divorce situations.</p>
         <div class="skills-list">
           <span class="skill-tag">seller-pitch</span>
           <span class="skill-tag">cold-call</span>
@@ -755,13 +808,13 @@
           <span class="skill-tag">objection-handlers</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install seller-pitch:</div>
+          <div class="install-label">Hire Sofia:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s seller-pitch</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Sofia →</span></a>
         </div>
       </div>
     </div>
@@ -781,15 +834,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 16 — MAILER CAMPAIGN -->
+<!-- EMPLOYEE 16: MAYA — MAILER CAMPAIGN -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 16 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">mailer-campaign</div>
-        <h2 class="plugin-title">Mailer Campaign</h2>
-        <p class="plugin-desc">Turn any lead list into a stack of personalized, ready-to-mail letters. Takes a CSV from probate-hunter, cash-buyer-builder, or any source — generates individual PDF letters for each contact, saves them to a campaign folder, and optionally submits the batch to Lob.com for professional printing and mailing.</p>
+        <h2 class="plugin-title">Maya</h2>
+        <div class="plugin-role">Direct Mail Manager</div>
+        <p class="plugin-desc">Maya turns any lead list into a stack of personalized, ready-to-mail letters. She takes a CSV from Victor, Blake, or any source — generates individual PDF letters for each contact, saves them to a campaign folder, and optionally submits the batch to Lob.com for professional printing and mailing.</p>
         <div class="skills-list">
           <span class="skill-tag">mailer-campaign</span>
           <span class="skill-tag">direct-mail</span>
@@ -797,20 +851,20 @@
           <span class="skill-tag">pdf-letters</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install mailer-campaign:</div>
+          <div class="install-label">Hire Maya:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s mailer-campaign</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Maya →</span></a>
         </div>
       </div>
     </div>
     <div class="plugin-visual">
       <div class="plugin-num">16</div>
       <ul class="feature-list">
-        <li>Reads any lead CSV — from probate-hunter, cash-buyer-builder, or your own list</li>
+        <li>Reads any lead CSV — from Victor, Blake, or your own list</li>
         <li>6 letter templates: probate, distressed, absentee, pre-foreclosure, buyer outreach, general</li>
         <li>Personalizes every letter — name, address, property, and situation-specific language</li>
         <li>Saves individual PDFs to ~/mailers/[campaign-name]/ — one file per recipient</li>
@@ -823,15 +877,16 @@
   </div>
 </section>
 
-<!-- PLUGIN 17 — MORTGAGE LEAD HUNTER -->
+<!-- EMPLOYEE 17: MARCO — MORTGAGE LEAD HUNTER -->
 <section class="plugin-section">
   <div class="plugin-hero">
     <div class="plugin-info">
       <div>
-        <div class="plugin-tag">Plugin 17 — Live</div>
+        <div class="plugin-tag">Meet Your AI Employee</div>
         <div class="plugin-name">mortgage-lead-hunter</div>
-        <h2 class="plugin-title">Mortgage Lead Hunter</h2>
-        <p class="plugin-desc">Pull 100 qualified mortgage leads straight from public records — refi candidates locked in at 6–8% rates, divorce filings where both parties need new loans, pre-foreclosure homeowners desperate to refinance, and probate heirs who need financing to keep inherited property. Every lead skip-traced for phone and email. Built for loan officers and mortgage referral partners.</p>
+        <h2 class="plugin-title">Marco</h2>
+        <div class="plugin-role">Lead Hunter</div>
+        <p class="plugin-desc">Marco pulls 100 qualified mortgage leads straight from public records — refi candidates locked in at 6–8% rates, divorce filings where both parties need new loans, pre-foreclosure homeowners desperate to refinance, and probate heirs who need financing to settle an estate. Every lead skip-traced for phone and email. Built for loan officers and mortgage referral partners.</p>
         <div class="skills-list">
           <span class="skill-tag">mortgage-lead-hunter</span>
           <span class="skill-tag">refi-candidates</span>
@@ -839,13 +894,13 @@
           <span class="skill-tag">skip-trace</span>
         </div>
         <div class="install-block">
-          <div class="install-label">Install mortgage-lead-hunter:</div>
+          <div class="install-label">Hire Marco:</div>
           <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s mortgage-lead-hunter</div>
         </div>
         <div class="badge-row">
           <span class="badge green">Live</span>
           <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" style="text-decoration:none;"><span class="badge">GitHub</span></a>
-          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Demo →</span></a>
+          <a href="nmd-tools.html" style="text-decoration:none;"><span class="badge gold">Try Marco →</span></a>
         </div>
       </div>
     </div>
@@ -854,31 +909,31 @@
       <ul class="feature-list">
         <li>Pulls 40 refi candidates from county recorder — buyers locked in at 6–8% who are prime to refinance now</li>
         <li>Finds 25 divorce filings from family court — both parties will need new mortgages or buyout loans</li>
-        <li>Surfaces 25 pre-foreclosure homeowners from NOD and trustee sale notices — urgent, motivated refi candidates</li>
-        <li>Locates 10 probate heirs from estate court filings — inherited property often needs new financing to settle the estate</li>
+        <li>Surfaces 25 pre-foreclosure homeowners from trustee sale notices — urgent, motivated refi candidates</li>
+        <li>Locates 10 probate heirs from estate court filings — inherited property often needs new financing</li>
         <li>Skip traces every lead for primary phone, secondary phone, primary email, and secondary email</li>
         <li>Confidence-rated contacts — HIGH and MEDIUM only, LOW confidence leads are replaced automatically</li>
-        <li>Saves a clean CSV to ~/mortgage-leads/ — 100 leads, all with phone + email, ready for outreach</li>
-        <li>Generates a full report with top 10 hottest leads ranked by urgency and a referral fee tracker</li>
+        <li>Saves a clean CSV to ~/mortgage-leads/ — 100 leads with phone + email, ready for outreach</li>
+        <li>Full report with urgency ranking, equity flags, and a referral fee tracker</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- INSTALL ALL -->
+<!-- HIRE YOUR TEAM -->
 <section class="install-section">
-  <div class="section-tag">Install Everything</div>
-  <h2>One command. All plugins.</h2>
-  <p>Installs all available NMD plugins to your Claude Code setup. Takes 30 seconds. Run it after you have Claude Code installed.</p>
+  <div class="section-tag">Hire Your Full Team</div>
+  <h2>One command. All 17 employees.</h2>
+  <p>Installs the entire NMD AI team to your Claude Code setup in 30 seconds. Every employee is ready to work the moment the install completes.</p>
 
   <div class="big-cmd">
-    <div class="comment"># Install all NMD plugins at once:</div>
+    <div class="comment"># Hire your full team at once:</div>
     <div class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash</div>
   </div>
 
   <div class="big-cmd">
-    <div class="comment"># Or install just what you need:</div>
-    <div class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s social</div>
+    <div class="comment"># Or hire just who you need:</div>
+    <div class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s mortgage-lead-hunter</div>
   </div>
 
   <div style="margin-top:32px;">
