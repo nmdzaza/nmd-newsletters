@@ -1,0 +1,36 @@
+name: Rotate Site Theme
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  rotate:
+    # Skip if this push was made by the bot itself (prevents infinite loop)
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Rotate theme
+        run: node .github/scripts/rotate-theme.js
+
+      - name: Commit and push theme change
+        run: |
+          git config user.name  "nmd-theme-bot"
+          git config user.email "bot@nmdzaza.com"
+          git add index.html theme-state.json
+          git diff --staged --quiet || git commit -m "chore: rotate to $(node -e "const s=require('./theme-state.json'); const themes=['Gold Standard','Arctic Ice','Blood Money','Emerald City','Rose Gold','Platinum','Volt','Copper','Ultra Violet','Deep Ocean']; console.log(themes[s.current])") theme [skip ci]"
+          git push

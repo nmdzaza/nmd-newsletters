@@ -1,0 +1,11 @@
+{
+  "name": "nmd-zaza",
+  "version": "0.1.0",
+  "description": "NMD ZAZA full business suite — real estate wholesale, lead generation from public records, social media engine, Telegram market bot, newsletter, and product management.",
+  "author": {
+    "name": "NMD ZAZA",
+    "email": "camjohn816@gmail.com"
+  },
+  "repository": "https://github.com/nmdzaza/nmd-plugins",
+  "keywords": ["real-estate", "wholesale", "lead-generation", "social-media", "newsletter", "credit", "telegram", "nmd"]
+}
