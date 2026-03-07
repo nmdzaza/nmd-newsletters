@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Score You've Been Chasing Isn't the Score They're Using Anymore — NMD Credit Intelligence</title>
+  <meta name="description" content="Fannie Mae and Freddie Mac just mandated FICO 10T and VantageScore 4.0 for all mortgage underwriting. Here's what changed and what to do about it.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #0d0d0d;
+      color: #f5f0e8;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      text-align: center;
+      border-bottom: 1px solid #1e1e1e;
+      padding-bottom: 28px;
+      margin-bottom: 40px;
+    }
+    .back-link {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #444;
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #c9a84c; }
+    .brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #c9a84c;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+    .tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      color: #444;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* ── ARTICLE META ── */
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: #c0392b;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #f5f0e8;
+      margin-bottom: 24px;
+    }
+    .lede {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: #c9a84c;
+      line-height: 1.6;
+      border-left: 3px solid #c9a84c;
+      padding-left: 18px;
+      margin-bottom: 36px;
+    }
+    .meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    /* ── BODY COPY ── */
+    p {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+      color: #ccc8c0;
+    }
+    p strong {
+      color: #f5f0e8;
+      font-weight: 600;
+    }
+    .section-break {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      margin: 36px 0;
+    }
+
+    /* ── STAT CALLOUT ── */
+    .stat-callout {
+      background: #111;
+      border-left: 4px solid #c9a84c;
+      padding: 24px 28px;
+      margin: 36px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: #c9a84c;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    /* ── NUMBERED LIST ── */
+    .action-list {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 4px;
+      padding: 28px 32px;
+      margin: 32px 0;
+      list-style: none;
+      counter-reset: action-counter;
+    }
+    .action-list li {
+      counter-increment: action-counter;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #d4cfc5;
+      padding: 12px 0 12px 48px;
+      position: relative;
+      border-bottom: 1px solid #1a1a1a;
+      line-height: 1.5;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-list li::before {
+      content: counter(action-counter);
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 28px;
+      height: 28px;
+      background: #c9a84c;
+      color: #0d0d0d;
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+    .action-list li strong { color: #f5f0e8; }
+
+    /* ── CTA BOX ── */
+    .cta-box {
+      background: #111;
+      border: 1px solid #c9a84c;
+      padding: 32px 28px;
+      margin: 40px 0;
+      border-radius: 4px;
+    }
+    .cta-box strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #f5f0e8;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .cta-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #0d0d0d;
+      background: #c9a84c;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 2px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #e6c86e; }
+    .cta-btn.ghost {
+      background: transparent;
+      color: #c9a84c;
+      border: 1px solid #c9a84c;
+    }
+    .cta-btn.ghost:hover { background: rgba(201,168,76,0.1); }
+
+    /* ── SIGN-OFF ── */
+    .signoff {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #c9a84c;
+      text-align: center;
+      margin: 40px 0 0;
+      letter-spacing: 1px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #333;
+      margin-top: 48px;
+      border-top: 1px solid #1a1a1a;
+      padding-top: 28px;
+      line-height: 2;
+    }
+    .footer a { color: #555; text-decoration: none; transition: color 0.2s; }
+    .footer a:hover { color: #c9a84c; }
+    .footer-sep { margin: 0 10px; color: #222; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a class="back-link" href="index.html">← All Newsletters</a>
+    <div class="brand">NMD</div>
+    <div class="tagline">No Money Down · Credit Intelligence</div>
+  </div>
+
+  <div class="label">Breaking News · Mortgage Scoring</div>
+
+  <h1>The Score You've Been Chasing Isn't the Score They're Using Anymore</h1>
+
+  <div class="lede">
+    Fannie Mae and Freddie Mac just mandated FICO 10T and VantageScore 4.0 for all mortgage underwriting. The FICO 8 you've been building toward? Not the target anymore.
+  </div>
+
+  <div class="meta">March 2026 &nbsp;·&nbsp; NMD ZAZA &nbsp;·&nbsp; 7 min read</div>
+
+  <p>Fannie Mae and Freddie Mac completed their transition to new credit scoring models in 2026.</p>
+
+  <p>That means every lender backed by these agencies — which is most of them — is now evaluating mortgage applicants using <strong>FICO 10T</strong> and <strong>VantageScore 4.0</strong> instead of the legacy FICO Classic models that haven't been updated in over two decades.</p>
+
+  <p>Here's what changed and why it matters to you right now.</p>
+
+  <hr class="section-break">
+
+  <p><strong>FICO 10T is a different animal.</strong></p>
+
+  <p>The "T" stands for trended data. Instead of taking a single snapshot of your credit report, this model pulls 24 months of history and looks at direction. Are your balances going up or down? Are you consistently paying more than the minimum? Someone actively paying down debt scores differently than someone treading water — even if the current balance is identical.</p>
+
+  <p>The old model couldn't see that. The new one can. If you've been grinding down your revolving balances over the past year, this model rewards that work in a way FICO 8 never did.</p>
+
+  <hr class="section-break">
+
+  <p><strong>VantageScore 4.0 opens doors that were previously locked.</strong></p>
+
+  <p>This model brings alternative data into the equation — rent payments, utilities, phone bills. If you've been paying on time every month but have a thin credit file, VantageScore 4.0 may score you materially higher than any previous model.</p>
+
+  <div class="stat-callout">
+    <div class="stat-number">5,000,000</div>
+    <div class="stat-label">Consumers newly eligible for mortgages under the new scoring models</div>
+  </div>
+
+  <p>Five million people who couldn't qualify for mortgages under the old models can now qualify. That's not incremental. That's structural. If you've been told you don't qualify, or if you've been building but the door hasn't opened — the rules just changed in your favor.</p>
+
+  <hr class="section-break">
+
+  <p><strong>BNPL is officially in the credit system.</strong></p>
+
+  <p>Buy Now Pay Later — Klarna, Affirm, Afterpay — has been largely invisible to credit scoring for years. That era is ending. Several major BNPL lenders now report to Equifax. The new scoring models are built to handle this data.</p>
+
+  <p>Miss a BNPL payment and it can show up on your report. Pay consistently and it can work in your favor. The FCRA's dispute protections apply to these accounts — if something's inaccurate, you have the right to challenge it.</p>
+
+  <p>You need to know what your BNPL history looks like right now.</p>
+
+  <hr class="section-break">
+
+  <p><strong>What to do right now — the exact play:</strong></p>
+
+  <ol class="action-list">
+    <li><strong>Pull your FICO 10T score</strong> — not FICO 8. Most credit monitoring apps still default to FICO 8. If you're mortgage shopping, you need to see the score lenders are actually using.</li>
+    <li><strong>Audit your BNPL accounts</strong> — log into each major bureau's portal and look for any BNPL accounts in your credit file. Know what's there and whether it's accurate.</li>
+    <li><strong>Enroll in rent reporting</strong> — Experian RentBureau, Rental Kharma, and LevelCredit all allow you to add your rental history. Under VantageScore 4.0 this data has real scoring weight.</li>
+    <li><strong>Run your VantageScore 4.0</strong> — lenders are pulling both models now. Monitoring only FICO gives you an incomplete picture of what they actually see.</li>
+    <li><strong>Update your dispute strategy</strong> — the FCRA dispute process hasn't changed, but what constitutes a material error looks different under the new scoring logic. Treat BNPL accounts the same as any other tradeline.</li>
+  </ol>
+
+  <p>The rules changed. Most people don't know. Now you do.</p>
+
+  <div class="cta-box">
+    <strong>Know exactly where you stand under the new models.</strong>
+    <p>Run your full dispute analysis, check your credit profile under the new scoring framework, and get a personalized action plan at NMD Solutions.</p>
+    <div class="cta-links">
+      <a class="cta-btn" href="https://nmdzaza.github.io/nmd-solutions/">NMD Solutions →</a>
+      <a class="cta-btn ghost" href="https://credit-dispute-colle-6tyb.bolt.host/">Credit Dispute Tool</a>
+      <a class="cta-btn ghost" href="https://t.me/+pmgwMuufQ7cyNWEx">Join Telegram</a>
+    </div>
+  </div>
+
+  <p class="signoff">Stay locked in — Za | NMD ZAZA 🐐</p>
+
+  <div class="footer">
+    <a href="index.html">← All Newsletters</a>
+    <span class="footer-sep">·</span>
+    <a href="https://t.me/+pmgwMuufQ7cyNWEx">Telegram</a>
+    <span class="footer-sep">·</span>
+    <a href="https://nmdzaza.gumroad.com/">Gumroad</a>
+    <span class="footer-sep">·</span>
+    <a href="https://lnk.bio/Nmdzaza">All Links</a>
+    <br>
+    NMD ZAZA · The Credit Goat 🐐
+  </div>
+
+</body>
+</html>
