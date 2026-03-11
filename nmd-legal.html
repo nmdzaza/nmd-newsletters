@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NMD Legal Defense AI — Free Case Research on Telegram</title>
+  <meta name="description" content="AI-powered legal defense tools for inmates, families, and the wrongfully convicted. Free case lookups, appeal drafting, FOIA requests, civil rights lawsuits, and more — available 24/7 on Telegram."/>
+  <style>
+    :root {
+      --crimson: #9B1C1C;
+      --crimson-light: #C0392B;
+      --crimson-dark: #7B0D0D;
+      --gold: #D4A017;
+      --dark: #0F0F0F;
+      --dark2: #1A1A1A;
+      --dark3: #242424;
+      --gray: #888;
+      --light: #F5F5F5;
+      --white: #FFFFFF;
+      --green: #27AE60;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--dark); color: var(--white); }
+
+    nav {
+      background: var(--dark2);
+      border-bottom: 2px solid var(--crimson);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-brand { font-size: 1.3rem; font-weight: 800; color: var(--crimson-light); letter-spacing: 1px; }
+    .nav-links a { color: var(--light); text-decoration: none; margin-left: 24px; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; color: var(--crimson-light); }
+    .nav-cta { background: var(--crimson); color: var(--white) !important; padding: 8px 18px; border-radius: 6px; font-weight: 700; opacity: 1 !important; }
+    .nav-cta:hover { background: var(--crimson-light) !important; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #1a0505 50%, var(--dark2) 100%);
+      border-bottom: 1px solid #3a0a0a;
+      padding: 100px 40px 80px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: "⚖";
+      position: absolute; font-size: 400px; opacity: 0.04;
+      top: -60px; left: 50%; transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(155,28,28,0.2); border: 1px solid var(--crimson);
+      color: var(--crimson-light); padding: 6px 18px; border-radius: 20px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .hero h1 span { color: var(--crimson-light); }
+    .hero p { font-size: 1.2rem; color: #bbb; max-width: 620px; margin: 0 auto 40px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--crimson); color: var(--white); padding: 16px 36px; border-radius: 8px;
+      font-size: 1.1rem; font-weight: 800; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(155,28,28,0.4);
+    }
+    .btn-primary:hover { background: var(--crimson-light); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent; color: var(--white); padding: 16px 36px; border-radius: 8px;
+      font-size: 1.1rem; font-weight: 700; text-decoration: none; border: 2px solid #444;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--crimson); }
+    .hero-stats { display: flex; justify-content: center; gap: 48px; margin-top: 60px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-size: 2.4rem; font-weight: 900; color: var(--crimson-light); }
+    .hero-stat .label { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
+
+    .trust-bar {
+      background: var(--dark2); border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a;
+      padding: 18px 40px; display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #aaa; }
+    .trust-item .icon { font-size: 1.2rem; }
+
+    section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson-light); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+    .section-sub { color: #999; font-size: 1rem; max-width: 580px; line-height: 1.6; margin-bottom: 48px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .service-card {
+      background: var(--dark2); border: 1px solid #2e2e2e; border-radius: 12px; padding: 24px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .service-card:hover { border-color: var(--crimson); transform: translateY(-3px); }
+    .service-card .icon { font-size: 2rem; margin-bottom: 12px; }
+    .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { font-size: 0.85rem; color: #888; line-height: 1.6; }
+    .service-card .tag { display: inline-block; margin-top: 12px; background: rgba(155,28,28,0.15); color: var(--crimson-light); padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700; }
+    .tag-ai { background: rgba(39,174,96,0.15) !important; color: #2ecc71 !important; }
+    .tag-free { background: rgba(52,152,219,0.15) !important; color: #3498db !important; }
+
+    .steps-wrap { background: var(--dark2); border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; padding: 80px 0; }
+    .steps-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; margin-top: 48px; }
+    .step { text-align: center; padding: 24px 16px; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--crimson); color: var(--white);
+      font-size: 1.4rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; box-shadow: 0 0 20px rgba(155,28,28,0.4);
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .step p { font-size: 0.85rem; color: #888; line-height: 1.6; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; }
+    .price-card {
+      background: var(--dark2); border: 1px solid #2e2e2e; border-radius: 14px;
+      padding: 32px 24px; text-align: center; position: relative; transition: border-color 0.2s;
+    }
+    .price-card:hover { border-color: var(--crimson); }
+    .price-card.featured { border-color: var(--crimson); background: linear-gradient(135deg, #1a0505, var(--dark2)); }
+    .price-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--crimson); color: var(--white); padding: 4px 16px;
+      border-radius: 20px; font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .price-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .price-amount { font-size: 2.8rem; font-weight: 900; color: var(--crimson-light); margin: 16px 0 4px; }
+    .price-amount span { font-size: 1rem; color: var(--gray); font-weight: 400; }
+    .price-desc { font-size: 0.85rem; color: #888; margin-bottom: 20px; }
+    .price-features { text-align: left; list-style: none; margin-bottom: 28px; }
+    .price-features li { font-size: 0.85rem; color: #bbb; padding: 6px 0; border-bottom: 1px solid #2a2a2a; display: flex; align-items: flex-start; gap: 8px; }
+    .price-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .btn-price { display: block; background: var(--crimson); color: var(--white); text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-price:hover { background: var(--crimson-light); }
+    .btn-price-outline { display: block; background: transparent; color: var(--white); text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; border: 1px solid #444; transition: border-color 0.2s; }
+    .btn-price-outline:hover { border-color: var(--crimson); }
+
+    .use-cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .use-case { background: var(--dark2); border-left: 4px solid var(--crimson); border-radius: 0 10px 10px 0; padding: 24px; }
+    .use-case h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .use-case p { font-size: 0.85rem; color: #888; line-height: 1.5; }
+
+    .cta-section { background: linear-gradient(135deg, #1a0505, var(--dark2)); border-top: 1px solid #3a0a0a; border-bottom: 1px solid #3a0a0a; text-align: center; padding: 100px 40px; }
+    .cta-section h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 16px; }
+    .cta-section p { color: #999; font-size: 1rem; max-width: 500px; margin: 0 auto 40px; line-height: 1.6; }
+
+    footer { background: var(--dark2); border-top: 1px solid #2a2a2a; padding: 40px; text-align: center; }
+    .footer-brand { font-size: 1.3rem; font-weight: 800; color: var(--crimson-light); margin-bottom: 12px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+    .footer-links a { color: #888; text-decoration: none; font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--crimson-light); }
+    .footer-copy { color: #555; font-size: 0.8rem; }
+
+    .live-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(39,174,96,0.15); border: 1px solid rgba(39,174,96,0.4); color: #2ecc71; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-left: 12px; }
+    .live-dot { width: 7px; height: 7px; background: #2ecc71; border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    @media (max-width: 700px) {
+      nav { padding: 12px 20px; }
+      .nav-links { display: none; }
+      section { padding: 60px 20px; }
+      .hero { padding: 70px 20px 60px; }
+      .trust-bar { padding: 16px 20px; gap: 20px; }
+      .steps-inner { padding: 0 20px; }
+      .cta-section { padding: 70px 20px; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">NMD Solutions</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="nmd-blog.html">Blog</a>
+    <a href="nmd-solutions.html">All Tools</a>
+    <a href="https://t.me/NMDLegalBot" class="nav-cta" target="_blank">📲 Open Legal Bot</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">⚖️ AI Legal Defense — Free to Start</div>
+  <h1>Fight Back With <span>AI-Powered</span><br/>Legal Defense Tools</h1>
+  <p>18 professional legal services available 24/7 on Telegram. Case lookups, appeal drafting, civil rights lawsuits, FOIA requests — all powered by AI and real court data.</p>
+  <div class="hero-btns">
+    <a href="https://t.me/NMDLegalBot" class="btn-primary" target="_blank">📲 Start on Telegram — Free</a>
+    <a href="#services" class="btn-secondary">See All 18 Services ↓</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">18</div><div class="label">Legal Services</div></div>
+    <div class="hero-stat"><div class="num">24/7</div><div class="label">Always Available</div></div>
+    <div class="hero-stat"><div class="num">Free</div><div class="label">To Start</div></div>
+    <div class="hero-stat"><div class="num">50+</div><div class="label">States Covered</div></div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="icon">🔒</span> Private &amp; Encrypted</div>
+  <div class="trust-item"><span class="icon">🏛</span> Real CourtListener Data</div>
+  <div class="trust-item"><span class="icon">🧠</span> Local AI — Never Sent to OpenAI</div>
+  <div class="trust-item"><span class="icon">📲</span> Works on Any Phone via Telegram</div>
+  <div class="trust-item"><span class="icon">🟢</span> Bot Status: Online <span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
+</div>
+
+<section id="services">
+  <div class="section-label">What We Offer</div>
+  <h2>18 Legal Defense Services</h2>
+  <p class="section-sub">From free case research to full document drafting — everything a defendant, inmate, or family member needs to fight back.</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="icon">🔍</div>
+      <h3>Case Lookup</h3>
+      <p>Search millions of public court records. Pulls docket entries, case status, judge assignments, and full filing history from CourtListener.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">📋</div>
+      <h3>Appeal Builder</h3>
+      <p>AI drafts a complete appeal brief from your trial record — identifies reversible error, IAC claims, Brady violations, and sentencing issues.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">⚖️</div>
+      <h3>Section 1983 Civil Rights Lawsuit</h3>
+      <p>Build a federal civil rights lawsuit against jails, officers, sheriffs, or municipalities for constitutional violations with full legal citations.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">📜</div>
+      <h3>Motion Drafting</h3>
+      <p>Motions to suppress, dismiss, reduce bond, compel discovery, and 30+ more types — AI-generated from your facts with proper legal formatting.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🗂️</div>
+      <h3>FOIA Records Request</h3>
+      <p>Generate FOIA/public records requests for body cam footage, police reports, dispatch logs, and agency records. State-specific law cited automatically.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">📉</div>
+      <h3>Sentence Reduction Finder</h3>
+      <p>Finds every avenue to reduce an active sentence — good time credits, compassionate release, first offender programs, COVID relief, and more.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">📡</div>
+      <h3>Docket Monitor</h3>
+      <p>Monitors your case docket 24/7 and sends an instant alert when anything changes — new filings, motions, or hearing dates.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🏛</div>
+      <h3>Case Law Research</h3>
+      <p>Tap to search landmark rulings — IAC, Brady violations, illegal search &amp; seizure, due process, and more. Direct links to read the full opinions.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">👨‍⚖️</div>
+      <h3>Judge Research</h3>
+      <p>Research your assigned judge — past rulings, reversal rate, sentencing patterns, and full public record of judicial decisions.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🏠</div>
+      <h3>Jail Conditions Complaint</h3>
+      <p>Documents unconstitutional jail conditions — medical neglect, solitary confinement abuse, denial of medication — and generates formal complaints.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🔓</div>
+      <h3>Expungement Checker</h3>
+      <p>Checks eligibility to expunge, seal, or vacate a conviction based on offense type, sentence served, time elapsed, and your state's laws.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🗣️</div>
+      <h3>Parole Prep Builder</h3>
+      <p>Builds everything for a parole hearing — personal statement, release plan, letters of support template, and employment verification.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">⏰</div>
+      <h3>Deadline Tracker</h3>
+      <p>Tracks all your filing deadlines and sends reminders 3 days before they're due. Missing a deadline can kill an appeal — we make sure you never do.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🆘</div>
+      <h3>Find Free Legal Help</h3>
+      <p>Pulls a curated list of free legal aid organizations, civil rights groups, public defenders, and pro bono attorneys for your state.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">📬</div>
+      <h3>Court Mailer</h3>
+      <p>We physically mail your legal documents to the court. Upload or paste the document — we handle printing and certified mail delivery.</p>
+      <span class="tag">$5/doc</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">📚</div>
+      <h3>Legal Education Library</h3>
+      <p>Plain-English guides on constitutional rights, how courts work, what officers can and can't do, and how to navigate the legal system.</p>
+      <span class="tag tag-free">Free</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">🔒</div>
+      <h3>Habeas Corpus Petition</h3>
+      <p>AI-drafted writ of habeas corpus challenging unlawful detention, procedural violations, and constitutional rights deprivations.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">💬</div>
+      <h3>AI Legal Chat</h3>
+      <p>Ask any legal question in plain English — get a real answer grounded in case law, constitutional law, and your state's statutes.</p>
+      <span class="tag tag-ai">AI-Powered</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="steps-wrap">
+  <div class="steps-inner">
+    <div class="section-label">The Process</div>
+    <h2>Start in Under 2 Minutes</h2>
+    <p class="section-sub">No app downloads beyond Telegram. No account creation. Works on any phone.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Open Telegram</h3>
+        <p>Download Telegram (free) or open it if you have it. Works on iPhone, Android, or computer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Message the Bot</h3>
+        <p>Search @NMDLegalBot or tap the link on this page. Send /start to begin your intake.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Enter Your Info</h3>
+        <p>Provide your name, case number, and state. The bot walks you through everything step by step with tap buttons.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Pick a Service</h3>
+        <p>Choose from 18 services. The bot generates your document or pulls your court data in seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3>Get Your Document</h3>
+        <p>Receive your legal document as text and a downloadable PDF. Tap any cited case to read the full court opinion.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">Who We Serve</div>
+  <h2>Built for People the System Ignores</h2>
+  <p class="section-sub">You don't need a lawyer to fight back. You need the right tools.</p>
+  <div class="use-cases-grid">
+    <div class="use-case">
+      <h3>🏠 Families of Inmates</h3>
+      <p>Research your loved one's case, look up court dates, request police records, and draft appeals — all from your phone.</p>
+    </div>
+    <div class="use-case">
+      <h3>🔓 People Awaiting Trial</h3>
+      <p>Generate motions to suppress evidence, reduce bond, or dismiss charges based on constitutional violations in your case.</p>
+    </div>
+    <div class="use-case">
+      <h3>📋 Inmates with Active Sentences</h3>
+      <p>Find sentence reduction paths, monitor your docket, draft appeals, and track filing deadlines — even from inside.</p>
+    </div>
+    <div class="use-case">
+      <h3>⚖️ Civil Rights Victims</h3>
+      <p>Experienced police misconduct, jail abuse, or rights violations? Build a Section 1983 federal lawsuit with full legal citations.</p>
+    </div>
+    <div class="use-case">
+      <h3>📜 Self-Represented Defendants</h3>
+      <p>No public defender? Represent yourself with AI-drafted motions, professionally formatted documents, and real case law.</p>
+    </div>
+    <div class="use-case">
+      <h3>🧑‍⚖️ Legal Aid Advocates</h3>
+      <p>Social workers, paralegals, and community advocates — use NMD Legal to rapidly research cases and draft documents at scale.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2>Free to Start. Pay for What You Need.</h2>
+  <p class="section-sub">Basic case research and lookups are always free. AI documents are priced per service or in bundles.</p>
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <h3>Free Access</h3>
+      <div class="price-amount">$0<span>/always</span></div>
+      <p class="price-desc">Case research and lookups — no cost ever</p>
+      <ul class="price-features">
+        <li>Case lookup (CourtListener)</li>
+        <li>Case law research</li>
+        <li>Judge research</li>
+        <li>Docket monitoring</li>
+        <li>Deadline tracking</li>
+        <li>Find free legal help</li>
+      </ul>
+      <a href="https://t.me/NMDLegalBot" class="btn-price-outline" target="_blank">Start Free →</a>
+    </div>
+
+    <div class="price-card featured">
+      <span class="price-badge">Most Popular</span>
+      <h3>Per Document</h3>
+      <div class="price-amount">$50<span>/doc</span></div>
+      <p class="price-desc">One AI-drafted legal document</p>
+      <ul class="price-features">
+        <li>Any AI service (appeals, motions, civil rights suits)</li>
+        <li>PDF download included</li>
+        <li>Tappable case citations</li>
+        <li>State-specific legal language</li>
+        <li>Delivered in 60–90 seconds</li>
+      </ul>
+      <a href="https://t.me/NMDLegalBot" class="btn-price" target="_blank">Get Started →</a>
+    </div>
+
+    <div class="price-card">
+      <h3>Starter Bundle</h3>
+      <div class="price-amount">$150<span>/5 docs</span></div>
+      <p class="price-desc">Best for active cases with multiple filings</p>
+      <ul class="price-features">
+        <li>5 AI documents of any type</li>
+        <li>Priority processing</li>
+        <li>1 Court Mailer included</li>
+        <li>60-day access</li>
+        <li>Direct NMD team support</li>
+      </ul>
+      <a href="https://t.me/NMDLegalBot" class="btn-price-outline" target="_blank">Buy Bundle →</a>
+    </div>
+
+    <div class="price-card">
+      <h3>Full Defense Suite</h3>
+      <div class="price-amount">$500<span>/case</span></div>
+      <p class="price-desc">Everything — unlimited docs for one case</p>
+      <ul class="price-features">
+        <li>Unlimited documents for 90 days</li>
+        <li>All 18 services unlocked</li>
+        <li>Dedicated NMD case manager</li>
+        <li>3 Court Mailers included</li>
+        <li>Automated deadline alerts</li>
+        <li>90-day docket monitoring</li>
+      </ul>
+      <a href="https://t.me/NMDLegalBot" class="btn-price" target="_blank">Get Full Suite →</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta-section">
+  <div class="section-label">Get Started Now</div>
+  <h2>Your Case Deserves a Fight</h2>
+  <p>Open the bot on Telegram. No credit card, no wait. First case lookup is free in under 2 minutes.</p>
+  <div class="hero-btns">
+    <a href="https://t.me/NMDLegalBot" class="btn-primary" target="_blank">📲 Open NMD Legal Bot on Telegram</a>
+    <a href="nmd-blog.html" class="btn-secondary">Read Our Legal Guides →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">NMD Solutions</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="nmd-legal.html">Legal Defense</a>
+    <a href="nmd-solutions.html">All Tools</a>
+    <a href="nmd-blog.html">Blog</a>
+    <a href="nmd-plugins.html">Plugins</a>
+    <a href="https://t.me/NMDLegalBot" target="_blank">Telegram Bot</a>
+  </div>
+  <p class="footer-copy">© 2026 NMD Solutions. AI-powered tools for real people. Not legal advice.</p>
+</footer>
+
+</body>
+</html>
