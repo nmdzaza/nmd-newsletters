@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="The CFPB just changed the rules: you must now wait 45 days and dispute with the bureau FIRST before the federal government will hear your complaint. Here's what that means and the new playbook that works.">
+  <meta name="keywords" content="CFPB complaint portal 2026, credit dispute rules, credit bureau dispute, CFPB complaint 45 days, credit repair 2026, how to dispute credit report">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CFPB Just Locked You Out of the Complaint Portal — New 45-Day Rule Explained | NMD">
+  <meta property="og:description" content="The CFPB now requires you to dispute with the credit bureau FIRST and wait 45 days. They'll block your complaint if you don't. The old playbook is dead. Here's the new one.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-cfpb-portal-locked-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CFPB Just Locked You Out of the Complaint Portal — New 45-Day Rule | NMD">
+  <meta name="twitter:description" content="Dispute with the bureau first. Wait 45 days. Then and ONLY then will CFPB touch your complaint. Old playbook is dead. New one here.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFPB Just Locked You Out — The New 45-Day Dispute Rule | NMD Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* STAT BLOCK */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0;
+    }
+    .stat-box {
+      background: var(--ink); padding: 24px 20px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: 42px; font-weight: 900;
+      color: var(--gold); line-height: 1.0; margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: #666;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-input.error { border-color: #c00; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Credit Intelligence · March 2026</div>
+    <h1>The CFPB just locked you out.<br><em>The 45-day dispute rule changes everything.</em></h1>
+    <p class="article-dek">Starting in February 2026, the CFPB requires you to dispute directly with the credit bureau first — and wait 45 full days — before they'll even look at your complaint. They'll block it if you skip a step. The old way of fighting back is dead. Here's what works now.</p>
+    <div class="article-meta">
+      <span>📅 March 11, 2026</span>
+      <span>✍️ NMD ZAZA</span>
+      <span>⏱ 6 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>The rule change nobody sent you an alert about</h2>
+
+      <p>The Consumer Financial Protection Bureau quietly rewrote the rules in early February 2026. If you filed a credit dispute complaint with the CFPB the old way — going straight to the federal portal after a bureau ignored you — that pathway is now blocked.</p>
+
+      <p>New CFPB policy requires consumers to take a two-step approach before the government will touch your complaint. <strong>Step 1:</strong> Formally dispute the error directly with the credit reporting agency (Equifax, Experian, or TransUnion). <strong>Step 2:</strong> Wait a minimum of 45 days. Only after those 45 days have passed — or the CRA closes the dispute without fixing it — will the CFPB accept your complaint. And if a credit bureau alerts the CFPB that you skipped the direct dispute step, the Bureau will discontinue processing your complaint entirely.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">⚠ This is Not Minor</div>
+        <p>The CFPB is not just adding a step. They are actively warning consumers on three successive pages of their portal not to file credit report disputes — and building in a mechanism for the bureaus themselves to get your complaint dismissed. That's a significant shift in who the agency is protecting.</p>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num">2M+</div>
+          <div class="stat-label">Credit complaints<br>filed in 2024</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">+180%</div>
+          <div class="stat-label">Complaint surge<br>in 2 years</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">45</div>
+          <div class="stat-label">Days you must wait<br>before CFPB</div>
+        </div>
+      </div>
+
+      <p>The backstory: credit complaint volumes hit an all-time high of more than 2 million in 2024 — a 180% increase in just two years. The three big bureaus and industry trade groups had been lobbying to change this for months, claiming the portal was being flooded with "meritless," AI-generated, and bot-submitted disputes from third-party credit repair firms. The CFPB under new leadership agreed with them. Consumer advocates called the changes heavy-handed deterrence against legitimate filers — and they're not wrong.</p>
+
+      <hr class="divider">
+
+      <h2>What exactly changed at the portal</h2>
+
+      <p>The CFPB updated three consecutive landing pages on its complaint portal with language designed to redirect — and discourage — credit report filers. The new requirements are specific:</p>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>What It Means</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dispute CRA First</strong></td>
+            <td>You must formally submit the dispute to the credit bureau (Equifax, Experian, or TransUnion) before filing with CFPB</td>
+            <td><span class="tag red">Mandatory</span></td>
+          </tr>
+          <tr>
+            <td><strong>45-Day Attestation</strong></td>
+            <td>You must attest that either 45 days have passed since your CRA dispute, or the dispute with the CRA is no longer pending</td>
+            <td><span class="tag red">Mandatory</span></td>
+          </tr>
+          <tr>
+            <td><strong>Bureau Kill Switch</strong></td>
+            <td>If the credit bureau notifies CFPB that you didn't dispute with them first, CFPB will stop processing your complaint</td>
+            <td><span class="tag red">New</span></td>
+          </tr>
+          <tr>
+            <td><strong>Portal Warning Language</strong></td>
+            <td>New prominent warnings on three pages actively steering consumers away from filing credit complaints</td>
+            <td><span class="tag yellow">In Place</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>That "bureau kill switch" deserves your full attention. The credit bureaus — the very companies you're trying to complain about — now have a mechanism to flag your CFPB complaint as non-compliant and get it killed before anyone even reviews it. That is not a neutral process. That is giving the defendant a veto on the plaintiff's paperwork.</p>
+
+      <blockquote>
+        <p>"The CFPB is trying to deter consumers from filing complaints in a rather heavy-handed manner — and the bureaus are the ones who will benefit."</p>
+      </blockquote>
+
+      <hr class="divider">
+
+      <h2>Why this happened — and who pushed for it</h2>
+
+      <p>This didn't come out of nowhere. Three forces drove this change:</p>
+
+      <p><strong>Bureau lobbying.</strong> Equifax, Experian, and TransUnion have been pushing for years to reduce the complaint volume they have to respond to. Every CFPB complaint requires a bureau response, creates a legal record, and can fuel class action attorneys. Reducing the flow of complaints is directly in their financial interest. They got what they wanted here.</p>
+
+      <p><strong>The bot problem was real.</strong> Credit repair firms — some legitimate, many predatory — had been using AI tools to mass-file identical dispute letters and CFPB complaints on behalf of thousands of clients simultaneously. This manufactured complaint volume was being used to overwhelm bureau dispute teams and create leverage. The CFPB's complaint system was being gamed. That part of the story is accurate.</p>
+
+      <p><strong>New CFPB leadership.</strong> The current administration has been clear about wanting a lighter regulatory footprint in financial services. A CFPB that processes fewer complaints, maintains fewer enforcement actions, and defers more to the bureaus' internal processes fits the political moment. The policy reflects the priorities of who's running the agency right now.</p>
+
+      <div class="callout info">
+        <div class="callout-label">💡 The Real Impact</div>
+        <p>For legitimate consumers with real errors — not bot-filed mass disputes, but actual people with wrong information on their reports — this adds friction and time. The 45-day wait means an error can continue damaging your score for a month and a half more before federal pressure applies. In a hot housing market or when a job requires a credit check, that delay is not just an inconvenience. It has dollar consequences.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>The new dispute playbook — adapted for 2026</h2>
+
+      <p>The rules changed. Your strategy has to change with them. Here is exactly how to run your dispute properly under the new system:</p>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <div><strong>Start with a written, certified dispute to the CRA.</strong> Do not use the bureau's online portal as your first move. Send a written dispute via USPS certified mail with return receipt. The certified mail timestamp is your evidence of Step 1. Online dispute systems don't generate the kind of paper trail that holds up. Send to all three bureaus for any item that appears on all three reports — disputes do not automatically cross over.</div>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <div><strong>Include documentation in the initial dispute.</strong> A bare "this isn't mine" letter is not enough anymore. Attach supporting documentation: identity documents, account statements that contradict the reported information, proof of payment, discharge paperwork if applicable. A well-documented dispute is harder to verify and harder to dismiss. Undocumented disputes get rubber-stamped as "verified" without a real investigation.</div>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <div><strong>Mark your calendar for day 30 and day 45 after receipt.</strong> The bureau has 30 days from receipt of your dispute to conduct a reasonable investigation and respond. Day 31 with no substantive correction is a potential FCRA violation. Day 45 is your CFPB complaint eligibility trigger. Track both dates with physical records. Don't rely on memory.</div>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <div><strong>Wait out the 45 days — then file with CFPB the right way.</strong> When you file at consumerfinance.gov/complaint, be prepared to attest that your CRA dispute is at least 45 days old. Save your certified mail receipt, the date it was signed for, and your dispute letter. The CFPB complaint is now a second-layer pressure tactic, not a first response. But it still creates a federal record that bureau legal teams track and that attorneys can use later.</div>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <div><strong>File with your state attorney general simultaneously.</strong> State AGs are picking up where the CFPB is stepping back. California, New York, Illinois, Colorado, North Carolina — all have been aggressive in 2026. A state AG complaint doesn't require the same 45-day window. This is now a parallel track, not a fallback. Use it.</div>
+        </li>
+        <li>
+          <span class="action-num">6</span>
+          <div><strong>Consult a consumer attorney after the 30-day window.</strong> If the bureau's 30-day investigation window expires without a legitimate resolution, you have a potential FCRA violation. Consumer protection attorneys take these cases on contingency — if the bureau violated the law, you don't pay legal fees. Search the NACA directory (consumeradvocates.org) for an FCRA attorney in your state. A well-documented dispute trail from Step 1 is exactly what they need to build a case.</div>
+        </li>
+      </ul>
+
+      <div class="callout good">
+        <div class="callout-label">✓ The NMD Advantage in the New System</div>
+        <p>The new dispute rules put a premium on documentation, timing, and structured paper trails. That's exactly what the NMD ScoreBoost Bot automates — dispute letters written to the standard that gets treated like legal correspondence, deadline tracking, and follow-up sequencing. In a system designed to trip you up on technicalities, having the process locked in isn't optional. It's the whole game.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>What NMD Solutions does that the new rules can't block</h2>
+
+      <p>The CFPB changes affect federal complaint filings. They don't affect your FCRA rights. The law still gives you 30 days for bureau investigations, a private right of action when they violate it, and the ability to sue in federal court for actual damages, statutory damages up to $1,000 per violation, and attorney's fees paid by the bureau if you win.</p>
+
+      <p>What changed is the federal complaint process — one route among several. The private litigation route, the state AG route, the state consumer protection route, and the documented dispute paper trail are all still wide open. The NMD ScoreBoost Bot handles the dispute documentation and deadline tracking so that every route stays open for you regardless of what the CFPB does or doesn't do.</p>
+
+      <p>The bureaus lobbied for these portal changes because they wanted fewer consequences for ignoring disputes. The answer to fewer consequences through one channel is building stronger pressure through every other channel simultaneously. That's the 2026 playbook.</p>
+
+      <p><em>— Za | NMD ZAZA 🐐</em></p>
+
+      <div class="cta-box">
+        <div class="cta-label">Protect Your Credit in 2026</div>
+        <h2>The new rules reward people who document everything.</h2>
+        <p>The NMD ScoreBoost Bot builds FCRA-compliant dispute letters, tracks your 30-day and 45-day windows, and creates the paper trail you need if a bureau ignores you. AI-powered. $29 flat. No games.</p>
+        <div class="cta-links">
+          <a class="cta-btn primary" href="https://t.me/ScoreBoostByNMDBot" target="_blank">Start ScoreBoost — $29</a>
+          <a class="cta-btn secondary" href="nmd-tools.html">Free Dispute Tool</a>
+          <a class="cta-btn secondary" href="index.html">More Newsletters</a>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Post to X
+        </a>
+        <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+          Telegram
+        </a>
+        <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+
+      <div class="article-subscribe" id="article-subscribe-cfpb-portal">
+        <div class="as-tag">NMD Credit Intelligence</div>
+        <div class="as-headline">Get every drop free.</div>
+        <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+        <div class="as-row" id="as-row-cfpb-portal">
+          <input type="email" class="as-input" id="as-email-cfpb-portal" placeholder="your@email.com">
+          <button class="as-btn" onclick="submitArticleEmail('cfpb-portal', this)">Subscribe</button>
+        </div>
+        <div class="as-confirm" id="as-confirm-cfpb-portal">✓ You're in — next drop coming to your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">In This Edition</div>
+        <div class="sidebar-links">
+          <a href="#" class="sidebar-link">What changed at the CFPB portal</a>
+          <a href="#" class="sidebar-link">The 45-day wait rule explained</a>
+          <a href="#" class="sidebar-link">The bureau kill switch</a>
+          <a href="#" class="sidebar-link">Who lobbied for this — and why</a>
+          <a href="#" class="sidebar-link">The 6-step 2026 dispute playbook</a>
+          <a href="#" class="sidebar-link">NMD ScoreBoost advantage</a>
+        </div>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">AI-Powered</div>
+        <div class="sidebar-cta-headline">ScoreBoost Bot — $29</div>
+        <div class="sidebar-cta-desc">Dispute letters built right, deadlines tracked, paper trail locked in. One flat fee.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" target="_blank" class="sidebar-cta-btn">Start Now — $29 →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD — No Money Down ZAZA</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    const prog = document.getElementById('prog');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (window.scrollY / h * 100) + '%';
+    });
+
+    function shareTelegram() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      window.open('https://t.me/share/url?url=' + url + '&text=' + title, '_blank');
+    }
+
+    function copyArticleLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        var orig = btn.innerHTML;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    (function() {
+      var xBtn = document.getElementById('share-x');
+      if (xBtn) {
+        var t = encodeURIComponent('The CFPB just changed the rules — you must dispute with the bureau FIRST and wait 45 days before they\'ll even hear your complaint. The bureaus now have a kill switch on your complaint. New playbook here via @nmdzaza');
+        var u = encodeURIComponent(window.location.href);
+        xBtn.href = 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u;
+      }
+    })();
+
+    (function() {
+      if (localStorage.getItem('nmd_email')) {
+        var el = document.getElementById('article-subscribe-cfpb-portal');
+        if (el) el.style.display = 'none';
+      }
+    })();
+
+    async function submitArticleEmail(uid, btn) {
+      var emailEl = document.getElementById('as-email-' + uid);
+      var email = emailEl ? emailEl.value.trim() : '';
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+        return;
+      }
+      if (emailEl) emailEl.classList.remove('error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+            subject: 'New NMD Subscriber — Article Page',
+            email: email,
+            source: window.location.pathname
+          })
+        });
+        var data = await res.json();
+        if (data.success) {
+          localStorage.setItem('nmd_email', email);
+          document.getElementById('as-row-' + uid).style.display = 'none';
+          document.getElementById('as-confirm-' + uid).style.display = 'block';
+        } else {
+          btn.textContent = 'Try Again'; btn.disabled = false;
+        }
+      } catch(e) {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    }
+  </script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>
