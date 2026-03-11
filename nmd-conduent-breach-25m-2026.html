@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="25 million people had their SSNs, medical records, and personal data stolen in the Conduent ransomware breach. Here's what you must do right now to protect your credit.">
+  <meta name="keywords" content="Conduent data breach, Safepay ransomware, SSN stolen 2026, identity theft 2026, credit freeze, data breach credit repair">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="25 Million SSNs Stolen. The Conduent Breach Is the Biggest Identity Theft Risk of 2026. | NMD">
+  <meta property="og:description" content="Ransomware gang Safepay stole SSNs, medical records, and financial data from 25 million people. Here's the NMD action plan to protect your credit today.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-conduent-breach-25m-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="25 Million SSNs Stolen — Conduent Breach Action Plan | NMD ZAZA">
+  <meta name="twitter:description" content="The Conduent ransomware breach hit 25 million people. SSNs. Medical records. Financial data. NMD breaks down the threat and exactly what to do.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 Million SSNs Stolen. The Conduent Breach Is the Biggest Identity Theft Risk of 2026. | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* STAT CALLOUT */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;
+    }
+    .stat-block {
+      background: #fff; border: 1px solid var(--rule); padding: 24px 20px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: 40px; font-weight: 900;
+      color: var(--red); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); line-height: 1.4; }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* SOLUTIONS CARD */
+    .solutions-sidebar {
+      background: #0d0d0d; border: 1px solid #2a2a2a;
+      padding: 28px 24px; margin-top: 20px;
+    }
+    .solutions-sidebar-badge {
+      font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      display: inline-block; padding: 4px 10px; margin-bottom: 14px;
+    }
+    .solutions-sidebar h4 {
+      font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
+      color: #fff; margin-bottom: 10px; line-height: 1.3;
+    }
+    .solutions-sidebar p { font-size: 12px; color: #555; margin-bottom: 16px; line-height: 1.5; }
+    .solutions-sidebar a {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 11px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Breaking · March 11, 2026</div>
+    <h1>25 Million SSNs Stolen.<br><em>Your identity is in the wild.</em></h1>
+    <p class="article-dek">The Conduent ransomware breach just became the biggest identity theft threat of 2026. Social Security numbers. Medical records. Financial data. All of it in Safepay's hands. Here's what you do right now — before someone else does it first.</p>
+    <div class="article-meta">
+      <span>&#128197; March 11, 2026</span>
+      <span>&#9998; NMD ZAZA</span>
+      <span>&#9201; 7 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>This is not a drill. 25 million records are already out there.</h2>
+
+      <p>A ransomware gang called <strong>Safepay</strong> broke into Conduent — a massive business process outsourcing company that handles benefits administration, payroll processing, and healthcare claims for hundreds of government agencies and Fortune 500 corporations. They didn't just look around. They took everything.</p>
+
+      <p>When the breach was first disclosed, the estimate was 10 million victims. Then it became 15 million. Then companies started coming forward one by one — state agencies, healthcare systems, corporate HR departments — and the number ballooned to <strong>25 million people</strong>. And those are just the entities that have disclosed it so far.</p>
+
+      <p>The data stolen includes the most sensitive combination possible: <strong>full names, addresses, dates of birth, Social Security numbers, medical information, and health insurance details</strong>. That's not a partial breach. That's the complete package a fraudster needs to open credit accounts, file false tax returns, obtain medical services in your name, and destroy your credit score before you even realize anything happened.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">&#9888; Critical Alert — March 2026</div>
+        <p>Conduent began mailing breach notification letters to victims in late February and early March 2026. If you or anyone in your household worked for a company that outsourced HR or benefits to Conduent, received government benefits through a Conduent-managed system, or received healthcare through a Conduent-connected network — your data may already be in criminal hands. Do not wait for a letter to take action.</p>
+      </div>
+
+      <h2>The numbers that should alarm every American</h2>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-num">25M</div>
+          <div class="stat-label">People whose SSNs and personal data were stolen</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">80%</div>
+          <div class="stat-label">Of U.S. consumers who received at least one data breach letter in the past year</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">$10B+</div>
+          <div class="stat-label">Annual cost of identity theft fraud to U.S. consumers</div>
+        </div>
+      </div>
+
+      <p>That 80% figure isn't a typo. A survey from the Identity Theft Resource Center found that <strong>8 out of every 10 Americans received at least one data breach notification letter in 2025</strong>. The Conduent breach alone doubled down on that statistic with one of the largest single-incident exposures in U.S. history.</p>
+
+      <p>What makes this breach especially dangerous is <strong>who Conduent serves</strong>. This isn't a retail loyalty card program or a gaming platform. Conduent processes benefits for state Medicaid programs, manages HR systems for large employers, and handles payroll for government contractors. The victims aren't just people who clicked a sketchy link — they're people who had no choice but to give their information to systems they never directly chose to use.</p>
+
+      <h2>Who Safepay is — and why this matters</h2>
+
+      <p>Safepay is a professional ransomware operation. They don't just encrypt files and demand payment — they exfiltrate data first, meaning they download everything before locking it. This gives them two leverage points: the ransom demand, and the threat to sell or publish the stolen data if the ransom isn't paid. In many cases, <strong>even after a ransom is paid, the data stays in circulation</strong> — sold on dark web marketplaces or held for future use.</p>
+
+      <p>This is why breach notification letters are often just the beginning. The stolen data doesn't expire. A Social Security number stolen today can be weaponized a year from now, when the initial panic has died down and your guard is lower.</p>
+
+      <blockquote>
+        <p>"A breach notification letter means the damage may already be done — what matters now is how fast you move to contain the blast radius." — NMD ZAZA</p>
+      </blockquote>
+
+      <h2>What the fraudsters will do with your data</h2>
+
+      <p>If your information is in this breach, here's the playbook criminals run — and it moves fast:</p>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Fraud Type</th>
+            <th>What They Do</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New account fraud</td>
+            <td>Open credit cards, auto loans, personal loans in your name</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td>Tax fraud</td>
+            <td>File a fraudulent tax return before you do, collect your refund</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td>Medical identity theft</td>
+            <td>Use your insurance to receive medical services, rack up bills in your name</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td>Synthetic identity fraud</td>
+            <td>Combine your SSN with a different name and birthday to build a "new" credit file</td>
+            <td><span class="tag yellow">High</span></td>
+          </tr>
+          <tr>
+            <td>Account takeover</td>
+            <td>Use your personal data to reset passwords and take over existing accounts</td>
+            <td><span class="tag yellow">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>The NMD action plan — move right now</h2>
+
+      <p>Waiting is the worst option. Every day of inaction is a day your information can be used against you. Here's the exact sequence to lock things down:</p>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <span><strong>Freeze your credit at all three bureaus immediately.</strong> This is the single most powerful thing you can do. A credit freeze prevents anyone from opening new credit accounts in your name. It's free, it's instant, and you can lift it temporarily when you need to apply for credit. Go directly to Equifax.com, Experian.com, and TransUnion.com — do all three. Also freeze at ChexSystems (banking) and NCTUE (utility accounts).</span>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <span><strong>File your taxes immediately if you haven't already.</strong> Tax fraud from SSN theft is rampant. Criminals file fraudulent returns in January and February to beat you to your own refund. If you haven't filed yet, file now — even if it's a basic extension. The IRS also offers an Identity Protection PIN (IP PIN) at IRS.gov that adds a layer of protection to your filing.</span>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <span><strong>Pull all three of your credit reports right now.</strong> Go to AnnualCreditReport.com. You're entitled to free weekly reports from all three bureaus. Look for any accounts, inquiries, or addresses you don't recognize. If you see anything new that you didn't open, dispute it immediately in writing — certified mail, not online forms.</span>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <span><strong>Report to the FTC and IdentityTheft.gov.</strong> If you believe your information was used fraudulently, go to IdentityTheft.gov. The FTC will generate a personalized recovery plan, create official documentation you'll need to dispute fraudulent accounts, and provide an identity theft report that carries legal weight with creditors and bureaus.</span>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <span><strong>Monitor your medical and insurance accounts.</strong> The Conduent breach included medical information. Check your Explanation of Benefits (EOB) statements for services you didn't receive. Call your insurance provider to ask about any claims filed in your name recently. Medical identity theft can be harder to detect and takes longer to unwind.</span>
+        </li>
+        <li>
+          <span class="action-num">6</span>
+          <span><strong>Set up fraud alerts and account monitoring.</strong> A fraud alert on your credit file requires lenders to verify your identity before opening new accounts. Unlike a freeze, a fraud alert doesn't block access — it triggers a warning. You can use both: freeze for the strongest protection, with a fraud alert as an additional flag. Check your bank and credit card accounts daily for unauthorized transactions.</span>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>Why this keeps happening — and why you need automated protection</h2>
+
+      <p>This is the third major breach involving tens of millions of Americans in the past 18 months. LexisNexis was hit before Conduent. Before that, National Public Data. And with the CFPB defanged and data broker oversight in shambles, the infrastructure that's supposed to protect you is running on fumes.</p>
+
+      <p>The hard truth: <strong>your personal data is already in multiple criminal databases</strong>. It was probably there before this breach. The question isn't whether you're exposed — it's whether you have systems in place to catch fraud fast and respond before it metastasizes into a full credit crisis.</p>
+
+      <div class="callout info">
+        <div class="callout-label">&#128161; The NMD Edge</div>
+        <p>At NMD Solutions, we've built AI-powered tools that monitor your credit file in real time, generate dispute letters automatically when unauthorized accounts appear, track bureau responses with built-in escalation timelines, and alert you the moment something changes. This is the infrastructure that turns a breach from a disaster into a manageable event. It costs $29 flat. No monthly fees. No lawyers.</p>
+      </div>
+
+      <p>You can't stop a ransomware gang from breaking into a company you've never heard of. But you <strong>can</strong> make sure that when your data gets used, you're the first to know and the first to act. That's what automated credit monitoring and dispute management does — it converts a passive victim into an active defender.</p>
+
+      <p>The people who get hurt worst by breaches like Conduent aren't the ones whose data was stolen. It's the ones who didn't find out until six months later when they tried to buy a house and found a $45,000 auto loan they never signed for sitting on their TransUnion report. Don't be that person.</p>
+
+      <!-- CTA BOX -->
+      <div class="cta-box">
+        <div class="cta-label">NMD Credit Intelligence</div>
+        <h2>Your data is already out there. Lock it down.</h2>
+        <p>Our AI credit bot monitors your file, auto-generates dispute letters, and tracks bureau response deadlines. $29 flat. No subscriptions. Built for people who can't afford to wait for the damage to show up.</p>
+        <div class="cta-links">
+          <a href="https://t.me/ScoreBoostByNMDBot" class="cta-btn primary" target="_blank">Protect My Credit — $29</a>
+          <a href="https://nmdzaza.github.io/nmd-solutions/" class="cta-btn secondary" target="_blank">View All NMD Tools</a>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a href="https://twitter.com/intent/tweet?text=25%20million%20SSNs%20stolen%20in%20the%20Conduent%20ransomware%20breach.%20Here%27s%20the%20exact%20action%20plan%20to%20protect%20your%20credit%20right%20now.%20%40nmdzaza%3A&url=https%3A%2F%2Fnmdzaza.github.io%2Fnmd-newsletters%2Fnmd-conduent-breach-25m-2026.html" target="_blank" class="share-btn x-btn">Post on X</a>
+        <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="share-tg-btn">Join Telegram</a>
+        <button class="share-btn copy-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';this.classList.add('copied')">Copy Link</button>
+      </div>
+
+      <!-- SUBSCRIBE -->
+      <div class="article-subscribe">
+        <div class="as-tag">NMD Intelligence</div>
+        <div class="as-headline">Stay ahead of breaches before they wreck your credit.</div>
+        <div class="as-desc">Identity theft alerts. Bureau tactics. Score defense strategies. NMD sends the intel that keeps your file locked down.</div>
+        <div class="as-row">
+          <input type="email" class="as-input" placeholder="your@email.com" id="as-email">
+          <button class="as-btn" onclick="document.querySelector('.as-confirm').style.display='block';document.querySelector('.as-input').value='';">Subscribe</button>
+        </div>
+        <div class="as-confirm">You're in. Watch your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">Recent Intelligence</div>
+        <div class="sidebar-links">
+          <a href="nmd-bureaus-errors-surge-2026.html" class="sidebar-link">2.7M Complaints Ignored — Credit Bureaus Stop Fixing Errors</a>
+          <a href="nmd-lexisnexis-breach-2026.html" class="sidebar-link">LexisNexis Breach — What It Means for Your Credit</a>
+          <a href="nmd-tax-id-theft-irs-2026.html" class="sidebar-link">Tax Identity Theft Is Surging — File First, File Now</a>
+          <a href="nmd-cfpb-gutted-2026.html" class="sidebar-link">The CFPB Got Gutted — What It Costs You</a>
+          <a href="nmd-identity-theft-act-2026.html" class="sidebar-link">The Identity Theft Act of 2026 — Full Breakdown</a>
+        </div>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">NMD Credit Bot</div>
+        <div class="sidebar-cta-headline">AI-powered credit protection. $29 flat.</div>
+        <div class="sidebar-cta-desc">Real-time monitoring. Auto dispute letters. Bureau response tracking. Stay ahead of identity theft — automatically.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" target="_blank" class="sidebar-cta-btn">Protect Now — $29</a>
+      </div>
+
+      <div class="solutions-sidebar">
+        <div class="solutions-sidebar-badge">NMD Solutions</div>
+        <h4>AI tools for businesses and professionals who need clean credit fast</h4>
+        <p>Our full suite of AI-powered tools — from credit monitoring to deal analysis — built for operators who move fast and can't afford credit surprises.</p>
+        <a href="https://nmdzaza.github.io/nmd-solutions/" target="_blank">Explore NMD Solutions</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD ZAZA — Credit Intelligence</span>
+    <div class="footer-right">
+      <a href="nmd-privacy.html">Privacy</a> &nbsp;·&nbsp;
+      <a href="nmd-terms.html">Terms</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      document.getElementById('prog').style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+</body>
+</html>
