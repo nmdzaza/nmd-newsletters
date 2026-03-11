@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="Congress just confirmed it: four data broker breaches cost American consumers $20.8 billion. Equifax, National Public Data, Exactis, TransUnion. Your data was sold, leaked, and stolen — and no one warned you. NMD breaks it down.">
+  <meta name="keywords" content="data broker, data breach, Equifax breach, National Public Data, Congress report, identity theft, credit repair, consumer protection 2026">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Congress Just Confirmed: Data Brokers Cost You $20.8 Billion | NMD">
+  <meta property="og:description" content="Four data broker breaches. 147 million people. 270 million people. A Senate report just put a number on the damage: $20.8 billion. Here's what you're owed — and how to fight back.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-data-broker-congress-20bn-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Congress Just Confirmed: Data Brokers Cost You $20.8 Billion | NMD">
+  <meta name="twitter:description" content="4 breaches. $20.8B in losses. Congress named names. Equifax, TransUnion, National Public Data. NMD breaks down what it means for your credit.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congress Just Confirmed: Data Brokers Cost You $20.8 Billion | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VHFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VHFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Data Privacy · March 2026</div>
+    <h1>Congress confirmed it:<br><em>$20.8 billion stolen.</em></h1>
+    <p class="article-dek">Four data broker breaches. 700 million records. A Senate report just put a dollar amount on the damage these companies did to you — and most people who got hit still don't know it happened. Here's everything you need to know and exactly how to fight back.</p>
+    <div class="article-meta">
+      <span>📅 March 11, 2026</span>
+      <span>✍️ NMD ZAZA</span>
+      <span>⏱ 7 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>The Senate just put a number on it</h2>
+
+      <p>The Joint Economic Committee of the U.S. Senate dropped a report this week that should make every American furious. Four data broker breaches — companies you never heard of, never signed up with, never gave permission to — exposed nearly 700 million people's personal information. The estimated damage to consumers: <strong>$20.8 billion</strong>.</p>
+
+      <p>Not to the companies. To you. In identity theft, fraudulent accounts, stolen tax refunds, wrecked credit, and years of damage control. Twenty point eight billion dollars — and most of the people who got hit are still walking around wondering why their credit score dropped, why their bank flagged a suspicious account, why they got denied for a loan they qualified for last year.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">⚠ The Core Finding</div>
+        <p>The Senate found that just four data broker breaches over the past decade exposed hundreds of millions of Americans. Using median identity theft loss estimates of $200 per affected person, Congressional staff calculated the total consumer damage at $20.8 billion — with zero accountability from the companies responsible.</p>
+      </div>
+
+      <p>This wasn't leaked by a hacker group. This was a Senate committee report, triggered by investigative journalism from CalMatters and The Markup. The data brokers — companies whose entire business model is collecting and selling your personal information — got breached, leaked your data to criminals, and kept operating like nothing happened.</p>
+
+      <hr class="divider">
+
+      <h2>The four breaches that cost you $20.8 billion</h2>
+
+      <p>Let's name names. These aren't mystery companies. Two of them are the same credit bureaus managing your credit file right now.</p>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Year</th>
+            <th>People Exposed</th>
+            <th>Your Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Equifax</strong></td>
+            <td>2017</td>
+            <td>147 million</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>Exactis</strong></td>
+            <td>2018</td>
+            <td>230 million</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>National Public Data</strong></td>
+            <td>2023</td>
+            <td>270 million</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>TransUnion</strong></td>
+            <td>2025</td>
+            <td>4 million</td>
+            <td><span class="tag yellow">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Add those numbers up. That's 651 million records. In a country of 330 million people. Statistically, you were hit more than once — you just don't know it. Exactis in 2018 leaked 230 million records from a database sitting on a publicly accessible server. No hack required. Just negligence. National Public Data in 2023 leaked names, Social Security numbers, addresses, and family relationships for 270 million people — the entire backbone of what criminals need to open accounts in your name.</p>
+
+      <blockquote>
+        <p>"Your data was collected without your consent, sold without your knowledge, and leaked to criminals without your notification. Then the bill was handed to you."</p>
+      </blockquote>
+
+      <p>And the Equifax breach of 2017 — which exposed 147 million people — directly put Social Security numbers, birth dates, addresses, and driver's license numbers in criminal hands. That breach is still being weaponized today to open fraudulent credit accounts, file fake tax returns, and manipulate credit files.</p>
+
+      <hr class="divider">
+
+      <h2>How this hits your credit file specifically</h2>
+
+      <p>Data broker breaches don't just sit in the abstract. They land on your credit report. Here's the direct pipeline from breach to damaged score:</p>
+
+      <ul class="action-list">
+        <li>
+          <div class="action-num">1</div>
+          <div>Criminal gets your SSN + address from a data broker leak. Opens a new credit card in your name. The account hits your report as an unknown hard inquiry, then as a new account you didn't open.</div>
+        </li>
+        <li>
+          <div class="action-num">2</div>
+          <div>They max out the card. Utilization spikes to 100% on a fraudulent account. Your score tanks 40–80 points before you ever see the statement.</div>
+        </li>
+        <li>
+          <div class="action-num">3</div>
+          <div>They stop paying. The delinquency hits 30, 60, 90 days late. Each milestone is another negative mark on your report — under your name, your SSN, your credit file.</div>
+        </li>
+        <li>
+          <div class="action-num">4</div>
+          <div>Collection agencies buy the debt. Now you have collection accounts you don't owe. Each one adds a new negative tradeline. The debt follows you for 7 years unless you fight it.</div>
+        </li>
+        <li>
+          <div class="action-num">5</div>
+          <div>You apply for a mortgage, car loan, apartment. Denied. Or approved at a rate 3–5% higher because your score shows 4 late payments and 2 collections that aren't yours.</div>
+        </li>
+      </ul>
+
+      <div class="callout info">
+        <div class="callout-label">💡 The Dirty Secret</div>
+        <p>Credit bureaus are required to investigate identity theft disputes under the FCRA — but with the CFPB gutted in 2025, enforcement of that requirement is near zero. Experian is resolving less than 1% of consumer complaints in your favor. TransUnion's relief rate collapsed in the summer of 2025. You're on your own unless you know exactly how to fight.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>What Congress is doing about it (and what they're not)</h2>
+
+      <p>Senator Maggie Hassan's report is a shot across the bow at the data broker industry. The findings are damning — but as of March 2026, there is no federal law requiring data brokers to secure your data, notify you when they're breached, or delete your information on request. Congress is talking. Nobody has acted.</p>
+
+      <p>What <em>has</em> happened: California launched something called <strong>DROP</strong> — the Delete Request and Opt Out Platform. It's a one-stop portal where California residents can file a single deletion request with over 500 registered data brokers. Starting August 1, 2026, those brokers must start processing those requests or face penalties. If you live in California, this is real and you should use it. If you don't live in California — you have nothing equivalent at the federal level. Yet.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">⚠ Reality Check</div>
+        <p>Data brokers responded to the Senate report by promising to make it "easier to opt out." That's voluntary. There's no law forcing them to do anything until Congress acts. Opting out also doesn't delete data they've already sold — it only (maybe) stops future collection. The data that already leaked isn't coming back.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>What you actually need to do right now</h2>
+
+      <p>Stop waiting for Congress to protect you. Here's the NMD playbook for dealing with the fallout from data broker breaches — whether you know you've been hit or not.</p>
+
+      <ul class="action-list">
+        <li>
+          <div class="action-num">1</div>
+          <div><strong>Pull all three reports free at AnnualCreditReport.com.</strong> Look for accounts you didn't open, addresses you don't recognize, employers you never worked for, and hard inquiries from lenders you never contacted. These are the fingerprints of identity theft.</div>
+        </li>
+        <li>
+          <div class="action-num">2</div>
+          <div><strong>Place a credit freeze at all three bureaus — right now.</strong> Not a fraud alert. A freeze. Equifax, Experian, TransUnion. Also freeze Innovis and ChexSystems. A freeze is free and prevents new credit from being opened in your name without your explicit unfreeze.</div>
+        </li>
+        <li>
+          <div class="action-num">3</div>
+          <div><strong>File an FTC Identity Theft Report at IdentityTheft.gov</strong> if you find fraudulent accounts. This report is your legal weapon — send it to every bureau and creditor with the fraudulent accounts to trigger mandatory investigation and removal.</div>
+        </li>
+        <li>
+          <div class="action-num">4</div>
+          <div><strong>Dispute every fraudulent tradeline in writing.</strong> Certified mail. Return receipt. Specifically cite the FCRA Section 605B, which requires bureaus to block fraudulent information within 4 business days of receiving a valid identity theft report and dispute.</div>
+        </li>
+        <li>
+          <div class="action-num">5</div>
+          <div><strong>Opt out of data brokers now.</strong> Use DeleteMe, Privacy Bee, or go manual with OptOutPrescreen.com (stops pre-screened credit offers), DMAchoice.org, and the major broker opt-out pages. This won't undo past damage — but it limits future exposure.</div>
+        </li>
+        <li>
+          <div class="action-num">6</div>
+          <div><strong>Monitor aggressively.</strong> Free credit monitoring through your existing cards, Experian's free tier, or CreditKarma. Set up alerts for any new account, hard inquiry, or address change. Speed is everything — the faster you catch it, the faster you can kill it.</div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>The NMD Solutions connection</h2>
+
+      <p>At NMD, we built our entire operation around the reality that the systems designed to protect your credit file don't actually work the way they're supposed to. Data brokers leak your data. Bureaus fail to fix it. The CFPB stopped enforcing. Your credit score becomes a crime scene while you're still figuring out what happened.</p>
+
+      <p>That's exactly why we built the NMD AI Credit Suite — a set of tools that puts the power back in your hands. Our dispute engine knows exactly which laws to cite, which language triggers escalation, and which creditors fold fastest when they see a properly constructed challenge. Our identity theft recovery track guides you step by step from discovery to clean file.</p>
+
+      <p>The data brokers got rich selling your information. The criminals used it. And now you're left holding the credit score — unless you fight back.</p>
+
+      <!-- CTA BOX -->
+      <div class="cta-box">
+        <div class="cta-label">Your next move</div>
+        <h2>Fix It With AI. $29 Flat.</h2>
+        <p>The NMD Credit Bot handles disputes, identity theft recovery, score optimization, and bureau follow-up — automatically. No monthly fees. No law firm markups. Just results.</p>
+        <div class="cta-links">
+          <a href="https://t.me/ScoreBoostByNMDBot" class="cta-btn primary" target="_blank">Start Fixing Now — $29</a>
+          <a href="nmd-solutions.html" class="cta-btn secondary">See All NMD Tools</a>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a href="https://twitter.com/intent/tweet?text=Congress+confirmed+data+brokers+cost+consumers+%2420.8+billion.+Equifax%2C+TransUnion%2C+National+Public+Data.+NMD+breaks+it+down+%F0%9F%94%A5&url=https%3A%2F%2Fnmdzaza.github.io%2Fnmd-newsletters%2Fnmd-data-broker-congress-20bn-2026.html&via=nmdzaza" target="_blank" class="share-btn x-btn">𝕏 Share on X</a>
+        <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="share-tg-btn">✈ Telegram</a>
+        <button class="share-btn copy-btn" onclick="navigator.clipboard.writeText(window.location.href);this.classList.add('copied');this.textContent='Copied!'">🔗 Copy Link</button>
+      </div>
+
+      <!-- SUBSCRIBE -->
+      <div class="article-subscribe">
+        <div class="as-tag">Stay locked in</div>
+        <div class="as-headline">Credit intel. Straight. No filter.</div>
+        <p class="as-desc">Data breaches, bureau changes, FCRA loopholes, score moves. NMD drops it first — before your bank tells you and definitely before your credit score reflects it.</p>
+        <div class="as-row">
+          <input type="email" class="as-input" placeholder="your@email.com" id="subEmail">
+          <button class="as-btn" onclick="document.getElementById('subConfirm').style.display='block'">Subscribe</button>
+        </div>
+        <p class="as-confirm" id="subConfirm">You're in. Watch your inbox.</p>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">NMD Solutions</div>
+        <div class="sidebar-cta-headline">AI-Powered Credit Repair. $29. Done.</div>
+        <p class="sidebar-cta-desc">The same tools real estate investors, entrepreneurs, and credit pros use to clean files fast. Now available to everyone — flat rate, no subscriptions.</p>
+        <a href="https://t.me/ScoreBoostByNMDBot" class="sidebar-cta-btn" target="_blank">Start Now — $29 Flat</a>
+      </div>
+
+      <div class="sidebar-card" style="margin-top:20px;">
+        <div class="sidebar-label">Related Reading</div>
+        <div class="sidebar-links">
+          <a href="nmd-cfpb-gutted-2026.html" class="sidebar-link">The CFPB Got Gutted — What It Means for Your Disputes</a>
+          <a href="nmd-bureaus-1pct-complaints-2026.html" class="sidebar-link">Credit Bureaus Resolving Less Than 1% of Complaints</a>
+          <a href="nmd-fcra-lawsuit-surge-2026.html" class="sidebar-link">FCRA Lawsuits Are Surging — How to File Yours</a>
+          <a href="nmd-identity-theft-act-2026.html" class="sidebar-link">The Identity Theft Act and What It Means for Your File</a>
+          <a href="nmd-tax-id-theft-irs-2026.html" class="sidebar-link">IRS Identity Theft: The Tax Season Credit Trap</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">NMD ZAZA — The Credit Goat</div>
+    <div class="footer-right">
+      <a href="nmd-privacy.html">Privacy</a> &nbsp;·&nbsp;
+      <a href="nmd-terms.html">Terms</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('prog').style.width = (scrollTop / docHeight * 100) + '%';
+    });
+  </script>
+</body>
+</html>
