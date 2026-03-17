@@ -144,6 +144,8 @@
     .submit-btn:active { opacity: 0.82; transform: scale(0.98); }
     .submit-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
     .powered { text-align: center; font-size: 11px; color: rgba(255,255,255,0.18); margin-top: 18px; }
+    .submit-btn { display: none !important; } /* replaced by Telegram MainButton */
+    #formWrap { padding-bottom: 100px; } /* space so fields don't hide behind keyboard */
     .success-screen {
       display: none;
       flex-direction: column;
@@ -235,6 +237,12 @@
     const tg = window.Telegram.WebApp;
     tg.ready();
     tg.expand();
+
+    // Use Telegram's native MainButton — floats above iPhone keyboard automatically
+    tg.MainButton.setText('Submit My Info →');
+    tg.MainButton.color = '#DC143C';
+    tg.MainButton.show();
+    tg.MainButton.onClick(submitForm);
 
     document.getElementById('dob').addEventListener('input', function(e) {
       let v = e.target.value.replace(/\D/g, '').slice(0, 8);
