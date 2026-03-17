@@ -17,69 +17,88 @@
     }
 
     .header {
-      background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
-      padding: 24px 20px 20px;
+      background: linear-gradient(160deg, #1a0a0a 0%, #2d0a14 50%, #0a0a1a 100%);
+      padding: 32px 20px 28px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid rgba(220,20,60,0.2);
     }
 
     .header::before {
       content: '';
       position: absolute;
-      top: -40px; right: -40px;
-      width: 120px; height: 120px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
+      top: -60px; left: 50%; transform: translateX(-50%);
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(220,20,60,0.12) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .robot {
-      font-size: 48px;
-      display: block;
-      margin-bottom: 8px;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    .robot-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .robot-wrap svg {
+      filter: drop-shadow(0 4px 20px rgba(74,144,226,0.45)) drop-shadow(0 0 40px rgba(220,20,60,0.2));
+      animation: float 3.2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
     }
 
     .header h1 {
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 24px;
+      font-weight: 800;
       color: #fff;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
     }
+
+    .header h1 span { color: #DC143C; }
 
     .header p {
       font-size: 13px;
-      color: rgba(255,255,255,0.8);
-      margin-top: 4px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 5px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.3px;
     }
 
     .form-wrap {
-      padding: 24px 16px 0;
+      padding: 20px 16px 0;
       max-width: 480px;
       margin: 0 auto;
     }
 
     .section-label {
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: #DC143C;
-      margin: 20px 0 10px;
+      margin: 22px 0 10px 2px;
     }
 
     .field-group {
-      background: var(--tg-theme-secondary-bg-color, #1a1a1a);
-      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .field {
       display: flex;
       align-items: center;
       padding: 0 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       gap: 10px;
     }
 
@@ -87,7 +106,7 @@
 
     .field-icon {
       font-size: 16px;
-      opacity: 0.7;
+      opacity: 0.6;
       flex-shrink: 0;
       width: 22px;
       text-align: center;
@@ -99,136 +118,226 @@
       border: none;
       outline: none;
       font-size: 15px;
-      color: var(--tg-theme-text-color, #fff);
-      padding: 14px 0;
+      color: #fff;
+      padding: 15px 0;
       width: 100%;
     }
 
     .field input::placeholder {
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.25);
       font-size: 14px;
     }
 
-    .field input:focus::placeholder {
-      color: rgba(255,255,255,0.15);
-    }
-
     .required-badge {
-      font-size: 10px;
+      font-size: 9px;
       color: #DC143C;
-      font-weight: 700;
+      font-weight: 800;
       flex-shrink: 0;
+      letter-spacing: 0.5px;
     }
 
     .optional-badge {
-      font-size: 10px;
-      color: rgba(255,255,255,0.3);
+      font-size: 9px;
+      color: rgba(255,255,255,0.25);
       flex-shrink: 0;
-    }
-
-    .hint {
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-      margin: 8px 4px 0;
-      line-height: 1.5;
+      letter-spacing: 0.5px;
     }
 
     .ssn-note {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      background: rgba(220,20,60,0.08);
-      border: 1px solid rgba(220,20,60,0.2);
-      border-radius: 10px;
-      padding: 12px;
-      margin-top: 16px;
+      gap: 10px;
+      background: rgba(220,20,60,0.07);
+      border: 1px solid rgba(220,20,60,0.18);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 14px;
     }
 
-    .ssn-note .lock { font-size: 16px; flex-shrink: 0; }
+    .ssn-note .lock { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
 
     .ssn-note p {
       font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.5;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
     }
 
-    .ssn-note strong { color: rgba(255,255,255,0.8); }
+    .ssn-note strong { color: rgba(255,255,255,0.7); }
+
+    .error-msg {
+      font-size: 12px;
+      color: #ff5a5a;
+      margin: 7px 4px 0;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+    .field-group.has-error { border-color: rgba(220,20,60,0.45); }
 
     .submit-btn {
       display: block;
       width: 100%;
       margin-top: 28px;
-      padding: 16px;
-      background: linear-gradient(135deg, #DC143C, #a50e2d);
+      padding: 17px;
+      background: linear-gradient(135deg, #DC143C 0%, #a50e2d 100%);
       color: #fff;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       border: none;
       border-radius: 14px;
       cursor: pointer;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
       transition: opacity 0.15s, transform 0.1s;
-      box-shadow: 0 4px 16px rgba(220,20,60,0.35);
+      box-shadow: 0 4px 20px rgba(220,20,60,0.4);
     }
 
-    .submit-btn:active { opacity: 0.85; transform: scale(0.98); }
-    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-    .submit-btn .arrow { margin-left: 6px; }
+    .submit-btn:active { opacity: 0.82; transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
 
     .powered {
       text-align: center;
       font-size: 11px;
-      color: rgba(255,255,255,0.2);
-      margin-top: 20px;
+      color: rgba(255,255,255,0.18);
+      margin-top: 18px;
     }
 
-    /* Error state */
-    .field.error input { color: #ff6b6b; }
-    .field-group.has-error { border-color: rgba(220,20,60,0.5); }
-
-    .error-msg {
-      font-size: 12px;
-      color: #ff6b6b;
-      margin: 6px 4px 0;
-      display: none;
-    }
-    .error-msg.show { display: block; }
-
-    /* Success state */
     .success-screen {
       display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 60vh;
+      min-height: 70vh;
       padding: 40px 20px;
       text-align: center;
     }
     .success-screen.show { display: flex; }
-    .success-icon { font-size: 64px; margin-bottom: 16px; }
-    .success-screen h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-    .success-screen p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .success-screen .check { font-size: 60px; margin-bottom: 16px; }
+    .success-screen h2 { font-size: 26px; font-weight: 800; margin-bottom: 10px; }
+    .success-screen p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
   </style>
 </head>
 <body>
 
   <div class="header">
-    <span class="robot">🤖</span>
-    <h1>ScoreBoost Intake</h1>
-    <p>Secure • Encrypted • NMD Solutions</p>
+    <div class="robot-wrap">
+      <!-- ScoreBoost Blue Robot Mascot -->
+      <svg width="110" height="140" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Antenna base -->
+        <rect x="52" y="8" width="6" height="18" rx="3" fill="#357ABD"/>
+        <!-- Antenna tip glow -->
+        <circle cx="55" cy="6" r="7" fill="rgba(220,20,60,0.25)"/>
+        <circle cx="55" cy="6" r="5" fill="#DC143C"/>
+        <circle cx="55" cy="6" r="2.5" fill="#ff6b8a"/>
+
+        <!-- Head shadow -->
+        <rect x="18" y="27" width="74" height="58" rx="18" fill="rgba(0,0,0,0.25)"/>
+
+        <!-- Head -->
+        <rect x="16" y="24" width="78" height="58" rx="18" fill="#4A90E2"/>
+
+        <!-- Head highlight -->
+        <rect x="22" y="28" width="66" height="22" rx="12" fill="rgba(255,255,255,0.1)"/>
+
+        <!-- Left ear panel -->
+        <rect x="6" y="36" width="12" height="24" rx="5" fill="#357ABD"/>
+        <rect x="8" y="41" width="5" height="6" rx="2" fill="rgba(255,255,255,0.15)"/>
+
+        <!-- Right ear panel -->
+        <rect x="92" y="36" width="12" height="24" rx="5" fill="#357ABD"/>
+        <rect x="97" y="41" width="5" height="6" rx="2" fill="rgba(255,255,255,0.15)"/>
+
+        <!-- Eye sockets -->
+        <circle cx="39" cy="47" r="12" fill="#1e3a5f"/>
+        <circle cx="71" cy="47" r="12" fill="#1e3a5f"/>
+
+        <!-- Eyes -->
+        <circle cx="39" cy="47" r="9" fill="#0a1628"/>
+        <circle cx="71" cy="47" r="9" fill="#0a1628"/>
+
+        <!-- Iris glow -->
+        <circle cx="39" cy="47" r="6" fill="#1a6bcc"/>
+        <circle cx="71" cy="47" r="6" fill="#1a6bcc"/>
+
+        <!-- Pupils -->
+        <circle cx="39" cy="47" r="3.5" fill="#050e1f"/>
+        <circle cx="71" cy="47" r="3.5" fill="#050e1f"/>
+
+        <!-- Eye shine -->
+        <circle cx="42" cy="44" r="2" fill="white"/>
+        <circle cx="74" cy="44" r="2" fill="white"/>
+        <circle cx="37" cy="49" r="1" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="69" cy="49" r="1" fill="rgba(255,255,255,0.4)"/>
+
+        <!-- Mouth -->
+        <path d="M 36 65 Q 55 76 74 65" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Cheek blush -->
+        <ellipse cx="28" cy="62" rx="7" ry="4" fill="rgba(220,20,60,0.2)"/>
+        <ellipse cx="82" cy="62" rx="7" ry="4" fill="rgba(220,20,60,0.2)"/>
+
+        <!-- Neck -->
+        <rect x="44" y="80" width="22" height="10" rx="4" fill="#357ABD"/>
+
+        <!-- Body shadow -->
+        <rect x="20" y="93" width="70" height="46" rx="14" fill="rgba(0,0,0,0.2)"/>
+
+        <!-- Body -->
+        <rect x="18" y="90" width="74" height="46" rx="14" fill="#4A90E2"/>
+
+        <!-- Body highlight -->
+        <rect x="24" y="94" width="62" height="14" rx="8" fill="rgba(255,255,255,0.08)"/>
+
+        <!-- Chest panel -->
+        <rect x="28" y="98" width="54" height="32" rx="9" fill="#1e3a5f"/>
+
+        <!-- Chest panel inner glow -->
+        <rect x="30" y="100" width="50" height="28" rx="7" fill="#0d2040"/>
+
+        <!-- Score display text area -->
+        <rect x="33" y="103" width="44" height="12" rx="4" fill="rgba(74,144,226,0.15)"/>
+        <rect x="35" y="105" width="18" height="3" rx="1.5" fill="rgba(74,144,226,0.5)"/>
+        <rect x="35" y="110" width="12" height="3" rx="1.5" fill="rgba(74,144,226,0.3)"/>
+
+        <!-- Chest indicator lights -->
+        <circle cx="44" cy="122" r="5" fill="#DC143C"/>
+        <circle cx="44" cy="122" r="3" fill="#ff4466"/>
+        <circle cx="55" cy="122" r="5" fill="#4A90E2"/>
+        <circle cx="55" cy="122" r="3" fill="#7ab8f5"/>
+        <circle cx="66" cy="122" r="5" fill="#1eca8a"/>
+        <circle cx="66" cy="122" r="3" fill="#4dffc0"/>
+
+        <!-- Left arm -->
+        <rect x="4" y="92" width="14" height="34" rx="7" fill="#357ABD"/>
+        <rect x="5" y="95" width="9" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+        <!-- Left hand -->
+        <circle cx="11" cy="130" r="7" fill="#4A90E2"/>
+
+        <!-- Right arm -->
+        <rect x="92" y="92" width="14" height="34" rx="7" fill="#357ABD"/>
+        <rect x="96" y="95" width="9" height="10" rx="4" fill="rgba(255,255,255,0.1)"/>
+        <!-- Right hand -->
+        <circle cx="99" cy="130" r="7" fill="#4A90E2"/>
+
+        <!-- Feet -->
+        <rect x="28" y="133" width="22" height="9" rx="5" fill="#357ABD"/>
+        <rect x="60" y="133" width="22" height="9" rx="5" fill="#357ABD"/>
+
+      </svg>
+    </div>
+
+    <h1>Score<span>Boost</span></h1>
+    <p>AI Credit Repair • NMD Solutions</p>
   </div>
 
   <div class="form-wrap" id="formWrap">
 
     <div class="section-label">Personal Info</div>
     <div class="field-group" id="personalGroup">
-      <div class="field" id="nameField">
+      <div class="field">
         <span class="field-icon">👤</span>
         <input type="text" id="name" placeholder="Full Legal Name" autocomplete="name" spellcheck="false">
         <span class="required-badge">REQ</span>
       </div>
-      <div class="field" id="dobField">
+      <div class="field">
         <span class="field-icon">📅</span>
         <input type="text" id="dob" placeholder="Date of Birth (MM/DD/YYYY)" inputmode="numeric" maxlength="10">
         <span class="required-badge">REQ</span>
@@ -258,10 +367,10 @@
 
     <div class="ssn-note">
       <span class="lock">🔒</span>
-      <p><strong>Your SSN is encrypted and never stored in plain text.</strong> It's used only to generate your dispute letters — the same process used by licensed credit repair agencies.</p>
+      <p><strong>Your SSN is encrypted and never stored in plain text.</strong> Used only to generate your personalized dispute letters — the same process licensed credit repair agencies use.</p>
     </div>
 
-    <div class="section-label">Credit Score <span style="color:rgba(255,255,255,0.3);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(optional — helps track progress)</span></div>
+    <div class="section-label">Current Score <span style="color:rgba(255,255,255,0.2);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(optional — tracks your progress)</span></div>
     <div class="field-group">
       <div class="field">
         <span class="field-icon">📊</span>
@@ -271,7 +380,7 @@
     </div>
 
     <button class="submit-btn" id="submitBtn" type="button" onclick="submitForm()">
-      Submit Form <span class="arrow">→</span>
+      Submit My Info →
     </button>
 
     <p class="powered">Powered by NMD Solutions · ScoreBoost AI</p>
@@ -279,9 +388,9 @@
   </div>
 
   <div class="success-screen" id="successScreen">
-    <div class="success-icon">✅</div>
-    <h2>Form Received!</h2>
-    <p>Your info is locked in.<br>Head back to the chat — the bot will ask for your credit report PDF next.</p>
+    <div class="check">✅</div>
+    <h2>You’re locked in!</h2>
+    <p>Head back to the chat —<br>the bot will ask for your<br>credit report PDF next.</p>
   </div>
 
   <script>
@@ -289,29 +398,28 @@
     tg.ready();
     tg.expand();
 
-    // Auto-format DOB as MM/DD/YYYY
+    // Auto-format DOB
     document.getElementById('dob').addEventListener('input', function(e) {
-      let val = e.target.value.replace(/\D/g, '');
-      if (val.length >= 3 && val.length <= 4) val = val.slice(0,2) + '/' + val.slice(2);
-      else if (val.length > 4) val = val.slice(0,2) + '/' + val.slice(2,4) + '/' + val.slice(4,8);
-      e.target.value = val;
+      let v = e.target.value.replace(/\D/g, '').slice(0, 8);
+      if (v.length > 4) v = v.slice(0,2) + '/' + v.slice(2,4) + '/' + v.slice(4);
+      else if (v.length > 2) v = v.slice(0,2) + '/' + v.slice(2);
+      e.target.value = v;
     });
 
-    // Auto-format SSN as XXX-XX-XXXX
+    // Auto-format SSN
     document.getElementById('ssn').addEventListener('input', function(e) {
-      let val = e.target.value.replace(/\D/g, '');
-      if (val.length > 3 && val.length <= 5) val = val.slice(0,3) + '-' + val.slice(3);
-      else if (val.length > 5) val = val.slice(0,3) + '-' + val.slice(3,5) + '-' + val.slice(5,9);
-      e.target.value = val;
+      let v = e.target.value.replace(/\D/g, '').slice(0, 9);
+      if (v.length > 5) v = v.slice(0,3) + '-' + v.slice(3,5) + '-' + v.slice(5);
+      else if (v.length > 3) v = v.slice(0,3) + '-' + v.slice(3);
+      e.target.value = v;
     });
 
     function showError(groupId, errorId, msg) {
       document.getElementById(groupId).classList.add('has-error');
       const el = document.getElementById(errorId);
-      el.textContent = msg;
+      if (msg) el.textContent = msg;
       el.classList.add('show');
     }
-
     function clearError(groupId, errorId) {
       document.getElementById(groupId).classList.remove('has-error');
       document.getElementById(errorId).classList.remove('show');
@@ -325,45 +433,28 @@
       const score   = document.getElementById('score').value.trim();
 
       let valid = true;
+      clearError('personalGroup','personalError');
+      clearError('addressGroup','addressError');
+      clearError('ssnGroup','ssnError');
 
-      clearError('personalGroup', 'personalError');
-      clearError('addressGroup', 'addressError');
-      clearError('ssnGroup', 'ssnError');
-
-      if (!name || !dob) {
-        showError('personalGroup', 'personalError', 'Please fill in your name and date of birth.');
-        valid = false;
-      }
-      if (!address) {
-        showError('addressGroup', 'addressError', 'Please enter your full address.');
-        valid = false;
-      }
-      if (!ssn) {
-        showError('ssnGroup', 'ssnError', 'Please enter your Social Security Number.');
-        valid = false;
-      }
-
+      if (!name || !dob) { showError('personalGroup','personalError'); valid = false; }
+      if (!address)      { showError('addressGroup','addressError'); valid = false; }
+      if (!ssn)          { showError('ssnGroup','ssnError'); valid = false; }
       if (!valid) return;
 
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Submitting...';
 
-      const payload = JSON.stringify({ name, dob, address, ssn, score });
-
       try {
-        tg.sendData(payload);
-      } catch (err) {
-        // Fallback: show success and close
-        setTimeout(() => tg.close(), 1500);
+        tg.sendData(JSON.stringify({ name, dob, address, ssn, score }));
+      } catch(err) {
+        setTimeout(() => { try { tg.close(); } catch(e){} }, 1500);
       }
 
       document.getElementById('formWrap').style.display = 'none';
       document.getElementById('successScreen').classList.add('show');
-
-      setTimeout(() => {
-        try { tg.close(); } catch(e) {}
-      }, 2000);
+      setTimeout(() => { try { tg.close(); } catch(e){} }, 2200);
     }
   </script>
 
