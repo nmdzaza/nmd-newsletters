@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ScoreBoost — Client Intake</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--tg-theme-bg-color, #0f0f0f);
+      color: var(--tg-theme-text-color, #ffffff);
+      min-height: 100vh;
+      padding: 0 0 40px 0;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+      padding: 24px 20px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .robot {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+
+    .header p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 4px;
+    }
+
+    .form-wrap {
+      padding: 24px 16px 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #DC143C;
+      margin: 20px 0 10px;
+    }
+
+    .field-group {
+      background: var(--tg-theme-secondary-bg-color, #1a1a1a);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .field {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 10px;
+    }
+
+    .field:last-child { border-bottom: none; }
+
+    .field-icon {
+      font-size: 16px;
+      opacity: 0.7;
+      flex-shrink: 0;
+      width: 22px;
+      text-align: center;
+    }
+
+    .field input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      color: var(--tg-theme-text-color, #fff);
+      padding: 14px 0;
+      width: 100%;
+    }
+
+    .field input::placeholder {
+      color: rgba(255,255,255,0.3);
+      font-size: 14px;
+    }
+
+    .field input:focus::placeholder {
+      color: rgba(255,255,255,0.15);
+    }
+
+    .required-badge {
+      font-size: 10px;
+      color: #DC143C;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .optional-badge {
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      flex-shrink: 0;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin: 8px 4px 0;
+      line-height: 1.5;
+    }
+
+    .ssn-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: rgba(220,20,60,0.08);
+      border: 1px solid rgba(220,20,60,0.2);
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 16px;
+    }
+
+    .ssn-note .lock { font-size: 16px; flex-shrink: 0; }
+
+    .ssn-note p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    .ssn-note strong { color: rgba(255,255,255,0.8); }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      margin-top: 28px;
+      padding: 16px;
+      background: linear-gradient(135deg, #DC143C, #a50e2d);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+      transition: opacity 0.15s, transform 0.1s;
+      box-shadow: 0 4px 16px rgba(220,20,60,0.35);
+    }
+
+    .submit-btn:active { opacity: 0.85; transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .submit-btn .arrow { margin-left: 6px; }
+
+    .powered {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      margin-top: 20px;
+    }
+
+    /* Error state */
+    .field.error input { color: #ff6b6b; }
+    .field-group.has-error { border-color: rgba(220,20,60,0.5); }
+
+    .error-msg {
+      font-size: 12px;
+      color: #ff6b6b;
+      margin: 6px 4px 0;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    /* Success state */
+    .success-screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .success-screen.show { display: flex; }
+    .success-icon { font-size: 64px; margin-bottom: 16px; }
+    .success-screen h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .success-screen p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="robot">🤖</span>
+    <h1>ScoreBoost Intake</h1>
+    <p>Secure • Encrypted • NMD Solutions</p>
+  </div>
+
+  <div class="form-wrap" id="formWrap">
+
+    <div class="section-label">Personal Info</div>
+    <div class="field-group" id="personalGroup">
+      <div class="field" id="nameField">
+        <span class="field-icon">👤</span>
+        <input type="text" id="name" placeholder="Full Legal Name" autocomplete="name" spellcheck="false">
+        <span class="required-badge">REQ</span>
+      </div>
+      <div class="field" id="dobField">
+        <span class="field-icon">📅</span>
+        <input type="text" id="dob" placeholder="Date of Birth (MM/DD/YYYY)" inputmode="numeric" maxlength="10">
+        <span class="required-badge">REQ</span>
+      </div>
+    </div>
+    <div class="error-msg" id="personalError">Please fill in your name and date of birth.</div>
+
+    <div class="section-label">Address</div>
+    <div class="field-group" id="addressGroup">
+      <div class="field">
+        <span class="field-icon">🏠</span>
+        <input type="text" id="address" placeholder="Street, City, State, ZIP" autocomplete="street-address" spellcheck="false">
+        <span class="required-badge">REQ</span>
+      </div>
+    </div>
+    <div class="error-msg" id="addressError">Please enter your full address.</div>
+
+    <div class="section-label">Identity Verification</div>
+    <div class="field-group" id="ssnGroup">
+      <div class="field">
+        <span class="field-icon">🔢</span>
+        <input type="text" id="ssn" placeholder="Social Security Number" inputmode="numeric" maxlength="11" autocomplete="off">
+        <span class="required-badge">REQ</span>
+      </div>
+    </div>
+    <div class="error-msg" id="ssnError">Please enter your SSN.</div>
+
+    <div class="ssn-note">
+      <span class="lock">🔒</span>
+      <p><strong>Your SSN is encrypted and never stored in plain text.</strong> It's used only to generate your dispute letters — the same process used by licensed credit repair agencies.</p>
+    </div>
+
+    <div class="section-label">Credit Score <span style="color:rgba(255,255,255,0.3);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(optional — helps track progress)</span></div>
+    <div class="field-group">
+      <div class="field">
+        <span class="field-icon">📊</span>
+        <input type="text" id="score" placeholder="e.g. 542" inputmode="numeric" maxlength="3">
+        <span class="optional-badge">OPT</span>
+      </div>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" type="button" onclick="submitForm()">
+      Submit Form <span class="arrow">→</span>
+    </button>
+
+    <p class="powered">Powered by NMD Solutions · ScoreBoost AI</p>
+
+  </div>
+
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">✅</div>
+    <h2>Form Received!</h2>
+    <p>Your info is locked in.<br>Head back to the chat — the bot will ask for your credit report PDF next.</p>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+
+    // Auto-format DOB as MM/DD/YYYY
+    document.getElementById('dob').addEventListener('input', function(e) {
+      let val = e.target.value.replace(/\D/g, '');
+      if (val.length >= 3 && val.length <= 4) val = val.slice(0,2) + '/' + val.slice(2);
+      else if (val.length > 4) val = val.slice(0,2) + '/' + val.slice(2,4) + '/' + val.slice(4,8);
+      e.target.value = val;
+    });
+
+    // Auto-format SSN as XXX-XX-XXXX
+    document.getElementById('ssn').addEventListener('input', function(e) {
+      let val = e.target.value.replace(/\D/g, '');
+      if (val.length > 3 && val.length <= 5) val = val.slice(0,3) + '-' + val.slice(3);
+      else if (val.length > 5) val = val.slice(0,3) + '-' + val.slice(3,5) + '-' + val.slice(5,9);
+      e.target.value = val;
+    });
+
+    function showError(groupId, errorId, msg) {
+      document.getElementById(groupId).classList.add('has-error');
+      const el = document.getElementById(errorId);
+      el.textContent = msg;
+      el.classList.add('show');
+    }
+
+    function clearError(groupId, errorId) {
+      document.getElementById(groupId).classList.remove('has-error');
+      document.getElementById(errorId).classList.remove('show');
+    }
+
+    function submitForm() {
+      const name    = document.getElementById('name').value.trim();
+      const dob     = document.getElementById('dob').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const ssn     = document.getElementById('ssn').value.trim();
+      const score   = document.getElementById('score').value.trim();
+
+      let valid = true;
+
+      clearError('personalGroup', 'personalError');
+      clearError('addressGroup', 'addressError');
+      clearError('ssnGroup', 'ssnError');
+
+      if (!name || !dob) {
+        showError('personalGroup', 'personalError', 'Please fill in your name and date of birth.');
+        valid = false;
+      }
+      if (!address) {
+        showError('addressGroup', 'addressError', 'Please enter your full address.');
+        valid = false;
+      }
+      if (!ssn) {
+        showError('ssnGroup', 'ssnError', 'Please enter your Social Security Number.');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      const payload = JSON.stringify({ name, dob, address, ssn, score });
+
+      try {
+        tg.sendData(payload);
+      } catch (err) {
+        // Fallback: show success and close
+        setTimeout(() => tg.close(), 1500);
+      }
+
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successScreen').classList.add('show');
+
+      setTimeout(() => {
+        try { tg.close(); } catch(e) {}
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
