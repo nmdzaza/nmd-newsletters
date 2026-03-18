@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="ProPublica investigation: Experian's dispute resolution rate crashed from 20% to under 1% after the CFPB was gutted. Real consumer cases. The new dispute playbook you need right now.">
+  <meta name="keywords" content="Experian dispute 2026, CFPB gutted credit bureaus, credit report errors 2026, FCRA dispute strategy, credit repair 2026, ProPublica credit bureaus">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Experian Just Stopped Fixing Your Credit Report. On Purpose. | NMD">
+  <meta property="og:description" content="A ProPublica investigation confirmed Experian's dispute resolution rate collapsed from 20% to under 1% after the CFPB was gutted. Here's the new playbook.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-experian-under-1pct-propublica-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Experian Stopped Fixing Reports — The New Dispute Playbook | NMD ZAZA">
+  <meta name="twitter:description" content="ProPublica confirmed it: Experian resolves disputes in consumers' favor less than 1% of the time now. Here's what you do instead.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experian Just Stopped Fixing Your Credit Report. On Purpose. | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* STAT CALLOUT */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;
+    }
+    .stat-block {
+      background: #fff; border: 1px solid var(--rule); padding: 24px 20px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: 40px; font-weight: 900;
+      color: var(--red); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); line-height: 1.4; }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* SOLUTIONS CARD */
+    .solutions-sidebar {
+      background: #0d0d0d; border: 1px solid #2a2a2a;
+      padding: 28px 24px; margin-top: 20px;
+    }
+    .solutions-sidebar-badge {
+      font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      display: inline-block; padding: 4px 10px; margin-bottom: 14px;
+    }
+    .solutions-sidebar h4 {
+      font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
+      color: #fff; margin-bottom: 10px; line-height: 1.3;
+    }
+    .solutions-sidebar p { font-size: 12px; color: #555; margin-bottom: 16px; line-height: 1.5; }
+    .solutions-sidebar a {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 11px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Investigative · March 18, 2026</div>
+    <h1>Experian Just Stopped<br>Fixing Your Report.<br><em>On purpose.</em></h1>
+    <p class="article-dek">A ProPublica investigation confirmed it: Experian's dispute resolution rate crashed from nearly 20% to under 1% after the CFPB was gutted. The bureau isn't broken — it's unguarded. Here's what you do now that the watchdog is gone.</p>
+    <div class="article-meta">
+      <span>&#128197; March 18, 2026</span>
+      <span>&#9998; NMD ZAZA</span>
+      <span>&#9201; 8 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>The CFPB is gone. And Experian knows it.</h2>
+
+      <p>On March 11, 2026, ProPublica published an investigation that should be a five-alarm warning for every American with a credit file. What they found: since the CFPB was systematically dismantled starting in January 2025, <strong>Experian's rate of resolving disputes in consumers' favor collapsed from nearly 20% down to less than 1%.</strong></p>
+
+      <p>TransUnion cut its resolution rates roughly in half over the same period. And across all three bureaus combined, over <strong>2.7 million credit reporting complaints</strong> filed with the CFPB have gone unresolved — sitting in a portal that the bureau's new leadership has effectively stopped processing.</p>
+
+      <p>This isn't a glitch. It's a policy decision. When there's no federal enforcement agency watching, the bureaus don't investigate. They close the ticket and move on. Your error stays on your report. Your score stays damaged. And the loan, the apartment, the job — you don't get them.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">&#9888; What This Means for You</div>
+        <p>Filing a CFPB complaint is now largely theater. The portal still accepts submissions, but the enforcement mechanism behind it has been gutted. If you've been relying on the CFPB process as your primary dispute strategy, you need to change your approach immediately. This article gives you the updated playbook.</p>
+      </div>
+
+      <h2>The numbers — and what's behind them</h2>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-num">&lt;1%</div>
+          <div class="stat-label">Experian's dispute resolution rate in consumers' favor — down from ~20%</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">2.7M</div>
+          <div class="stat-label">Credit reporting complaints to the CFPB sitting unresolved</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">50%</div>
+          <div class="stat-label">Drop in TransUnion's consumer-favorable resolution rate since CFPB gutting</div>
+        </div>
+      </div>
+
+      <p>These aren't abstract statistics. Behind each one of those 2.7 million unresolved complaints is a real person with a real error on their credit report that is actively costing them money — in the form of higher interest rates, rejected applications, or denied housing.</p>
+
+      <p>The ProPublica investigation included two cases that should make your blood boil. A <strong>Colorado accountant</strong> has a fraudulent $240,000 student loan on her report that she never took out. She has documentation. She filed disputes. She filed a CFPB complaint. The bureau said it investigated. The loan is still there. A Colorado Air Force veteran lost his entire <strong>mortgage payment history</strong> from his credit file — years of on-time payments, wiped — and despite multiple rounds of documented disputes, TransUnion has not restored it.</p>
+
+      <p>These aren't edge cases. These are the cases that got picked up by a national investigative outlet. The ones that didn't are vastly more numerous.</p>
+
+      <blockquote>
+        <p>"When there's no cop on the beat, the bureaus don't investigate. They close the ticket. The error stays. The consumer pays for it forever." — NMD ZAZA</p>
+      </blockquote>
+
+      <h2>The conflict of interest nobody's talking about</h2>
+
+      <p>Here's the part of this story that ProPublica buried in paragraph 14 but deserves to be the headline: <strong>one of the CFPB's new lawyers — brought in by the current administration — previously represented Experian.</strong></p>
+
+      <p>The agency that is supposed to police the credit bureaus hired a lawyer who was paid to defend one of those same bureaus. And now that bureau's dispute resolution rate is under 1%. The CFPB has frozen investigations and dropped active enforcement actions against all three bureaus. Equifax is the only outlier, and only because it's still bound by a prior consent order from an older case — once that order expires, expect the same collapse.</p>
+
+      <p>This is regulatory capture in real time. And the consumer credit system is bearing the cost.</p>
+
+      <div class="callout info">
+        <div class="callout-label">&#128161; One Exception — Equifax</div>
+        <p>Equifax is still resolving disputes at higher rates than Experian and TransUnion because it's under an active consent order from a prior CFPB enforcement action. If you have errors at all three bureaus, your Equifax dispute has the best chance of traditional resolution right now. Prioritize Equifax through standard channels. Experian and TransUnion require the upgraded strategy below.</p>
+      </div>
+
+      <h2>Why your old dispute strategy no longer works</h2>
+
+      <p>For years, the standard credit repair playbook looked like this: dispute online or by mail → bureau investigates (supposedly) → if rejected, file a CFPB complaint → bureau resolves in your favor under threat of regulatory action. That loop is broken. The second half of it — the federal enforcement threat — no longer exists in any meaningful way.</p>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Old Strategy</th>
+            <th>What Happened to It</th>
+            <th>Still Works?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CFPB online complaint portal</td>
+            <td>Complaints accepted but not enforced — <2.7M sitting unresolved</td>
+            <td><span class="tag red">No</span></td>
+          </tr>
+          <tr>
+            <td>Bureau online dispute form</td>
+            <td>E-OSCAR automated system still routes disputes but outcomes are down sharply</td>
+            <td><span class="tag yellow">Weak</span></td>
+          </tr>
+          <tr>
+            <td>Certified mail dispute letter</td>
+            <td>Still legally required to be investigated — paper trail preserved</td>
+            <td><span class="tag yellow">Partial</span></td>
+          </tr>
+          <tr>
+            <td>FCRA furnisher dispute (Section 623)</td>
+            <td>Dispute direct with creditor — triggers separate legal obligations</td>
+            <td><span class="tag green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>FCRA attorney demand letter</td>
+            <td>Legal threat bypasses automated systems — real staff review</td>
+            <td><span class="tag green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>State AG complaint</td>
+            <td>State AGs are more active than CFPB right now on consumer protection</td>
+            <td><span class="tag green">Strong</span></td>
+          </tr>
+          <tr>
+            <td>Small claims / FCRA lawsuit</td>
+            <td>$1,000 statutory damages per violation — still the most powerful lever</td>
+            <td><span class="tag green">Most Powerful</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>The 2026 dispute playbook — what actually works now</h2>
+
+      <p>Here's exactly how to run disputes in the post-CFPB enforcement environment. The tools that work are still legal tools — they're just the ones that create real liability for the bureaus and furnishers, rather than relying on a regulator to act on your behalf.</p>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <span><strong>Dispute directly with the furnisher first — FCRA Section 623.</strong> Most people only dispute with the bureau. Section 623 of the FCRA gives you the right to dispute directly with the original creditor or debt collector who furnished the information. When you dispute with the furnisher, they have their own legal obligation to investigate and correct inaccurate information. This is separate from the bureau process and creates a second paper trail. Send by certified mail. Keep everything.</span>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <span><strong>Send a certified mail dispute to the bureau — not online.</strong> Online dispute forms route you into the E-OSCAR automated system where the bureau can mark your dispute "frivolous" or copy-paste the furnisher's original data back as the "investigation." A certified mail dispute is harder to dismiss and creates a legal record. Include all supporting documentation. Write "Investigation Requested Under FCRA Section 611" on the envelope.</span>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <span><strong>File your CFPB complaint anyway — for the paper trail, not the outcome.</strong> The CFPB portal is effectively dead for enforcement. But filing a complaint creates a timestamped federal record of the dispute and the bureau's response. That record becomes evidence in any subsequent lawsuit. File it. Don't expect results from it. Use it as documentation.</span>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <span><strong>Send an FCRA attorney demand letter.</strong> A letter from an FCRA consumer protection attorney — even a brief one — changes the bureau's calculus immediately. It goes to a real legal department, not the automated dispute processing queue. Most FCRA attorneys offer a free consultation and will send a demand letter for a flat fee. The bureaus know that FCRA violations carry $1,000 per incident in statutory damages plus attorney fees — which means a lawyer willing to litigate is not an idle threat.</span>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <span><strong>File a complaint with your state Attorney General.</strong> State AGs have their own consumer protection statutes that run parallel to federal FCRA. They're far more active than the CFPB right now. Many state AG offices have dedicated consumer financial protection units. Filing with your state AG puts the bureau in a different regulatory crosshair than the federal level, and state action doesn't depend on federal enforcement.</span>
+        </li>
+        <li>
+          <span class="action-num">6</span>
+          <span><strong>Consider FCRA small claims or federal lawsuit if the error is causing real damage.</strong> The FCRA allows consumers to sue for actual damages, statutory damages ($100–$1,000 per willful violation), and attorney fees. Small claims court in your state may also have jurisdiction. If an error is costing you a mortgage, a job, or housing, the financial case for litigation is often stronger than you think — especially with an attorney who works on contingency. The bureaus settle most FCRA cases before trial.</span>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>What this means if you're actively repairing your credit right now</h2>
+
+      <p>The old approach of filing disputes and waiting for the CFPB to back you up is over. The new reality is this: <strong>you have to make it expensive for the bureau to ignore you, not rely on a regulator to force them to act.</strong></p>
+
+      <p>That means documentation from day one. Every dispute letter sent certified mail. Every bureau response saved and dated. Every phone call followed up in writing. If you're in a dispute process right now and relying on online forms and CFPB complaints, you are building a case on a foundation that no longer holds.</p>
+
+      <p>The people who win credit disputes in 2026 are the ones who make the bureau's legal exposure for ignoring them greater than the cost of fixing the error. That's what the 2026 playbook is built around: <strong>legal pressure, not regulatory pressure.</strong></p>
+
+      <div class="callout good">
+        <div class="callout-label">&#9989; NMD Smart Move</div>
+        <p>Build a dispute folder from the start. Every piece of documentation gets a date stamp and a copy stored somewhere permanent. Every letter goes certified mail with return receipt. This isn't about being litigious — it's about having the materials ready if you ever need to escalate. Bureaus resolve disputes faster when they know the consumer has a complete, organized, legally sufficient paper trail.</p>
+      </div>
+
+      <h2>NMD Solutions — built for the new dispute environment</h2>
+
+      <p>This is exactly why we built the ScoreBoost Credit Bot with a documentation-first architecture. Every dispute generated by the bot includes the correct statutory language (FCRA Section 611, Section 623), is formatted for certified mail delivery, and creates a timestamped record of every action taken and every response received.</p>
+
+      <p>In the old environment, automated disputes were fine because the CFPB would eventually back you up. In the 2026 environment, every dispute you send needs to be built like it's going to a lawyer — because it might. The bot generates dispute letters that are already in that format. NMD Solutions also includes a full suite of business and credit tools for operators who need more than just individual credit repair.</p>
+
+      <!-- CTA BOX -->
+      <div class="cta-box">
+        <div class="cta-label">NMD Credit Intelligence</div>
+        <h2>The CFPB won't fight for you. Fight for yourself.</h2>
+        <p>ScoreBoost generates FCRA-compliant dispute letters with proper statutory language — built for certified mail, built for escalation, built to hold up if it ever goes legal. Get started for $29 flat. No subscriptions.</p>
+        <div class="cta-links">
+          <a href="https://t.me/ScoreBoostByNMDBot" class="cta-btn primary" target="_blank">Start My Dispute — $29</a>
+          <a href="https://nmdzaza.github.io/nmd-solutions/" class="cta-btn secondary" target="_blank">View All NMD Tools</a>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a href="https://twitter.com/intent/tweet?text=Experian%20is%20resolving%20disputes%20in%20consumers%27%20favor%20less%20than%201%25%20of%20the%20time%20now.%20The%20CFPB%20is%20gone.%20Here%27s%20the%20new%20dispute%20playbook%20for%202026.%20%40nmdzaza%3A&url=https%3A%2F%2Fnmdzaza.github.io%2Fnmd-newsletters%2Fnmd-experian-under-1pct-propublica-2026.html" target="_blank" class="share-btn x-btn">Post on X</a>
+        <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="share-tg-btn">Join Telegram</a>
+        <button class="share-btn copy-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';this.classList.add('copied')">Copy Link</button>
+      </div>
+
+      <!-- SUBSCRIBE -->
+      <div class="article-subscribe">
+        <div class="as-tag">NMD Intelligence</div>
+        <div class="as-headline">Know what the bureaus don't want you to know.</div>
+        <div class="as-desc">FCRA strategy. Bureau tactics. Score defense intel. NMD sends the playbook that keeps your credit file clean and your rights protected.</div>
+        <div class="as-row">
+          <input type="email" class="as-input" placeholder="your@email.com" id="as-email">
+          <button class="as-btn" onclick="document.querySelector('.as-confirm').style.display='block';document.querySelector('.as-input').value='';">Subscribe</button>
+        </div>
+        <div class="as-confirm">You're in. Watch your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">Related Intelligence</div>
+        <div class="sidebar-links">
+          <a href="nmd-cfpb-gutted-2026.html" class="sidebar-link">The CFPB Got Gutted — What It Costs You</a>
+          <a href="nmd-bureaus-errors-surge-2026.html" class="sidebar-link">2.7M Complaints Ignored — Credit Bureaus Stop Fixing Errors</a>
+          <a href="nmd-fcra-2026-dispute-overhaul.html" class="sidebar-link">FCRA 2026 — Dispute Rules Have Changed</a>
+          <a href="nmd-experian-transunion-dispute-collapse-cfpb-trump-2026.html" class="sidebar-link">Experian & TransUnion Dispute Collapse Under Trump CFPB</a>
+          <a href="nmd-fcra-lawsuit-surge-march-2026.html" class="sidebar-link">FCRA Lawsuit Surge — Consumers Are Fighting Back</a>
+        </div>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">NMD Credit Bot</div>
+        <div class="sidebar-cta-headline">FCRA dispute letters that hold up. $29 flat.</div>
+        <div class="sidebar-cta-desc">Proper statutory language. Certified mail format. Paper trail built in. ScoreBoost is designed for the 2026 dispute environment where you need legal leverage, not regulatory hope.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" target="_blank" class="sidebar-cta-btn">Start My Dispute — $29</a>
+      </div>
+
+      <div class="solutions-sidebar">
+        <div class="solutions-sidebar-badge">NMD Solutions</div>
+        <h4>AI tools for businesses that need credit infrastructure that actually works</h4>
+        <p>Dispute management, business credit building, monitoring automation — built for operators who can't afford to wait on a regulator that no longer shows up.</p>
+        <a href="https://nmdzaza.github.io/nmd-solutions/" target="_blank">Explore NMD Solutions</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD ZAZA — Credit Intelligence</span>
+    <div class="footer-right">
+      <a href="nmd-privacy.html">Privacy</a> &nbsp;·&nbsp;
+      <a href="nmd-terms.html">Terms</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      document.getElementById('prog').style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+</body>
+</html>
