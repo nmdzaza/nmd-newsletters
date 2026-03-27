@@ -2142,7 +2142,7 @@
       transform: scale(1.05);
       background: rgba(0,229,255,0.06);
     }
-    .cc-sprite-card video {
+    .cc-sprite-card img {
       width: 100%;
       height: 140px;
       object-fit: contain;
@@ -3353,7 +3353,7 @@
     <!-- Selected sprite preview -->
     <div id="char-portrait-wrap">
       <div id="cc-sprite-preview-wrap">
-        <video id="cc-sprite-preview" src="credit-bot-sprites/sprite_01.mp4" autoplay loop muted playsinline></video>
+        <img id="cc-sprite-preview" src="credit-bot-sprites/sprite_01.jpg" />
         <div class="char-name-plate" id="cc-name-plate">YOUR WARRIOR</div>
       </div>
     </div>
@@ -6166,7 +6166,7 @@ const CHAR_KEY = `scoreBoost_char_${userId}`;
 
 const SPRITES = Array.from({length: 40}, (_, i) => ({
   id: i + 1,
-  file: `credit-bot-sprites/sprite_${String(i+1).padStart(2,'0')}.mp4`,
+  file: `credit-bot-sprites/sprite_${String(i+1).padStart(2,'0')}.jpg`,
   name: `Warrior ${i + 1}`
 }));
 
@@ -6180,7 +6180,7 @@ function buildSpriteGrid() {
     const card = document.createElement('div');
     card.className = 'cc-sprite-card' + (s.id === selectedSpriteId ? ' selected' : '');
     card.dataset.spriteId = s.id;
-    card.innerHTML = `<video src="${s.file}" autoplay loop muted playsinline></video><div class="cc-sprite-name">${s.name}</div>`;
+    card.innerHTML = `<img src="${s.file}" alt="${s.name}" /><div class="cc-sprite-name">${s.name}</div>`;
     card.addEventListener('click', () => selectSprite(s.id));
     grid.appendChild(card);
   });
@@ -6192,8 +6192,6 @@ function selectSprite(spriteId) {
   const preview = document.getElementById('cc-sprite-preview');
   if (preview && sprite) {
     preview.src = sprite.file;
-    preview.load();
-    preview.play();
   }
   document.querySelectorAll('.cc-sprite-card').forEach(c => {
     c.classList.toggle('selected', parseInt(c.dataset.spriteId) === spriteId);
@@ -6407,6 +6405,7 @@ function equipMask(maskId) {
       charData.mask = maskId;
       localStorage.setItem(CHAR_KEY, JSON.stringify(charData));
       applyPortraitToEl('rank-portrait', charData, getLevel(state.xp));
+      applyPortraitToEl('header-portrait', charData, getLevel(state.xp));
     } catch(e) {}
   }
 
@@ -6566,13 +6565,11 @@ function applyPortraitToEl(portraitId, charData, rankLevel) {
   const portrait = document.getElementById(portraitId);
   if (!portrait) return;
 
-  // Use real sprite video if character has one selected
+  // Use real sprite image if character has one selected
   if (charData && charData.spriteId !== undefined && charData.spriteId !== null) {
     const sprite = SPRITES.find(s => s.id === charData.spriteId);
-    const filePath = sprite ? sprite.file : `credit-bot-sprites/sprite_${String(charData.spriteId).padStart(2,'0')}.mp4`;
-    portrait.innerHTML = `<video src="${filePath}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:contain;border-radius:8px;background:#d4b896;display:block;"></video>`;
-    const vid = portrait.querySelector('video');
-    if (vid) { vid.load(); vid.play(); }
+    const filePath = sprite ? sprite.file : `credit-bot-sprites/sprite_${String(charData.spriteId).padStart(2,'0')}.jpg`;
+    portrait.innerHTML = `<img src="${filePath}" alt="warrior" style="width:100%;height:100%;object-fit:contain;border-radius:8px;background:#d4b896;display:block;" />`;
     return;
   }
 
@@ -6682,6 +6679,7 @@ function initGameAfterChar(charData) {
     document.getElementById('player-name').textContent = charData.name;
   }
   renderRankTabPortrait(charData);
+  applyPortraitToEl('header-portrait', charData, getLevel(state.xp));
   initGame();
 }
 
@@ -6695,6 +6693,7 @@ function renderRankTabPortrait(charData) {
     rankPortrait.innerHTML = '';
     applyPortraitToEl('rank-portrait', charData, getLevel(state.xp));
   }
+  applyPortraitToEl('header-portrait', charData, getLevel(state.xp));
 
   const namePlate = document.getElementById('rank-name-plate');
   if (namePlate) namePlate.textContent = charData.name;
@@ -6712,6 +6711,7 @@ function updateRankPortraitArmor() {
   try {
     const charData = JSON.parse(saved);
     applyPortraitToEl('rank-portrait', charData, getLevel(state.xp));
+    applyPortraitToEl('header-portrait', charData, getLevel(state.xp));
   } catch(e) {}
 }
 
