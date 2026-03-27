@@ -252,6 +252,21 @@
       color: var(--green);
       background: rgba(0,0,0,0.7);
     }
+    .enemy-card.dispatched {
+      opacity: 0.6;
+    }
+    .enemy-card.dispatched::after {
+      content: '📬 DISPATCHED';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7px;
+      font-family: 'Press Start 2P', monospace;
+      color: #FFB800;
+      background: rgba(0,0,0,0.65);
+    }
     .enemy-icon { font-size: 22px; margin-bottom: 4px; }
     .enemy-name { font-size: 7px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 6px; }
     .enemy-hp-label {
@@ -1215,6 +1230,91 @@
     * { scrollbar-width: thin; scrollbar-color: var(--crimson-dark) var(--bg); }
 
     /* ════════════════════════════════
+       TAB — MISSIONS / QUESTS
+    ════════════════════════════════ */
+    .mission-card {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .mission-card.mission-done { border-color: var(--green-dark); opacity: 0.75; }
+    .mission-card.mission-active { border-color: var(--crimson-dark); }
+    .mission-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .mission-card-left { display: flex; align-items: center; gap: 8px; flex: 1; }
+    .mission-card-icon { font-size: 20px; flex-shrink: 0; }
+    .mission-card-name {
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--text);
+      font-family: 'Press Start 2P', monospace;
+      line-height: 1.3;
+    }
+    .mission-status-badge {
+      font-size: 6px;
+      padding: 3px 7px;
+      border-radius: 4px;
+      font-family: 'Press Start 2P', monospace;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .mission-status-badge.status-done   { background: rgba(0,255,127,0.15); color: var(--green); border: 1px solid var(--green-dark); }
+    .mission-status-badge.status-active { background: rgba(220,20,60,0.15); color: var(--crimson); border: 1px solid var(--crimson-dark); }
+    .mission-status-badge.status-locked { background: rgba(136,136,153,0.12); color: var(--text-dim); border: 1px solid var(--bg4); }
+    .mission-desc { font-size: 9px; color: var(--text-dim); margin-bottom: 8px; line-height: 1.5; }
+    .mission-progress-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .mission-progress-bar-outer { flex: 1; height: 6px; background: var(--bg4); border-radius: 3px; overflow: hidden; }
+    .mission-progress-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, var(--crimson), var(--gold));
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+    .mission-card.mission-done .mission-progress-bar-inner { background: linear-gradient(90deg, var(--green-dark), var(--green)); }
+    .mission-progress-label { font-size: 7px; color: var(--text-dim); white-space: nowrap; }
+    .mission-xp-reward { font-size: 8px; color: var(--green); font-weight: 700; margin-top: 2px; }
+    .missions-summary {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .missions-summary-label { font-size: 9px; color: var(--text-dim); }
+    .missions-summary-val   { font-size: 13px; font-weight: 700; color: var(--gold); font-family: 'Press Start 2P', monospace; }
+
+    /* Quest complete banner */
+    #quest-banner {
+      position: fixed;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      z-index: 1003;
+      min-width: 260px;
+      box-shadow: 0 4px 30px var(--gold-glow);
+      transition: top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #quest-banner.show { top: 70px; }
+    #quest-banner .qb-icon { font-size: 26px; }
+    #quest-banner .qb-text { font-size: 8px; color: var(--gold); margin-top: 4px; font-family: 'Press Start 2P', monospace; }
+    #quest-banner .qb-xp   { font-size: 9px; color: var(--green); margin-top: 3px; font-weight: 700; }
+
+    /* ════════════════════════════════
        CHARACTER CREATOR OVERLAY
     ════════════════════════════════ */
     #char-creator-overlay {
@@ -1830,6 +1930,29 @@
     }
     .cancel-btn:hover { border-color: var(--crimson-dark); color: var(--text); }
     .cancel-btn:active { opacity: 0.7; }
+
+    /* Settlement calc pct buttons */
+    .settl-pct-btn {
+      flex: 1;
+      min-width: 52px;
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 10px 6px;
+      color: var(--text-dim);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .settl-pct-btn:active { opacity: 0.75; }
+    .settl-pct-btn.active {
+      background: linear-gradient(135deg, var(--crimson-dark), var(--crimson));
+      border-color: var(--crimson);
+      color: #fff;
+      box-shadow: 0 0 8px var(--crimson-glow);
+    }
+
     .dispute-target-btn {
       display: block;
       width: 100%;
@@ -2546,6 +2669,22 @@
       </div>
     </section>
 
+    <!-- ══════════ TAB 9: MISSIONS / QUESTS ══════════ -->
+    <section id="tab-quests" class="tab-section">
+      <div class="pixel section-title">📜 MISSIONS</div>
+
+      <div class="missions-summary">
+        <div>
+          <div class="missions-summary-label">Quests Completed</div>
+        </div>
+        <div class="missions-summary-val" id="missions-count">0 / 8</div>
+      </div>
+
+      <div id="missions-list">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
   </main>
 
   <!-- ─── BOTTOM NAV ─── -->
@@ -2582,6 +2721,10 @@
       <span class="nav-icon">🎭</span>
       <span class="nav-label">WARDROBE</span>
     </button>
+    <button class="nav-btn pixel" onclick="switchTab('quests', this)">
+      <span class="nav-icon">📜</span>
+      <span class="nav-label">MISSIONS</span>
+    </button>
   </nav>
 
 </div>
@@ -2605,6 +2748,13 @@
   <div class="bb-icon" id="bb-icon">⚔️</div>
   <div class="bb-text">BADGE UNLOCKED!</div>
   <div class="bb-name" id="bb-name">First Strike</div>
+</div>
+
+<!-- Quest complete banner -->
+<div id="quest-banner">
+  <div class="qb-icon" id="qb-icon">📜</div>
+  <div class="qb-text">QUEST COMPLETE!</div>
+  <div class="qb-xp" id="qb-xp">+200 XP</div>
 </div>
 
 <!-- Add Mission Modal -->
@@ -2659,9 +2809,60 @@
     <div class="action-sheet-handle"></div>
     <div class="action-sheet-title" id="serviceCardTitle"></div>
     <div class="action-sheet-desc" id="serviceCardDesc"></div>
+    <!-- FDCPA extra info block (shown only for debtval) -->
+    <div id="serviceCardFdcpaInfo" style="display:none;background:rgba(220,20,60,0.07);border:1px solid var(--crimson-dark);border-radius:8px;padding:12px;margin-bottom:12px;font-size:10px;color:var(--text-dim);line-height:1.7;">
+      The FDCPA is a federal law that limits how collectors can contact you. Sending a debt validation demand forces them to <strong style="color:var(--text);">stop all collection activity</strong> until they prove the debt is legally yours. If they can&apos;t validate it, it must be deleted. This letter puts the burden of proof on them.
+    </div>
+    <!-- Intent to Sue creditor input (shown only for intent) -->
+    <div id="serviceCardIntentInput" style="display:none;margin-bottom:12px;">
+      <label style="font-size:9px;color:var(--text-dim);display:block;margin-bottom:6px;" class="pixel">WHICH CREDITOR?</label>
+      <input id="serviceCardCreditorField" type="text" placeholder="e.g. Portfolio Recovery Associates"
+        style="width:100%;box-sizing:border-box;background:var(--bg4);border:1px solid var(--crimson-dark);border-radius:6px;padding:10px 12px;color:var(--text);font-size:12px;outline:none;" />
+    </div>
     <div class="service-price-badge" id="serviceCardPrice"></div>
-    <button class="launch-btn" id="serviceCardLaunchBtn">⚔️ LAUNCH ATTACK</button>
-    <button class="cancel-btn" onclick="closeServiceCard()">✕ Stay in Battle</button>
+    <button class="launch-btn" id="serviceCardLaunchBtn" onclick="launchServiceAttack()">&#x2694;&#xFE0F; LAUNCH ATTACK</button>
+    <button class="cancel-btn" onclick="closeServiceCard()">&#x2715; Stay in Battle</button>
+  </div>
+</div>
+
+<!-- Settlement Calculator Modal -->
+<div class="action-sheet-overlay" id="settlementCalcOverlay" onclick="if(event.target===this)closeSettlementCalc()">
+  <div class="action-sheet" style="max-height:90vh;">
+    <div class="action-sheet-handle"></div>
+    <div class="action-sheet-title">&#x1F9EE; SETTLEMENT CALC</div>
+    <div class="action-sheet-desc" style="margin-bottom:10px;">Calculate your offer before you negotiate. Knowledge = power.</div>
+    <div style="background:var(--bg3);border:1px solid var(--bg4);border-radius:10px;padding:14px;margin-bottom:12px;">
+      <label class="pixel" style="font-size:8px;color:var(--text-dim);display:block;margin-bottom:8px;">CURRENT BALANCE ($)</label>
+      <input id="settlBalanceInput" type="number" min="0" placeholder="e.g. 3500"
+        style="width:100%;box-sizing:border-box;background:var(--bg4);border:1px solid var(--crimson-dark);border-radius:6px;padding:10px 12px;color:var(--text);font-size:14px;outline:none;margin-bottom:12px;"
+        oninput="calcSettlement()" />
+      <label class="pixel" style="font-size:8px;color:var(--text-dim);display:block;margin-bottom:8px;">OFFER PERCENTAGE</label>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;" id="settlPctBtns">
+        <button class="settl-pct-btn active" data-pct="20" onclick="setSettlPct(20)">20%</button>
+        <button class="settl-pct-btn" data-pct="30" onclick="setSettlPct(30)">30%</button>
+        <button class="settl-pct-btn" data-pct="40" onclick="setSettlPct(40)">40%</button>
+        <button class="settl-pct-btn" data-pct="50" onclick="setSettlPct(50)">50%</button>
+      </div>
+    </div>
+    <div id="settlResult" style="display:none;background:rgba(220,20,60,0.08);border:1px solid var(--crimson);border-radius:10px;padding:16px;margin-bottom:14px;text-align:center;">
+      <div class="pixel" style="font-size:9px;color:var(--text-dim);margin-bottom:6px;">YOUR OFFER</div>
+      <div id="settlOfferAmt" style="font-size:26px;font-weight:800;color:var(--gold);text-shadow:0 0 10px var(--gold-glow);margin-bottom:6px;">$0</div>
+      <div id="settlMath" style="font-size:10px;color:var(--text-dim);line-height:1.7;"></div>
+      <div id="settlTip" style="margin-top:10px;font-size:10px;color:var(--text);background:rgba(255,255,255,0.04);border-radius:6px;padding:8px;line-height:1.6;"></div>
+    </div>
+    <button class="launch-btn" id="settlCopyBtn" style="display:none;margin-bottom:8px;" onclick="copySettlementTemplate()">&#x1F4CB; COPY LETTER TEMPLATE</button>
+    <button class="cancel-btn" onclick="closeSettlementCalc()">&#x2715; Close</button>
+  </div>
+</div>
+
+<!-- Card Matcher Quick Modal -->
+<div class="action-sheet-overlay" id="cardMatcherOverlay" onclick="if(event.target===this)closeCardMatcher()">
+  <div class="action-sheet" style="max-height:90vh;">
+    <div class="action-sheet-handle"></div>
+    <div class="action-sheet-title">&#x1F4B3; CARD MATCHER</div>
+    <div id="cardMatcherScoreLine" class="action-sheet-desc" style="margin-bottom:10px;"></div>
+    <div id="cardMatcherList" style="overflow-y:auto;max-height:52vh;"></div>
+    <button class="cancel-btn" style="margin-top:10px;" onclick="closeCardMatcher()">&#x2715; Close</button>
   </div>
 </div>
 
@@ -2987,6 +3188,7 @@ const GAMEDATA_AGE_KEY = `scoreBoost_gamedata_age_${userId}`;
 const TOKEN_KEY = `scoreBoost_tokens_${userId}`;
 const MASK_KEY = `scoreBoost_mask_${userId}`;
 const TOTAL_DEP_KEY = `scoreBoost_totalDep_${userId}`;
+const MISSIONS_KEY = `scoreBoost_missions_${userId}`;
 
 let state = {
   xp: parseInt(localStorage.getItem(XP_KEY) || '0'),
@@ -3000,6 +3202,13 @@ let state = {
   tokens: 0,             // ⚡ current spendable balance
   totalDeposited: parseInt(localStorage.getItem(TOTAL_DEP_KEY) || '0'),
   equippedMask: localStorage.getItem(MASK_KEY) || 'black_base',
+  // Quest tracking fields
+  disputesFiled: 0,      // incremented when war-room mission added
+  bureausHit: 0,         // unique bureaus in war-room missions
+  enemiesDefeated: 0,    // mirrors stats.enemies but persisted separately
+  fdcpaFiled: 0,         // incremented when FDCPA weapon used
+  creditScore: 0,        // mirrors currentScore for quest conditions
+  completedQuests: JSON.parse(localStorage.getItem(MISSIONS_KEY) || '[]'),
 };
 
 // currently open quest for update modal
@@ -3010,6 +3219,30 @@ function saveState() {
   localStorage.setItem(STAT_KEY, JSON.stringify(state.stats));
   localStorage.setItem(QUEST_KEY, JSON.stringify(state.quests));
   localStorage.setItem(BADGE_KEY, JSON.stringify(state.badges));
+  localStorage.setItem(MISSIONS_KEY, JSON.stringify(state.completedQuests));
+}
+
+const BATTLE_STATE_KEY = `scoreBoost_battle_${userId}`;
+
+function saveBattleState() {
+  const battleState = {
+    enemies: state.enemies,
+    xp: state.xp,
+    tokens: state.tokens
+  };
+  localStorage.setItem(BATTLE_STATE_KEY, JSON.stringify(battleState));
+}
+
+function loadBattleState() {
+  const saved = localStorage.getItem(BATTLE_STATE_KEY);
+  if (saved) {
+    try {
+      const bs = JSON.parse(saved);
+      if (bs.enemies) state.enemies = bs.enemies;
+      if (bs.xp !== undefined) state.xp = bs.xp;
+      if (bs.tokens !== undefined) state.tokens = bs.tokens;
+    } catch(e) {}
+  }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -3113,9 +3346,10 @@ function buildEnemies() {
     const pct     = (e.hp / e.maxHp) * 100;
     const hpClass = pct > 60 ? '' : pct > 25 ? 'medium' : 'low';
     const defeated = e.hp <= 0;
+    const dispatched = !!e.disputed && !defeated;
     const selected  = state.selectedEnemy === i;
     const div = document.createElement('div');
-    div.className = `enemy-card${selected ? ' selected' : ''}${defeated ? ' defeated' : ''}`;
+    div.className = `enemy-card${selected ? ' selected' : ''}${defeated ? ' defeated' : ''}${dispatched ? ' dispatched' : ''}`;
     div.dataset.idx = i;
     div.onclick = () => selectEnemy(i);
     div.innerHTML = `
@@ -3212,11 +3446,16 @@ function gainXpAndOpen(w, weaponIdx, btn, eIdx) {
   // Check first_strike badge (letter_attacks tracked via attacks count)
   if (state.stats.attacks === 1) tryUnlockBadge('first_strike');
   // Check legal eagle for FDCPA weapon (index 2)
-  if (weaponIdx === 2) tryUnlockBadge('legal_eagle');
+  if (weaponIdx === 2) {
+    tryUnlockBadge('legal_eagle');
+    state.fdcpaFiled = (state.fdcpaFiled || 0) + 1;
+  }
   // Check relentless (10 attacks)
   if (state.stats.attacks >= 10) tryUnlockBadge('relentless');
   // Check use_weapon bounty tracking
   trackWeaponUse();
+  // Check quest completion after every attack
+  checkQuestCompletion();
 
   btn.classList.add('attacking');
   setTimeout(() => btn.classList.remove('attacking'), 500);
@@ -3280,6 +3519,18 @@ function renderBattleLog() {
     li.innerHTML = `${entry.msg} <span class="log-time">${entry.time}</span>`;
     ul.appendChild(li);
   });
+}
+
+function showGameToast(title, msg) {
+  if (TG && typeof TG.showPopup === 'function') {
+    try {
+      TG.showPopup({ title, message: msg, buttons: [{ type: 'ok' }] });
+      return;
+    } catch (e) {
+      // fall through to battle log
+    }
+  }
+  addBattleLog(`${title}: ${msg}`);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -3502,6 +3753,8 @@ function submitAddMission() {
   completeBounty('add_mission');
   // Check first_strike badge (using disputes as letter_attacks proxy)
   tryUnlockBadge('first_strike');
+  // Check quest completion after filing a dispute
+  checkQuestCompletion();
 }
 
 /* ── Update Mission Modal ── */
@@ -3552,6 +3805,8 @@ function updateMission(action) {
 
   if (xpAwarded > 0) addXP(xpAwarded);
   completeBounty('update_mission');
+  // Check quest completion after updating a mission
+  checkQuestCompletion();
 }
 
 function checkTripleThreat() {
@@ -3844,11 +4099,56 @@ const TOKEN_COSTS = {
   goodwill:    50,
 };
 
+/* ═══════════════════════════════════════════════════════
+   SEND GAME ACTION — wraps sendData with character data
+═══════════════════════════════════════════════════════ */
+function sendGameAction(actionData) {
+  const charData = JSON.parse(localStorage.getItem(CHAR_KEY) || '{}');
+  const payload = {
+    ...actionData,
+    character: {
+      spriteId:    charData.spriteId    || null,
+      name:        charData.name        || null,
+      warriorClass: charData.warriorClass || null,
+    }
+  };
+  if (TG && typeof TG.sendData === 'function') {
+    TG.sendData(JSON.stringify(payload));
+  } else {
+    console.log('sendData not available - desktop mode', payload);
+  }
+}
+
+// Tracks which weapon is currently open in the service card overlay
+let currentServiceWeaponKey = null;
+
 function showServiceCard(weaponKey) {
   const card = SERVICE_CARDS[weaponKey];
   if (!card) return;
+
+  // In-app services: route directly without showing the generic sheet
+  if (weaponKey === 'settlement') { openSettlementCalc(); return; }
+  if (weaponKey === 'card_match') { openCardMatcher();    return; }
+
+  currentServiceWeaponKey = weaponKey;
+
   document.getElementById('serviceCardTitle').textContent = card.title;
   document.getElementById('serviceCardDesc').textContent  = card.desc;
+
+  // Show/hide per-weapon extras
+  const fdcpaInfo   = document.getElementById('serviceCardFdcpaInfo');
+  const intentInput = document.getElementById('serviceCardIntentInput');
+  const credField   = document.getElementById('serviceCardCreditorField');
+
+  fdcpaInfo.style.display   = (weaponKey === 'debtval') ? 'block' : 'none';
+  intentInput.style.display = (weaponKey === 'intent')  ? 'block' : 'none';
+
+  // Pre-fill creditor from selected enemy when opening Intent to Sue
+  if (weaponKey === 'intent' && state.selectedEnemy !== null) {
+    credField.value = state.enemies[state.selectedEnemy].name || '';
+  } else if (weaponKey === 'intent') {
+    credField.value = '';
+  }
 
   // Show token cost with balance check
   const tokenCost  = TOKEN_COSTS[weaponKey] || 0;
@@ -3865,12 +4165,40 @@ function showServiceCard(weaponKey) {
     priceEl.textContent = card.price;
   }
 
-  document.getElementById('serviceCardLaunchBtn').onclick = () => {
-    closeServiceCard();
-    const url = `https://t.me/ScoreBoostByNMDBot?start=${card.deepLink}`;
-    if (TG) { TG.openTelegramLink(url); } else { window.open(url, '_blank'); }
-  };
   document.getElementById('serviceCardOverlay').classList.add('active');
+}
+
+function launchServiceAttack() {
+  const weaponKey = currentServiceWeaponKey;
+  if (!weaponKey) return;
+  const card = SERVICE_CARDS[weaponKey];
+  if (!card) return;
+
+  // Token gate
+  const tokenCost = TOKEN_COSTS[weaponKey] || 0;
+  if (tokenCost > 0 && state.tokens < tokenCost) {
+    showGameToast('⚡ NOT ENOUGH TOKENS', `This costs ${tokenCost.toLocaleString()} tokens. Top up to continue.`);
+    return;
+  }
+
+  // Build payload — include creditor for Intent to Sue
+  const payload = { action: 'service', service: card.deepLink, userId: userId };
+  if (weaponKey === 'intent') {
+    const credField = document.getElementById('serviceCardCreditorField');
+    payload.creditor = (credField && credField.value.trim()) ||
+                       (state.selectedEnemy !== null ? state.enemies[state.selectedEnemy].name : '');
+  }
+  if (state.selectedEnemy !== null) payload.enemy = state.enemies[state.selectedEnemy].name;
+
+  closeServiceCard();
+
+  if (!TG || typeof TG.sendData !== 'function') {
+    addBattleLog(`⚔️ ATTACK LAUNCHED! Service: ${card.deepLink}`, 'log-victory');
+    return;
+  }
+  sendGameAction(payload);
+  addBattleLog(`⚔️ ${card.title} deployed! Check bot for response.`, 'log-victory');
+  showGameToast('⚔️ ATTACK LAUNCHED!', 'Service activated. Check bot for next steps.');
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -3895,13 +4223,13 @@ function updateTokenDisplay() {
 }
 
 function openTopUp() {
-  const url = 'https://t.me/ScoreBoostByNMDBot?start=deposit';
-  if (TG) {
-    try { TG.openTelegramLink(url); }
-    catch (e) { window.open(url, '_blank'); }
-  } else {
-    window.open(url, '_blank');
+  if (!TG || typeof TG.sendData !== 'function') {
+    console.log('sendData not available - desktop mode');
+    addBattleLog('💎 TOP UP: Open bot to deposit tokens.', 'log-levelup');
+    return;
   }
+  sendGameAction({ action: 'topup', userId: userId });
+  showGameToast('💎 TOP UP', 'Go to the bot to deposit. Your tokens update automatically.');
 }
 
 function showTokenDepositAnimation(amount) {
@@ -3910,12 +4238,170 @@ function showTokenDepositAnimation(amount) {
 
 function closeServiceCard() {
   document.getElementById('serviceCardOverlay').classList.remove('active');
+  currentServiceWeaponKey = null;
 }
 
 function closeServiceCardOnOverlay(event) {
   if (event.target === document.getElementById('serviceCardOverlay')) {
     closeServiceCard();
   }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SETTLEMENT CALCULATOR (fully in-app, no bot call)
+═══════════════════════════════════════════════════════ */
+let _settlPct = 20;
+
+function openSettlementCalc() {
+  _settlPct = 20;
+  // Highlight default pct button
+  document.querySelectorAll('.settl-pct-btn').forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.pct) === _settlPct);
+  });
+  // Pre-fill balance from selected enemy if available
+  const balInput = document.getElementById('settlBalanceInput');
+  if (state.selectedEnemy !== null) {
+    const e = state.enemies[state.selectedEnemy];
+    // enemy maxHp represents balance proxy — use a rough mapping or just leave blank
+    balInput.value = '';
+  } else {
+    balInput.value = '';
+  }
+  document.getElementById('settlResult').style.display = 'none';
+  document.getElementById('settlCopyBtn').style.display = 'none';
+  document.getElementById('settlementCalcOverlay').classList.add('active');
+  calcSettlement();
+}
+
+function closeSettlementCalc() {
+  document.getElementById('settlementCalcOverlay').classList.remove('active');
+}
+
+function setSettlPct(pct) {
+  _settlPct = pct;
+  document.querySelectorAll('.settl-pct-btn').forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.pct) === pct);
+  });
+  calcSettlement();
+}
+
+function calcSettlement() {
+  const balInput = document.getElementById('settlBalanceInput');
+  const balance  = parseFloat(balInput.value);
+  const result   = document.getElementById('settlResult');
+  const copyBtn  = document.getElementById('settlCopyBtn');
+
+  if (!balance || balance <= 0) {
+    result.style.display  = 'none';
+    copyBtn.style.display = 'none';
+    return;
+  }
+
+  const offer   = balance * (_settlPct / 100);
+  const savings = balance - offer;
+  const savePct = 100 - _settlPct;
+
+  document.getElementById('settlOfferAmt').textContent = '$' + offer.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById('settlMath').innerHTML =
+    `Offer <strong style="color:var(--gold)">$${offer.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}</strong> on a ` +
+    `<strong style="color:var(--text)">$${balance.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}</strong> balance ` +
+    `= ${_settlPct}% settlement<br>` +
+    `You save <strong style="color:#88FF88;">$${savings.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})} (${savePct}% off)</strong>`;
+
+  let tip = '';
+  if (_settlPct <= 20) tip = '🔥 Aggressive — works best on old charge-offs (3+ years). Start here.';
+  else if (_settlPct <= 30) tip = '⚔️ Strong offer — good for accounts 1-3 years old or already in collections.';
+  else if (_settlPct <= 40) tip = '🛡️ Moderate — fair opener, room to negotiate down. Collectors often accept.';
+  else tip = '⚠️ Soft offer — consider starting lower and working up. Never lead with 50%.';
+  document.getElementById('settlTip').textContent = tip;
+
+  result.style.display  = 'block';
+  copyBtn.style.display = 'block';
+}
+
+function copySettlementTemplate() {
+  const balInput = document.getElementById('settlBalanceInput');
+  const balance  = parseFloat(balInput.value) || 0;
+  const offer    = balance * (_settlPct / 100);
+  const today    = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  const letter = `${today}
+
+RE: Settlement Offer — Full & Final Resolution
+
+To Whom It May Concern,
+
+I am writing to propose a settlement of this account. Without admitting liability, I am prepared to offer $${offer.toFixed(2)} (${_settlPct}% of the claimed balance of $${balance.toFixed(2)}) as full and final satisfaction of this debt.
+
+This offer is contingent upon:
+1. Removal of all negative tradeline entries related to this account from all three credit bureaus (Equifax, Experian, TransUnion).
+2. Written confirmation that no further collection activity will occur.
+3. A signed settlement agreement prior to any payment.
+
+This offer will remain open for 30 days from the date of this letter. Please respond in writing only.
+
+Sincerely,
+[YOUR NAME]
+[YOUR ADDRESS]
+[YOUR PHONE / EMAIL]`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(letter).then(() => {
+      showGameToast('📋 COPIED!', 'Settlement letter template copied to clipboard.');
+    }).catch(() => {
+      addBattleLog('📋 Copy failed — try long-pressing the template text.', '');
+    });
+  } else {
+    addBattleLog('📋 Clipboard not available on this device.', '');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CARD MATCHER QUICK MODAL (in-app, uses existing CARDS array)
+═══════════════════════════════════════════════════════ */
+function openCardMatcher() {
+  const score   = state.currentScore || 500;
+  const scoreLine = document.getElementById('cardMatcherScoreLine');
+  const listEl    = document.getElementById('cardMatcherList');
+
+  scoreLine.textContent = `Showing cards for score: ${score}`;
+
+  const eligible   = CARDS.filter(c => score >= c.minScore);
+  const tierOrder  = ['elite', 'great', 'good', 'fair', 'bad'];
+
+  if (eligible.length === 0) {
+    listEl.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-dim);font-size:11px;">No cards matched. Enter your real score via /gamedata.</div>';
+  } else {
+    const groups = {};
+    eligible.forEach(c => { if (!groups[c.tier]) groups[c.tier] = []; groups[c.tier].push(c); });
+    listEl.innerHTML = '';
+    tierOrder.forEach(tier => {
+      if (!groups[tier]) return;
+      const hdr = document.createElement('div');
+      hdr.className = 'tier-divider pixel';
+      hdr.textContent = TIER_META[tier].label;
+      listEl.appendChild(hdr);
+      groups[tier].forEach(card => {
+        const item = document.createElement('div');
+        item.className = 'card-item';
+        item.innerHTML = `
+          <div class="card-tier-icon">${TIER_META[tier].icon}</div>
+          <div class="card-info">
+            <div class="card-name">${card.name}</div>
+            <div class="card-min">Min score: ${card.minScore}+</div>
+          </div>
+          <button class="card-apply-btn" onclick="applyCard('${card.url}')">APPLY</button>
+        `;
+        listEl.appendChild(item);
+      });
+    });
+  }
+
+  document.getElementById('cardMatcherOverlay').classList.add('active');
+}
+
+function closeCardMatcher() {
+  document.getElementById('cardMatcherOverlay').classList.remove('active');
 }
 
 function showDisputePanel() {
@@ -3933,9 +4419,52 @@ function closeDisputePanelOnOverlay(event) {
 }
 
 function launchDispute(cmd) {
+  // Capture selected enemy before any state changes
+  const eIdx = state.selectedEnemy;
+  const enemy = eIdx !== null ? state.enemies[eIdx] : null;
+
+  // --- In-game effects first ---
+  if (enemy) {
+    // Deal 20 damage via existing animation path
+    const dmg = 20;
+    enemy.hp = Math.max(0, enemy.hp - dmg);
+    showAttackPopup('📬', 'Scout', dmg, 0);
+    addBattleLog(`⚔️ Scout dispatched against ${enemy.name} (${cmd.replace('dispute_', '').toUpperCase()})`, 'log-victory');
+    enemy.disputed = true;
+    if (enemy.hp <= 0) {
+      state.stats.enemies++;
+      addXP(enemy.xpReward);
+      addBattleLog(`💀 ${enemy.name} DEFEATED! +${enemy.xpReward} XP`, 'log-victory');
+      const next = state.enemies.findIndex(en => en.hp > 0);
+      state.selectedEnemy = next >= 0 ? next : null;
+    }
+  } else {
+    addBattleLog(`⚔️ Scout dispatched! (${cmd.replace('dispute_', '').toUpperCase()})`, 'log-victory');
+  }
+
+  // Persist enemy state so DISPATCHED badge survives reload
+  saveBattleState();
+  saveState();
+
+  // Rebuild enemies to show DISPATCHED badge immediately
+  buildEnemies();
+
+  // Close the dispute panel
   closeDisputePanel();
-  const url = `https://t.me/ScoreBoostByNMDBot?start=${cmd}`;
-  if (TG) { TG.openTelegramLink(url); } else { window.open(url, '_blank'); }
+
+  // Small delay so user sees the animation, then send data / fallback
+  setTimeout(() => {
+    const enemy2 = eIdx !== null ? state.enemies[eIdx] : null;
+    sendGameAction({
+      action: 'dispute',
+      target: cmd,
+      enemy: enemy ? { name: enemy.name, bureau: enemy.bureau, type: enemy.type } : null,
+    });
+    if (!TG || typeof TG.sendData !== 'function') {
+      // Desktop/preview mode — just show confirmation toast
+      showGameToast('⚔️ SCOUT DISPATCHED!', 'Dispute filed. Check bot for updates.');
+    }
+  }, 800);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -3965,6 +4494,7 @@ function switchTab(name, btn) {
   if (name === 'warroom') buildWarRoom();
   if (name === 'armory')  buildArmory();
   if (name === 'bounties') buildBounties();
+  if (name === 'quests')  { checkQuestCompletion(); buildQuestsTab(); }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -4041,11 +4571,25 @@ function applyClientData(data) {
   // Set real credit score for rank display
   if (data.score && data.score > 0) {
     state.currentScore = data.score;
+    state.creditScore  = data.score;
     updateRankDisplay();
+    // Score-based quests can now unlock
+    setTimeout(checkQuestCompletion, 300);
   }
 
-  // Sync wallet balance → game tokens ($1 = 10 tokens)
-  if (data.wallet !== undefined) {
+  // Sync tokens — prefer explicit DB tokens field, fall back to wallet-derived ($1 = 10)
+  if (data.tokens !== undefined) {
+    // Direct from DB: use as authoritative balance
+    const newTokens = parseInt(data.tokens) || 0;
+    if (newTokens !== state.tokens) {
+      const diff = newTokens - state.tokens;
+      state.tokens = newTokens;
+      saveTokens(state.tokens);
+      updateTokenDisplay();
+      if (diff > 0) showTokenDepositAnimation(diff);
+    }
+  } else if (data.wallet !== undefined) {
+    // Fallback: derive from wallet balance ($1 = 10 tokens)
     const newTokens = Math.floor(data.wallet * 10);
     if (newTokens > state.tokens) {
       const diff = newTokens - state.tokens;
@@ -4058,6 +4602,11 @@ function applyClientData(data) {
       saveTokens(state.tokens);
       updateTokenDisplay();
     }
+  }
+
+  // Always store wallet USD value for reference
+  if (data.wallet !== undefined) {
+    state.wallet = data.wallet;
   }
 
   // Track total deposited (cumulative — used for mask unlock eligibility)
@@ -4728,9 +5277,207 @@ function updateRankPortraitArmor() {
 }
 
 /* ═══════════════════════════════════════════════════════
+   QUESTS / MISSIONS SYSTEM
+═══════════════════════════════════════════════════════ */
+const QUESTS = [
+  {
+    id: 'first_dispute',
+    name: 'First Blood',
+    desc: 'File your first dispute letter',
+    icon: '⚔️',
+    xpReward: 200,
+    condition: (s) => s.disputesFiled >= 1,
+    stages: ['Select target', 'File dispute', 'Wait for response', 'Verify deletion']
+  },
+  {
+    id: 'bureau_sweep',
+    name: 'Bureau Sweep',
+    desc: 'Dispute all 3 bureaus',
+    icon: '🎯',
+    xpReward: 500,
+    condition: (s) => s.bureausHit >= 3,
+    stages: ['Hit Equifax', 'Hit Experian', 'Hit TransUnion', 'All confirmed']
+  },
+  {
+    id: 'score_580',
+    name: 'Credit Apprentice',
+    desc: 'Reach a 580 credit score',
+    icon: '🗡️',
+    xpReward: 300,
+    condition: (s) => (s.creditScore || 0) >= 580
+  },
+  {
+    id: 'score_670',
+    name: 'Credit Warrior',
+    desc: 'Reach a 670 credit score',
+    icon: '⚔️',
+    xpReward: 500,
+    condition: (s) => (s.creditScore || 0) >= 670
+  },
+  {
+    id: 'score_720',
+    name: 'Credit Knight',
+    desc: 'Reach a 720 credit score',
+    icon: '🛡️',
+    xpReward: 750,
+    condition: (s) => (s.creditScore || 0) >= 720
+  },
+  {
+    id: 'first_enemy_slain',
+    name: 'First Kill',
+    desc: 'Get your first negative item deleted',
+    icon: '💀',
+    xpReward: 400,
+    condition: (s) => s.enemiesDefeated >= 1
+  },
+  {
+    id: 'stack_tokens',
+    name: 'Credit Stack',
+    desc: 'Accumulate 500 tokens',
+    icon: '⚡',
+    xpReward: 150,
+    condition: (s) => (s.tokens || 0) >= 500
+  },
+  {
+    id: 'fdcpa_filed',
+    name: 'Legal Eagle',
+    desc: 'File an FDCPA complaint',
+    icon: '📞',
+    xpReward: 250,
+    condition: (s) => s.fdcpaFiled >= 1
+  },
+];
+
+function syncQuestStateFromGame() {
+  // Derive quest-trackable values from live game state
+  state.disputesFiled = state.quests.length;
+  const bureauSet = new Set(state.quests.map(q => q.bureau).filter(Boolean));
+  state.bureausHit = bureauSet.size;
+  state.enemiesDefeated = state.stats.enemies;
+  state.creditScore = state.currentScore || 0;
+}
+
+function showQuestComplete(quest) {
+  // Show in-app banner
+  const banner = document.getElementById('quest-banner');
+  if (banner) {
+    document.getElementById('qb-icon').textContent = quest.icon;
+    document.getElementById('qb-xp').textContent   = `+${quest.xpReward} XP`;
+    banner.classList.add('show');
+    setTimeout(() => banner.classList.remove('show'), 3000);
+  }
+  // Also show Telegram popup if available
+  if (window.Telegram && Telegram.WebApp && Telegram.WebApp.showPopup) {
+    try {
+      Telegram.WebApp.showPopup({
+        title: '🏆 QUEST COMPLETE!',
+        message: `${quest.icon} ${quest.name}\n+${quest.xpReward} XP awarded!`,
+        buttons: [{ type: 'ok', text: 'CLAIM REWARD' }]
+      });
+    } catch(e) {}
+  }
+}
+
+function checkQuestCompletion() {
+  syncQuestStateFromGame();
+  let anyCompleted = false;
+  QUESTS.forEach(quest => {
+    const alreadyDone = state.completedQuests && state.completedQuests.includes(quest.id);
+    if (!alreadyDone && quest.condition(state)) {
+      addXP(quest.xpReward);
+      if (!state.completedQuests) state.completedQuests = [];
+      state.completedQuests.push(quest.id);
+      saveState();
+      showQuestComplete(quest);
+      anyCompleted = true;
+    }
+  });
+  if (anyCompleted) buildQuestsTab();
+  return anyCompleted;
+}
+
+function buildQuestsTab() {
+  syncQuestStateFromGame();
+  const list = document.getElementById('missions-list');
+  const countEl = document.getElementById('missions-count');
+  if (!list) return;
+
+  const doneCount = (state.completedQuests || []).length;
+  if (countEl) countEl.textContent = `${doneCount} / ${QUESTS.length}`;
+
+  list.innerHTML = '';
+  QUESTS.forEach(quest => {
+    const isDone   = state.completedQuests && state.completedQuests.includes(quest.id);
+    const isActive = !isDone && quest.condition(state);
+    const stages   = quest.stages || [];
+    const totalStages = stages.length;
+
+    // Calculate progress (0–1) based on condition proximity
+    let progress = 0;
+    let progressLabel = '';
+    if (isDone) {
+      progress = 1;
+      progressLabel = totalStages > 0 ? `${totalStages}/${totalStages} stages` : 'COMPLETE';
+    } else if (totalStages > 0) {
+      // For staged quests, show stage count based on sub-conditions
+      const stagesComplete = Math.min(
+        totalStages - 1,
+        quest.id === 'first_dispute' ? Math.min(state.disputesFiled, 1) :
+        quest.id === 'bureau_sweep'  ? Math.min(state.bureausHit, 3) : 0
+      );
+      progress = stagesComplete / totalStages;
+      progressLabel = `${stagesComplete}/${totalStages} stages`;
+    } else {
+      progressLabel = 'In progress';
+    }
+
+    const statusClass = isDone ? 'status-done' : (isActive ? 'status-active' : 'status-locked');
+    const statusText  = isDone ? '✓ DONE' : (isActive ? 'ACTIVE' : 'LOCKED');
+    const cardClass   = isDone ? 'mission-card mission-done' : (isActive ? 'mission-card mission-active' : 'mission-card');
+
+    const card = document.createElement('div');
+    card.className = cardClass;
+    card.innerHTML = `
+      <div class="mission-card-header">
+        <div class="mission-card-left">
+          <span class="mission-card-icon">${quest.icon}</span>
+          <span class="mission-card-name">${quest.name}</span>
+        </div>
+        <span class="mission-status-badge ${statusClass}">${statusText}</span>
+      </div>
+      <div class="mission-desc">${quest.desc}</div>
+      ${totalStages > 0 ? `
+      <div class="mission-progress-wrap">
+        <div class="mission-progress-bar-outer">
+          <div class="mission-progress-bar-inner" style="width:${Math.round(progress*100)}%"></div>
+        </div>
+        <span class="mission-progress-label">${progressLabel}</span>
+      </div>` : ''}
+      <div class="mission-xp-reward">+${quest.xpReward} XP on completion</div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════════════════ */
 function initGame() {
+  // Restore tokens from character save if token cache is empty
+  const _savedTokenRaw = localStorage.getItem(TOKEN_KEY);
+  if (_savedTokenRaw === null) {
+    try {
+      const _charData = JSON.parse(localStorage.getItem(CHAR_KEY) || '{}');
+      if (_charData.tokens) {
+        state.tokens = parseInt(_charData.tokens) || 0;
+        document.getElementById('tokenAmount').textContent = state.tokens.toLocaleString();
+      }
+    } catch(e) {}
+  }
+
+  // Restore battle state (enemy HP, disputed flags) from previous session
+  loadBattleState();
+
   buildEnemies();
   buildWeapons();
   buildAU();
@@ -4739,9 +5486,12 @@ function initGame() {
   buildWarRoom();
   buildArmory();
   buildBounties();
+  buildQuestsTab();
   autoCheckBadges();
-  loadSavedTokens();
+  loadSavedTokens();   // overwrites the char-data fallback if TOKEN_KEY exists
   loadClientData();
+  // Run quest check after brief delay to let client data settle
+  setTimeout(checkQuestCompletion, 500);
 
   document.getElementById('cards-count').innerHTML = '';
   document.getElementById('cards-list').innerHTML = `
