@@ -1103,8 +1103,192 @@
     }
     #select-enemy-prompt.visible { display: block; }
 
+    /* ── SYNC BANNER ── */
+    #sync-banner {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(0,160,80,0.12), rgba(0,100,50,0.08));
+      border: 1px solid var(--green-dark);
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      font-size: 9px;
+      color: var(--green);
+    }
+    #sync-banner.visible { display: flex; }
+    #sync-banner-text { flex: 1; line-height: 1.5; }
+    .sync-btn {
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: var(--bg);
+      font-size: 7px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+    .sync-btn:active { opacity: 0.7; }
+    .paste-btn {
+      background: none;
+      border: 1px solid var(--text-dim);
+      border-radius: 5px;
+      padding: 4px 8px;
+      color: var(--text-dim);
+      font-size: 7px;
+      cursor: pointer;
+      margin-left: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .paste-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── PASTE MODAL ── */
+    #paste-modal .bottom-sheet { max-height: 65vh; }
+    #paste-textarea {
+      width: 100%;
+      min-height: 120px;
+      background: var(--bg4);
+      border: 1px solid var(--crimson-dark);
+      border-radius: 6px;
+      padding: 10px;
+      color: var(--text);
+      font-size: 11px;
+      font-family: 'Roboto', sans-serif;
+      resize: vertical;
+      outline: none;
+      margin-top: 8px;
+    }
+    #paste-textarea:focus { border-color: var(--crimson); box-shadow: 0 0 8px var(--crimson-glow); }
+    #paste-error { font-size: 9px; color: var(--red-hp); margin-top: 6px; display: none; }
+
     /* scrollbar firefox */
     * { scrollbar-width: thin; scrollbar-color: var(--crimson-dark) var(--bg); }
+
+    /* ── SERVICE CARD & DISPUTE PANEL BOTTOM SHEETS ── */
+    .action-sheet-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 3000;
+      display: flex;
+      align-items: flex-end;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .action-sheet-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .action-sheet {
+      background: var(--bg2);
+      border: 1px solid var(--bg4);
+      border-top: 2px solid var(--crimson);
+      border-radius: 16px 16px 0 0;
+      padding: 18px 16px 36px;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .action-sheet-overlay.active .action-sheet {
+      transform: translateY(0);
+    }
+    .action-sheet-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--bg4);
+      border-radius: 2px;
+      margin: 0 auto 18px;
+    }
+    .action-sheet-title {
+      font-size: 10px;
+      color: var(--gold);
+      font-family: 'Press Start 2P', monospace;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .action-sheet-desc {
+      font-size: 10px;
+      color: var(--text-dim);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .service-price-badge {
+      display: inline-block;
+      background: rgba(220,20,60,0.15);
+      border: 1px solid var(--crimson);
+      color: var(--crimson);
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Press Start 2P', monospace;
+      border-radius: 8px;
+      padding: 6px 18px;
+      margin: 0 auto 20px;
+      text-align: center;
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .launch-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--crimson-dark), var(--crimson));
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      color: #fff;
+      font-size: 9px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 14px var(--crimson-glow);
+      letter-spacing: 0.5px;
+    }
+    .launch-btn:active { opacity: 0.8; }
+    .cancel-btn {
+      display: block;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 11px;
+      color: var(--text-dim);
+      font-size: 9px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .cancel-btn:hover { border-color: var(--crimson-dark); color: var(--text); }
+    .cancel-btn:active { opacity: 0.7; }
+    .dispute-target-btn {
+      display: block;
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--crimson-dark);
+      border-radius: 8px;
+      padding: 13px 12px;
+      color: var(--text);
+      font-size: 10px;
+      text-align: left;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.15s;
+    }
+    .dispute-target-btn:hover {
+      border-color: var(--crimson);
+      background: rgba(220,20,60,0.08);
+      box-shadow: 0 0 8px var(--crimson-glow);
+    }
+    .dispute-target-btn:active { transform: scale(0.98); }
   </style>
 </head>
 <body>
@@ -1139,7 +1323,16 @@
 
     <!-- ══════════ TAB 1: BATTLE MAP ══════════ -->
     <section id="tab-battle" class="tab-section active">
-      <div class="pixel section-title">⚔️ BATTLE MAP</div>
+      <div class="pixel section-title" style="display:flex;align-items:center;justify-content:space-between;">
+        <span>⚔️ BATTLE MAP</span>
+        <button class="paste-btn" onclick="showPasteModal()" title="Paste /gamedata output">📋 Paste Data</button>
+      </div>
+
+      <!-- Sync banner (shown when no cached gamedata) -->
+      <div id="sync-banner">
+        <span id="sync-banner-text">📊 Load your <strong>real enemies</strong> from your credit report</span>
+        <button class="sync-btn" onclick="syncWithBot()">SYNC</button>
+      </div>
 
       <div id="select-enemy-prompt" class="pixel">TAP AN ENEMY TO TARGET IT FIRST!</div>
 
@@ -1412,6 +1605,33 @@
   </div>
 </div>
 
+<!-- Service Card Modal -->
+<div class="action-sheet-overlay" id="serviceCardOverlay" onclick="closeServiceCardOnOverlay(event)">
+  <div class="action-sheet">
+    <div class="action-sheet-handle"></div>
+    <div class="action-sheet-title" id="serviceCardTitle"></div>
+    <div class="action-sheet-desc" id="serviceCardDesc"></div>
+    <div class="service-price-badge" id="serviceCardPrice"></div>
+    <button class="launch-btn" id="serviceCardLaunchBtn">⚔️ LAUNCH ATTACK</button>
+    <button class="cancel-btn" onclick="closeServiceCard()">✕ Stay in Battle</button>
+  </div>
+</div>
+
+<!-- Dispute Panel -->
+<div class="action-sheet-overlay" id="disputePanelOverlay" onclick="closeDisputePanelOnOverlay(event)">
+  <div class="action-sheet">
+    <div class="action-sheet-handle"></div>
+    <div class="action-sheet-title">⚔️ DISPATCH A SCOUT</div>
+    <div class="action-sheet-desc">Choose your target:</div>
+    <button class="dispute-target-btn" onclick="launchDispute('dispute_bureaus')">📊 Credit Bureaus</button>
+    <button class="dispute-target-btn" onclick="launchDispute('dispute_banking')">🏦 Banking Blacklists</button>
+    <button class="dispute-target-btn" onclick="launchDispute('dispute_brokers')">👤 Data Brokers</button>
+    <button class="dispute-target-btn" onclick="launchDispute('dispute_collectors')">📞 Collectors</button>
+    <button class="dispute-target-btn" onclick="launchDispute('dispute_all')">☑️ Hit Everything</button>
+    <button class="cancel-btn" onclick="closeDisputePanel()">✕ Cancel</button>
+  </div>
+</div>
+
 <!-- Badge Detail Modal -->
 <div class="modal-overlay" id="badge-detail-modal" onclick="closeModalOnOverlay(event, 'badge-detail-modal')">
   <div class="bottom-sheet">
@@ -1421,6 +1641,25 @@
     <div class="badge-detail-desc" id="badge-detail-desc">Badge description</div>
     <div class="badge-detail-xp" id="badge-detail-xp">+0 XP</div>
     <div class="badge-detail-status" id="badge-detail-status"></div>
+  </div>
+</div>
+
+<!-- Paste /gamedata Modal -->
+<div class="modal-overlay" id="paste-modal" onclick="closeModalOnOverlay(event, 'paste-modal')">
+  <div class="bottom-sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">📋 LOAD YOUR REAL DATA</div>
+    <p style="font-size:9px;color:var(--text-dim);text-align:center;margin-bottom:12px;line-height:1.6;">
+      1. Go to <strong style="color:var(--gold)">@ScoreBoostByNMDBot</strong> and type <code>/gamedata</code><br>
+      2. Copy the JSON it sends back<br>
+      3. Paste it below and tap LOAD
+    </p>
+    <button class="sync-btn" style="width:100%;margin-bottom:8px;" onclick="syncWithBot()">
+      📲 Open Bot &amp; Get Data
+    </button>
+    <textarea id="paste-textarea" placeholder='Paste the JSON from /gamedata here...'></textarea>
+    <div id="paste-error"></div>
+    <button class="sheet-launch-btn" onclick="submitPastedData()">⚔️ LOAD MY ENEMIES</button>
   </div>
 </div>
 
@@ -1627,6 +1866,9 @@ const STAT_KEY   = `scoreBoostStats_${userId}`;
 const QUEST_KEY  = `scoreBoost_quests_${userId}`;
 const BADGE_KEY  = `scoreBoost_badges_${userId}`;
 
+const GAMEDATA_KEY = `scoreBoost_gamedata_${userId}`;
+const GAMEDATA_AGE_KEY = `scoreBoost_gamedata_age_${userId}`;
+
 let state = {
   xp: parseInt(localStorage.getItem(XP_KEY) || '0'),
   stats: JSON.parse(localStorage.getItem(STAT_KEY) || '{"attacks":0,"enemies":0}'),
@@ -1635,6 +1877,7 @@ let state = {
   battleLog: [],
   quests: JSON.parse(localStorage.getItem(QUEST_KEY) || '[]'),
   badges: JSON.parse(localStorage.getItem(BADGE_KEY) || '[]'),
+  currentScore: 0,  // set from /gamedata when available
 };
 
 // currently open quest for update modal
@@ -1719,7 +1962,10 @@ function updateHeader() {
 ═══════════════════════════════════════════════════════ */
 function buildRankTable() {
   const tbody = document.getElementById('rank-table-body');
-  const currentRank = getRankFromXP(state.xp);
+  // Use real credit score for rank when available, otherwise fall back to XP-based rank
+  const currentRank = state.currentScore > 0
+    ? getRankFromScore(state.currentScore)
+    : getRankFromXP(state.xp);
   tbody.innerHTML = '';
   RANKS.forEach(r => {
     const tr = document.createElement('tr');
@@ -1858,13 +2104,12 @@ function gainXpAndOpen(w, weaponIdx, btn, eIdx) {
   buildRankTable();
 
   setTimeout(() => {
-    const url = `https://t.me/ScoreBoostByNMDBot?start=${w.link}`;
-    if (TG) {
-      TG.openTelegramLink(url);
+    if (w.link === 'dispute') {
+      showDisputePanel();
     } else {
-      window.open(url, '_blank');
+      showServiceCard(w.link);
     }
-  }, 600);
+  }, 800);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2418,6 +2663,99 @@ function trackWeaponUse() {
 }
 
 /* ═══════════════════════════════════════════════════════
+   SERVICE CARDS & DISPUTE PANEL
+═══════════════════════════════════════════════════════ */
+
+const SERVICE_CARDS = {
+  settlement: {
+    title: '🧮 Settlement Calculator',
+    desc: 'Get exact settlement amounts for each debt. What to offer vs. what to never pay.',
+    price: '$15',
+    deepLink: 'settlement',
+  },
+  debtval: {
+    title: '📞 The Better Call (FDCPA)',
+    desc: 'Debt validation demand. Forces collectors to prove the debt is yours — or stop collecting.',
+    price: '$5',
+    deepLink: 'debtval',
+  },
+  intent: {
+    title: '⚖️ Intent to Sue',
+    desc: 'When they won\'t comply. A formal intent to file in federal court under FDCPA/FCRA.',
+    price: '$15',
+    deepLink: 'intent',
+  },
+  card_match: {
+    title: '💳 Card Matcher',
+    desc: 'AI-matched credit cards based on your current score. Real application links, best approvals.',
+    price: '$15',
+    deepLink: 'card_match',
+  },
+  intel: {
+    title: '🕵️ Creditor Intel',
+    desc: 'Full background on a creditor — dispute history, contact, known weaknesses.',
+    price: '$10',
+    deepLink: 'intel',
+  },
+  packet: {
+    title: '📦 Success Packet',
+    desc: 'Everything you need to maintain and grow your score after deletions.',
+    price: '$15',
+    deepLink: 'packet',
+  },
+  goodwill: {
+    title: '🤝 Goodwill Letter',
+    desc: 'Late payment but otherwise good history? Goodwill removes it — no dispute needed.',
+    price: '$5',
+    deepLink: 'goodwill',
+  },
+};
+
+function showServiceCard(weaponKey) {
+  const card = SERVICE_CARDS[weaponKey];
+  if (!card) return;
+  document.getElementById('serviceCardTitle').textContent = card.title;
+  document.getElementById('serviceCardDesc').textContent  = card.desc;
+  document.getElementById('serviceCardPrice').textContent = card.price;
+  document.getElementById('serviceCardLaunchBtn').onclick = () => {
+    closeServiceCard();
+    const url = `https://t.me/ScoreBoostByNMDBot?start=${card.deepLink}`;
+    if (TG) { TG.openTelegramLink(url); } else { window.open(url, '_blank'); }
+  };
+  document.getElementById('serviceCardOverlay').classList.add('active');
+}
+
+function closeServiceCard() {
+  document.getElementById('serviceCardOverlay').classList.remove('active');
+}
+
+function closeServiceCardOnOverlay(event) {
+  if (event.target === document.getElementById('serviceCardOverlay')) {
+    closeServiceCard();
+  }
+}
+
+function showDisputePanel() {
+  document.getElementById('disputePanelOverlay').classList.add('active');
+}
+
+function closeDisputePanel() {
+  document.getElementById('disputePanelOverlay').classList.remove('active');
+}
+
+function closeDisputePanelOnOverlay(event) {
+  if (event.target === document.getElementById('disputePanelOverlay')) {
+    closeDisputePanel();
+  }
+}
+
+function launchDispute(cmd) {
+  closeDisputePanel();
+  const url = `https://t.me/ScoreBoostByNMDBot?start=${cmd}`;
+  if (TG) { TG.openTelegramLink(url); } else { window.open(url, '_blank'); }
+}
+
+/* ═══════════════════════════════════════════════════════
    MODAL HELPERS
 ═══════════════════════════════════════════════════════ */
 function closeModal(id) {
@@ -2447,6 +2785,176 @@ function switchTab(name, btn) {
 }
 
 /* ═══════════════════════════════════════════════════════
+   CLIENT DATA SYNC (gamedata)
+═══════════════════════════════════════════════════════ */
+
+function getEnemyIcon(type) {
+  const icons = {
+    collection:    '💀',
+    late_pay:      '📉',
+    inquiry:       '👁️',
+    public_record: '⚠️',
+    utilization:   '📊',
+    unknown:       '👾',
+  };
+  return icons[type] || '👾';
+}
+
+function getEnemyTier(type) {
+  const tiers = {
+    collection:    { tier: 'boss', badge: 'badge-boss' },
+    late_pay:      { tier: 'high', badge: 'badge-high' },
+    inquiry:       { tier: 'low',  badge: 'badge-low'  },
+    public_record: { tier: 'boss', badge: 'badge-boss' },
+    utilization:   { tier: 'med',  badge: 'badge-med'  },
+    unknown:       { tier: 'med',  badge: 'badge-med'  },
+  };
+  return tiers[type] || { tier: 'med', badge: 'badge-med' };
+}
+
+function applyClientData(data) {
+  // Override enemies with real items from credit report
+  if (data.items && data.items.length > 0) {
+    state.enemies = data.items.map((item, i) => {
+      const t = getEnemyTier(item.type);
+      const hp = item.hp || 60;
+      const xpReward = item.type === 'collection' ? 150
+                     : item.type === 'public_record' ? 200
+                     : item.type === 'late_pay' ? 80
+                     : item.type === 'utilization' ? 90
+                     : 60;
+      return {
+        id:        i,
+        icon:      getEnemyIcon(item.type),
+        name:      item.name || item.type,
+        type:      item.type,
+        bureau:    item.bureau || 'equifax',
+        tier:      t.tier,
+        badge:     t.badge,
+        maxHp:     hp,
+        hp:        hp,
+        xpReward:  xpReward,
+        dmgPerHit: Math.floor(hp / 4),
+      };
+    });
+    buildEnemies();
+    addBattleLog('📊 Real enemies loaded from your credit report!', 'log-victory');
+  }
+
+  // Update player name
+  if (data.name) {
+    document.querySelectorAll('#player-name, .player-name').forEach(
+      el => { el.textContent = data.name; }
+    );
+  }
+
+  // Sync XP — take the higher value so local play isn't lost
+  if (data.xp && data.xp > state.xp) {
+    state.xp = data.xp;
+    saveState();
+    updateHeader();
+  }
+
+  // Set real credit score for rank display
+  if (data.score && data.score > 0) {
+    state.currentScore = data.score;
+    updateRankDisplay();
+  }
+}
+
+function updateRankDisplay() {
+  if (!state.currentScore) return;
+  const rank = getRankFromScore(state.currentScore);
+  const badge = document.getElementById('player-rank-badge');
+  if (badge) badge.textContent = `${rank.icon} ${rank.name}`;
+  // Update rank tab hero — show score-based rank when real score is available
+  document.getElementById('rank-big-icon').textContent = rank.icon;
+  document.getElementById('rank-big-name').textContent  = rank.name.toUpperCase();
+}
+
+function loadClientData() {
+  const cached   = localStorage.getItem(GAMEDATA_KEY);
+  const cacheAge = localStorage.getItem(GAMEDATA_AGE_KEY);
+  const isStale  = !cacheAge || (Date.now() - parseInt(cacheAge)) > 3600000; // 1 hour
+
+  if (cached && !isStale) {
+    try {
+      applyClientData(JSON.parse(cached));
+      return;
+    } catch (e) {
+      // bad cache — fall through to show sync prompt
+    }
+  }
+
+  // No valid cache — show the sync banner
+  const banner = document.getElementById('sync-banner');
+  if (banner) banner.classList.add('visible');
+}
+
+function syncWithBot() {
+  const url = 'tg://resolve?domain=ScoreBoostByNMDBot&startapp=gamedata';
+  if (TG) {
+    // Try opening via Telegram link first, fall back to external
+    try { TG.openTelegramLink(`https://t.me/ScoreBoostByNMDBot?start=gamedata`); }
+    catch (e) { window.open(url, '_blank'); }
+  } else {
+    window.open(url, '_blank');
+  }
+  // Show paste modal after brief delay so user knows what to do next
+  setTimeout(showPasteModal, 400);
+}
+
+function showPasteModal() {
+  const errEl = document.getElementById('paste-error');
+  if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+  const ta = document.getElementById('paste-textarea');
+  if (ta) ta.value = '';
+  document.getElementById('paste-modal').classList.add('open');
+}
+
+function submitPastedData() {
+  const ta    = document.getElementById('paste-textarea');
+  const errEl = document.getElementById('paste-error');
+  const raw   = (ta ? ta.value : '').trim();
+
+  if (!raw) {
+    if (errEl) { errEl.textContent = 'Nothing to parse — paste your /gamedata output first.'; errEl.style.display = 'block'; }
+    return;
+  }
+
+  // Strip markdown code block wrapper if the user pasted it with backticks
+  let jsonStr = raw;
+  const match = raw.match(/```(?:json)?\s*([\s\S]+?)```/);
+  if (match) jsonStr = match[1].trim();
+
+  let data;
+  try {
+    data = JSON.parse(jsonStr);
+  } catch (e) {
+    if (errEl) { errEl.textContent = 'Invalid JSON — make sure you copied the full message from the bot.'; errEl.style.display = 'block'; }
+    return;
+  }
+
+  if (!data.items && !data.score && !data.name) {
+    if (errEl) { errEl.textContent = 'Data looks incomplete. Use /gamedata in the bot and copy the full response.'; errEl.style.display = 'block'; }
+    return;
+  }
+
+  // Cache it
+  localStorage.setItem(GAMEDATA_KEY, JSON.stringify(data));
+  localStorage.setItem(GAMEDATA_AGE_KEY, Date.now().toString());
+
+  // Apply
+  applyClientData(data);
+
+  // Hide sync banner since we now have data
+  const banner = document.getElementById('sync-banner');
+  if (banner) banner.classList.remove('visible');
+
+  closeModal('paste-modal');
+}
+
+/* ═══════════════════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════════════════ */
 (function init() {
@@ -2459,6 +2967,7 @@ function switchTab(name, btn) {
   buildArmory();
   buildBounties();
   autoCheckBadges();
+  loadClientData();   // load real client data if available / prompt to sync
 
   document.getElementById('cards-count').innerHTML = '';
   document.getElementById('cards-list').innerHTML = `
