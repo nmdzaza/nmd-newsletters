@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ScoreBoost Credit Warrior RPG</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
+
+    :root {
+      --crimson: #DC143C;
+      --crimson-dark: #8B0000;
+      --crimson-glow: rgba(220,20,60,0.4);
+      --gold: #FFD700;
+      --gold-dark: #B8860B;
+      --gold-glow: rgba(255,215,0,0.35);
+      --bg: #0A0A0F;
+      --bg2: #12121A;
+      --bg3: #1A1A26;
+      --bg4: #22223A;
+      --text: #E8E8F0;
+      --text-dim: #888899;
+      --green: #00FF7F;
+      --green-dark: #00A050;
+      --red-hp: #FF3344;
+      --blue: #4488FF;
+      --purple: #9B59B6;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Roboto', sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── SCANLINE OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── PIXEL FONT HELPER ── */
+    .pixel { font-family: 'Press Start 2P', monospace; }
+
+    /* ── LAYOUT ── */
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ── HEADER ── */
+    #header {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      border-bottom: 2px solid var(--crimson);
+      padding: 10px 14px 8px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 20px var(--crimson-glow);
+    }
+    #header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #game-title {
+      font-size: 9px;
+      color: var(--gold);
+      text-shadow: 0 0 10px var(--gold-glow);
+      line-height: 1.4;
+    }
+    #game-subtitle {
+      font-size: 6px;
+      color: var(--crimson);
+      margin-top: 2px;
+    }
+    #header-right {
+      text-align: right;
+    }
+    #player-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    #player-rank-badge {
+      font-size: 8px;
+      color: var(--gold);
+      background: rgba(255,215,0,0.1);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin-top: 3px;
+      display: inline-block;
+    }
+    #header-xp {
+      margin-top: 6px;
+    }
+    #xp-label {
+      font-size: 8px;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3px;
+    }
+    #xp-bar-outer {
+      height: 6px;
+      background: var(--bg4);
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid var(--bg4);
+    }
+    #xp-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, var(--crimson), var(--gold));
+      border-radius: 3px;
+      transition: width 0.5s ease;
+      box-shadow: 0 0 8px var(--crimson-glow);
+    }
+
+    /* ── CONTENT AREA ── */
+    #content {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+    #content::-webkit-scrollbar { width: 4px; }
+    #content::-webkit-scrollbar-track { background: var(--bg); }
+    #content::-webkit-scrollbar-thumb { background: var(--crimson-dark); border-radius: 2px; }
+
+    .tab-section {
+      display: none;
+      padding: 12px;
+      animation: fadeIn 0.2s ease;
+    }
+    .tab-section.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── BOTTOM NAV ── */
+    #bottom-nav {
+      background: var(--bg2);
+      border-top: 2px solid var(--crimson);
+      display: flex;
+      flex-shrink: 0;
+      box-shadow: 0 -2px 20px var(--crimson-glow);
+    }
+    .nav-btn {
+      flex: 1;
+      padding: 10px 4px 8px;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      transition: color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .nav-btn.active {
+      color: var(--gold);
+      background: rgba(255,215,0,0.06);
+    }
+    .nav-btn.active::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 25%; right: 25%;
+      height: 2px;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold-glow);
+    }
+    .nav-btn span.nav-icon { font-size: 18px; }
+    .nav-btn span.nav-label { font-size: 8px; }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-size: 10px;
+      color: var(--gold);
+      text-shadow: 0 0 8px var(--gold-glow);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--crimson-dark);
+      letter-spacing: 1px;
+    }
+
+    /* ════════════════════════════════
+       TAB 1 — BATTLE MAP
+    ════════════════════════════════ */
+
+    /* Enemy cards */
+    .enemy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .enemy-card {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+      position: relative;
+      overflow: hidden;
+    }
+    .enemy-card:active { transform: scale(0.97); }
+    .enemy-card.selected {
+      border-color: var(--crimson);
+      box-shadow: 0 0 12px var(--crimson-glow);
+    }
+    .enemy-card.defeated {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .enemy-card.defeated::after {
+      content: '💀 DEFEATED';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7px;
+      font-family: 'Press Start 2P', monospace;
+      color: var(--green);
+      background: rgba(0,0,0,0.7);
+    }
+    .enemy-icon { font-size: 22px; margin-bottom: 4px; }
+    .enemy-name { font-size: 7px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 6px; }
+    .enemy-hp-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 7px;
+      color: var(--text-dim);
+      margin-bottom: 3px;
+    }
+    .hp-bar-outer {
+      height: 5px;
+      background: var(--bg4);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .hp-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, #FF3344, #FF6644);
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+    .hp-bar-inner.medium { background: linear-gradient(90deg, #FF8800, #FFB800); }
+    .hp-bar-inner.low    { background: linear-gradient(90deg, #00FF7F, #00CC66); }
+    .enemy-type-badge {
+      position: absolute;
+      top: 6px; right: 6px;
+      font-size: 6px;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+    .badge-boss { background: rgba(220,20,60,0.3); color: var(--crimson); border: 1px solid var(--crimson); }
+    .badge-high { background: rgba(255,50,50,0.2); color: #FF6666; }
+    .badge-med  { background: rgba(255,140,0,0.2); color: #FFA040; }
+    .badge-low  { background: rgba(100,200,100,0.2); color: #88FF88; }
+
+    /* Weapons section */
+    .weapons-label {
+      font-size: 8px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .weapons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .weapon-btn {
+      background: linear-gradient(135deg, var(--bg3), var(--bg4));
+      border: 1px solid var(--crimson-dark);
+      border-radius: 8px;
+      padding: 10px 8px;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+      position: relative;
+      overflow: hidden;
+    }
+    .weapon-btn:active { transform: scale(0.96); }
+    .weapon-btn:hover, .weapon-btn:focus {
+      border-color: var(--crimson);
+      box-shadow: 0 0 10px var(--crimson-glow);
+    }
+    .weapon-btn.attacking {
+      animation: attackFlash 0.5s ease;
+    }
+    @keyframes attackFlash {
+      0%   { background: linear-gradient(135deg, var(--bg3), var(--bg4)); box-shadow: none; }
+      30%  { background: linear-gradient(135deg, var(--crimson-dark), #6A0000); box-shadow: 0 0 20px var(--crimson-glow); }
+      100% { background: linear-gradient(135deg, var(--bg3), var(--bg4)); box-shadow: none; }
+    }
+    .weapon-icon { font-size: 18px; display: block; margin-bottom: 5px; }
+    .weapon-name { font-size: 8px; font-weight: 700; color: var(--gold); line-height: 1.3; display: block; }
+    .weapon-price { font-size: 7px; color: var(--text-dim); display: block; margin-top: 3px; }
+    .weapon-xp { font-size: 6px; color: var(--green); display: block; margin-top: 2px; }
+
+    /* Attack popup */
+    #attack-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: linear-gradient(135deg, var(--crimson-dark), var(--bg2));
+      border: 3px solid var(--crimson);
+      border-radius: 12px;
+      padding: 18px 24px;
+      text-align: center;
+      z-index: 1000;
+      pointer-events: none;
+      box-shadow: 0 0 40px var(--crimson-glow);
+    }
+    #attack-popup.show {
+      animation: attackPop 0.8s forwards;
+    }
+    @keyframes attackPop {
+      0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      20%  { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+      40%  { transform: translate(-50%, -50%) scale(0.95); }
+      60%  { transform: translate(-50%, -50%) scale(1.05); }
+      75%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    }
+    #attack-popup .popup-icon { font-size: 36px; }
+    #attack-popup .popup-title {
+      font-size: 11px;
+      color: var(--gold);
+      margin-top: 6px;
+    }
+    #attack-popup .popup-dmg {
+      font-size: 10px;
+      color: var(--red-hp);
+      margin-top: 4px;
+    }
+    #attack-popup .popup-xp {
+      font-size: 9px;
+      color: var(--green);
+      margin-top: 3px;
+    }
+
+    /* Battle log */
+    #battle-log-wrap {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .battle-log-title {
+      font-size: 7px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    #battle-log {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    #battle-log li {
+      font-size: 9px;
+      color: var(--text);
+      padding: 5px 8px;
+      background: var(--bg4);
+      border-radius: 4px;
+      border-left: 3px solid var(--crimson);
+      line-height: 1.4;
+    }
+    #battle-log li .log-time { color: var(--text-dim); font-size: 8px; }
+    #battle-log li.log-victory { border-left-color: var(--gold); }
+    #battle-log li.log-levelup { border-left-color: var(--green); background: rgba(0,255,127,0.07); }
+
+    /* ════════════════════════════════
+       TAB 2 — MY RANK
+    ════════════════════════════════ */
+    .rank-hero {
+      background: linear-gradient(135deg, var(--bg3), var(--bg4));
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 14px;
+      box-shadow: 0 0 20px var(--gold-glow);
+    }
+    .rank-big-icon { font-size: 52px; margin-bottom: 8px; }
+    .rank-big-name {
+      font-size: 11px;
+      color: var(--gold);
+      text-shadow: 0 0 10px var(--gold-glow);
+      margin-bottom: 6px;
+    }
+    .rank-level { font-size: 9px; color: var(--text-dim); margin-bottom: 14px; }
+    .rank-xp-bar-outer {
+      height: 10px;
+      background: var(--bg);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 6px;
+      border: 1px solid var(--bg4);
+    }
+    .rank-xp-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, var(--crimson), var(--gold));
+      border-radius: 5px;
+      transition: width 0.7s ease;
+      box-shadow: 0 0 10px var(--crimson-glow);
+    }
+    .rank-xp-text { font-size: 8px; color: var(--text-dim); }
+
+    .rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+    }
+    .rank-table th {
+      font-size: 7px;
+      color: var(--text-dim);
+      padding: 6px 8px;
+      text-align: left;
+      border-bottom: 1px solid var(--bg4);
+      letter-spacing: 0.5px;
+    }
+    .rank-table td {
+      font-size: 9px;
+      padding: 7px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .rank-table tr.current-rank td {
+      color: var(--gold);
+      background: rgba(255,215,0,0.06);
+    }
+    .rank-table tr.achieved-rank td { color: var(--green); }
+    .rank-table tr.locked-rank td   { color: var(--text-dim); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+    .stat-val { font-size: 14px; font-weight: 700; color: var(--crimson); }
+    .stat-lbl { font-size: 7px; color: var(--text-dim); margin-top: 3px; line-height: 1.3; }
+
+    /* ════════════════════════════════
+       TAB 3 — CARD MATCHER
+    ════════════════════════════════ */
+    .score-input-wrap {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .score-input-label {
+      font-size: 9px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .score-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    #score-input {
+      flex: 1;
+      background: var(--bg4);
+      border: 1px solid var(--crimson-dark);
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 16px;
+      font-family: 'Press Start 2P', monospace;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    #score-input:focus { border-color: var(--crimson); box-shadow: 0 0 8px var(--crimson-glow); }
+    #score-input::placeholder { color: var(--text-dim); font-size: 11px; }
+    #score-filter-btn {
+      background: linear-gradient(135deg, var(--crimson-dark), var(--crimson));
+      border: none;
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 10px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    #score-filter-btn:active { opacity: 0.8; }
+
+    #cards-count {
+      font-size: 9px;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    #cards-count span { color: var(--gold); font-weight: 700; }
+
+    .cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card-item {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.2s;
+    }
+    .card-item:hover { border-color: var(--crimson-dark); }
+    .card-tier-icon { font-size: 22px; flex-shrink: 0; }
+    .card-info { flex: 1; min-width: 0; }
+    .card-name { font-size: 10px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .card-min  { font-size: 8px; color: var(--text-dim); }
+    .card-apply-btn {
+      background: linear-gradient(135deg, var(--crimson-dark), var(--crimson));
+      border: none;
+      border-radius: 6px;
+      padding: 7px 10px;
+      color: #fff;
+      font-size: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      font-weight: 700;
+    }
+    .card-apply-btn:active { opacity: 0.8; }
+    .card-apply-btn:hover  { box-shadow: 0 0 8px var(--crimson-glow); }
+
+    .tier-divider {
+      font-size: 8px;
+      color: var(--gold);
+      padding: 8px 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tier-divider::before, .tier-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--bg4);
+    }
+
+    /* ════════════════════════════════
+       TAB 4 — AUTHORIZED USERS
+    ════════════════════════════════ */
+    .au-intro {
+      font-size: 10px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 14px;
+      background: var(--bg3);
+      border-left: 3px solid var(--gold);
+      padding: 10px 12px;
+      border-radius: 0 8px 8px 0;
+    }
+    .au-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .au-card {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .au-card:hover { border-color: var(--gold-dark); box-shadow: 0 0 10px var(--gold-glow); }
+    .au-icon { font-size: 28px; flex-shrink: 0; }
+    .au-info { flex: 1; min-width: 0; }
+    .au-name { font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 3px; }
+    .au-desc { font-size: 9px; color: var(--text-dim); line-height: 1.4; }
+    .au-price { font-size: 8px; color: var(--green); margin-top: 3px; font-weight: 700; }
+    .au-visit-btn {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      border: none;
+      border-radius: 6px;
+      padding: 8px 10px;
+      color: var(--bg);
+      font-size: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+    .au-visit-btn:active { opacity: 0.8; }
+
+    /* ── LEVEL UP BANNER ── */
+    #levelup-banner {
+      position: fixed;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      z-index: 1001;
+      min-width: 240px;
+      box-shadow: 0 4px 30px var(--gold-glow);
+      transition: top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #levelup-banner.show { top: 70px; }
+    #levelup-banner .lu-icon { font-size: 28px; }
+    #levelup-banner .lu-text { font-size: 10px; color: var(--gold); margin-top: 4px; }
+
+    /* ── MISC HELPERS ── */
+    .divider {
+      height: 1px;
+      background: var(--bg4);
+      margin: 12px 0;
+    }
+    .no-results {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-dim);
+      font-size: 9px;
+      line-height: 1.8;
+    }
+    .no-results span { font-size: 32px; display: block; margin-bottom: 8px; }
+
+    /* ── SELECT ENEMY PROMPT ── */
+    #select-enemy-prompt {
+      background: linear-gradient(135deg, rgba(220,20,60,0.1), rgba(220,20,60,0.05));
+      border: 1px dashed var(--crimson);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 9px;
+      color: var(--crimson);
+      margin-bottom: 10px;
+      text-align: center;
+      display: none;
+    }
+    #select-enemy-prompt.visible { display: block; }
+
+    /* scrollbar firefox */
+    * { scrollbar-width: thin; scrollbar-color: var(--crimson-dark) var(--bg); }
+  </style>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ─── HEADER ─── -->
+  <header id="header">
+    <div id="header-top">
+      <div>
+        <div class="pixel" id="game-title">⚔️ CREDIT WARRIOR</div>
+        <div class="pixel" id="game-subtitle">SCORE BOOST RPG</div>
+      </div>
+      <div id="header-right">
+        <div id="player-name">Loading…</div>
+        <div id="player-rank-badge">🪨 Broke Peasant</div>
+      </div>
+    </div>
+    <div id="header-xp">
+      <div id="xp-label">
+        <span id="xp-text">XP: 0</span>
+        <span id="level-text">LVL 1</span>
+      </div>
+      <div id="xp-bar-outer">
+        <div id="xp-bar-inner" style="width:0%"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── CONTENT ─── -->
+  <main id="content">
+
+    <!-- ══════════ TAB 1: BATTLE MAP ══════════ -->
+    <section id="tab-battle" class="tab-section active">
+      <div class="pixel section-title">⚔️ BATTLE MAP</div>
+
+      <div id="select-enemy-prompt" class="pixel">TAP AN ENEMY TO TARGET IT FIRST!</div>
+
+      <!-- Enemies -->
+      <div class="enemy-grid" id="enemy-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Weapons -->
+      <div class="pixel weapons-label">SELECT YOUR WEAPON</div>
+      <div class="weapons-grid" id="weapons-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Battle Log -->
+      <div id="battle-log-wrap">
+        <div class="pixel battle-log-title">📜 BATTLE LOG</div>
+        <ul id="battle-log">
+          <li>🎮 Game started. Select an enemy and attack!</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════ TAB 2: MY RANK ══════════ -->
+    <section id="tab-rank" class="tab-section">
+      <div class="pixel section-title">📊 MY RANK</div>
+
+      <div class="rank-hero">
+        <div class="rank-big-icon" id="rank-big-icon">🪨</div>
+        <div class="pixel rank-big-name" id="rank-big-name">BROKE PEASANT</div>
+        <div class="pixel rank-level" id="rank-level-display">LEVEL 1 · 0 XP TOTAL</div>
+        <div class="rank-xp-bar-outer">
+          <div class="rank-xp-bar-inner" id="rank-xp-bar" style="width:0%"></div>
+        </div>
+        <div class="rank-xp-text" id="rank-xp-text">0 / 500 XP to Level 2</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val pixel" id="stat-attacks">0</div>
+          <div class="stat-lbl">Attacks Launched</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val pixel" id="stat-enemies">0</div>
+          <div class="stat-lbl">Enemies Defeated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val pixel" id="stat-level">1</div>
+          <div class="stat-lbl">Current Level</div>
+        </div>
+      </div>
+
+      <!-- Rank table -->
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th>RANK</th>
+            <th>SCORE RANGE</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody id="rank-table-body"></tbody>
+      </table>
+    </section>
+
+    <!-- ══════════ TAB 3: CARD MATCHER ══════════ -->
+    <section id="tab-cards" class="tab-section">
+      <div class="pixel section-title">💳 CARD MATCHER</div>
+
+      <div class="score-input-wrap">
+        <label class="pixel score-input-label" for="score-input">ENTER YOUR CREDIT SCORE</label>
+        <div class="score-input-row">
+          <input
+            type="number"
+            id="score-input"
+            placeholder="e.g. 650"
+            min="300"
+            max="850"
+            inputmode="numeric"
+          />
+          <button id="score-filter-btn" onclick="filterCards()">FIND</button>
+        </div>
+      </div>
+
+      <div id="cards-count" class="pixel"></div>
+      <div id="cards-list" class="cards-grid"></div>
+    </section>
+
+    <!-- ══════════ TAB 4: AUTHORIZED USERS ══════════ -->
+    <section id="tab-au" class="tab-section">
+      <div class="pixel section-title">👥 AUTHORIZED USERS</div>
+
+      <div class="au-intro">
+        Becoming an authorized user on an established account can boost your score 20–100+ points fast. These platforms connect you with tradeline sellers or credit-builder products.
+      </div>
+
+      <div class="au-grid" id="au-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── BOTTOM NAV ─── -->
+  <nav id="bottom-nav">
+    <button class="nav-btn active pixel" onclick="switchTab('battle', this)">
+      <span class="nav-icon">⚔️</span>
+      <span class="nav-label">BATTLE</span>
+    </button>
+    <button class="nav-btn pixel" onclick="switchTab('rank', this)">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">RANK</span>
+    </button>
+    <button class="nav-btn pixel" onclick="switchTab('cards', this)">
+      <span class="nav-icon">💳</span>
+      <span class="nav-label">CARDS</span>
+    </button>
+    <button class="nav-btn pixel" onclick="switchTab('au', this)">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">AU</span>
+    </button>
+  </nav>
+
+</div>
+
+<!-- Attack popup -->
+<div id="attack-popup">
+  <div class="popup-icon" id="popup-icon">⚔️</div>
+  <div class="pixel popup-title" id="popup-title">ATTACK!</div>
+  <div class="pixel popup-dmg" id="popup-dmg">-20 HP</div>
+  <div class="pixel popup-xp" id="popup-xp">+50 XP</div>
+</div>
+
+<!-- Level up banner -->
+<div id="levelup-banner">
+  <div class="lu-icon">🎉</div>
+  <div class="pixel lu-text" id="lu-text">LEVEL UP! → LVL 2</div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════════════════ */
+
+const RANKS = [
+  { name: 'Broke Peasant',    icon: '🪨', min: 300, max: 499 },
+  { name: 'Credit Apprentice',icon: '🗡️', min: 500, max: 579 },
+  { name: 'Credit Warrior',   icon: '⚔️', min: 580, max: 669 },
+  { name: 'Credit Knight',    icon: '🛡️', min: 670, max: 719 },
+  { name: 'Credit Lord',      icon: '👑', min: 720, max: 759 },
+  { name: 'Diamond Elite',    icon: '💎', min: 760, max: 799 },
+  { name: 'Credit Legend',    icon: '🌟', min: 800, max: 850 },
+];
+
+const WEAPONS = [
+  { icon: '⚔️',  name: 'Dispute Center',    link: 'dispute',    price: 'Free',     dmg: 20 },
+  { icon: '🧮',  name: 'Settlement Calc',   link: 'settlement', price: '$15/debt', dmg: 18 },
+  { icon: '📞',  name: 'Better Call (FDCPA)',link: 'debtval',    price: '$5',       dmg: 15 },
+  { icon: '⚖️',  name: 'Intent to Sue',     link: 'intent',     price: '$15',      dmg: 25 },
+  { icon: '💳',  name: 'Card Matcher',       link: 'card_match', price: '$15',      dmg: 12 },
+  { icon: '🕵️', name: 'Creditor Intel',     link: 'intel',      price: '$10',      dmg: 14 },
+  { icon: '📦',  name: 'Success Packet',     link: 'packet',     price: '$15',      dmg: 22 },
+  { icon: '🤝',  name: 'Goodwill Letters',   link: 'goodwill',   price: '$5',       dmg: 10 },
+];
+
+const ENEMY_TEMPLATES = [
+  { icon: '💀', name: 'Collection Account', tier: 'boss', badge: 'badge-boss', maxHp: 80,  xpReward: 100 },
+  { icon: '📉', name: 'Late Payment',        tier: 'high', badge: 'badge-high', maxHp: 50,  xpReward: 80  },
+  { icon: '👁️', name: 'Hard Inquiry',        tier: 'low',  badge: 'badge-low',  maxHp: 30,  xpReward: 60  },
+  { icon: '⚠️', name: 'Public Record',       tier: 'boss', badge: 'badge-boss', maxHp: 120, xpReward: 150 },
+  { icon: '📊', name: 'High Utilization',    tier: 'med',  badge: 'badge-med',  maxHp: 60,  xpReward: 90  },
+];
+
+const CARDS = [
+  // Bad credit 300+
+  { name: 'Chime Credit Builder',          url: 'https://www.chime.com/credit-builder',                        minScore: 300, tier: 'bad'   },
+  { name: 'OpenSky Secured Visa',          url: 'https://www.openskycc.com',                                   minScore: 300, tier: 'bad'   },
+  { name: 'Self Credit Builder',           url: 'https://www.self.inc',                                        minScore: 300, tier: 'bad'   },
+  { name: 'Kikoff Credit',                 url: 'https://www.kikoff.com',                                      minScore: 300, tier: 'bad'   },
+  { name: 'Capital One Secured Mastercard',url: 'https://www.capitalone.com',                                  minScore: 300, tier: 'bad'   },
+  { name: 'First Progress Platinum',       url: 'https://www.firstprogress.com',                               minScore: 300, tier: 'bad'   },
+  { name: 'Applied Bank Secured',          url: 'https://www.appliedbank.com',                                 minScore: 300, tier: 'bad'   },
+  { name: 'Indigo Mastercard',             url: 'https://www.indigoapply.com',                                 minScore: 300, tier: 'bad'   },
+  { name: 'Total Visa',                    url: 'https://www.totalcard.net',                                   minScore: 300, tier: 'bad'   },
+  { name: 'Surge Mastercard',              url: 'https://www.surgecardinfo.com',                               minScore: 300, tier: 'bad'   },
+  { name: 'Credit One Bank Unsecured',     url: 'https://www.creditonebank.com',                               minScore: 300, tier: 'bad'   },
+  { name: 'Reflex Mastercard',             url: 'https://www.reflextcardinfo.com',                             minScore: 300, tier: 'bad'   },
+  { name: 'Milestone Mastercard',          url: 'https://www.milestonemastercard.com',                         minScore: 300, tier: 'bad'   },
+  { name: 'Fingerhut',                     url: 'https://www.fingerhut.com',                                   minScore: 300, tier: 'bad'   },
+  { name: 'Mission Lane Visa',             url: 'https://www.missionlanecard.com',                             minScore: 300, tier: 'bad'   },
+  // Fair credit 580+
+  { name: 'Petal 1 Visa',                  url: 'https://www.petalcard.com',                                   minScore: 580, tier: 'fair'  },
+  { name: 'Discover it Secured',           url: 'https://www.discover.com/credit-cards/secured',               minScore: 580, tier: 'fair'  },
+  { name: 'Capital One Quicksilver Secured',url:'https://www.capitalone.com',                                  minScore: 580, tier: 'fair'  },
+  { name: 'Avant Credit Card',             url: 'https://www.avant.com',                                       minScore: 580, tier: 'fair'  },
+  { name: 'Deserve Edu',                   url: 'https://www.deserve.com',                                     minScore: 580, tier: 'fair'  },
+  { name: 'Merrick Bank Secured',          url: 'https://www.merrickbank.com',                                 minScore: 580, tier: 'fair'  },
+  { name: 'Navy Federal CU Secured',       url: 'https://www.navyfederal.org',                                 minScore: 580, tier: 'fair'  },
+  { name: 'First Tech CU',                 url: 'https://www.firsttechfed.com',                                minScore: 580, tier: 'fair'  },
+  { name: 'DCU Visa Platinum Secured',     url: 'https://www.dcu.org',                                        minScore: 580, tier: 'fair'  },
+  { name: 'MoneyLion',                     url: 'https://www.moneylion.com',                                   minScore: 580, tier: 'fair'  },
+  // Good credit 670+
+  { name: 'Capital One Venture',           url: 'https://www.capitalone.com/venture',                          minScore: 670, tier: 'good'  },
+  { name: 'Citi Double Cash',              url: 'https://www.citicards.com',                                   minScore: 670, tier: 'good'  },
+  { name: 'Chase Freedom Flex',            url: 'https://www.chase.com',                                       minScore: 670, tier: 'good'  },
+  { name: 'Discover it Cash Back',         url: 'https://www.discover.com',                                    minScore: 670, tier: 'good'  },
+  { name: 'Wells Fargo Active Cash',       url: 'https://www.wellsfargo.com',                                  minScore: 670, tier: 'good'  },
+  { name: 'Amex Blue Cash Everyday',       url: 'https://www.americanexpress.com',                             minScore: 670, tier: 'good'  },
+  { name: 'BofA Cash Rewards',             url: 'https://www.bankofamerica.com',                               minScore: 670, tier: 'good'  },
+  { name: 'US Bank Cash+',                 url: 'https://www.usbank.com',                                      minScore: 670, tier: 'good'  },
+  { name: 'PNC Cash Rewards',              url: 'https://www.pnc.com',                                         minScore: 670, tier: 'good'  },
+  { name: 'Synchrony Premier',             url: 'https://www.synchrony.com',                                   minScore: 670, tier: 'good'  },
+  // Great credit 720+
+  { name: 'Chase Sapphire Preferred',      url: 'https://www.chase.com/sapphire',                              minScore: 720, tier: 'great' },
+  { name: 'Capital One Venture X',         url: 'https://www.capitalone.com',                                  minScore: 720, tier: 'great' },
+  { name: 'Citi Premier',                  url: 'https://www.citicards.com',                                   minScore: 720, tier: 'great' },
+  { name: 'American Express Gold',         url: 'https://www.americanexpress.com',                             minScore: 720, tier: 'great' },
+  { name: 'Barclays Arrival+',             url: 'https://www.barclaycardus.com',                               minScore: 720, tier: 'great' },
+  { name: 'HSBC Cash Rewards',             url: 'https://www.us.hsbc.com',                                     minScore: 720, tier: 'great' },
+  { name: 'Bread Cashback',                url: 'https://www.breadfinancial.com',                              minScore: 720, tier: 'great' },
+  { name: 'PayPal Cashback Mastercard',    url: 'https://www.paypal.com',                                      minScore: 720, tier: 'great' },
+  { name: 'TD Cash Credit Card',           url: 'https://www.td.com',                                          minScore: 720, tier: 'great' },
+  { name: 'Ally Platinum',                 url: 'https://www.ally.com',                                        minScore: 720, tier: 'great' },
+  // Elite 760+
+  { name: 'Chase Sapphire Reserve',        url: 'https://www.chase.com/sapphire-reserve',                      minScore: 760, tier: 'elite' },
+  { name: 'American Express Platinum',     url: 'https://www.americanexpress.com/platinum',                    minScore: 760, tier: 'elite' },
+  { name: 'Amex Centurion (Black)',        url: 'https://www.americanexpress.com',                             minScore: 760, tier: 'elite' },
+  { name: 'Citi Prestige',                 url: 'https://www.citicards.com',                                   minScore: 760, tier: 'elite' },
+  { name: 'World of Hyatt Card',           url: 'https://www.chase.com',                                       minScore: 760, tier: 'elite' },
+  { name: 'Chase Ink Business Preferred',  url: 'https://www.chase.com',                                       minScore: 760, tier: 'elite' },
+  { name: 'Capital One Spark Cash',        url: 'https://www.capitalone.com',                                  minScore: 760, tier: 'elite' },
+  { name: 'Marriott Bonvoy Brilliant',     url: 'https://www.americanexpress.com',                             minScore: 760, tier: 'elite' },
+  { name: 'Hilton Honors Aspire',          url: 'https://www.americanexpress.com',                             minScore: 760, tier: 'elite' },
+  { name: 'Goldman Sachs Platinum',        url: 'https://www.goldmansachs.com',                                minScore: 760, tier: 'elite' },
+];
+
+const TIER_META = {
+  bad:   { label: '🪨 Bad Credit (300–579)',   icon: '🪨' },
+  fair:  { label: '🗡️ Fair Credit (580–669)',  icon: '🗡️' },
+  good:  { label: '⚔️ Good Credit (670–719)',  icon: '⚔️' },
+  great: { label: '🛡️ Great Credit (720–759)', icon: '🛡️' },
+  elite: { label: '💎 Elite Credit (760+)',     icon: '💎' },
+};
+
+const AU_PLATFORMS = [
+  {
+    icon: '📈',
+    name: 'TradelineSupply.com',
+    desc: 'Largest tradeline marketplace. Add seasoned accounts to your report instantly.',
+    price: '$200 – $1,500 per tradeline',
+    url: 'https://www.tradelinesupply.com',
+  },
+  {
+    icon: '🚀',
+    name: 'BoostCredit101.com',
+    desc: 'Tradelines for any score level — even deep subprime. Fast posting.',
+    price: 'Varies by account age',
+    url: 'https://www.boostcredit101.com',
+  },
+  {
+    icon: '⚡',
+    name: 'Experian Boost',
+    desc: 'FREE — link utility, streaming & phone bills to your Experian report for instant points.',
+    price: 'Free',
+    url: 'https://www.experian.com/consumer-products/score-boost.html',
+  },
+  {
+    icon: '🏦',
+    name: 'Self.inc',
+    desc: 'Credit-builder loan that reports to all 3 bureaus. Build credit while saving money.',
+    price: '$25 – $150/mo plans',
+    url: 'https://www.self.inc',
+  },
+  {
+    icon: '💰',
+    name: 'Kikoff',
+    desc: '$750 revolving credit line. Reports to bureaus. Only $5/mo — no hard pull.',
+    price: '$5/month',
+    url: 'https://www.kikoff.com',
+  },
+  {
+    icon: '🦁',
+    name: 'MoneyLion',
+    desc: 'Credit builder plus savings account. Reports to all 3 bureaus. No hard pull.',
+    price: '$19.99/mo',
+    url: 'https://www.moneylion.com',
+  },
+];
+
+/* ═══════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════ */
+const TG = window.Telegram?.WebApp;
+const userId = TG?.initDataUnsafe?.user?.id || 'guest';
+const XP_KEY  = `scoreBoostXP_${userId}`;
+const STAT_KEY = `scoreBoostStats_${userId}`;
+
+let state = {
+  xp: parseInt(localStorage.getItem(XP_KEY) || '0'),
+  stats: JSON.parse(localStorage.getItem(STAT_KEY) || '{"attacks":0,"enemies":0}'),
+  enemies: ENEMY_TEMPLATES.map(e => ({ ...e, hp: e.maxHp })),
+  selectedEnemy: null,
+  battleLog: [],
+};
+
+function saveState() {
+  localStorage.setItem(XP_KEY, state.xp);
+  localStorage.setItem(STAT_KEY, JSON.stringify(state.stats));
+}
+
+/* ═══════════════════════════════════════════════════════
+   TELEGRAM INIT
+═══════════════════════════════════════════════════════ */
+(function initTG() {
+  if (TG) {
+    TG.ready();
+    TG.expand();
+    TG.setHeaderColor('#0A0A0F');
+    TG.setBackgroundColor('#0A0A0F');
+  }
+  const user = TG?.initDataUnsafe?.user;
+  const name = user?.first_name || 'Warrior';
+  document.getElementById('player-name').textContent = `${name}`;
+})();
+
+/* ═══════════════════════════════════════════════════════
+   XP / LEVEL / RANK
+═══════════════════════════════════════════════════════ */
+function getLevel(xp) { return Math.floor(xp / 500) + 1; }
+function getXpInLevel(xp) { return xp % 500; }
+function getRankFromScore(score) {
+  for (let i = RANKS.length - 1; i >= 0; i--) {
+    if (score >= RANKS[i].min) return RANKS[i];
+  }
+  return RANKS[0];
+}
+function getRankFromXP(xp) {
+  // map level to rank index roughly
+  const level = getLevel(xp);
+  const idx = Math.min(Math.floor((level - 1) / 2), RANKS.length - 1);
+  return RANKS[idx];
+}
+
+function addXP(amount, silent = false) {
+  const oldLevel = getLevel(state.xp);
+  state.xp += amount;
+  saveState();
+  const newLevel = getLevel(state.xp);
+  updateHeader();
+  if (!silent && newLevel > oldLevel) {
+    showLevelUp(newLevel);
+  }
+}
+
+function updateHeader() {
+  const level = getLevel(state.xp);
+  const pct   = (getXpInLevel(state.xp) / 500) * 100;
+  const rank  = getRankFromXP(state.xp);
+
+  document.getElementById('xp-text').textContent    = `XP: ${state.xp}`;
+  document.getElementById('level-text').textContent = `LVL ${level}`;
+  document.getElementById('xp-bar-inner').style.width = pct + '%';
+  document.getElementById('player-rank-badge').textContent = `${rank.icon} ${rank.name}`;
+
+  // also update rank tab
+  document.getElementById('rank-big-icon').textContent = rank.icon;
+  document.getElementById('rank-big-name').textContent  = rank.name.toUpperCase();
+  document.getElementById('rank-level-display').textContent = `LEVEL ${level} · ${state.xp} XP TOTAL`;
+  document.getElementById('rank-xp-bar').style.width   = pct + '%';
+  document.getElementById('rank-xp-text').textContent  = `${getXpInLevel(state.xp)} / 500 XP to Level ${level + 1}`;
+  document.getElementById('stat-attacks').textContent  = state.stats.attacks;
+  document.getElementById('stat-enemies').textContent  = state.stats.enemies;
+  document.getElementById('stat-level').textContent    = level;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RANK TABLE
+═══════════════════════════════════════════════════════ */
+function buildRankTable() {
+  const tbody = document.getElementById('rank-table-body');
+  const currentRank = getRankFromXP(state.xp);
+  tbody.innerHTML = '';
+  RANKS.forEach(r => {
+    const tr = document.createElement('tr');
+    const isCurrent = r.name === currentRank.name;
+    const isAchieved = RANKS.indexOf(r) < RANKS.indexOf(currentRank);
+    tr.className = isCurrent ? 'current-rank' : isAchieved ? 'achieved-rank' : 'locked-rank';
+    tr.innerHTML = `
+      <td>${r.icon} ${r.name}</td>
+      <td>${r.min}–${r.max}</td>
+      <td>${isCurrent ? '▶ YOU ARE HERE' : isAchieved ? '✓ ACHIEVED' : '🔒 LOCKED'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════
+   ENEMIES
+═══════════════════════════════════════════════════════ */
+function buildEnemies() {
+  const grid = document.getElementById('enemy-grid');
+  grid.innerHTML = '';
+  state.enemies.forEach((e, i) => {
+    const pct     = (e.hp / e.maxHp) * 100;
+    const hpClass = pct > 60 ? '' : pct > 25 ? 'medium' : 'low';
+    const defeated = e.hp <= 0;
+    const selected  = state.selectedEnemy === i;
+    const div = document.createElement('div');
+    div.className = `enemy-card${selected ? ' selected' : ''}${defeated ? ' defeated' : ''}`;
+    div.dataset.idx = i;
+    div.onclick = () => selectEnemy(i);
+    div.innerHTML = `
+      <span class="enemy-type-badge ${e.badge}">${e.tier.toUpperCase()}</span>
+      <div class="enemy-icon">${e.icon}</div>
+      <div class="enemy-name">${e.name}</div>
+      <div class="enemy-hp-label">
+        <span>HP</span>
+        <span>${Math.max(0,e.hp)}/${e.maxHp}</span>
+      </div>
+      <div class="hp-bar-outer">
+        <div class="hp-bar-inner ${hpClass}" style="width:${pct}%"></div>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function selectEnemy(idx) {
+  if (state.enemies[idx].hp <= 0) return;
+  state.selectedEnemy = idx;
+  document.getElementById('select-enemy-prompt').classList.remove('visible');
+  buildEnemies();
+}
+
+/* ═══════════════════════════════════════════════════════
+   WEAPONS
+═══════════════════════════════════════════════════════ */
+function buildWeapons() {
+  const grid = document.getElementById('weapons-grid');
+  grid.innerHTML = '';
+  WEAPONS.forEach((w, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'weapon-btn';
+    btn.dataset.idx = i;
+    btn.innerHTML = `
+      <span class="weapon-icon">${w.icon}</span>
+      <span class="weapon-name">${w.name}</span>
+      <span class="weapon-price">${w.price}</span>
+      <span class="weapon-xp">+50 XP</span>
+    `;
+    btn.onclick = () => useWeapon(i, btn);
+    grid.appendChild(btn);
+  });
+}
+
+function useWeapon(weaponIdx, btn) {
+  const w = WEAPONS[weaponIdx];
+
+  // If no enemy selected, show prompt then open link
+  if (state.selectedEnemy === null) {
+    document.getElementById('select-enemy-prompt').classList.add('visible');
+    // Still grant XP and open bot link
+    gainXpAndOpen(w, weaponIdx, btn, null);
+    return;
+  }
+
+  const eIdx = state.selectedEnemy;
+  if (state.enemies[eIdx].hp <= 0) {
+    // auto-select next alive
+    const nextAlive = state.enemies.findIndex((e, i) => e.hp > 0 && i !== eIdx);
+    state.selectedEnemy = nextAlive >= 0 ? nextAlive : null;
+    buildEnemies();
+    if (state.selectedEnemy === null) {
+      document.getElementById('select-enemy-prompt').classList.add('visible');
+    }
+  }
+
+  gainXpAndOpen(w, weaponIdx, btn, state.selectedEnemy !== null ? state.selectedEnemy : null);
+}
+
+function gainXpAndOpen(w, weaponIdx, btn, eIdx) {
+  // Apply damage
+  let defeated = false;
+  if (eIdx !== null) {
+    const e = state.enemies[eIdx];
+    const dmg = w.dmg + Math.floor(Math.random() * 8);
+    e.hp = Math.max(0, e.hp - dmg);
+    if (e.hp <= 0) {
+      defeated = true;
+      state.stats.enemies++;
+      addXP(e.xpReward);
+      addBattleLog(`💀 ${e.name} DEFEATED! +${e.xpReward} XP`, 'log-victory');
+      // auto-advance selection
+      const next = state.enemies.findIndex((en, i) => en.hp > 0);
+      state.selectedEnemy = next >= 0 ? next : null;
+    }
+    showAttackPopup(w.icon, w.name, dmg, 50);
+    addBattleLog(`${w.icon} ${w.name} dealt ${dmg} damage to ${e.name}`);
+  } else {
+    showAttackPopup(w.icon, w.name, 0, 50);
+    addBattleLog(`${w.icon} ${w.name} launched! (no target selected)`);
+  }
+
+  // XP for weapon use
+  addXP(50);
+  state.stats.attacks++;
+  saveState();
+
+  // Button animation
+  btn.classList.add('attacking');
+  setTimeout(() => btn.classList.remove('attacking'), 500);
+
+  // Rebuild enemies
+  buildEnemies();
+  updateHeader();
+  buildRankTable();
+
+  // Open bot deep link (slight delay for UX)
+  setTimeout(() => {
+    const url = `https://t.me/ScoreBoostByNMDBot?start=${w.link}`;
+    if (TG) {
+      TG.openTelegramLink(url);
+    } else {
+      window.open(url, '_blank');
+    }
+  }, 600);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ATTACK POPUP
+═══════════════════════════════════════════════════════ */
+function showAttackPopup(icon, name, dmg, xp) {
+  const popup = document.getElementById('attack-popup');
+  document.getElementById('popup-icon').textContent  = icon;
+  document.getElementById('popup-title').textContent = '⚔️ ATTACK!';
+  document.getElementById('popup-dmg').textContent   = dmg > 0 ? `-${dmg} HP` : 'NO TARGET';
+  document.getElementById('popup-xp').textContent    = `+${xp} XP`;
+  popup.classList.remove('show');
+  void popup.offsetWidth; // reflow
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 800);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LEVEL UP BANNER
+═══════════════════════════════════════════════════════ */
+function showLevelUp(newLevel) {
+  const banner = document.getElementById('levelup-banner');
+  document.getElementById('lu-text').textContent = `LEVEL UP! → LVL ${newLevel}`;
+  banner.classList.add('show');
+  setTimeout(() => banner.classList.remove('show'), 2800);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BATTLE LOG
+═══════════════════════════════════════════════════════ */
+function addBattleLog(msg, cls = '') {
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+  state.battleLog.unshift({ msg, cls, time: timeStr });
+  if (state.battleLog.length > 3) state.battleLog.pop();
+  renderBattleLog();
+}
+
+function renderBattleLog() {
+  const ul = document.getElementById('battle-log');
+  ul.innerHTML = '';
+  state.battleLog.forEach(entry => {
+    const li = document.createElement('li');
+    li.className = entry.cls;
+    li.innerHTML = `${entry.msg} <span class="log-time">${entry.time}</span>`;
+    ul.appendChild(li);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════
+   CARD MATCHER
+═══════════════════════════════════════════════════════ */
+function filterCards() {
+  const input = document.getElementById('score-input');
+  const score = parseInt(input.value);
+  const list  = document.getElementById('cards-list');
+  const count = document.getElementById('cards-count');
+
+  if (isNaN(score) || score < 300 || score > 850) {
+    count.innerHTML = '';
+    list.innerHTML = `
+      <div class="no-results">
+        <span>🎯</span>
+        Enter a score between 300 and 850 to see your matched cards.
+      </div>`;
+    return;
+  }
+
+  const matched = CARDS.filter(c => score >= c.minScore);
+  count.innerHTML = `Showing <span>${matched.length}</span> cards for score <span>${score}</span>`;
+
+  if (matched.length === 0) {
+    list.innerHTML = `<div class="no-results"><span>😬</span>No cards matched. Try a different score.</div>`;
+    return;
+  }
+
+  // Group by tier (only show tiers relevant)
+  const tierOrder = ['bad', 'fair', 'good', 'great', 'elite'];
+  const groups = {};
+  matched.forEach(c => {
+    if (!groups[c.tier]) groups[c.tier] = [];
+    groups[c.tier].push(c);
+  });
+
+  list.innerHTML = '';
+  tierOrder.forEach(tier => {
+    if (!groups[tier]) return;
+    const div = document.createElement('div');
+    div.innerHTML = `<div class="tier-divider pixel">${TIER_META[tier].label}</div>`;
+    list.appendChild(div);
+    groups[tier].forEach(card => {
+      const item = document.createElement('div');
+      item.className = 'card-item';
+      item.innerHTML = `
+        <div class="card-tier-icon">${TIER_META[tier].icon}</div>
+        <div class="card-info">
+          <div class="card-name">${card.name}</div>
+          <div class="card-min">Min score: ${card.minScore}+</div>
+        </div>
+        <button class="card-apply-btn" onclick="applyCard('${card.url}')">APPLY</button>
+      `;
+      list.appendChild(item);
+    });
+  });
+}
+
+function applyCard(url) {
+  if (TG) {
+    TG.openLink(url);
+  } else {
+    window.open(url, '_blank');
+  }
+}
+
+// Also filter on Enter key
+document.getElementById('score-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') filterCards();
+});
+
+/* ═══════════════════════════════════════════════════════
+   AUTHORIZED USERS
+═══════════════════════════════════════════════════════ */
+function buildAU() {
+  const grid = document.getElementById('au-grid');
+  grid.innerHTML = '';
+  AU_PLATFORMS.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'au-card';
+    card.innerHTML = `
+      <div class="au-icon">${p.icon}</div>
+      <div class="au-info">
+        <div class="au-name">${p.name}</div>
+        <div class="au-desc">${p.desc}</div>
+        <div class="au-price">${p.price}</div>
+      </div>
+      <button class="au-visit-btn" onclick="visitAU('${p.url}')">VISIT</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function visitAU(url) {
+  if (TG) {
+    TG.openLink(url);
+  } else {
+    window.open(url, '_blank');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   TAB SWITCHING
+═══════════════════════════════════════════════════════ */
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`tab-${name}`).classList.add('active');
+  btn.classList.add('active');
+  // Scroll content to top
+  document.getElementById('content').scrollTop = 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════ */
+(function init() {
+  buildEnemies();
+  buildWeapons();
+  buildAU();
+  buildRankTable();
+  updateHeader();
+
+  // Show initial card state
+  document.getElementById('cards-count').innerHTML = '';
+  document.getElementById('cards-list').innerHTML = `
+    <div class="no-results">
+      <span>💳</span>
+      Enter your credit score above<br>to see cards you qualify for.
+    </div>`;
+})();
+</script>
+</body>
+</html>
