@@ -164,11 +164,15 @@
       border-top: 2px solid var(--crimson);
       display: flex;
       flex-shrink: 0;
+      overflow-x: auto;
       box-shadow: 0 -2px 20px var(--crimson-glow);
+      -webkit-overflow-scrolling: touch;
     }
+    #bottom-nav::-webkit-scrollbar { display: none; }
     .nav-btn {
-      flex: 1;
-      padding: 10px 4px 8px;
+      flex: 0 0 auto;
+      min-width: 60px;
+      padding: 10px 6px 8px;
       background: none;
       border: none;
       color: var(--text-dim);
@@ -193,7 +197,7 @@
       box-shadow: 0 0 8px var(--gold-glow);
     }
     .nav-btn span.nav-icon { font-size: 18px; }
-    .nav-btn span.nav-label { font-size: 8px; }
+    .nav-btn span.nav-label { font-size: 7px; white-space: nowrap; }
 
     /* ── SECTION TITLES ── */
     .section-title {
@@ -634,6 +638,268 @@
     }
     .au-visit-btn:active { opacity: 0.8; }
 
+    /* ════════════════════════════════
+       TAB 5 — WAR ROOM
+    ════════════════════════════════ */
+    .war-room-add-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--crimson-dark), var(--crimson));
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      color: #fff;
+      font-size: 9px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 10px var(--crimson-glow);
+    }
+    .war-room-add-btn:active { opacity: 0.8; }
+
+    .bureau-fortress {
+      margin-bottom: 16px;
+    }
+    .bureau-header {
+      font-size: 9px;
+      color: var(--gold);
+      font-family: 'Press Start 2P', monospace;
+      padding: 8px 10px;
+      background: var(--bg3);
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--bg4);
+      border-bottom: 2px solid var(--crimson);
+    }
+    .bureau-body {
+      background: var(--bg2);
+      border: 1px solid var(--bg4);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 54px;
+    }
+    .bureau-empty {
+      font-size: 8px;
+      color: var(--text-dim);
+      text-align: center;
+      padding: 10px;
+    }
+    .quest-card {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 10px;
+      transition: border-color 0.2s;
+    }
+    .quest-card:hover { border-color: var(--crimson-dark); }
+    .quest-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .quest-item-name {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text);
+      flex: 1;
+      margin-right: 8px;
+    }
+    .quest-type-badge {
+      font-size: 6px;
+      padding: 2px 5px;
+      border-radius: 3px;
+      background: rgba(220,20,60,0.2);
+      color: var(--crimson);
+      border: 1px solid var(--crimson-dark);
+      white-space: nowrap;
+    }
+    .quest-stage-track {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .stage-pip {
+      font-size: 12px;
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+    .stage-pip.done { opacity: 1; }
+    .stage-pip.active { opacity: 1; filter: drop-shadow(0 0 4px var(--gold)); }
+    .quest-status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .quest-status-text {
+      font-size: 8px;
+      color: var(--text-dim);
+    }
+    .quest-status-text.verdict-deleted { color: var(--green); }
+    .quest-status-text.verdict-verified { color: var(--red-hp); }
+    .quest-status-text.verdict-updated  { color: var(--gold); }
+    .quest-update-btn {
+      background: linear-gradient(135deg, var(--bg4), var(--bg3));
+      border: 1px solid var(--crimson-dark);
+      border-radius: 5px;
+      padding: 4px 8px;
+      color: var(--text);
+      font-size: 7px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .quest-update-btn:hover { border-color: var(--crimson); }
+
+    /* ════════════════════════════════
+       TAB 6 — ARMORY
+    ════════════════════════════════ */
+    .badges-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .badge-card {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 10px;
+      padding: 12px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.1s, box-shadow 0.2s;
+      position: relative;
+    }
+    .badge-card:active { transform: scale(0.96); }
+    .badge-card.unlocked {
+      border-color: var(--gold-dark);
+      box-shadow: 0 0 8px var(--gold-glow);
+    }
+    .badge-card.locked {
+      opacity: 0.45;
+      filter: grayscale(0.6);
+    }
+    .badge-card-icon { font-size: 26px; margin-bottom: 5px; }
+    .badge-card-name { font-size: 6px; color: var(--gold); line-height: 1.4; font-family: 'Press Start 2P', monospace; }
+    .badge-card-lock { font-size: 14px; position: absolute; top: 6px; right: 6px; }
+    .badge-card.unlocked .badge-card-lock { display: none; }
+    .badge-xp-chip {
+      font-size: 6px;
+      color: var(--green);
+      margin-top: 3px;
+    }
+    .armory-summary {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .armory-summary-label { font-size: 9px; color: var(--text-dim); }
+    .armory-summary-val { font-size: 13px; font-weight: 700; color: var(--gold); font-family: 'Press Start 2P', monospace; }
+
+    /* ════════════════════════════════
+       TAB 7 — WEEKLY BOUNTIES
+    ════════════════════════════════ */
+    .bounty-progress-wrap {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+    .bounty-progress-text {
+      font-size: 9px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .bounty-progress-text span { color: var(--gold); font-weight: 700; }
+    .bounty-bar-outer {
+      height: 8px;
+      background: var(--bg4);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bounty-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, var(--crimson), var(--gold));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .bounty-week-label {
+      font-size: 7px;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+    .bounty-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .bounty-item {
+      background: var(--bg3);
+      border: 1px solid var(--bg4);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s, opacity 0.2s;
+    }
+    .bounty-item.completed {
+      opacity: 0.65;
+      border-color: var(--green-dark);
+    }
+    .bounty-item:active { transform: scale(0.98); }
+    .bounty-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--crimson);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .bounty-item.completed .bounty-checkbox {
+      background: var(--green-dark);
+      border-color: var(--green);
+    }
+    .bounty-info { flex: 1; min-width: 0; }
+    .bounty-text {
+      font-size: 10px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .bounty-item.completed .bounty-text {
+      text-decoration: line-through;
+      color: var(--text-dim);
+    }
+    .bounty-xp-badge {
+      font-size: 8px;
+      color: var(--green);
+      font-weight: 700;
+      background: rgba(0,255,127,0.1);
+      border: 1px solid var(--green-dark);
+      border-radius: 4px;
+      padding: 3px 7px;
+      flex-shrink: 0;
+    }
+    .bounty-item.completed .bounty-xp-badge {
+      background: rgba(0,160,80,0.15);
+    }
+
     /* ── LEVEL UP BANNER ── */
     #levelup-banner {
       position: fixed;
@@ -653,6 +919,160 @@
     #levelup-banner.show { top: 70px; }
     #levelup-banner .lu-icon { font-size: 28px; }
     #levelup-banner .lu-text { font-size: 10px; color: var(--gold); margin-top: 4px; }
+
+    /* ── BADGE UNLOCK BANNER ── */
+    #badge-banner {
+      position: fixed;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border: 2px solid var(--purple);
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      z-index: 1002;
+      min-width: 260px;
+      box-shadow: 0 4px 30px rgba(155,89,182,0.5);
+      transition: top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #badge-banner.show { top: 70px; }
+    #badge-banner .bb-icon { font-size: 28px; }
+    #badge-banner .bb-text { font-size: 9px; color: #ce93d8; margin-top: 4px; font-family: 'Press Start 2P', monospace; }
+    #badge-banner .bb-name { font-size: 8px; color: var(--gold); margin-top: 3px; }
+
+    /* ── BOTTOM SHEET MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+      display: none;
+      align-items: flex-end;
+    }
+    .modal-overlay.open { display: flex; }
+    .bottom-sheet {
+      background: var(--bg2);
+      border: 1px solid var(--bg4);
+      border-top: 2px solid var(--crimson);
+      border-radius: 16px 16px 0 0;
+      padding: 20px 16px 32px;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to   { transform: translateY(0); }
+    }
+    .sheet-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--bg4);
+      border-radius: 2px;
+      margin: 0 auto 16px;
+    }
+    .sheet-title {
+      font-size: 10px;
+      color: var(--gold);
+      font-family: 'Press Start 2P', monospace;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .sheet-field {
+      margin-bottom: 12px;
+    }
+    .sheet-field label {
+      display: block;
+      font-size: 8px;
+      color: var(--text-dim);
+      margin-bottom: 5px;
+      font-family: 'Press Start 2P', monospace;
+    }
+    .sheet-field input,
+    .sheet-field select {
+      width: 100%;
+      background: var(--bg4);
+      border: 1px solid var(--crimson-dark);
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 13px;
+      font-family: 'Roboto', sans-serif;
+      outline: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s;
+    }
+    .sheet-field input:focus,
+    .sheet-field select:focus { border-color: var(--crimson); box-shadow: 0 0 8px var(--crimson-glow); }
+    .sheet-field select option { background: var(--bg3); }
+    .sheet-launch-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--crimson-dark), var(--crimson));
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      color: #fff;
+      font-size: 9px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 12px var(--crimson-glow);
+    }
+    .sheet-launch-btn:active { opacity: 0.8; }
+    .sheet-action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .sheet-action-btn {
+      background: linear-gradient(135deg, var(--bg3), var(--bg4));
+      border: 1px solid var(--crimson-dark);
+      border-radius: 8px;
+      padding: 12px 8px;
+      color: var(--text);
+      font-size: 8px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.5;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .sheet-action-btn:hover { border-color: var(--crimson); box-shadow: 0 0 8px var(--crimson-glow); }
+    .sheet-action-btn:active { transform: scale(0.97); }
+    .sheet-action-btn.gold-btn {
+      border-color: var(--gold-dark);
+      color: var(--gold);
+    }
+    .sheet-action-btn.gold-btn:hover { box-shadow: 0 0 8px var(--gold-glow); }
+    .sheet-action-btn.green-btn {
+      border-color: var(--green-dark);
+      color: var(--green);
+    }
+    .sheet-current-stage {
+      font-size: 9px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-bottom: 14px;
+      background: var(--bg3);
+      border-radius: 6px;
+      padding: 8px;
+    }
+    .sheet-current-stage span { color: var(--gold); }
+
+    /* Badge tooltip/modal */
+    #badge-detail-modal .bottom-sheet { max-height: 50vh; }
+    .badge-detail-icon { font-size: 48px; text-align: center; margin-bottom: 10px; }
+    .badge-detail-name { font-size: 11px; color: var(--gold); text-align: center; font-family: 'Press Start 2P', monospace; margin-bottom: 6px; }
+    .badge-detail-desc { font-size: 10px; color: var(--text-dim); text-align: center; line-height: 1.6; margin-bottom: 8px; }
+    .badge-detail-xp   { font-size: 10px; color: var(--green); text-align: center; font-weight: 700; }
+    .badge-detail-status { font-size: 9px; text-align: center; margin-top: 6px; }
 
     /* ── MISC HELPERS ── */
     .divider {
@@ -826,6 +1246,69 @@
       </div>
     </section>
 
+    <!-- ══════════ TAB 5: WAR ROOM ══════════ -->
+    <section id="tab-warroom" class="tab-section">
+      <div class="pixel section-title">🗺️ THE WAR ROOM</div>
+
+      <button class="war-room-add-btn" onclick="openAddMissionModal()">📬 LOG NEW MISSION</button>
+
+      <div class="bureau-fortress" id="bureau-equifax">
+        <div class="bureau-header">🏰 EQUIFAX FORTRESS</div>
+        <div class="bureau-body" id="quests-equifax">
+          <div class="bureau-empty">No active missions</div>
+        </div>
+      </div>
+
+      <div class="bureau-fortress" id="bureau-transunion">
+        <div class="bureau-header">🏯 TRANSUNION STRONGHOLD</div>
+        <div class="bureau-body" id="quests-transunion">
+          <div class="bureau-empty">No active missions</div>
+        </div>
+      </div>
+
+      <div class="bureau-fortress" id="bureau-experian">
+        <div class="bureau-header">🗼 EXPERIAN CITADEL</div>
+        <div class="bureau-body" id="quests-experian">
+          <div class="bureau-empty">No active missions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ TAB 6: ARMORY ══════════ -->
+    <section id="tab-armory" class="tab-section">
+      <div class="pixel section-title">🏆 ARMORY</div>
+
+      <div class="armory-summary">
+        <div>
+          <div class="armory-summary-label">Badges Earned</div>
+        </div>
+        <div class="armory-summary-val" id="armory-count">0 / 15</div>
+      </div>
+
+      <div class="badges-grid" id="badges-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ══════════ TAB 7: WEEKLY BOUNTIES ══════════ -->
+    <section id="tab-bounties" class="tab-section">
+      <div class="pixel section-title">📋 WEEKLY BOUNTIES</div>
+
+      <div class="bounty-progress-wrap">
+        <div class="bounty-progress-text" id="bounty-progress-text">
+          <span>0</span>/3 completed — <span id="bounty-xp-earned">0</span> XP earned
+        </div>
+        <div class="bounty-bar-outer">
+          <div class="bounty-bar-inner" id="bounty-bar" style="width:0%"></div>
+        </div>
+        <div class="bounty-week-label" id="bounty-week-label">Week resets Monday</div>
+      </div>
+
+      <div class="bounty-list" id="bounty-list">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
   </main>
 
   <!-- ─── BOTTOM NAV ─── -->
@@ -846,6 +1329,18 @@
       <span class="nav-icon">👥</span>
       <span class="nav-label">AU</span>
     </button>
+    <button class="nav-btn pixel" onclick="switchTab('warroom', this)">
+      <span class="nav-icon">🗺️</span>
+      <span class="nav-label">WAR ROOM</span>
+    </button>
+    <button class="nav-btn pixel" onclick="switchTab('armory', this)">
+      <span class="nav-icon">🏆</span>
+      <span class="nav-label">ARMORY</span>
+    </button>
+    <button class="nav-btn pixel" onclick="switchTab('bounties', this)">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">BOUNTIES</span>
+    </button>
   </nav>
 
 </div>
@@ -862,6 +1357,71 @@
 <div id="levelup-banner">
   <div class="lu-icon">🎉</div>
   <div class="pixel lu-text" id="lu-text">LEVEL UP! → LVL 2</div>
+</div>
+
+<!-- Badge unlock banner -->
+<div id="badge-banner">
+  <div class="bb-icon" id="bb-icon">⚔️</div>
+  <div class="bb-text">BADGE UNLOCKED!</div>
+  <div class="bb-name" id="bb-name">First Strike</div>
+</div>
+
+<!-- Add Mission Modal -->
+<div class="modal-overlay" id="add-mission-modal" onclick="closeModalOnOverlay(event, 'add-mission-modal')">
+  <div class="bottom-sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">📬 NEW MISSION</div>
+    <div class="sheet-field">
+      <label>ITEM NAME</label>
+      <input type="text" id="mission-item-name" placeholder="e.g. Capital One Collection" />
+    </div>
+    <div class="sheet-field">
+      <label>BUREAU</label>
+      <select id="mission-bureau">
+        <option value="equifax">Equifax</option>
+        <option value="transunion">TransUnion</option>
+        <option value="experian">Experian</option>
+      </select>
+    </div>
+    <div class="sheet-field">
+      <label>ITEM TYPE</label>
+      <select id="mission-type">
+        <option value="collection">Collection</option>
+        <option value="late_pay">Late Payment</option>
+        <option value="inquiry">Inquiry</option>
+        <option value="public_record">Public Record</option>
+        <option value="utilization">High Utilization</option>
+      </select>
+    </div>
+    <button class="sheet-launch-btn" onclick="submitAddMission()">⚔️ LAUNCH MISSION</button>
+  </div>
+</div>
+
+<!-- Update Mission Modal -->
+<div class="modal-overlay" id="update-mission-modal" onclick="closeModalOnOverlay(event, 'update-mission-modal')">
+  <div class="bottom-sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">📋 UPDATE MISSION</div>
+    <div class="sheet-current-stage" id="update-mission-info">Stage 1 of 7</div>
+    <div class="sheet-action-grid">
+      <button class="sheet-action-btn" onclick="updateMission('mail')">📬 Marked<br>as Mailed</button>
+      <button class="sheet-action-btn" onclick="updateMission('response')">📋 Got Bureau<br>Response</button>
+      <button class="sheet-action-btn green-btn" onclick="updateMission('deleted')">✅ DELETED</button>
+      <button class="sheet-action-btn" style="border-color:#FF3344;color:#FF6666;" onclick="updateMission('verified')">❌ Still There</button>
+    </div>
+  </div>
+</div>
+
+<!-- Badge Detail Modal -->
+<div class="modal-overlay" id="badge-detail-modal" onclick="closeModalOnOverlay(event, 'badge-detail-modal')">
+  <div class="bottom-sheet">
+    <div class="sheet-handle"></div>
+    <div class="badge-detail-icon" id="badge-detail-icon">⚔️</div>
+    <div class="badge-detail-name" id="badge-detail-name">Badge Name</div>
+    <div class="badge-detail-desc" id="badge-detail-desc">Badge description</div>
+    <div class="badge-detail-xp" id="badge-detail-xp">+0 XP</div>
+    <div class="badge-detail-status" id="badge-detail-status"></div>
+  </div>
 </div>
 
 <script>
@@ -1014,13 +1574,58 @@ const AU_PLATFORMS = [
   },
 ];
 
+/* ── BADGES DATA ── */
+const BADGES = [
+  { id: 'first_strike',    icon: '⚔️', name: 'First Strike',    desc: 'Generated your first dispute letter',       xp: 50  },
+  { id: 'deployed',        icon: '📬', name: 'Deployed',         desc: 'Confirmed your first letter was mailed',    xp: 50  },
+  { id: 'fortress_breached',icon:'🏛️', name: 'Fortress Breached',desc: 'Bureau confirmed receipt',                  xp: 75  },
+  { id: 'first_kill',      icon: '☠️', name: 'First Kill',       desc: 'First item deleted from your report',       xp: 150 },
+  { id: 'boss_slayer',     icon: '💀', name: 'Boss Slayer',       desc: 'Deleted a collection account',              xp: 250 },
+  { id: 'warrior_7',       icon: '🔥', name: '7-Day Warrior',    desc: '7-day login streak',                         xp: 150 },
+  { id: 'dungeon_raider',  icon: '🛡️', name: 'Dungeon Raider',   desc: 'Cleared all items at one bureau',            xp: 500 },
+  { id: 'triple_threat',   icon: '👑', name: 'Triple Threat',    desc: 'Disputed all 3 bureaus',                     xp: 300 },
+  { id: 'legal_eagle',     icon: '⚖️', name: 'Legal Eagle',      desc: 'Used the FDCPA Demand letter',               xp: 100 },
+  { id: 'recruiter',       icon: '🧲', name: 'Recruiter',         desc: 'First referral joined ScoreBoost',          xp: 100 },
+  { id: 'score_jump_50',   icon: '📈', name: '50-Point Jump',    desc: 'Score increased 50+ points',                 xp: 300 },
+  { id: 'wall_breaker',    icon: '🔓', name: 'Wall Breaker',      desc: 'Score hit 580',                             xp: 300 },
+  { id: 'prime_warrior',   icon: '💎', name: 'Prime Warrior',    desc: 'Score hit 720',                              xp: 750 },
+  { id: 'relentless',      icon: '🗡️', name: 'Relentless',       desc: 'Sent 10 total dispute letters',              xp: 400 },
+  { id: 'credit_legend',   icon: '🌟', name: 'Credit Legend',    desc: 'Score hit 800+',                             xp: 1000},
+];
+
+/* ── BOUNTY POOL ── */
+const ALL_BOUNTIES = [
+  { id: 'login_5',       text: 'Log in 5 days this week',                   xp: 150 },
+  { id: 'invite_1',      text: 'Invite someone to ScoreBoost',               xp: 200 },
+  { id: 'log_score',     text: 'Log your current credit score',              xp: 100 },
+  { id: 'check_mail',    text: 'Check mailbox for bureau response',          xp: 150 },
+  { id: 'update_mission',text: 'Update the status of one active mission',    xp: 100 },
+  { id: 'add_mission',   text: 'Launch a new dispute mission',               xp: 125 },
+  { id: 'use_weapon',    text: 'Use any bot weapon 3 times this week',       xp: 175 },
+  { id: 'mark_verdict',  text: 'Log the verdict on any mission',             xp: 200 },
+];
+
+/* ── QUEST STAGE ICONS ── */
+const STAGE_ICONS = ['✍️','📬','🛸','🏛️','⚖️','📋','✅'];
+const STAGE_LABELS = [
+  'Letter Written',
+  'Letter Mailed',
+  'In Transit',
+  'Bureau Received',
+  'Under Review',
+  'Response Received',
+  'Resolved'
+];
+
 /* ═══════════════════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════════════════ */
 const TG = window.Telegram?.WebApp;
 const userId = TG?.initDataUnsafe?.user?.id || 'guest';
-const XP_KEY  = `scoreBoostXP_${userId}`;
-const STAT_KEY = `scoreBoostStats_${userId}`;
+const XP_KEY     = `scoreBoostXP_${userId}`;
+const STAT_KEY   = `scoreBoostStats_${userId}`;
+const QUEST_KEY  = `scoreBoost_quests_${userId}`;
+const BADGE_KEY  = `scoreBoost_badges_${userId}`;
 
 let state = {
   xp: parseInt(localStorage.getItem(XP_KEY) || '0'),
@@ -1028,11 +1633,18 @@ let state = {
   enemies: ENEMY_TEMPLATES.map(e => ({ ...e, hp: e.maxHp })),
   selectedEnemy: null,
   battleLog: [],
+  quests: JSON.parse(localStorage.getItem(QUEST_KEY) || '[]'),
+  badges: JSON.parse(localStorage.getItem(BADGE_KEY) || '[]'),
 };
+
+// currently open quest for update modal
+let _activeQuestId = null;
 
 function saveState() {
   localStorage.setItem(XP_KEY, state.xp);
   localStorage.setItem(STAT_KEY, JSON.stringify(state.stats));
+  localStorage.setItem(QUEST_KEY, JSON.stringify(state.quests));
+  localStorage.setItem(BADGE_KEY, JSON.stringify(state.badges));
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1062,7 +1674,6 @@ function getRankFromScore(score) {
   return RANKS[0];
 }
 function getRankFromXP(xp) {
-  // map level to rank index roughly
   const level = getLevel(xp);
   const idx = Math.min(Math.floor((level - 1) / 2), RANKS.length - 1);
   return RANKS[idx];
@@ -1078,6 +1689,9 @@ function addXP(amount, silent = false) {
     showLevelUp(newLevel);
   }
 }
+
+// Alias used in spec (awardXP)
+function awardXP(amount, silent) { addXP(amount, silent); }
 
 function updateHeader() {
   const level = getLevel(state.xp);
@@ -1183,17 +1797,14 @@ function buildWeapons() {
 function useWeapon(weaponIdx, btn) {
   const w = WEAPONS[weaponIdx];
 
-  // If no enemy selected, show prompt then open link
   if (state.selectedEnemy === null) {
     document.getElementById('select-enemy-prompt').classList.add('visible');
-    // Still grant XP and open bot link
     gainXpAndOpen(w, weaponIdx, btn, null);
     return;
   }
 
   const eIdx = state.selectedEnemy;
   if (state.enemies[eIdx].hp <= 0) {
-    // auto-select next alive
     const nextAlive = state.enemies.findIndex((e, i) => e.hp > 0 && i !== eIdx);
     state.selectedEnemy = nextAlive >= 0 ? nextAlive : null;
     buildEnemies();
@@ -1206,7 +1817,6 @@ function useWeapon(weaponIdx, btn) {
 }
 
 function gainXpAndOpen(w, weaponIdx, btn, eIdx) {
-  // Apply damage
   let defeated = false;
   if (eIdx !== null) {
     const e = state.enemies[eIdx];
@@ -1217,7 +1827,6 @@ function gainXpAndOpen(w, weaponIdx, btn, eIdx) {
       state.stats.enemies++;
       addXP(e.xpReward);
       addBattleLog(`💀 ${e.name} DEFEATED! +${e.xpReward} XP`, 'log-victory');
-      // auto-advance selection
       const next = state.enemies.findIndex((en, i) => en.hp > 0);
       state.selectedEnemy = next >= 0 ? next : null;
     }
@@ -1228,21 +1837,26 @@ function gainXpAndOpen(w, weaponIdx, btn, eIdx) {
     addBattleLog(`${w.icon} ${w.name} launched! (no target selected)`);
   }
 
-  // XP for weapon use
   addXP(50);
   state.stats.attacks++;
   saveState();
 
-  // Button animation
+  // Check first_strike badge (letter_attacks tracked via attacks count)
+  if (state.stats.attacks === 1) tryUnlockBadge('first_strike');
+  // Check legal eagle for FDCPA weapon (index 2)
+  if (weaponIdx === 2) tryUnlockBadge('legal_eagle');
+  // Check relentless (10 attacks)
+  if (state.stats.attacks >= 10) tryUnlockBadge('relentless');
+  // Check use_weapon bounty tracking
+  trackWeaponUse();
+
   btn.classList.add('attacking');
   setTimeout(() => btn.classList.remove('attacking'), 500);
 
-  // Rebuild enemies
   buildEnemies();
   updateHeader();
   buildRankTable();
 
-  // Open bot deep link (slight delay for UX)
   setTimeout(() => {
     const url = `https://t.me/ScoreBoostByNMDBot?start=${w.link}`;
     if (TG) {
@@ -1263,7 +1877,7 @@ function showAttackPopup(icon, name, dmg, xp) {
   document.getElementById('popup-dmg').textContent   = dmg > 0 ? `-${dmg} HP` : 'NO TARGET';
   document.getElementById('popup-xp').textContent    = `+${xp} XP`;
   popup.classList.remove('show');
-  void popup.offsetWidth; // reflow
+  void popup.offsetWidth;
   popup.classList.add('show');
   setTimeout(() => popup.classList.remove('show'), 800);
 }
@@ -1327,7 +1941,6 @@ function filterCards() {
     return;
   }
 
-  // Group by tier (only show tiers relevant)
   const tierOrder = ['bad', 'fair', 'good', 'great', 'elite'];
   const groups = {};
   matched.forEach(c => {
@@ -1365,7 +1978,6 @@ function applyCard(url) {
   }
 }
 
-// Also filter on Enter key
 document.getElementById('score-input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') filterCards();
 });
@@ -1401,6 +2013,424 @@ function visitAU(url) {
 }
 
 /* ═══════════════════════════════════════════════════════
+   TAB 5 — WAR ROOM
+═══════════════════════════════════════════════════════ */
+
+// Auto-advance quest stages based on sentDate
+function autoAdvanceQuests() {
+  const now = Date.now();
+  state.quests.forEach(q => {
+    if (!q.sentDate || q.verdict) return;
+    const sent = new Date(q.sentDate).getTime();
+    const daysSince = (now - sent) / (1000 * 60 * 60 * 24);
+    let targetStage = q.stage;
+    if (daysSince >= 28 && q.stage < 6) targetStage = 6;
+    else if (daysSince >= 10 && q.stage < 5) targetStage = 5;
+    else if (daysSince >= 7 && q.stage < 4) targetStage = 4;
+    else if (daysSince >= 3 && q.stage < 3) targetStage = 3;
+    if (targetStage > q.stage) q.stage = targetStage;
+  });
+  saveState();
+}
+
+function buildWarRoom() {
+  autoAdvanceQuests();
+  const bureaus = ['equifax', 'transunion', 'experian'];
+  bureaus.forEach(b => {
+    const container = document.getElementById(`quests-${b}`);
+    const bQuests = state.quests.filter(q => q.bureau === b);
+    if (bQuests.length === 0) {
+      container.innerHTML = '<div class="bureau-empty">No active missions</div>';
+      return;
+    }
+    container.innerHTML = '';
+    bQuests.forEach(q => {
+      container.appendChild(buildQuestCard(q));
+    });
+  });
+  checkBureauBadges();
+}
+
+function buildQuestCard(q) {
+  const div = document.createElement('div');
+  div.className = 'quest-card';
+
+  const stagePips = STAGE_ICONS.map((icon, i) => {
+    const cls = i < q.stage - 1 ? 'done' : i === q.stage - 1 ? 'active' : '';
+    return `<span class="stage-pip ${cls}" title="${STAGE_LABELS[i]}">${icon}</span>`;
+  }).join('');
+
+  const typeLabel = {
+    collection: 'Collection',
+    late_pay: 'Late Pay',
+    inquiry: 'Inquiry',
+    public_record: 'Public Record',
+    utilization: 'Utilization'
+  }[q.itemType] || q.itemType;
+
+  let statusText = `Stage ${q.stage}/7: ${STAGE_LABELS[q.stage - 1]}`;
+  let statusCls = '';
+  if (q.verdict === 'deleted') { statusText = '✅ DELETED!'; statusCls = 'verdict-deleted'; }
+  else if (q.verdict === 'verified') { statusText = '❌ Verified — Stands'; statusCls = 'verdict-verified'; }
+  else if (q.verdict === 'updated') { statusText = '📝 Updated'; statusCls = 'verdict-updated'; }
+
+  const sentInfo = q.sentDate
+    ? `Sent: ${new Date(q.sentDate).toLocaleDateString()}`
+    : 'Not mailed yet';
+
+  div.innerHTML = `
+    <div class="quest-card-header">
+      <div class="quest-item-name">${q.itemName}</div>
+      <span class="quest-type-badge">${typeLabel}</span>
+    </div>
+    <div class="quest-stage-track">${stagePips}</div>
+    <div style="font-size:7px;color:var(--text-dim);margin-bottom:4px;">${sentInfo}</div>
+    <div class="quest-status-row">
+      <div class="quest-status-text ${statusCls}">${statusText}</div>
+      ${!q.verdict ? `<button class="quest-update-btn" onclick="openUpdateMissionModal('${q.id}')">UPDATE</button>` : ''}
+    </div>
+  `;
+  return div;
+}
+
+/* ── Add Mission Modal ── */
+function openAddMissionModal() {
+  document.getElementById('mission-item-name').value = '';
+  document.getElementById('add-mission-modal').classList.add('open');
+}
+
+function submitAddMission() {
+  const itemName = document.getElementById('mission-item-name').value.trim();
+  if (!itemName) {
+    document.getElementById('mission-item-name').focus();
+    return;
+  }
+  const bureau  = document.getElementById('mission-bureau').value;
+  const itemType = document.getElementById('mission-type').value;
+
+  const quest = {
+    id: Date.now().toString(),
+    itemName,
+    creditor: itemName,
+    bureau,
+    itemType,
+    stage: 1,
+    sentDate: null,
+    verdict: null,
+    createdAt: new Date().toISOString(),
+  };
+
+  state.quests.push(quest);
+  saveState();
+  closeModal('add-mission-modal');
+  buildWarRoom();
+
+  addXP(25);
+  addBattleLog(`📬 New mission launched: ${itemName} at ${bureau}!`);
+
+  // Check triple_threat badge
+  checkTripleThreat();
+  // Check add_mission bounty
+  completeBounty('add_mission');
+  // Check first_strike badge (using disputes as letter_attacks proxy)
+  tryUnlockBadge('first_strike');
+}
+
+/* ── Update Mission Modal ── */
+function openUpdateMissionModal(questId) {
+  _activeQuestId = questId;
+  const q = state.quests.find(q => q.id === questId);
+  if (!q) return;
+  document.getElementById('update-mission-info').innerHTML =
+    `<span>${q.itemName}</span> — Stage ${q.stage} of 7: ${STAGE_LABELS[q.stage - 1]}`;
+  document.getElementById('update-mission-modal').classList.add('open');
+}
+
+function updateMission(action) {
+  const q = state.quests.find(q => q.id === _activeQuestId);
+  if (!q) { closeModal('update-mission-modal'); return; }
+
+  let xpAwarded = 0;
+
+  if (action === 'mail') {
+    if (!q.sentDate) {
+      q.sentDate = new Date().toISOString();
+      q.stage = Math.max(q.stage, 2);
+      xpAwarded = 50;
+      tryUnlockBadge('deployed');
+      completeBounty('check_mail');
+    }
+  } else if (action === 'response') {
+    q.stage = Math.max(q.stage, 6);
+    xpAwarded = 75;
+    tryUnlockBadge('fortress_breached');
+  } else if (action === 'deleted') {
+    q.stage = 7;
+    q.verdict = 'deleted';
+    xpAwarded = 150;
+    tryUnlockBadge('first_kill');
+    if (q.itemType === 'collection') tryUnlockBadge('boss_slayer');
+    completeBounty('mark_verdict');
+    checkDungeonRaider();
+  } else if (action === 'verified') {
+    q.verdict = 'verified';
+    xpAwarded = 25;
+    completeBounty('mark_verdict');
+  }
+
+  saveState();
+  closeModal('update-mission-modal');
+  buildWarRoom();
+
+  if (xpAwarded > 0) addXP(xpAwarded);
+  completeBounty('update_mission');
+}
+
+function checkTripleThreat() {
+  const bureaus = new Set(state.quests.map(q => q.bureau));
+  if (bureaus.has('equifax') && bureaus.has('transunion') && bureaus.has('experian')) {
+    tryUnlockBadge('triple_threat');
+  }
+}
+
+function checkBureauBadges() {
+  ['equifax', 'transunion', 'experian'].forEach(b => {
+    const bQuests = state.quests.filter(q => q.bureau === b);
+    if (bQuests.length > 0 && bQuests.every(q => q.verdict === 'deleted')) {
+      tryUnlockBadge('dungeon_raider');
+    }
+  });
+}
+
+function checkDungeonRaider() {
+  checkBureauBadges();
+}
+
+/* ═══════════════════════════════════════════════════════
+   TAB 6 — ARMORY (BADGES)
+═══════════════════════════════════════════════════════ */
+function tryUnlockBadge(badgeId) {
+  if (state.badges.includes(badgeId)) return; // already unlocked
+  state.badges.push(badgeId);
+  saveState();
+
+  const badge = BADGES.find(b => b.id === badgeId);
+  if (!badge) return;
+
+  // Award XP for the badge
+  addXP(badge.xp, true);
+
+  // Show badge banner
+  showBadgeBanner(badge);
+
+  // Rebuild armory if visible
+  buildArmory();
+}
+
+function showBadgeBanner(badge) {
+  const banner = document.getElementById('badge-banner');
+  document.getElementById('bb-icon').textContent = badge.icon;
+  document.getElementById('bb-name').textContent = badge.name;
+  banner.classList.add('show');
+  setTimeout(() => banner.classList.remove('show'), 3000);
+}
+
+function buildArmory() {
+  const grid = document.getElementById('badges-grid');
+  grid.innerHTML = '';
+
+  BADGES.forEach(badge => {
+    const unlocked = state.badges.includes(badge.id);
+    const card = document.createElement('div');
+    card.className = `badge-card ${unlocked ? 'unlocked' : 'locked'}`;
+    card.onclick = () => openBadgeDetail(badge.id);
+    card.innerHTML = `
+      <span class="badge-card-lock">🔒</span>
+      <div class="badge-card-icon">${badge.icon}</div>
+      <div class="badge-card-name">${badge.name}</div>
+      <div class="badge-xp-chip">+${badge.xp} XP</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  const count = state.badges.length;
+  document.getElementById('armory-count').textContent = `${count} / ${BADGES.length}`;
+}
+
+function openBadgeDetail(badgeId) {
+  const badge = BADGES.find(b => b.id === badgeId);
+  if (!badge) return;
+  const unlocked = state.badges.includes(badgeId);
+  document.getElementById('badge-detail-icon').textContent = badge.icon;
+  document.getElementById('badge-detail-name').textContent = badge.name;
+  document.getElementById('badge-detail-desc').textContent = badge.desc;
+  document.getElementById('badge-detail-xp').textContent   = `+${badge.xp} XP`;
+  document.getElementById('badge-detail-status').innerHTML = unlocked
+    ? '<span style="color:var(--green);font-weight:700;">✅ UNLOCKED</span>'
+    : '<span style="color:var(--text-dim);">🔒 Locked</span>';
+  document.getElementById('badge-detail-modal').classList.add('open');
+}
+
+/* ── Auto-check badges on load ── */
+function autoCheckBadges() {
+  // warrior_7: login streak
+  const streak = getLoginStreak();
+  if (streak >= 7) tryUnlockBadge('warrior_7');
+
+  // first_strike: weapon uses
+  if (state.stats.attacks > 0) tryUnlockBadge('first_strike');
+
+  // relentless: 10 attacks
+  if (state.stats.attacks >= 10) tryUnlockBadge('relentless');
+
+  // triple_threat
+  checkTripleThreat();
+
+  // first_kill, boss_slayer
+  if (state.quests.some(q => q.verdict === 'deleted')) tryUnlockBadge('first_kill');
+  if (state.quests.some(q => q.verdict === 'deleted' && q.itemType === 'collection')) tryUnlockBadge('boss_slayer');
+
+  // dungeon_raider
+  checkBureauBadges();
+}
+
+/* ── Login streak ── */
+function getLoginStreak() {
+  const STREAK_KEY = `scoreBoost_streak_${userId}`;
+  const LOGIN_KEY  = `scoreBoost_lastLogin_${userId}`;
+  const today = new Date().toDateString();
+  const lastLogin = localStorage.getItem(LOGIN_KEY);
+  let streak = parseInt(localStorage.getItem(STREAK_KEY) || '0');
+
+  if (lastLogin === today) return streak;
+
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  if (lastLogin === yesterday) {
+    streak++;
+  } else if (!lastLogin) {
+    streak = 1;
+  } else {
+    streak = 1;
+  }
+
+  localStorage.setItem(STREAK_KEY, streak);
+  localStorage.setItem(LOGIN_KEY, today);
+  return streak;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TAB 7 — WEEKLY BOUNTIES
+═══════════════════════════════════════════════════════ */
+
+function getWeekKey() {
+  const d = new Date();
+  const jan1 = new Date(d.getFullYear(), 0, 1);
+  const week = Math.ceil(((d - jan1) / 86400000 + jan1.getDay() + 1) / 7);
+  return `${d.getFullYear()}-W${String(week).padStart(2, '0')}`;
+}
+
+function getWeeklyBounties() {
+  // Pick 3 bounties seeded by week number for consistency
+  const weekNum = parseInt(getWeekKey().split('-W')[1]);
+  const seed = weekNum % ALL_BOUNTIES.length;
+  const result = [];
+  for (let i = 0; i < 3; i++) {
+    result.push(ALL_BOUNTIES[(seed + i) % ALL_BOUNTIES.length]);
+  }
+  return result;
+}
+
+function getBountyStateKey() {
+  return `scoreBoost_bounties_${userId}_${getWeekKey()}`;
+}
+
+function getCompletedBounties() {
+  return JSON.parse(localStorage.getItem(getBountyStateKey()) || '[]');
+}
+
+function saveBountyComplete(bountyId) {
+  const completed = getCompletedBounties();
+  if (!completed.includes(bountyId)) {
+    completed.push(bountyId);
+    localStorage.setItem(getBountyStateKey(), JSON.stringify(completed));
+  }
+}
+
+function completeBounty(bountyId) {
+  const weekly = getWeeklyBounties();
+  const isThisWeek = weekly.find(b => b.id === bountyId);
+  if (!isThisWeek) return;
+  const completed = getCompletedBounties();
+  if (completed.includes(bountyId)) return;
+  saveBountyComplete(bountyId);
+  addXP(isThisWeek.xp);
+  addBattleLog(`📋 Bounty complete: ${isThisWeek.text} +${isThisWeek.xp} XP`, 'log-victory');
+  buildBounties();
+}
+
+function buildBounties() {
+  const weekly   = getWeeklyBounties();
+  const completed = getCompletedBounties();
+  const list = document.getElementById('bounty-list');
+  list.innerHTML = '';
+
+  let doneCount = 0;
+  let xpEarned  = 0;
+
+  weekly.forEach(b => {
+    const isDone = completed.includes(b.id);
+    if (isDone) { doneCount++; xpEarned += b.xp; }
+
+    const item = document.createElement('div');
+    item.className = `bounty-item${isDone ? ' completed' : ''}`;
+    item.onclick = () => toggleBounty(b.id);
+    item.innerHTML = `
+      <div class="bounty-checkbox">${isDone ? '✓' : ''}</div>
+      <div class="bounty-info">
+        <div class="bounty-text">${b.text}</div>
+      </div>
+      <div class="bounty-xp-badge">+${b.xp} XP</div>
+    `;
+    list.appendChild(item);
+  });
+
+  const pct = (doneCount / 3) * 100;
+  document.getElementById('bounty-bar').style.width = pct + '%';
+  const pt = document.getElementById('bounty-progress-text');
+  pt.innerHTML = `<span>${doneCount}</span>/3 completed — <span id="bounty-xp-earned">${xpEarned}</span> XP earned`;
+  document.getElementById('bounty-week-label').textContent = `Week: ${getWeekKey()}`;
+}
+
+function toggleBounty(bountyId) {
+  const completed = getCompletedBounties();
+  if (completed.includes(bountyId)) return; // can't un-complete
+  const weekly = getWeeklyBounties();
+  const b = weekly.find(b => b.id === bountyId);
+  if (!b) return;
+  completeBounty(bountyId);
+}
+
+function trackWeaponUse() {
+  const WEAPON_USE_KEY = `scoreBoost_weaponUses_${userId}_${getWeekKey()}`;
+  let uses = parseInt(localStorage.getItem(WEAPON_USE_KEY) || '0') + 1;
+  localStorage.setItem(WEAPON_USE_KEY, uses);
+  if (uses >= 3) completeBounty('use_weapon');
+}
+
+/* ═══════════════════════════════════════════════════════
+   MODAL HELPERS
+═══════════════════════════════════════════════════════ */
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+function closeModalOnOverlay(event, id) {
+  if (event.target === document.getElementById(id)) {
+    closeModal(id);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
    TAB SWITCHING
 ═══════════════════════════════════════════════════════ */
 function switchTab(name, btn) {
@@ -1408,8 +2438,12 @@ function switchTab(name, btn) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(`tab-${name}`).classList.add('active');
   btn.classList.add('active');
-  // Scroll content to top
   document.getElementById('content').scrollTop = 0;
+
+  // Refresh tabs on switch
+  if (name === 'warroom') buildWarRoom();
+  if (name === 'armory')  buildArmory();
+  if (name === 'bounties') buildBounties();
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1421,8 +2455,11 @@ function switchTab(name, btn) {
   buildAU();
   buildRankTable();
   updateHeader();
+  buildWarRoom();
+  buildArmory();
+  buildBounties();
+  autoCheckBadges();
 
-  // Show initial card state
   document.getElementById('cards-count').innerHTML = '';
   document.getElementById('cards-list').innerHTML = `
     <div class="no-results">
