@@ -7087,7 +7087,13 @@ function initGame() {
   <div class="intake-success" id="intake-success">
     <div class="success-icon">✅</div>
     <h2>You're locked in!</h2>
-    <p>Head back to the chat —<br>the bot will ask for your<br>credit report next.</p>
+    <p>Your info is saved.<br>The bot will ask for your<br>credit report next.</p>
+    <button class="intake-submit-btn" style="margin-top:28px;background:var(--cyan);color:#000;" onclick="returnToGame()">
+      ⚔️ Back to Game
+    </button>
+    <p style="margin-top:14px;font-size:0.8rem;color:rgba(232,232,240,0.4);">
+      Go to the bot chat to upload<br>your credit report when ready.
+    </p>
   </div>
 </div>
 
@@ -7127,6 +7133,14 @@ function initIntakeOverlay() {
   }
 }
 
+function returnToGame() {
+  // Hide intake overlay, show the game
+  document.getElementById('intake-overlay').classList.remove('active');
+  const app = document.getElementById('app');
+  if (app) app.style.display = '';
+  if (TG && TG.MainButton) TG.MainButton.hide();
+}
+
 function submitIntake() {
   const name    = document.getElementById('in-name').value.trim();
   const dob     = document.getElementById('in-dob').value.trim();
@@ -7159,7 +7173,6 @@ function submitIntake() {
 
   document.getElementById('intake-form-wrap').style.display = 'none';
   document.getElementById('intake-success').classList.add('show');
-  setTimeout(() => { try { TG.close(); } catch(e){} }, 2200);
 }
 </script>
 </body>
