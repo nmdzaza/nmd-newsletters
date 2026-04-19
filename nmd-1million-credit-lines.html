@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="Breaking down the real strategy behind building over $1 million in personal and business credit lines. The NMD playbook, step by step.">
+  <meta name="keywords" content="credit lines, high limit credit, business credit, NMD strategy">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="1 Million in Credit Lines — How NMD Does It">
+  <meta property="og:description" content="Breaking down the real strategy behind building over $1 million in personal and business credit lines. The NMD playbook, step by step.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-1million-credit-lines.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1 Million in Credit Lines — How NMD Does It">
+  <meta name="twitter:description" content="Breaking down the real strategy behind building over $1 million in personal and business credit lines. The NMD playbook, step by step.">
+  <meta name="twitter:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:site" content="@nmdzaza">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$1,000,000 in Total Credit Lines — NMD</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #050d1f;
+  --navy-2: #080f22;
+  --navy-3: #0c1530;
+  --card: #0a1228;
+  --border: rgba(255,255,255,0.06);
+  --border-blue: rgba(59,130,246,0.3);
+  --white: #eef2ff;
+  --dim: rgba(238,242,255,0.42);
+  --dimmer: rgba(238,242,255,0.16);
+  --blue: #3b82f6;
+  --blue-bright: #60a5fa;
+  --blue-electric: #93c5fd;
+  --blue-dim: rgba(59,130,246,0.1);
+  --blue-glow: rgba(59,130,246,0.06);
+  --red: #ef4444;
+  --green: #22c55e;
+  --amber: #f59e0b;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(5,13,31,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  height: 52px;
+  padding: 0 clamp(20px,5vw,80px);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px; font-weight: 900; letter-spacing: 6px; color: var(--white);
+  text-decoration: none;
+}
+.nav-right { font-size: 10px; letter-spacing: 3px; color: var(--dimmer); text-transform: uppercase; }
+
+.progress-bar {
+  position: fixed; top: 52px; left:0; height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-electric));
+  width: 0%; z-index: 99;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px var(--blue);
+}
+
+/* SECTIONS */
+section {
+  min-height: 100svh;
+  padding: calc(52px + clamp(52px,8vw,110px)) clamp(24px,7vw,130px) clamp(52px,8vw,110px);
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+
+.slide-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: clamp(14px,2vw,24px);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: clamp(28px,4vw,56px);
+  flex-shrink: 0;
+}
+.slide-label { font-size: clamp(9px,1vw,11px); letter-spacing: 5px; text-transform: uppercase; color: var(--blue-bright); }
+.nmd-tag { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(11px,1.3vw,15px); font-weight: 900; letter-spacing: 5px; color: var(--dimmer); }
+
+.bg-num {
+  position: absolute; bottom: clamp(10px,2vw,24px); right: clamp(20px,3.5vw,60px);
+  font-family: 'Playfair Display', serif; font-size: clamp(80px,14vw,200px); font-weight: 900;
+  color: rgba(59,130,246,0.03); line-height:1; pointer-events:none; user-select:none;
+}
+
+/* TYPE */
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px,5.5vw,80px); font-weight: 900; line-height: 0.9;
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+em { font-style: italic; }
+.blue { color: var(--blue-electric); }
+.dim-text { color: var(--dim); }
+
+.body-copy {
+  font-size: clamp(12px,1.5vw,16px); font-weight: 300; color: var(--dim);
+  line-height: 1.9; max-width: 780px;
+  margin: clamp(16px,2.5vw,36px) 0; flex-shrink: 0;
+}
+.body-copy strong { color: var(--white); font-weight: 500; }
+
+/* COVER */
+#cover { background: var(--navy); gap: clamp(20px,3vw,40px); }
+#cover::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 50% at 100% 40%, rgba(59,130,246,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 0% 80%, rgba(59,130,246,0.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+.cover-eyebrow {
+  font-size: clamp(9px,1vw,11px); letter-spacing: 7px; text-transform: uppercase;
+  color: var(--blue-bright); display: flex; align-items: center; gap: 16px;
+  position: relative; z-index: 1; flex-shrink: 0;
+}
+.cover-eyebrow::before { content: ''; width: clamp(20px,3vw,40px); height: 1px; background: var(--blue); box-shadow: 0 0 8px var(--blue); flex-shrink: 0; }
+.cover-display {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(58px,10.5vw,155px); font-weight: 900; line-height: 0.86;
+  letter-spacing: -0.03em; position: relative; z-index: 1; flex-shrink: 0;
+}
+.cover-statement {
+  border-left: 2px solid var(--blue);
+  padding: clamp(16px,2.5vw,28px) clamp(20px,3vw,40px);
+  max-width: 680px; position: relative; z-index: 1; flex-shrink: 0;
+  background: var(--blue-glow);
+}
+.cover-statement p {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(14px,1.7vw,21px); font-weight: 400;
+  color: rgba(238,242,255,0.65); line-height: 1.65;
+}
+.cover-statement p strong { font-style: normal; font-weight: 700; color: var(--white); }
+.cover-meta { display: flex; align-items: center; gap: clamp(14px,2vw,28px); flex-wrap: wrap; position: relative; z-index: 1; flex-shrink: 0; }
+.cover-brand { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(15px,1.7vw,20px); font-weight: 900; letter-spacing: 5px; color: var(--white); }
+.cover-brand small { display: block; font-size: clamp(8px,0.8vw,10px); font-weight: 300; letter-spacing: 3px; color: var(--dimmer); margin-top: 3px; }
+.meta-sep { width: 1px; height: 28px; background: var(--border); }
+.cover-date { font-size: clamp(8px,0.9vw,10px); letter-spacing: 3px; color: var(--dimmer); text-transform: uppercase; }
+
+/* STAT GRID */
+.stat-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(160px,22vw,240px), 1fr));
+  gap: 1px; background: var(--border); margin-top: clamp(20px,3vw,44px);
+}
+.stat-cell { background: var(--card); padding: clamp(20px,2.8vw,36px) clamp(18px,2.5vw,32px); position: relative; }
+.stat-cell::before { content: ''; position: absolute; top: 0; left: clamp(18px,2.5vw,32px); width: 24px; height: 2px; }
+.stat-cell.red::before { background: var(--red); box-shadow: 0 0 8px var(--red); }
+.stat-cell.amber::before { background: var(--amber); }
+.stat-cell.blue-c::before { background: var(--blue); box-shadow: 0 0 8px var(--blue); }
+.stat-value { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,56px); font-weight: 900; line-height: 1; margin: 14px 0 10px; }
+.stat-value.red { color: var(--red); }
+.stat-value.amber { color: var(--amber); }
+.stat-value.blue-c { color: var(--blue-electric); }
+.stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(11px,1.3vw,15px); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
+.stat-desc { font-size: clamp(11px,1.2vw,13px); font-weight: 300; color: var(--dim); line-height: 1.7; }
+.stat-desc strong { color: var(--white); font-weight: 500; }
+
+/* REQ GRID */
+.req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: clamp(20px,3vw,44px); }
+@media(max-width:600px){ .req-grid { grid-template-columns: 1fr; } }
+.req-cell { background: var(--card); padding: clamp(22px,3vw,40px) clamp(20px,2.8vw,36px); position: relative; }
+.req-cell::after { content: ''; position: absolute; top: 0; left: clamp(20px,2.8vw,36px); width: 20px; height: 2px; background: var(--blue); box-shadow: 0 0 8px var(--blue); }
+.req-num { font-family: 'DM Mono', monospace; font-size: clamp(9px,1vw,11px); letter-spacing: 3px; color: var(--blue-bright); margin: 16px 0 10px; }
+.req-cell h4 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(14px,1.7vw,22px); font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+.req-cell p { font-size: clamp(11px,1.3vw,14px); font-weight: 300; color: var(--dim); line-height: 1.75; }
+.req-cell p strong { color: var(--white); font-weight: 500; }
+
+/* CARD TABLE */
+.card-table { margin-top: clamp(20px,3vw,44px); border: 1px solid var(--border); }
+.card-table-header, .card-row { display: grid; grid-template-columns: 1fr 110px 110px 1fr; gap: 1px; background: var(--border); }
+@media(max-width:700px){ .card-table-header, .card-row { grid-template-columns: 1fr 90px 1fr; } }
+.col-hide { display: block; }
+@media(max-width:700px){ .col-hide { display: none; } }
+.th { background: var(--blue-dim); padding: clamp(10px,1.5vw,16px) clamp(14px,2vw,24px); font-size: clamp(8px,0.9vw,10px); letter-spacing: 4px; text-transform: uppercase; color: var(--blue-bright); }
+.card-row:hover .td { background: rgba(59,130,246,0.05); }
+.td { background: var(--card); padding: clamp(14px,2vw,22px) clamp(14px,2vw,24px); font-size: clamp(11px,1.2vw,13px); font-weight: 300; color: var(--dim); transition: background 0.2s; }
+.td-name { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(13px,1.5vw,17px); font-weight: 700; letter-spacing: 1px; color: var(--white); display: block; margin-bottom: 3px; }
+.td-issuer { font-size: clamp(9px,1vw,11px); letter-spacing: 2px; color: var(--dim); text-transform: uppercase; }
+.td-limit { color: var(--blue-electric); font-weight: 500; }
+.tier { display: inline-block; padding: 4px 10px; font-size: clamp(8px,0.9vw,10px); letter-spacing: 2px; text-transform: uppercase; border: 1px solid; }
+.tier-elite { border-color: rgba(59,130,246,0.5); color: var(--blue-bright); }
+.tier-cu { border-color: rgba(34,197,94,0.4); color: var(--green); }
+.tier-priv { border-color: rgba(238,242,255,0.15); color: var(--dim); }
+
+/* LENDER CAPS */
+.cap-list { margin-top: clamp(20px,3vw,44px); }
+.cap-item { display: grid; grid-template-columns: clamp(120px,18vw,220px) 1fr; gap: 1px; background: var(--border); margin-bottom: 1px; }
+.cap-item:last-child { margin-bottom: 0; }
+.cap-left { background: var(--card); padding: clamp(18px,2.5vw,32px) clamp(16px,2.2vw,28px); }
+.cap-bank { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(14px,1.7vw,21px); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--white); display: block; margin-bottom: 6px; }
+.cap-amount { font-family: 'DM Mono', monospace; font-size: clamp(12px,1.4vw,16px); font-weight: 500; color: var(--blue-electric); }
+.cap-right { background: var(--card); padding: clamp(18px,2.5vw,32px) clamp(16px,2.2vw,28px); font-size: clamp(11px,1.3vw,14px); font-weight: 300; color: var(--dim); line-height: 1.75; }
+.cap-right strong { color: var(--white); font-weight: 500; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+.dot-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.dot-amber { background: var(--amber); }
+.dot-red { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
+/* ROADMAP */
+.road-steps { margin-top: clamp(20px,3vw,44px); }
+.road-item { display: grid; grid-template-columns: clamp(52px,6vw,80px) 1fr; gap: clamp(16px,2.5vw,36px); padding: clamp(20px,2.8vw,36px) 0; border-bottom: 1px solid var(--border); align-items: start; }
+.road-item:last-child { border-bottom: none; }
+.road-n { font-family: 'Playfair Display', serif; font-size: clamp(36px,5vw,68px); font-weight: 900; color: rgba(59,130,246,0.14); line-height: 1; }
+.road-content h4 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(14px,1.7vw,22px); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+.road-content p { font-size: clamp(11px,1.3vw,14px); font-weight: 300; color: var(--dim); line-height: 1.8; }
+.road-content p strong { color: var(--white); font-weight: 500; }
+.pill { display: inline-block; padding: 5px 12px; margin-top: 12px; font-size: clamp(8px,0.9vw,10px); letter-spacing: 3px; text-transform: uppercase; border: 1px solid; }
+.pill-blue { border-color: var(--border-blue); color: var(--blue-bright); }
+.pill-red { border-color: rgba(239,68,68,0.35); color: var(--red); }
+.pill-amber { border-color: rgba(245,158,11,0.35); color: var(--amber); }
+.pill-green { border-color: rgba(34,197,94,0.35); color: var(--green); }
+
+/* CLUB */
+.club-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(200px,28vw,300px), 1fr)); gap: 1px; background: var(--border); margin-top: clamp(20px,3vw,44px); }
+.club-cell { background: var(--card); padding: clamp(22px,3vw,40px) clamp(20px,2.8vw,36px); position: relative; overflow: hidden; }
+.club-cell::before { content: ''; position: absolute; bottom: 0; right: 0; width: 80px; height: 80px; background: radial-gradient(circle at 100% 100%, rgba(59,130,246,0.07), transparent 60%); }
+.club-cell.featured { background: var(--blue-dim); border-left: 2px solid var(--blue); }
+.club-tcl { font-family: 'Playfair Display', serif; font-size: clamp(24px,3.5vw,48px); font-weight: 900; color: var(--blue-electric); line-height: 1; margin-bottom: 8px; }
+.club-name { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(10px,1.2vw,14px); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 16px; }
+.club-detail { font-size: clamp(10px,1.1vw,13px); font-weight: 300; color: var(--dimmer); line-height: 1.7; }
+.club-detail strong { color: var(--dim); font-weight: 500; }
+
+/* APPROACH */
+.approach-list { margin-top: clamp(20px,3vw,44px); }
+.approach-item { display: flex; gap: clamp(16px,2.5vw,36px); padding: clamp(20px,2.8vw,36px) 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+.approach-item:last-child { border-bottom: none; }
+.approach-marker { font-family: 'DM Mono', monospace; font-size: clamp(9px,1vw,11px); letter-spacing: 3px; color: var(--blue-bright); flex-shrink: 0; padding-top: 4px; min-width: 40px; }
+.approach-content h4 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(14px,1.7vw,22px); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+.approach-content p { font-size: clamp(11px,1.3vw,14px); font-weight: 300; color: var(--dim); line-height: 1.8; }
+.approach-content p strong { color: var(--white); font-weight: 500; }
+
+/* CTA */
+#cta { background: var(--navy); text-align: center; align-items: center; gap: clamp(20px,3vw,44px); }
+#cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(59,130,246,0.07), transparent 65%); pointer-events: none; }
+.cta-line { display: inline-flex; align-items: center; gap: 16px; font-size: clamp(9px,1vw,11px); letter-spacing: 6px; text-transform: uppercase; color: var(--dimmer); position: relative; z-index: 1; }
+.cta-line::before, .cta-line::after { content: ''; width: clamp(20px,3vw,40px); height: 1px; background: var(--border); }
+.cta-display { font-family: 'Playfair Display', serif; font-size: clamp(52px,9vw,130px); font-weight: 900; line-height: 0.88; letter-spacing: -0.02em; position: relative; z-index: 1; }
+.cta-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(14px,1.7vw,21px); font-weight: 400; color: var(--dim); line-height: 1.65; max-width: 520px; position: relative; z-index: 1; }
+.cta-btn { background: var(--blue); display: inline-block; text-decoration: none; padding: clamp(16px,2vw,28px) clamp(32px,6vw,80px); position: relative; z-index: 1; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+.cta-btn:hover { background: var(--blue-bright); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(59,130,246,0.3); }
+.cta-btn-main { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(15px,1.8vw,24px); font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: var(--navy); display: block; margin-bottom: 4px; }
+.cta-btn-sub { font-size: clamp(9px,1vw,11px); font-weight: 300; color: rgba(5,13,31,0.6); letter-spacing: 1px; }
+.cta-handle { font-size: clamp(9px,1vw,11px); letter-spacing: 5px; color: var(--dimmer); text-transform: uppercase; position: relative; z-index: 1; }
+
+  /* ── ARTICLE SUBSCRIBE STRIP ── */
+  .article-subscribe {
+    background: #0d0d0d;
+    padding: 48px 40px;
+    margin: 48px 0 0;
+  }
+  .article-subscribe .as-tag {
+    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c9a84c; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .article-subscribe .as-tag::before {
+    content: ''; display: block; width: 20px; height: 2px; background: #c9a84c;
+  }
+  .article-subscribe .as-headline {
+    font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .article-subscribe .as-desc {
+    font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px;
+  }
+  .article-subscribe .as-row { display: flex; max-width: 480px; }
+  .article-subscribe .as-input {
+    flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+    color: #fff; padding: 13px 16px; font-size: 14px;
+    font-family: inherit; outline: none; transition: border-color 0.2s;
+  }
+  .article-subscribe .as-input:focus { border-color: #555; }
+  .article-subscribe .as-input::placeholder { color: #444; }
+  .article-subscribe .as-input.error { border-color: #c00; }
+  .article-subscribe .as-btn {
+    background: #c9a84c; color: #111; border: none;
+    padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; cursor: pointer;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .article-subscribe .as-btn:hover { background: #e0c060; }
+  .article-subscribe .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+  .article-subscribe .as-confirm {
+    display: none; font-size: 13px; color: #c9a84c; font-weight: 600; padding: 12px 0 0;
+  }
+
+  /* ── SOCIAL SHARE ── */
+  .share-strip {
+    display: flex; align-items: center; gap: 16px;
+    padding: 28px 0; border-top: 1px solid #e0dbd0;
+    flex-wrap: wrap;
+  }
+  .share-label {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: #aaa; white-space: nowrap;
+  }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; border: 1px solid;
+    cursor: pointer; background: none; font-family: inherit;
+  }
+  .share-btn.x-btn {
+    color: #fff; background: #000; border-color: #000;
+  }
+  .share-btn.x-btn:hover { background: #1a1a1a; }
+  .share-btn.copy-btn {
+    color: #111; background: #f5f2eb; border-color: #ccc;
+  }
+  .share-btn.copy-btn:hover { border-color: #999; }
+  .share-btn.copy-btn.copied { color: #c9a84c; border-color: #c9a84c; }
+  .share-tg-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+    color: #fff; background: #0088cc; border: 1px solid #0088cc;
+  }
+  .share-tg-btn:hover { background: #0077bb; }
+  .nmd-nav-links { display:flex; gap:24px; align-items:center; }
+  .nmd-nav-links a { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888; text-decoration:none; font-weight:600; transition:color 0.2s; font-family:Inter,sans-serif; }
+  .nmd-nav-links a:hover { color:#c9a84c; }
+  @media(max-width:768px){ .nmd-nav-links { display:none; } }
+</style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K7VFHF48M5');
+</script>
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+
+<div class="progress-bar" id="prog"></div>
+
+<nav>
+  <a href="index.html" class="nav-brand">NMD</a>
+  <div class="nmd-nav-links">
+  <a href="index.html">Newsletters</a>
+  <a href="nmd-videos.html">Films</a>
+  <a href="nmd-plugins.html">AI Companies</a>
+  <a href="nmd-tools.html">Tools</a>
+  <a href="nmd-get-started.html">Get Started</a>
+  <a href="nmd-solutions.html">Solutions</a>
+  <a href="nmd-about.html">About</a>
+  <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="cover-eyebrow">Total Credit Lines · Elite Portfolio Strategy</div>
+  <h1 class="cover-display">
+    <span style="color:var(--white);">$1,000,000</span><br>
+    <em style="color:var(--dim); font-size:0.65em;">in Total Credit Lines.</em><br>
+    <span class="blue">Here's the Playbook.</span>
+  </h1>
+  <div class="cover-statement">
+    <p>A $1M total credit limit isn't a number you stumble into. It's the result of <strong>years of deliberate file-building,</strong> strategic lender relationships, and knowing exactly which cards, which banks, and which sequence unlocks the limits that most people don't even know exist.</p>
+  </div>
+  <div class="cover-meta">
+    <div class="cover-brand">NMD<small>No Money Down</small></div>
+    <div class="meta-sep"></div>
+    <div class="cover-date">Credit Intelligence · 2026</div>
+  </div>
+  <div class="bg-num">01</div>
+</section>
+
+<!-- WHY FILES STAY STUCK -->
+<section style="background:var(--navy-2);">
+  <div class="slide-header">
+    <div class="slide-label">Why Most Files Stay Stuck</div>
+    <div class="nmd-tag">NMD</div>
+  </div>
+  <h2 class="heading">
+    The File That<br>
+    <em class="dim-text">Thinks</em> It's<br>
+    Ready.<br>
+    <span class="blue">It's Not.</span>
+  </h2>
+  <p class="body-copy">We see this constantly. A solid profile on paper — decent score, multiple accounts, long history — that still can't move past $300–400K in total credit. Three specific problems are quietly capping every CLI request and application before they even get reviewed.</p>
+  <div class="stat-row">
+    <div class="stat-cell red">
+      <div class="stat-label">Utilization Over 30%</div>
+      <div class="stat-value red">&gt;30%</div>
+      <div class="stat-desc">This single factor caps your score and signals to every lender that you're <strong>dependent on available credit</strong> — which is exactly why they won't extend more. High-limit approvals go to files where utilization is permanently under 10%.</div>
+    </div>
+    <div class="stat-cell amber">
+      <div class="stat-label">Score Ceiling</div>
+      <div class="stat-value amber">720</div>
+      <div class="stat-desc">720 gets you approved. <strong>It does not get you $50K–$100K starting limits.</strong> The cards that build a $1M portfolio require 780–800+ across all three bureaus. 720 is the floor for good credit — not the profile that elite limits are looking for.</div>
+    </div>
+    <div class="stat-cell blue-c">
+      <div class="stat-label">Average Limit / Card</div>
+      <div class="stat-value blue-c">$18K</div>
+      <div class="stat-desc">18 cards averaging $18K each = $330K TCL. <strong>To hit $1M across 18 cards, you need $55K average per card.</strong> That gap doesn't close with more applications. It closes with CLIs, strategic card swaps, and lender relationship leverage.</div>
+    </div>
+    <div class="stat-cell red">
+      <div class="stat-label">Revolving Balances</div>
+      <div class="stat-value red">$140K</div>
+      <div class="stat-desc">Carrying six figures in revolving debt tells every new lender: <strong>this person actually uses the credit they have.</strong> High-limit underwriters want to see capacity, not necessity. Paydown has to come before the applications.</div>
+    </div>
+  </div>
+  <div class="bg-num">02</div>
+</section>
+
+<!-- WHAT IT TAKES -->
+<section style="background:var(--navy);">
+  <div class="slide-header">
+    <div class="slide-label">The $1M Profile Requirements</div>
+    <div class="nmd-tag">NMD</div>
+  </div>
+  <h2 class="heading">
+    What Every<br>
+    $1M+ File<br>
+    <em class="dim-text">Actually</em><br>
+    <span class="blue">Has in Common.</span>
+  </h2>
+  <p class="body-copy">We know what separates the files sitting at $900K–$1M+ in total revolving credit from every other file. The pattern is consistent. None of it is accidental. These are built outcomes.</p>
+  <div class="req-grid">
+    <div class="req-cell">
+      <div class="req-num">01 — Score</div>
+      <h4>800+ FICO Across All 3 Bureaus</h4>
+      <p>The cards and CLIs that build a $1M portfolio require <strong>800+ across all three bureaus</strong> — many at 830–850 across FICO 8 and FICO 9. Not one bureau. All three. A weak bureau means a reduced starting limit or a denied CLI on every application that pulls it.</p>
+    </div>
+    <div class="req-cell">
+      <div class="req-num">02 — Utilization</div>
+      <h4>Sub-10% Reported. Always. Permanently.</h4>
+      <p>This isn't a tactic for application time. <strong>$1M+ profiles maintain near-zero utilization as a permanent operating mode.</strong> They pay before statement cuts, never carry balances, and rarely touch 5% reported. It's a lifestyle, not a strategy.</p>
+    </div>
+    <div class="req-cell">
+      <div class="req-num">03 — Income + DTI</div>
+      <h4>High Income. Low DTI. Both Required.</h4>
+      <p>Income alone isn't enough. High income paired with high debt obligations gets capped at the same levels as someone earning less. <strong>What unlocks the elite tier is high income with low DTI</strong> — most of that income is available capacity, not already committed to other payments.</p>
+    </div>
+    <div class="req-cell">
+      <div class="req-num">04 — File Depth</div>
+      <h4>Thick, Long, Zero-Derogatory History</h4>
+      <p>The $1M+ profiles we track have <strong>30+ year credit histories, oldest accounts at 25–32 years,</strong> and zero derogatory marks — ever. Depth of history isn't just a score factor. It's what makes an underwriter comfortable signing off on a $100K line.</p>
+    </div>
+    <div class="req-cell">
+      <div class="req-num">05 — Timeline</div>
+      <h4>Years of Measured Cadence — Not an App Spree</h4>
+      <p>Even a fully qualified applicant — 800+ score, low utilization, high income — should expect <strong>multiple years of measured cadence</strong> to build from $300K to $1M. The accounts carrying the biggest limits need time to grow. Rushing the timeline triggers lender risk flags and resets account age.</p>
+    </div>
+    <div class="req-cell">
+      <div class="req-num">06 — Assets</div>
+      <h4>Banking Relationships That Unlock Higher Ceilings</h4>
+      <p>At the top tier, credit decisions go beyond score and income. <strong>Brokerage assets, property equity, and private banking relationships</strong> become leverage. BofA's highest limits go to Preferred Rewards members. Chase's biggest CLIs happen inside Private Client. These are doors that score alone cannot open.</p>
+    </div>
+  </div>
+  <div class="bg-num">03</div>
+</section>
+
+<!-- HIGH LIMIT CARDS -->
+<section style="background:var(--navy-2);">
+  <div class="slide-header">
+    <div class="slide-label">Cards That Build a $1M Portfolio</div>
+    <div class="nmd-tag">NMD</div>
+  </div>
+  <h2 class="heading">
+    The Cards<br>
+    That <em class="dim-text">Actually</em><br>
+    Go to<br>
+    <span class="blue">$50K–$100K+.</span>
+  </h2>
+  <p class="body-copy">Most people are applying to cards with $15K ceilings and wondering why they can't scale. These are the specific products the top-TCL profiles are built around — and what it takes to access the limits that actually move the number.</p>
+  <div class="card-table">
+    <div class="card-table-header">
+      <div class="th">Card</div>
+      <div class="th">Known Max</div>
+      <div class="th col-hide">Floor / Min</div>
+      <div class="th">What We Know</div>
+    </div>
+    <div class="card-row">
+      <div class="td"><span class="td-name">Chase Sapphire Reserve</span><span class="td-issuer">Chase · Visa Infinite</span></div>
+      <div class="td td-limit">$100K+</div>
+      <div class="td col-hide">$10K min</div>
+      <div class="td"><span class="tier tier-elite">Elite</span><span style="display:block;margin-top:8px;"><strong>$80–100K is achievable</strong> with Private Client status, high monthly spend, and long Chase relationship. Chase has an income-based total exposure cap across all their cards — consolidate underused Chase limits before applying for new Chase products.</span></div>
+    </div>
+    <div class="card-row">
+      <div class="td"><span class="td-name">NFCU Flagship Rewards</span><span class="td-issuer">Navy Federal · Visa Signature</span></div>
+      <div class="td td-limit">$80K+</div>
+      <div class="td col-hide">$5K min</div>
+      <div class="td"><span class="tier tier-cu">CU Elite</span><span style="display:block;margin-top:8px;"><strong>$80K is verified.</strong> NFCU is the single most limit-generous institution we track for qualified members. No hard aggregate cap like big banks. Internal relationship scoring — loans, direct deposit, tenure — drives the ceiling. Build the relationship before you ask for the limit.</span></div>
+    </div>
+    <div class="card-row">
+      <div class="td"><span class="td-name">BofA Premium Rewards Elite</span><span class="td-issuer">Bank of America · Visa Infinite</span></div>
+      <div class="td td-limit">$85K+</div>
+      <div class="td col-hide">$10K min</div>
+      <div class="td"><span class="tier tier-elite">Elite</span><span style="display:block;margin-top:8px;"><strong>$85K is documented at Preferred Rewards Platinum Honors tier</strong> — requires $100K+ in BofA/Merrill assets. The banking relationship is the lever here. BofA's personal aggregate cap sits around $99,900, making this their top single-card contribution to a $1M portfolio.</span></div>
+    </div>
+    <div class="card-row">
+      <div class="td"><span class="td-name">First Tech Odyssey Rewards</span><span class="td-issuer">First Tech FCU · World Elite MC</span></div>
+      <div class="td td-limit">$100K</div>
+      <div class="td col-hide">Publicly disclosed</div>
+      <div class="td"><span class="tier tier-cu">CU Elite</span><span style="display:block;margin-top:8px;">One of the few institutions that <strong>publicly advertises $100K as the card maximum.</strong> Accessible through employer affiliates or Computer History Museum membership. Strong profile required to approach the ceiling — but the ceiling is verified and publicized.</span></div>
+    </div>
+    <div class="card-row">
+      <div class="td"><span class="td-name">Andrews Federal Titanium</span><span class="td-issuer">Andrews FCU · Visa Signature</span></div>
+      <div class="td td-limit">$70K+</div>
+      <div class="td col-hide">Varies by profile</div>
+      <div class="td"><span class="tier tier-cu">CU High</span><span style="display:block;margin-top:8px;">Known for <strong>above-average starting limits and generous CLIs</strong> compared to most issuers. Membership accessible via American Consumer Council. This is the credit union play that adds serious TCL without requiring a full private banking asset relationship.</span></div>
+    </div>
+    <div class="card-row">
+      <div class="td"><span class="td-name">Amex Portfolio (Combined)</span><span class="td-issuer">American Express · Multiple Cards</span></div>
+      <div class="td td-limit">$95K aggregate</div>
+      <div class="td col-hide">Soft pull CLI</div>
+      <div class="td"><span class="tier tier-elite">Premium</span><span style="display:block;margin-top:8px;">Amex soft-pull CLI requests every 181 days — use this consistently. <strong>Amex's internal exposure cap is approximately 45% of reported income</strong> across all personal accounts. Stack multiple Amex products and grow each one before total exposure limits kick in.</span></div>
+    </div>
+    <div class="card-row">
+      <div class="td"><span class="td-name">UBS Visa Infinite / UNFCU Elite</span><span class="td-issuer">Private Banking Tier</span></div>
+      <div class="td td-limit">$50K–$100K+</div>
+      <div class="td col-hide">Asset-gated</div>
+      <div class="td"><span class="tier tier-priv">Private</span><span style="display:block;margin-top:8px;"><strong>Asset-relationship products</strong> — UBS requires private banking, UNFCU serves UN-affiliated employees and family. Known for large starting limits tied to your asset profile rather than just income and score. Build the relationship first — the limit is the reward.</span></div>
+    </div>
+  </div>
+  <div class="bg-num">04</div>
+</section>
+
+<!-- LENDER CAPS -->
+<section style="background:var(--navy);">
+  <div class="slide-header">
+    <div class="slide-label">The Invisible Ceilings Every Lender Has</div>
+    <div class="nmd-tag">NMD</div>
+  </div>
+  <h2 class="heading">
+    Know Every<br>
+    Lender's<br>
+    <em class="dim-text">Internal</em><br>
+    <span class="blue">Hard Cap.</span>
+  </h2>
+  <p class="body-copy">Getting denied a CLI isn't always a score problem. Often it's a portfolio concentration problem — you've hit the lender's internal maximum exposure and they won't go higher regardless of how strong your file is. Knowing these caps is how you build around them.</p>
+  <div class="cap-list">
+    <div class="cap-item">
+      <div class="cap-left"><span class="cap-bank">Chase</span><span class="cap-amount">~50% of Income</span></div>
+      <div class="cap-right"><span class="dot dot-amber"></span><strong>Income-relative soft cap.</strong> Chase won't extend total credit across all their cards beyond roughly half your stated gross income. If you're at the cap, CLIs are denied for exposure reasons — not score. Fix: reallocate limits from underused Chase cards to your preferred products before requesting increases.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-left"><span class="cap-bank">Bank of America</span><span class="cap-amount">$99,900 hard cap</span></div>
+      <div class="cap-right"><span class="dot dot-red"></span><strong>Hard aggregate limit: $99,900</strong> across all personal BofA cards for most customers. Breaking above requires Merrill asset relationships and manual review. Approach it from the top card down — concentrate limits on your highest-value BofA product first, then layer in the Premium Rewards Elite last.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-left"><span class="cap-bank">American Express</span><span class="cap-amount">~45% of Income</span></div>
+      <div class="cap-right"><span class="dot dot-amber"></span><strong>Amex tracks total exposure across all personal accounts.</strong> At approximately 45% of reported income, CLIs get denied and new cards come with reduced starting limits. Use the 181-day soft pull CLI cadence aggressively before hitting this ceiling. Adding spend without requesting CLIs can sometimes prompt automatic increases near the cap.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-left"><span class="cap-bank">Citi</span><span class="cap-amount">~$100K aggregate</span></div>
+      <div class="cap-right"><span class="dot dot-amber"></span><strong>Citi has an informal aggregate exposure limit</strong> that varies by card type and relationship depth. Top Citi TCL profiles sit around $97–100K. Citi allows credit reallocation between their products — consolidate limits from underused Citi cards into your primary product before applying for anything new.</div>
+    </div>
+    <div class="cap-item">
+      <div class="cap-left"><span class="cap-bank">Navy Federal</span><span class="cap-amount">Relationship-based</span></div>
+      <div class="cap-right"><span class="dot dot-green"></span><strong>NFCU has no published hard aggregate cap</strong> — the ceiling is driven by your internal NFCU relationship score, income, and tenure. This is why it's the most flexible institution for elite TCL building. Direct deposit, NFCU loans, and consistent card usage build the internal score that unlocks $80K+ limits most banks won't touch.</div>
+    </div>
+  </div>
+  <div class="bg-num">05</div>
+</section>
+
+<!-- ROADMAP -->
+<section style="background:var(--navy-2);">
+  <div class="slide-header">
+    <div class="slide-label">The Sequenced Playbook</div>
+    <div class="nmd-tag">NMD</div>
+  </div>
+  <h2 class="heading">
+    $300K to<br>
+    $1M.<br>
+    <em class="dim-text">The Exact</em><br>
+    <span class="blue">Order of Operations.</span>
+  </h2>
+  <div class="road-steps">
+    <div class="road-item">
+      <div class="road-n">01</div>
+      <div class="road-content">
+        <h4>Kill the Revolving Balances First — Non-Negotiable</h4>
+        <p>Before a single new application, before any CLI request — <strong>revolving balances need to come down to under 10% of current total limits.</strong> This one move pushes a 720 score toward 780–800+, which is the threshold that unlocks the elite limit tier. Every other step is premature until the balance sheet is clean.</p>
+        <span class="pill pill-red">Step 0 — Do This First</span>
+      </div>
+    </div>
+    <div class="road-item">
+      <div class="road-n">02</div>
+      <div class="road-content">
+        <h4>CLI Sprint — Grow Existing Cards Before Opening New Ones</h4>
+        <p>As utilization drops and score climbs, <strong>request CLIs on every existing card within each issuer's window.</strong> Amex: soft pull every 181 days. Chase: varies, often soft. Capital One: typically hard pull — minimize. This phase adds $50K–$150K in total credit with zero new inquiries, zero new accounts, and zero impact on average account age. Maximum leverage, minimum cost.</p>
+        <span class="pill pill-blue">Phase 2 — CLI Sprint</span>
+      </div>
+    </div>
+    <div class="road-item">
+      <div class="road-n">03</div>
+      <div class="road-content">
+        <h4>Audit the Portfolio — Cut Dead Weight, Add Credit Union Depth</h4>
+        <p>Every card in the portfolio gets evaluated. <strong>Cards stuck below $10K with no CLI trajectory are wasting an account slot.</strong> Replace them with credit union products known for generous limits — NFCU, First Tech, Andrews Federal, PenFed. Credit union exposure should represent 30–40% of the target $1M portfolio. Capital One cards in particular are notoriously limit-stingy at scale.</p>
+        <span class="pill pill-amber">Phase 3 — Portfolio Rebuild</span>
+      </div>
+    </div>
+    <div class="road-item">
+      <div class="road-n">04</div>
+      <div class="road-content">
+        <h4>Build the Asset Relationships That Change the Ceiling</h4>
+        <p>BofA's $85K limit requires Preferred Rewards Platinum Honors — $100K+ in BofA/Merrill assets. Chase's highest CLIs live inside Private Client. UBS requires private banking. <strong>These are doors that asset relationships open, not score.</strong> Start moving investment accounts to the right institutions. The limit access is the return on that relationship.</p>
+        <span class="pill pill-blue">Phase 4 — Relationship Banking</span>
+      </div>
+    </div>
+    <div class="road-item">
+      <div class="road-n">05</div>
+      <div class="road-content">
+        <h4>Precision Applications — One Product at a Time, Measured Cadence</h4>
+        <p>With 800+ score, clean utilization, and banking relationships in place: no more than 1–2 applications per six-month window. <strong>First Tech Odyssey, Andrews Titanium, NFCU Flagship, Chase CSR, BofA PRE, UNFCU Elite.</strong> Every application is calibrated against each lender's known exposure cap, pull type, and CLI behavior. You're not chasing limits — you're placing the right products in the right sequence.</p>
+        <span class="pill pill-green">Phase 5 — Precision Applications</span>
+      </div>
+    </div>
+  </div>
+  <div class="bg-num">06</div>
+</section>
+
+<!-- $1M CLUB -->
+<section style="background:var(--navy);">
+  <div class="slide-header">
+    <div class="slide-label">What $1M+ Portfolios Actually Look Like</div>
+    <div class="nmd-tag">NMD</div>
+  </div>
+  <h2 class="heading">
+    Real $1M+<br>
+    Portfolios.<br>
+    <em class="dim-text">Broken</em><br>
+    <span class="blue">Down by Lender.</span>
+  </h2>
+  <div class="club-grid">
+    <div class="club-cell featured">
+      <div class="club-tcl">$947K+</div>
+      <div class="club-name">42-Year File · Maxed at Every Major Lender</div>
+      <div class="club-detail"><strong>Chase $156.4K · BofA $99.9K · Citi $97.5K · Amex $95K · NFCU $80K · Synchrony $65K.</strong> FICO 8: 838–850 across all bureaus. FICO 9: 850 across all. Oldest account: 32 years. This file has hit every major lender's internal cap. The next $50K comes exclusively from credit union additions — the only remaining path when big bank walls are maxed.</div>
+    </div>
+    <div class="club-cell">
+      <div class="club-tcl">$912K</div>
+      <div class="club-name">22 Cards · $41,454 Average Limit Per Card</div>
+      <div class="club-detail">Strategy: <strong>fewer cards, higher limits per card.</strong> Top holdings: Chase Sapphire Reserve <strong>$100K</strong>, BofA Premium Rewards Elite <strong>$85K</strong>, NFCU Flagship <strong>$80K</strong>, Amex Marriott Brilliant <strong>$65K</strong>. 10 cards at $46K or higher. Quality over quantity — the elite card approach.</div>
+    </div>
+    <div class="club-cell">
+      <div class="club-tcl">$361K</div>
+      <div class="club-name">9 Cards · $41K Avg · The Rule of 9 Strategy</div>
+      <div class="club-detail">Self-imposed rule: <strong>never exceed 9 total cards.</strong> Must close one to open one. Average limit per card ($41,166) nearly matches the $912K holder. Proves $1M is achievable with fewer, better-placed cards — given enough time and the right issuers selected from the start.</div>
+    </div>
+    <div class="club-cell">
+      <div class="club-tcl">The Pattern</div>
+      <div class="club-name">Common Denominators Across Every $1M+ File</div>
+      <div class="club-detail"><strong>800+ FICO, all bureaus, all models.</strong> Sub-5% reported utilization — permanently. Zero derogatories — ever. Average age of accounts: 10+ years minimum. Multiple credit union relationships alongside major banks. High income with <strong>low DTI.</strong> Asset relationships at key institutions. Years of intentional, deliberate file management.</div>
+    </div>
+  </div>
+  <div class="bg-num">07</div>
+</section>
+
+<!-- NMD APPROACH -->
+<section style="background:var(--navy-2);">
+  <div class="slide-header">
+    <div class="slide-label">How NMD Builds Toward Elite TCL</div>
+    <div class="nmd-tag">NMD</div>
+  </div>
+  <h2 class="heading">
+    We Don't<br>
+    <em class="dim-text">Chase</em> Limits.<br>
+    We Build<br>
+    <span class="blue">Toward Them.</span>
+  </h2>
+  <div class="approach-list">
+    <div class="approach-item">
+      <div class="approach-marker">01 /</div>
+      <div class="approach-content">
+        <h4>We Map Your File Against Its Real Ceiling</h4>
+        <p>First thing we do: calculate what your current profile can realistically support in total credit — based on your score, income, lender relationships, and each issuer's known exposure cap. <strong>Most clients are leaving $100–300K in available credit on the table</strong> from CLI requests they haven't submitted or applications they haven't timed correctly. We close that gap before we talk about anything new.</p>
+      </div>
+    </div>
+    <div class="approach-item">
+      <div class="approach-marker">02 /</div>
+      <div class="approach-content">
+        <h4>We Build a CLI Calendar, Not an Application Strategy</h4>
+        <p>The fastest TCL growth comes from CLIs on existing cards — <strong>zero new inquiries, zero new accounts, zero impact on average account age.</strong> We track every card's eligibility window and every issuer's pull type, then execute at the optimal moment. Most clients gain $50K–$150K in new credit without a single hard pull, purely from disciplined CLI execution across their existing portfolio.</p>
+      </div>
+    </div>
+    <div class="approach-item">
+      <div class="approach-marker">03 /</div>
+      <div class="approach-content">
+        <h4>We Identify and Replace Anchor Cards Killing the Average</h4>
+        <p>A portfolio with multiple cards stuck at $8–12K and no CLI path is carrying dead weight. <strong>We audit every account for CLI trajectory, issuer behavior, and growth potential.</strong> Cards with no viable path to $25K+ get replaced — carefully, preserving account age — with credit union products and premium cards known to grow to meaningful limits. This shifts average limit from $18K to $35K+ in 12–18 months.</p>
+      </div>
+    </div>
+    <div class="approach-item">
+      <div class="approach-marker">04 /</div>
+      <div class="approach-content">
+        <h4>We Build the Bank Relationships That Change the Ceiling</h4>
+        <p>The $85K BofA limit requires $100K+ in Merrill assets. The $100K Chase CSR requires Private Client status. The UNFCU Elite requires an institutional connection. <strong>We advise clients on which asset-based banking relationships to build, in which order, based on their existing investment accounts.</strong> This is where the biggest limit jumps happen — and where most people never think to look.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bg-num">08</div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-line">No Money Down</div>
+  <h2 class="cta-display">
+    What's<br>
+    <em style="color:var(--dim);">Your</em><br>
+    <span class="blue">Ceiling?</span>
+  </h2>
+  <p class="cta-sub">Total credit isn't about applying more. It's about building the profile that makes every lender want to extend more. We'll show you exactly where you stand and what it takes to close the gap.</p>
+  <a href="#" class="cta-btn">
+    <div class="cta-btn-main">DM Us to Audit Your TCL Potential</div>
+    <div class="cta-btn-sub">We'll map your file against your realistic $1M path</div>
+  </a>
+  <div class="cta-handle">@NMD · No Money Down · Credit Intelligence</div>
+  <div class="bg-num">09</div>
+</section>
+
+<script>
+  const prog = document.getElementById('prog');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    prog.style.width = Math.min(pct, 100) + '%';
+  }, { passive: true });
+</script>
+
+<div class="share-strip">
+  <span class="share-label">Share</span>
+  <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    Post to X
+  </a>
+  <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+    Telegram
+  </a>
+  <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    Copy Link
+  </button>
+</div>
+<div class="article-subscribe" id="article-subscribe-nmd_1million_credit_">
+  <div class="as-tag">NMD Credit Intelligence</div>
+  <div class="as-headline">Get every drop free.</div>
+  <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+  <div class="as-row" id="as-row-nmd_1million_credit_">
+    <input type="email" class="as-input" id="as-email-nmd_1million_credit_" placeholder="your@email.com">
+    <button class="as-btn" onclick="submitArticleEmail('nmd_1million_credit_', this)">Subscribe</button>
+  </div>
+  <div class="as-confirm" id="as-confirm-nmd_1million_credit_">✓ You're in — next drop coming to your inbox.</div>
+</div>
+
+
+<script>
+  (function() {
+    if (localStorage.getItem('nmd_email')) {
+      var el = document.querySelector('.article-subscribe');
+      if (el) el.style.display = 'none';
+    }
+  })();
+
+  async function submitArticleEmail(uid, btn) {
+    var emailEl = document.getElementById('as-email-' + uid);
+    var email = emailEl ? emailEl.value.trim() : '';
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+      return;
+    }
+    if (emailEl) emailEl.classList.remove('error');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+          subject: 'New NMD Subscriber — Article Page',
+          email: email,
+          source: window.location.pathname
+        })
+      });
+      var data = await res.json();
+      if (data.success) {
+        localStorage.setItem('nmd_email', email);
+        document.getElementById('as-row-' + uid).style.display = 'none';
+        document.getElementById('as-confirm-' + uid).style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    } catch(e) {
+      btn.textContent = 'Try Again'; btn.disabled = false;
+    }
+  }
+</script>
+
+<script>
+function shareTelegram() {
+  var url = encodeURIComponent(window.location.href);
+  var title = encodeURIComponent(document.title);
+  window.open('https://t.me/share/url?url=' + url + '&text=' + title, '_blank');
+}
+function copyArticleLink(btn) {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var orig = btn.innerHTML;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+(function() {
+  var xBtn = document.getElementById('share-x');
+  if (xBtn) {
+    var url = encodeURIComponent(window.location.href);
+    var title = encodeURIComponent(document.title);
+    xBtn.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+  }
+})();
+</script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

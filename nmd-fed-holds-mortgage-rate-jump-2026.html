@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5w5OA">
+  <meta name="description" content="The Fed held rates at 3.5% on March 18 — and mortgage rates went UP anyway to 6.22%. Every point on your credit score is worth hundreds of dollars a month right now. NMD breaks down the math.">
+  <meta name="keywords" content="mortgage rates 2026, Fed holds rates, 6.22% mortgage rate, credit score mortgage, FICO score home loan, credit repair 2026, ScoreBoost">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Fed Held Rates — Mortgage Rates Went Up Anyway. Your Credit Score Is Now Worth $300/Month | NMD">
+  <meta property="og:description" content="The Fed paused. Mortgages hit 6.22%. In this market, the gap between a 580 and a 760 FICO is $200–350 more per month — every month. NMD shows you the exact math.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-fed-holds-mortgage-rate-jump-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fed Held Rates. Mortgages Still Hit 6.22%. Your Credit Score Is Worth $300/Month | NMD">
+  <meta name="twitter:description" content="The Fed paused and mortgage rates jumped anyway. If you're rebuilding credit and thinking about buying — the math has never been more brutal. NMD breaks it down.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fed Held Rates — Mortgage Rates Went Up Anyway. Your Credit Score Is Now Worth $300/Month | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* NMD SOLUTIONS CARD */
+    .nmd-solutions-card {
+      background: var(--ink); padding: 28px 24px; margin-bottom: 20px;
+      border: 1px solid #2a2a2a;
+    }
+    .nmd-solutions-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .nmd-solutions-headline {
+      font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.3;
+    }
+    .nmd-solutions-desc { font-size: 12px; color: #888; margin-bottom: 16px; line-height: 1.5; }
+    .nmd-solutions-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 10px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Housing &amp; Credit · March 20, 2026</div>
+    <h1>Fed Held Rates.<br><em>Mortgages Went Up Anyway.</em></h1>
+    <p class="article-dek">The Federal Reserve paused on March 18 — and mortgage rates jumped to 6.22% the very next day. In this market, the gap between a rebuilding credit score and a strong one costs you $200–$350 every single month. For life. NMD breaks down the exact numbers.</p>
+    <div class="article-meta">
+      <span>📅 March 20, 2026</span>
+      <span>✍️ NMD ZAZA</span>
+      <span>⏱ 6 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>The Fed did nothing. Your mortgage just got more expensive.</h2>
+
+      <p>On March 18, the Federal Reserve voted 11-1 to hold the federal funds rate at 3.5–3.75%. No cut. No hike. A straight pause. For anyone waiting on rate relief before buying a home, the news was already disappointing. Then came the real gut punch.</p>
+
+      <p>The very next day — March 19 — Freddie Mac released its weekly mortgage survey. The 30-year fixed rate had <strong>jumped to 6.22%</strong>, up 11 basis points from the prior week's 6.11%. By March 20, lenders were quoting 6.29% APR on NerdWallet. The 15-year fixed climbed to 5.54%.</p>
+
+      <p>The Fed didn't move. Mortgage rates moved anyway. And they moved up.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">⚠ Why Rates Rose Despite the Fed Pause</div>
+        <p>Mortgage rates follow the 10-year Treasury yield — not the Fed's overnight rate. Rising oil prices tied to geopolitical uncertainty and persistent inflation (the Fed now projects 2.7% PCE for 2026) pushed the 10-year yield higher. When the bond market is nervous, mortgage rates climb regardless of what Jerome Powell says at the podium. The Fed just told the market: only <strong>one rate cut expected in all of 2026</strong>, and another in 2027. Nobody is holding their breath for relief.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>Here's what this actually means for your credit score</h2>
+
+      <p>6.22% is the <em>benchmark</em> rate. That's for a borrower with <strong>760+ FICO, 20% down, sterling history</strong>. If you're rebuilding credit — if you're at 580, 620, or even 680 — that's not your rate. Not by a long shot.</p>
+
+      <p>Here's the real math on a $300,000 home purchase today:</p>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>FICO Score Range</th>
+            <th>Estimated Rate</th>
+            <th>Monthly Payment (30yr)</th>
+            <th>Extra Cost vs 760+</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>760 – 850</strong></td>
+            <td>6.22%</td>
+            <td>~$1,837</td>
+            <td><span class="tag green">Baseline</span></td>
+          </tr>
+          <tr>
+            <td><strong>700 – 759</strong></td>
+            <td>~6.65%</td>
+            <td>~$1,923</td>
+            <td><span class="tag yellow">+$86/mo · $30,960 extra</span></td>
+          </tr>
+          <tr>
+            <td><strong>660 – 699</strong></td>
+            <td>~7.10%</td>
+            <td>~$2,014</td>
+            <td><span class="tag yellow">+$177/mo · $63,720 extra</span></td>
+          </tr>
+          <tr>
+            <td><strong>620 – 659</strong></td>
+            <td>~7.65%</td>
+            <td>~$2,130</td>
+            <td><span class="tag red">+$293/mo · $105,480 extra</span></td>
+          </tr>
+          <tr>
+            <td><strong>580 – 619</strong></td>
+            <td>~8.20%</td>
+            <td>~$2,251</td>
+            <td><span class="tag red">+$414/mo · $149,040 extra</span></td>
+          </tr>
+          <tr>
+            <td><strong>Below 580</strong></td>
+            <td>FHA only / denied</td>
+            <td>Significantly higher or N/A</td>
+            <td><span class="tag red">Locked out</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Read that table again. Someone with a 580 FICO buying a $300,000 home is paying <strong>$414 more per month</strong> than someone with a 760. Over the life of a 30-year loan, that's <strong>$149,040 in extra interest paid</strong>. Not to a different lender. Not for a different house. The exact same house. The exact same lender. Just a different credit score.</p>
+
+      <blockquote>
+        <p>"Every point on your credit score has a dollar value attached to it. In a 6.22% rate environment, that value just went up."</p>
+      </blockquote>
+
+      <hr class="divider">
+
+      <h2>One rate cut for all of 2026. That's it.</h2>
+
+      <p>The Fed's March 2026 dot plot — their internal projection of where rates are headed — is not encouraging for people waiting on mortgage relief. The summary: <strong>one cut in 2026, one in 2027</strong>. That means rates staying elevated for at minimum 18 more months.</p>
+
+      <p>The Fed also revised their 2026 inflation forecast upward to 2.7% PCE. That number matters because it's precisely why the 10-year yield stays elevated, which keeps mortgage rates where they are. The math isn't moving in your favor if you're waiting.</p>
+
+      <div class="callout info">
+        <div class="callout-label">💡 The Waiting Game Is Expensive</div>
+        <p>A common mistake: "I'll wait for rates to drop, then buy." But rates dropping doesn't help you if your credit score stays the same. A 760+ borrower benefits maximally from any rate drop. A 580 borrower getting a 0.5% rate cut is still paying $350+ more per month than someone with good credit at the same lower rate. The score is the leverage, not the rate.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>The NMD credit action plan — move before the market closes the window</h2>
+
+      <p>There's one thing you can control right now. Not the Fed. Not the bond market. Not inflation. Your credit score. And in this rate environment, improving your score is the single highest-ROI financial move available to most Americans.</p>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <div><strong>Pull your free credit reports today.</strong> Go to annualcreditreport.com — it's free weekly. You're looking for errors, old collections, duplicate accounts, and anything dragging your score that you can dispute or negotiate off. One legitimate error removal can jump your score 30–50 points.</div>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <div><strong>Hammer your utilization rate.</strong> Credit utilization — how much of your available credit you're using — is 30% of your FICO score. If your cards are over 30% utilized, pay them down before your next statement closes. Under 10% utilization on each card is the sweet spot. This is the fastest lever you have.</div>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <div><strong>Dispute every error in writing — not online.</strong> Disputes submitted via certified mail create a legal paper trail under the FCRA. Online portals give bureaus more wiggle room. Send your dispute via USPS certified mail with return receipt. The bureau has 30 days to investigate. No response = deletion required by law.</div>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <div><strong>Negotiate pay-for-delete on old collections.</strong> Collection accounts under $1,000 are often negotiable. Call the collector, offer 40–60 cents on the dollar, and require written pay-for-delete confirmation before you send a cent. A paid collection hurts less than an unpaid one, but a deleted collection doesn't hurt at all.</div>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <div><strong>Become an authorized user on a strong account.</strong> If you have a family member or trusted friend with a long-standing card and low utilization, ask to be added as an authorized user. Their history on that account can appear on your credit report and boost your score — without you touching the card.</div>
+        </li>
+        <li>
+          <span class="action-num">6</span>
+          <div><strong>Use ScoreBoost to track every move.</strong> NMD's ScoreBoost Bot gives you real-time credit guidance, dispute letter templates, and strategy tools built specifically for people repairing and building. Free. On Telegram. No subscriptions, no hidden fees.</div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>The NMD Solutions angle — this applies to businesses too</h2>
+
+      <p>If you own a business that depends on credit — whether you're a real estate investor, a dealership, a contractor, or a professional services firm — your business credit profile is being evaluated in this same rising-rate environment. Lenders are tightening. AI underwriting is faster and colder. A clean, well-documented credit file is no longer a nice-to-have.</p>
+
+      <p>NMD Solutions builds AI tool suites for businesses that need to move smarter in a tighter credit environment: deal analyzers, credit score strategies, automated outreach to the right lenders, and systems that do the work of a credit analyst at a fraction of the cost.</p>
+
+      <div class="callout good">
+        <div class="callout-label">The NMD Solutions Edge</div>
+        <p>While your competitors are paying $293 more per month on financing because they never fixed their credit, you're locking in the benchmark rate. That difference is real profit — on every deal. NMD Solutions helps you build the credit profile that gets you to the front of the line.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>The bottom line</h2>
+
+      <p>The Fed held rates. Mortgage rates jumped anyway. The dot plot says one cut in all of 2026. And the cost of having a rebuilding credit score in this market is now running between $86 and $414 per month — every month — compared to someone who got their number right.</p>
+
+      <p>That's not a hypothetical. That's real money leaving your pocket on every mortgage payment, every refinance, every business loan. The math is brutal and it's compounding in real time.</p>
+
+      <p>What you can control is your score. And the window to improve it before rates potentially ease further and demand floods back — that window is open right now. Don't wait for the Fed to do something that probably isn't coming until 2027.</p>
+
+      <p>Move first. Move smart. That's the NMD way.</p>
+
+      <p><em>— Za | NMD ZAZA</em></p>
+
+      <div class="cta-box">
+        <div class="cta-label">Every Point Counts Right Now</div>
+        <h2>Your credit score is worth $300/month. Let's get it right.</h2>
+        <p>ScoreBoost Bot gives you free dispute tools, real-time credit strategy, and NMD's battle-tested playbook — all on Telegram. Zero cost. No upsells. Just results.</p>
+        <div class="cta-links">
+          <a class="cta-btn primary" href="https://t.me/ScoreBoostByNMDBot" target="_blank">Launch Score Boost Bot</a>
+          <a class="cta-btn secondary" href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Join NMD Telegram</a>
+          <a class="cta-btn secondary" href="index.html">More Newsletters</a>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Post to X
+        </a>
+        <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+          Telegram
+        </a>
+        <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+
+      <div class="article-subscribe" id="article-subscribe-fedmortgage">
+        <div class="as-tag">NMD Credit Intelligence</div>
+        <div class="as-headline">Get every drop free.</div>
+        <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+        <div class="as-row" id="as-row-fedmortgage">
+          <input type="email" class="as-input" id="as-email-fedmortgage" placeholder="your@email.com">
+          <button class="as-btn" onclick="submitArticleEmail('fedmortgage', this)">Subscribe</button>
+        </div>
+        <div class="as-confirm" id="as-confirm-fedmortgage">✓ You're in — next drop coming to your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">In This Edition</div>
+        <div class="sidebar-links">
+          <a href="#" class="sidebar-link">Fed holds at 3.5% — what it means</a>
+          <a href="#" class="sidebar-link">6.22% mortgage rate breakdown</a>
+          <a href="#" class="sidebar-link">Score-to-rate cost table</a>
+          <a href="#" class="sidebar-link">Why waiting is losing</a>
+          <a href="#" class="sidebar-link">6-step NMD action plan</a>
+          <a href="#" class="sidebar-link">Business credit in rising rates</a>
+        </div>
+      </div>
+      <div class="nmd-solutions-card">
+        <div class="nmd-solutions-label">NMD Solutions</div>
+        <div class="nmd-solutions-headline">AI Credit Strategy for Businesses That Can't Leave Money on the Table</div>
+        <div class="nmd-solutions-desc">Deal analyzers, credit score tools, automated lender outreach. Every industry. Every market.</div>
+        <a href="https://nmdzaza.github.io/nmd-newsletters/nmd-solutions.html" class="nmd-solutions-btn">Explore NMD Solutions →</a>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">Free Bot</div>
+        <div class="sidebar-cta-headline">Score Boost Bot — Free</div>
+        <div class="sidebar-cta-desc">Real-time credit guidance. Dispute tools. Powered by NMD AI.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" class="sidebar-cta-btn" target="_blank">Launch Free Bot →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD — No Money Down ZAZA</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Progress bar
+    const prog = document.getElementById('prog');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (window.scrollY / h * 100) + '%';
+    });
+
+    function shareTelegram() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      window.open('https://t.me/share/url?url=' + url + '&text=' + title, '_blank');
+    }
+
+    function copyArticleLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        var orig = btn.innerHTML;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    (function() {
+      var xBtn = document.getElementById('share-x');
+      if (xBtn) {
+        var url = encodeURIComponent(window.location.href);
+        var title = encodeURIComponent(document.title);
+        xBtn.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+      }
+    })();
+
+    function submitArticleEmail(id, btn) {
+      var input = document.getElementById('as-email-' + id);
+      var email = input ? input.value.trim() : '';
+      if (!email || !email.includes('@')) { input.classList.add('error'); return; }
+      input.classList.remove('error');
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+      localStorage.setItem('nmd_email', email);
+      document.getElementById('as-row-' + id).style.display = 'none';
+      var confirm = document.getElementById('as-confirm-' + id);
+      if (confirm) confirm.style.display = 'block';
+    }
+
+    (function() {
+      if (localStorage.getItem('nmd_email')) {
+        var el = document.getElementById('article-subscribe-fedmortgage');
+        if (el) el.style.display = 'none';
+      }
+    })();
+  </script>
+</body>
+</html>

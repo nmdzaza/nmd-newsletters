@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>57% of Businesses Get Approved. Here's How to Be One of Them. — NMD Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #f5f0e8; max-width: 720px; margin: 0 auto; padding: 0; }
+    header { background: #0d0d0d; padding: 28px 48px; border-bottom: 1px solid #1e1e1e; display: flex; align-items: center; justify-content: space-between; }
+    .logo-nmd { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 6px; color: #fff; text-transform: uppercase; text-decoration: none; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #444; text-transform: uppercase; margin-top: 2px; }
+    .back-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: #f0b429; }
+
+    .article-wrap { padding: 56px 48px 80px; }
+
+    .section-label {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #f0b429; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: #f0b429; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900; line-height: 1.1;
+      color: #fff; margin-bottom: 24px;
+    }
+
+    .lede {
+      font-size: 19px; color: #f0b429; line-height: 1.55;
+      border-left: 3px solid #f0b429; padding-left: 18px;
+      margin-bottom: 40px;
+    }
+
+    /* REAL TALK — conversational pull quotes */
+    .za-quote {
+      background: #111;
+      border-left: 4px solid #f0b429;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    .za-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #f0b429; margin-bottom: 10px; }
+    .za-text { font-size: 18px; color: #fff; line-height: 1.5; font-style: italic; }
+
+    /* APPROVAL RATE BREAKDOWN */
+    .approval-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin: 36px 0;
+    }
+    .approval-card {
+      background: #111; border: 1px solid #1e1e1e;
+      padding: 24px 20px; position: relative; overflow: hidden;
+    }
+    .approval-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .approval-card.good::before { background: #34d399; }
+    .approval-card.bad::before { background: #ef4444; }
+    .approval-card.medium::before { background: #f0b429; }
+    .approval-pct { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; }
+    .approval-card.good .approval-pct { color: #34d399; }
+    .approval-card.bad .approval-pct { color: #ef4444; }
+    .approval-card.medium .approval-pct { color: #f0b429; }
+    .approval-where { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-top: 6px; }
+    .approval-note { font-size: 13px; color: #777; margin-top: 10px; line-height: 1.5; }
+
+    p { font-size: 16px; line-height: 1.75; margin-bottom: 20px; color: #c8c3ba; }
+    strong { color: #fff; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; margin: 40px 0 16px; }
+    .divider { border: none; border-top: 1px solid #1e1e1e; margin: 36px 0; }
+
+    /* THE 5 REASONS */
+    .reason-list { list-style: none; margin: 24px 0; }
+    .reason-list li {
+      display: flex; gap: 16px; padding: 16px 0;
+      border-bottom: 1px solid #1a1a1a;
+      align-items: flex-start;
+    }
+    .reason-num {
+      font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900;
+      color: #f0b429; flex-shrink: 0; line-height: 1;
+    }
+    .reason-content { flex: 1; }
+    .reason-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .reason-body { font-size: 13px; color: #777; line-height: 1.6; }
+
+    /* ACTION BOX */
+    .action-box {
+      background: #111; border: 1px solid #f0b429;
+      padding: 28px 32px; margin: 36px 0;
+    }
+    .action-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #f0b429; margin-bottom: 14px; }
+    .action-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+    .action-steps { list-style: none; }
+    .action-steps li { font-size: 14px; color: #888; padding: 8px 0; border-bottom: 1px solid #1a1a1a; padding-left: 20px; position: relative; line-height: 1.6; }
+    .action-steps li::before { content: counter(step); counter-increment: step; position: absolute; left: 0; color: #f0b429; font-weight: 700; font-size: 12px; top: 9px; }
+    .action-steps { counter-reset: step; }
+    .action-steps li:last-child { border-bottom: none; }
+
+    .cta-box { background: #111; border: 1px solid #f0b429; padding: 28px 32px; margin: 40px 0; }
+    .cta-box strong { font-size: 17px; display: block; margin-bottom: 10px; color: #fff; }
+    .cta-box p { font-size: 14px; color: #888; margin: 0; }
+    .cta-box a { color: #f0b429; }
+
+    .signoff { font-size: 15px; color: #666; margin-top: 40px; padding-top: 24px; border-top: 1px solid #1e1e1e; }
+    .signoff strong { color: #c9a84c; }
+
+    footer { background: #000; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #333; }
+    .footer-right { display: flex; gap: 24px; }
+    .footer-right a { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #333; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: #f0b429; }
+
+    @media (max-width: 640px) {
+      header, .article-wrap, footer { padding-left: 24px; padding-right: 24px; }
+      .approval-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <header>
+    <div>
+      <a href="index.html" class="logo-nmd">NMD</a>
+      <div class="logo-sub">No Money Down · Credit Intelligence</div>
+    </div>
+    <a href="index.html" class="back-link">← All Newsletters</a>
+  </header>
+
+  <div class="article-wrap">
+
+    <div class="section-label">Real Talk · Business Funding</div>
+
+    <h1>57% of businesses get approved. Here's how to make sure you're in that group.</h1>
+
+    <div class="lede">
+      Banks are tightening. Standards are rising. And most business owners are walking into lender conversations completely unprepared. Aye man — let me give you the real picture so you stop being a statistic.
+    </div>
+
+    <div class="za-quote">
+      <div class="za-label">Za's Take</div>
+      <div class="za-text">"Say man, 57% getting approved sounds like decent odds until you realize the 43% who got denied didn't know they were going to get denied. They thought they were ready too."</div>
+    </div>
+
+    <p>Let's talk real numbers. The average small business loan is between $400,000 and $650,000. Overall approval rate across all lender types: <strong>57%</strong>. That means almost half of every business owner who applies walks away empty-handed.</p>
+
+    <p>But that 57% average hides something important. The number changes dramatically depending on where you apply.</p>
+
+    <div class="approval-grid">
+      <div class="approval-card bad">
+        <div class="approval-pct">25%</div>
+        <div class="approval-where">Big Banks</div>
+        <div class="approval-note">Chase, BofA, Wells Fargo. Strict underwriting. High bar. Walk in without a strong file and it's over before it starts.</div>
+      </div>
+      <div class="approval-card medium">
+        <div class="approval-pct">49%</div>
+        <div class="approval-where">SBA Loans · Small Banks</div>
+        <div class="approval-note">Better odds at community banks and credit unions. They know their market. They have more flexibility. Relationships matter here.</div>
+      </div>
+      <div class="approval-card medium" style="grid-column: 1 / -1;">
+        <div class="approval-pct">57%</div>
+        <div class="approval-where">Overall Industry Average</div>
+        <div class="approval-note">Blend of all lender types. Alternative lenders and CDFIs push the average up — but come with higher rates. Know your options before you shop.</div>
+      </div>
+    </div>
+
+    <h2>Why banks are tightening right now.</h2>
+
+    <p>It's not personal. It's math. Here's what's happening in 2026 that's making lenders more conservative:</p>
+
+    <ul class="reason-list">
+      <li>
+        <span class="reason-num">85%</span>
+        <div class="reason-content">
+          <div class="reason-title">of banks cite economic uncertainty as the reason for tightening</div>
+          <div class="reason-body">In the latest Federal Reserve lending survey, 85% of banks flagged "less favorable or more uncertain economic outlook" as a major reason they're raising the bar. That's not a temporary blip — that's a mindset shift.</div>
+        </div>
+      </li>
+      <li>
+        <span class="reason-num">1%</span>
+        <div class="reason-content">
+          <div class="reason-title">drop in approval rates at small and mid-sized banks quarter over quarter</div>
+          <div class="reason-body">It doesn't sound like much. But that 1% shift represents thousands of applications that would have been approved six months ago that are now being declined. The bar is moving.</div>
+        </div>
+      </li>
+      <li>
+        <span class="reason-num">$71B</span>
+        <div class="reason-content">
+          <div class="reason-title">in small business loans — but credit quality is declining</div>
+          <div class="reason-body">Banks are still lending. But the survey data shows credit quality in the portfolio is getting worse — which makes them more selective going forward. More scrutiny on new applications.</div>
+        </div>
+      </li>
+    </ul>
+
+    <hr class="divider">
+
+    <div class="za-quote">
+      <div class="za-label">Real Talk</div>
+      <div class="za-text">"The money is still out there. They're just being more careful about who they give it to. So the question isn't whether you can get approved — it's whether you look like someone they want to approve."</div>
+    </div>
+
+    <h2>What separates the 57% from the 43%.</h2>
+
+    <p>I've watched a lot of people get denied for business funding. And almost every time, it comes back to the same handful of issues. Things that were fixable — they just didn't know they were problems until the rejection letter arrived.</p>
+
+    <div class="action-box">
+      <div class="action-label">Pre-Approval Checklist</div>
+      <div class="action-title">What lenders are actually checking in 2026.</div>
+      <ol class="action-steps">
+        <li><strong>Separate business entity with EIN.</strong> LLC or corporation filed with your state. Active. At least 6 months old, ideally 2+ years for bank loans. If it's just a sole prop, most lenders won't touch you.</li>
+        <li><strong>Business bank account — real transaction history.</strong> Not your personal checking with "LLC" in the memo. A dedicated business account with regular deposits that match your stated revenue. 3 months minimum. 12 months is better.</li>
+        <li><strong>Business credit file started.</strong> Dun &amp; Bradstreet PAYDEX, Experian Business, Equifax Business. Even 3–5 vendor tradelines reporting on-time payments makes a massive difference in how the application underwrites.</li>
+        <li><strong>Personal credit cleaned up.</strong> Your FICO still matters — especially FICO SBSS which blends both. Under 650 personal is going to create friction at every lender. Get your personal file right first.</li>
+        <li><strong>2 years of tax returns if available.</strong> Lenders want to see revenue and profit. If you're pre-revenue, focus on SBA microloan programs and CDFIs first.</li>
+      </ol>
+    </div>
+
+    <p>None of this is secret. But most people apply before they've done this work — and then they wonder why they got denied. <strong>The preparation IS the strategy.</strong></p>
+
+    <p>The business owners getting approved right now aren't necessarily the ones with the most profitable companies. They're the ones who showed up looking like a business. Clean entity. Established file. Separate accounts. Real transaction history. When a lender can verify your story, they fund it.</p>
+
+    <div class="cta-box">
+      <strong>Start with your personal file — it feeds your business approval.</strong>
+      <p>Clean up your personal credit first: <a href="https://credit-dispute-colle-6tyb.bolt.host/" target="_blank">credit-dispute-colle-6tyb.bolt.host</a><br>
+      Full business credit build strategy and funding guidance in the community: <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Join Telegram ↗</a></p>
+    </div>
+
+    <div class="signoff">
+      Stay locked in — <strong>Za | NMD ZAZA 🐐</strong>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
+    </div>
+  </footer>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

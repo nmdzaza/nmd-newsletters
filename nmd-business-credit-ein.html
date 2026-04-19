@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="How to build a real business credit profile using your EIN. Entity setup, D&B, net-30 vendors, and the path from zero to Amex business in 90 days.">
+  <meta name="keywords" content="business credit, EIN, Dun and Bradstreet, net-30, business credit building">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building Business Credit with Your EIN — The NMD Framework">
+  <meta property="og:description" content="How to build a real business credit profile using your EIN. Entity setup, D&B, net-30 vendors, and the path from zero to Amex business in 90 days.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-business-credit-ein.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Building Business Credit with Your EIN — The NMD Framework">
+  <meta name="twitter:description" content="How to build a real business credit profile using your EIN. Entity setup, D&B, net-30 vendors, and the path from zero to Amex business in 90 days.">
+  <meta name="twitter:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your EIN Is a Second Credit Identity — Most Business Owners Never Use It — NMD Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; background: #1a1a1a; color: #f5f0e8; max-width: 680px; margin: 0 auto; padding: 40px 20px; }
+    .header { text-align: center; border-bottom: 2px solid #c9a84c; padding-bottom: 20px; margin-bottom: 30px; }
+    .brand { font-size: 24px; font-weight: bold; color: #c9a84c; letter-spacing: 3px; font-family: 'Inter', sans-serif; }
+    .tagline { font-size: 11px; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px; }
+    .label { font-size: 11px; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 36px; line-height: 1.2; color: #f5f0e8; margin: 10px 0 20px; }
+    .lede { font-size: 18px; color: #c9a84c; line-height: 1.5; margin-bottom: 30px; border-left: 3px solid #c9a84c; padding-left: 15px; }
+    p { font-size: 16px; line-height: 1.7; margin-bottom: 18px; color: #d4cfc5; }
+    strong { color: #f5f0e8; }
+    .tip-block { background: #222; border-left: 3px solid #c9a84c; padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+    .tip-block .tip-label { font-size: 10px; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 8px; }
+    .tip-block p { margin: 0; font-size: 15px; }
+    .steps { background: #222; border: 1px solid #333; padding: 20px 25px; margin: 25px 0; border-radius: 4px; }
+    .steps h3 { color: #c9a84c; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 15px; font-family: 'Inter', sans-serif; }
+    .steps ol { color: #d4cfc5; padding-left: 20px; line-height: 2; font-size: 15px; }
+    .steps ol li { margin-bottom: 4px; }
+    .warn-box { background: #1a0a0a; border: 1px solid #8b0000; border-left: 4px solid #8b0000; padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+    .warn-box .warn-label { font-size: 10px; color: #ff4444; letter-spacing: 2px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 8px; }
+    .warn-box p { margin: 0; font-size: 15px; color: #d4cfc5; }
+    .bureau-row { display: flex; gap: 14px; margin: 25px 0; flex-wrap: wrap; }
+    .bureau-box { background: #0d0d0d; border: 1px solid #333; border-top: 3px solid #c9a84c; padding: 16px 18px; flex: 1; min-width: 150px; border-radius: 2px; }
+    .bureau-box .bureau-name { font-size: 13px; font-weight: bold; color: #c9a84c; font-family: 'Inter', sans-serif; margin-bottom: 6px; }
+    .bureau-box .bureau-score { font-size: 11px; color: #888; line-height: 1.5; }
+    .divider { border: none; border-top: 1px solid #333; margin: 28px 0; }
+    .cta-box { background: #252525; border: 1px solid #c9a84c; padding: 25px; margin: 30px 0; border-radius: 4px; }
+    .cta-box strong { display: block; margin-bottom: 10px; font-size: 17px; font-family: 'Inter', sans-serif; }
+    .cta-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .cta-links a { background: #c9a84c; color: #000; padding: 10px 18px; text-decoration: none; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; font-family: 'Inter', sans-serif; }
+    .footer { text-align: center; font-size: 12px; color: #555; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; line-height: 2; }
+    .footer a { color: #c9a84c; text-decoration: none; }
+    .back-link { display: inline-block; font-size: 12px; color: #c9a84c; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 30px; }
+  
+  /* ── ARTICLE SUBSCRIBE STRIP ── */
+  .article-subscribe {
+    background: #0d0d0d;
+    padding: 48px 40px;
+    margin: 48px 0 0;
+  }
+  .article-subscribe .as-tag {
+    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c9a84c; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .article-subscribe .as-tag::before {
+    content: ''; display: block; width: 20px; height: 2px; background: #c9a84c;
+  }
+  .article-subscribe .as-headline {
+    font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .article-subscribe .as-desc {
+    font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px;
+  }
+  .article-subscribe .as-row { display: flex; max-width: 480px; }
+  .article-subscribe .as-input {
+    flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+    color: #fff; padding: 13px 16px; font-size: 14px;
+    font-family: inherit; outline: none; transition: border-color 0.2s;
+  }
+  .article-subscribe .as-input:focus { border-color: #555; }
+  .article-subscribe .as-input::placeholder { color: #444; }
+  .article-subscribe .as-input.error { border-color: #c00; }
+  .article-subscribe .as-btn {
+    background: #c9a84c; color: #111; border: none;
+    padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; cursor: pointer;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .article-subscribe .as-btn:hover { background: #e0c060; }
+  .article-subscribe .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+  .article-subscribe .as-confirm {
+    display: none; font-size: 13px; color: #c9a84c; font-weight: 600; padding: 12px 0 0;
+  }
+
+  /* ── SOCIAL SHARE ── */
+  .share-strip {
+    display: flex; align-items: center; gap: 16px;
+    padding: 28px 0; border-top: 1px solid #e0dbd0;
+    flex-wrap: wrap;
+  }
+  .share-label {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: #aaa; white-space: nowrap;
+  }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; border: 1px solid;
+    cursor: pointer; background: none; font-family: inherit;
+  }
+  .share-btn.x-btn {
+    color: #fff; background: #000; border-color: #000;
+  }
+  .share-btn.x-btn:hover { background: #1a1a1a; }
+  .share-btn.copy-btn {
+    color: #111; background: #f5f2eb; border-color: #ccc;
+  }
+  .share-btn.copy-btn:hover { border-color: #999; }
+  .share-btn.copy-btn.copied { color: #c9a84c; border-color: #c9a84c; }
+  .share-tg-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+    color: #fff; background: #0088cc; border: 1px solid #0088cc;
+  }
+  .share-tg-btn:hover { background: #0077bb; }
+  .nmd-nav-links { display:flex; gap:24px; align-items:center; }
+  .nmd-nav-links a { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888; text-decoration:none; font-weight:600; transition:color 0.2s; font-family:Inter,sans-serif; }
+  .nmd-nav-links a:hover { color:#c9a84c; }
+  @media(max-width:768px){ .nmd-nav-links { display:none; } }
+</style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K7VFHF48M5');
+</script>
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <a class="back-link" href="https://nmdzaza.github.io/nmd-newsletters/">← All Newsletters</a>
+  <div class="header">
+    <a href="index.html" class="brand" style="text-decoration:none;color:inherit;">NMD</a>
+    <nav class="nmd-nav-links">
+  <a href="index.html">Newsletters</a>
+  <a href="nmd-videos.html">Films</a>
+  <a href="nmd-plugins.html">AI Companies</a>
+  <a href="nmd-tools.html">Tools</a>
+  <a href="nmd-get-started.html">Get Started</a>
+  <a href="nmd-solutions.html">Solutions</a>
+  <a href="nmd-about.html">About</a>
+  <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+    <div class="tagline">No Money Down · Credit Intelligence</div>
+  </div>
+
+  <div class="label">Business Credit</div>
+  <h1>Your EIN Is a Second Credit Identity — Most Business Owners Never Use It</h1>
+  <div class="lede">An EIN gives your business its own credit profile — separate from your Social Security number, invisible to personal score pulls, and capable of carrying six-figure credit lines. Here's how to build it from zero.</div>
+
+  <p>Aye man — if you're running a business and using your personal Social Security number to apply for anything, you're leaving money on the table and putting your personal credit at risk every single time.</p>
+
+  <p>Most small business owners don't know that their business can have its own credit profile — completely separate from their personal FICO score. Same way you have a personal SSN and personal credit file, your business can have an EIN and a business credit file. Different bureaus. Different scoring. Different credit lines. And if your business misses a payment — under the right structure — your personal score doesn't move.</p>
+
+  <p>Here's exactly how it works and how to build it.</p>
+
+  <hr class="divider">
+
+  <p><strong>Sole Proprietor vs LLC/Corp — This Is the Difference That Matters</strong></p>
+
+  <p>If you're a sole proprietor with no business entity — just you operating under your name — you and your business are the same legal entity. Every loan, every credit card application, every line of credit runs through your SSN. Your personal credit takes every hard pull. Your personal score absorbs every late payment.</p>
+
+  <p>When you form an LLC or S-Corporation, your business becomes a separate legal entity. It can get its own EIN from the IRS (free, takes 10 minutes at irs.gov). And with that EIN, your business can start building its own credit profile at the business credit bureaus — completely separate from your personal file.</p>
+
+  <div class="tip-block">
+    <div class="tip-label">Get Your EIN Free — Right Now</div>
+    <p>Go to irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online. Takes 10 minutes. Free. You'll get your EIN immediately. This is the foundation of everything else — you can't build business credit without it.</p>
+  </div>
+
+  <hr class="divider">
+
+  <p><strong>Business Credit Bureaus — A Completely Different System</strong></p>
+
+  <div class="bureau-row">
+    <div class="bureau-box">
+      <div class="bureau-name">Dun & Bradstreet</div>
+      <div class="bureau-score">PAYDEX score (0–100). The most used business credit score. Built from vendor and supplier payment history.</div>
+    </div>
+    <div class="bureau-box">
+      <div class="bureau-name">Experian Business</div>
+      <div class="bureau-score">Intelliscore Plus (0–100). Separate from personal Experian. Used by many business lenders and suppliers.</div>
+    </div>
+    <div class="bureau-box">
+      <div class="bureau-name">Equifax Business</div>
+      <div class="bureau-score">Business Credit Risk Score. Used primarily by larger commercial lenders and financial institutions.</div>
+    </div>
+  </div>
+
+  <p>Your personal FICO doesn't touch any of these. These bureaus track your business payment history with vendors, suppliers, and business lenders — completely independent of your personal credit history.</p>
+
+  <div class="tip-block">
+    <div class="tip-label">Get Your D-U-N-S Number First</div>
+    <p>Dun & Bradstreet is the starting point for most business credit building. Go to dnb.com and register for a D-U-N-S number — it's the unique identifier for your business in D&B's system. Free. Required before most vendors will report your business payment history. Get this done the same day you get your EIN.</p>
+  </div>
+
+  <hr class="divider">
+
+  <p><strong>The Business Credit Building Order</strong></p>
+
+  <p>You don't start with a business credit card. You start with net-30 vendor accounts. Here's why: most business credit card issuers want to see existing business credit before they'll approve you without a personal guarantee. Net-30 vendors — companies that let you buy now and pay in 30 days — report to the business credit bureaus and build your PAYDEX score, which is what gets you into business credit cards later.</p>
+
+  <div class="tip-block">
+    <div class="tip-label">Net-30 Vendors That Report to Business Bureaus</div>
+    <p>Start here: Uline (shipping supplies), Quill (office supplies), Grainger (industrial supplies), Amazon Business (net-30 option for registered businesses), and Summa Office Supplies. Open accounts with 3–5 of these vendors, make small purchases every month, pay in full before the 30-day mark, and let them report. Within 3–6 months your PAYDEX score starts forming.</p>
+  </div>
+
+  <div class="tip-block">
+    <div class="tip-label">Business Bank Account — Not Optional</div>
+    <p>Your business needs its own dedicated bank account under the business name and EIN. This is required by most business lenders as evidence that the business is a real operating entity. It also keeps your personal finances legally separated from business finances — critical for maintaining that liability protection the LLC gives you. Don't mix them.</p>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-label">⚠ The Personal Guarantee Trap</div>
+    <p>Many small business credit cards — even ones marketed as "business credit cards" — still require a personal guarantee. This means if the business can't pay, you're personally liable. More importantly: the card may still report to your personal credit bureaus. Read the terms before you apply. Cards that require a personal guarantee and report to personal bureaus don't build your business credit profile — they use it. Look specifically for cards issued under your EIN only, or cards that explicitly state they do not report to personal bureaus. Corporate cards from Brex and Ramp are EIN-only options with no personal guarantee requirement for qualified businesses.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="steps">
+    <h3>7-Step Business Credit Foundation</h3>
+    <ol>
+      <li>Form your LLC or S-Corp in your state — get your Articles of Organization and an operating agreement</li>
+      <li>Apply for your EIN at irs.gov — free, takes 10 minutes, get the number immediately</li>
+      <li>Open a dedicated business checking account under the business name and EIN</li>
+      <li>Register for a D-U-N-S number at dnb.com — free, required for Dun & Bradstreet reporting</li>
+      <li>Open 3–5 net-30 vendor accounts (Uline, Quill, Grainger, Amazon Business) — make small monthly purchases and pay before 30 days every time</li>
+      <li>After 6 months of positive vendor history — apply for a business credit card that reports to business bureaus only (check terms carefully for personal guarantee language)</li>
+      <li>Continue paying all business accounts early — PAYDEX rewards early payment (paying in less than 30 days scores higher than paying exactly on the 30th)</li>
+    </ol>
+  </div>
+
+  <p>This takes 6–12 months to build to a point where you're getting meaningful business credit approvals — but every month of clean payment history is compounding. And unlike personal credit, there's no inquiry impact from checking your own business credit profile. Pull it and review it anytime.</p>
+
+  <p>The businesses that have access to $50,000–$500,000 in business credit lines didn't get there on their personal SSN. They built a separate credit entity and fed it for years. That's the game.</p>
+
+  <p>Start now. Even if you're small. Even if you're just getting going. The day you form the entity and get the EIN is the day the clock starts on your business credit history.</p>
+
+  <p><em>Stay locked in — Za | NMD ZAZA 🐐</em></p>
+
+  <div class="cta-box">
+    <strong>Ready to build business credit separate from your personal file?</strong>
+    <p>Join the NMD Telegram — we break down the EIN-only credit path and which vendors report to business bureaus.</p>
+    <div class="cta-links">
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx">Join Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/">Gumroad</a>
+      <a href="https://credit-dispute-colle-6tyb.bolt.host/">Dispute Tool</a>
+    </div>
+  </div>
+
+  
+<div class="share-strip">
+  <span class="share-label">Share</span>
+  <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    Post to X
+  </a>
+  <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+    Telegram
+  </a>
+  <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    Copy Link
+  </button>
+</div>
+<div class="article-subscribe" id="article-subscribe-nmd_business_credit_">
+  <div class="as-tag">NMD Credit Intelligence</div>
+  <div class="as-headline">Get every drop free.</div>
+  <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+  <div class="as-row" id="as-row-nmd_business_credit_">
+    <input type="email" class="as-input" id="as-email-nmd_business_credit_" placeholder="your@email.com">
+    <button class="as-btn" onclick="submitArticleEmail('nmd_business_credit_', this)">Subscribe</button>
+  </div>
+  <div class="as-confirm" id="as-confirm-nmd_business_credit_">✓ You're in — next drop coming to your inbox.</div>
+</div>
+
+  <div class="footer">
+    <a href="https://nmdzaza.github.io/nmd-newsletters/">← All Newsletters</a> ·
+    <a href="https://t.me/+xgDhtpOrWeJkNmUx">Telegram</a> ·
+    <a href="https://nmdzaza.gumroad.com/">Gumroad</a>
+    <br><br>NMD ZAZA · The Credit Goat 🐐<br>
+    <span style="color:#444;">© 2026 NMD — No Money Down</span>
+  </div>
+
+<script>
+  (function() {
+    if (localStorage.getItem('nmd_email')) {
+      var el = document.querySelector('.article-subscribe');
+      if (el) el.style.display = 'none';
+    }
+  })();
+
+  async function submitArticleEmail(uid, btn) {
+    var emailEl = document.getElementById('as-email-' + uid);
+    var email = emailEl ? emailEl.value.trim() : '';
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+      return;
+    }
+    if (emailEl) emailEl.classList.remove('error');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+          subject: 'New NMD Subscriber — Article Page',
+          email: email,
+          source: window.location.pathname
+        })
+      });
+      var data = await res.json();
+      if (data.success) {
+        localStorage.setItem('nmd_email', email);
+        document.getElementById('as-row-' + uid).style.display = 'none';
+        document.getElementById('as-confirm-' + uid).style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    } catch(e) {
+      btn.textContent = 'Try Again'; btn.disabled = false;
+    }
+  }
+</script>
+
+<script>
+function shareTelegram() {
+  var url = encodeURIComponent(window.location.href);
+  var title = encodeURIComponent(document.title);
+  window.open('https://t.me/share/url?url=' + url + '&text=' + title, '_blank');
+}
+function copyArticleLink(btn) {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    var orig = btn.innerHTML;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+(function() {
+  var xBtn = document.getElementById('share-x');
+  if (xBtn) {
+    var url = encodeURIComponent(window.location.href);
+    var title = encodeURIComponent(document.title);
+    xBtn.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+  }
+})();
+</script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

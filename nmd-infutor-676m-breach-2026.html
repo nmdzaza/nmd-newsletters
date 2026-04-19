@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="Infutor — owned by Verisk — was breached. 676 million consumer records including SSNs are allegedly on the dark web. Here's the NMD action plan to lock down your credit right now.">
+  <meta name="keywords" content="Infutor data breach, Verisk breach 2026, 676 million SSNs, identity theft 2026, credit freeze, dark web SSN, Spirigatito breach">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="676 Million SSNs on the Dark Web. The Infutor Breach Is the Biggest Identity Threat in History. | NMD">
+  <meta property="og:description" content="Threat actor Spirigatito claims to have breached Infutor (Verisk), exposing 676 million American consumer records including SSNs. NMD breaks it down and tells you exactly what to do.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-infutor-676m-breach-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="676 Million SSNs Breached — Infutor/Verisk Action Plan | NMD ZAZA">
+  <meta name="twitter:description" content="The alleged Infutor breach exposed 676 million American records including SSNs. NMD breaks down the threat and the exact moves to protect your credit now.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>676 Million SSNs on the Dark Web. The Infutor Breach Is the Biggest Identity Threat in History. | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* STAT CALLOUT */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;
+    }
+    .stat-block {
+      background: #fff; border: 1px solid var(--rule); padding: 24px 20px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: 40px; font-weight: 900;
+      color: var(--red); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); line-height: 1.4; }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* SOLUTIONS CARD */
+    .solutions-sidebar {
+      background: #0d0d0d; border: 1px solid #2a2a2a;
+      padding: 28px 24px; margin-top: 20px;
+    }
+    .solutions-sidebar-badge {
+      font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      display: inline-block; padding: 4px 10px; margin-bottom: 14px;
+    }
+    .solutions-sidebar h4 {
+      font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
+      color: #fff; margin-bottom: 10px; line-height: 1.3;
+    }
+    .solutions-sidebar p { font-size: 12px; color: #555; margin-bottom: 16px; line-height: 1.5; }
+    .solutions-sidebar a {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 11px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Breaking &middot; March 17, 2026</div>
+    <h1>676 Million SSNs.<br><em>Your number is probably in it.</em></h1>
+    <p class="article-dek">The alleged Infutor breach just put 676 million American consumer records — including Social Security numbers, dates of birth, and addresses — on the dark web. This isn't a drill. Here's exactly what you do right now.</p>
+    <div class="article-meta">
+      <span>&#128197; March 17, 2026</span>
+      <span>&#9998; NMD ZAZA</span>
+      <span>&#9201; 8 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>676 million records. That's more than twice the U.S. adult population.</h2>
+
+      <p>A threat actor known as <strong>"Spirigatito"</strong> is claiming to have breached Infutor — a consumer identity data company owned by Verisk Analytics — and dumped <strong>676,798,866 consumer records</strong> onto dark web marketplaces. The database allegedly includes full names, dates of birth, physical addresses, phone numbers, email addresses, and Social Security numbers.</p>
+
+      <p>To put that number in context: there are about 260 million adults in the United States. This database is allegedly <strong>more than 2.6 times that size</strong> — meaning your information could appear in it multiple times across different data points, different addresses, different versions of your identity profile over the years.</p>
+
+      <p>Infutor — now operating under Verisk Analytics — is one of the largest consumer identity management companies in the U.S. Their data is used by insurance companies, mortgage lenders, auto finance firms, and real estate operators to verify identities and assess risk. In other words, they hold the identity infrastructure that the financial system relies on. And according to investigators, it was sitting exposed on a misconfigured Elasticsearch database.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">&#9888; Breaking Alert — March 2026</div>
+        <p>Infutor has not yet officially confirmed the breach. Class action investigations have already launched at ClassAction.org. The data is allegedly already circulating on dark web forums. Do not wait for an official notification letter — those take months to arrive and the damage happens in days. Act now.</p>
+      </div>
+
+      <h2>The numbers behind the biggest breach in history</h2>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-num">676M</div>
+          <div class="stat-label">Consumer records allegedly exposed including SSNs</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">2.6x</div>
+          <div class="stat-label">Times larger than the entire U.S. adult population</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">$40B</div>
+          <div class="stat-label">Annual cost of synthetic identity fraud using stolen SSNs</div>
+        </div>
+      </div>
+
+      <p>Verisk Analytics is a publicly traded data analytics giant. Their Infutor subsidiary describes itself as helping businesses "verify identities, reduce fraud, and improve marketing." The irony is brutal — a company built to prevent fraud may have just enabled the largest mass identity theft event in American history.</p>
+
+      <p>The breach was traced to a <strong>misconfigured Elasticsearch database</strong> — a cloud storage system that was left exposed to the public internet without password protection. This is the same class of vulnerability behind other massive breaches like the 2020 BlueKai exposure. It's not a sophisticated hack — it's negligence. And millions of Americans pay the price.</p>
+
+      <h2>Who is Spirigatito — and what happens to your data</h2>
+
+      <p>Spirigatito is a known threat actor in the dark web data broker community. They don't just hold data — they sell it. Consumer identity packages get carved up, sorted by state, by age range, by credit score tier, and sold to fraudsters who specialize in different types of identity crime.</p>
+
+      <p>Here's the exact pipeline your data runs through once it hits these markets:</p>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>What Happens</th>
+            <th>Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Data listing</strong></td>
+            <td>Records sorted and posted to dark web forums — bulk and individual sale</td>
+            <td><span class="tag red">Already happening</span></td>
+          </tr>
+          <tr>
+            <td><strong>Identity packages built</strong></td>
+            <td>SSN + DOB + address combined to create "fullz" profiles for new account fraud</td>
+            <td><span class="tag red">Days 1&ndash;7</span></td>
+          </tr>
+          <tr>
+            <td><strong>Credit applications filed</strong></td>
+            <td>Fraudsters apply for credit cards, personal loans, auto loans in your name</td>
+            <td><span class="tag red">Week 1&ndash;4</span></td>
+          </tr>
+          <tr>
+            <td><strong>Tax returns filed</strong></td>
+            <td>Fraudulent IRS returns filed using your SSN to claim your refund</td>
+            <td><span class="tag yellow">Before April</span></td>
+          </tr>
+          <tr>
+            <td><strong>Synthetic ID creation</strong></td>
+            <td>Your SSN paired with a different name/address to build a ghost credit file</td>
+            <td><span class="tag yellow">Months 1&ndash;6</span></td>
+          </tr>
+          <tr>
+            <td><strong>Long-tail fraud</strong></td>
+            <td>Data resurfaces months/years later when victims lower their guard</td>
+            <td><span class="tag yellow">Ongoing</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <blockquote>
+        <p>"You don't know you've been hit until a lender denies you, a collection notice arrives, or your tax refund disappears. The clock starts the moment the data is listed — not when you find out." &mdash; NMD ZAZA</p>
+      </blockquote>
+
+      <h2>Why this breach hits harder than the others</h2>
+
+      <p>You've probably gotten used to data breach notifications. Maybe you've received three this year already. But the Infutor breach is different from a retail loyalty program getting hacked or a hospital losing billing records. Here's why:</p>
+
+      <p><strong>Infutor is an identity backbone company.</strong> Their entire product is knowing who you are — addresses going back 20 years, phone numbers attached to your SSN, email addresses linked to your identity. This isn't just "your name and email." This is a complete identity dossier assembled specifically to verify and profile you for financial transactions.</p>
+
+      <p>When this data lands in criminal hands, fraudsters aren't working with fragments. They're working with the same depth of information your bank uses to verify you. They can answer security questions. They can pass knowledge-based authentication. They can defeat the verification systems designed to catch them.</p>
+
+      <div class="callout info">
+        <div class="callout-label">&#128161; Why This Affects Credit Repair Clients Specifically</div>
+        <p>If you're already in credit repair, you are a higher-value target. Your credit profile activity — recent disputes, new accounts, score changes — is a signal to sophisticated fraudsters that your file is in motion. That makes you more useful to them, not less. The window to act is now, before fraud compounds on top of existing repair work.</p>
+      </div>
+
+      <h2>The NMD action plan — move today, not tomorrow</h2>
+
+      <p>Every hour of delay increases the probability that your data has already been packaged and sold. Here is the exact sequence, in priority order:</p>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <span><strong>Freeze your credit at all five reporting agencies — not just the big three.</strong> Equifax.com, Experian.com, and TransUnion.com are obvious. But also freeze at <strong>Innovis</strong> (innovis.com) and <strong>NCTUE</strong> (nctue.com), which covers utility and telecom accounts. A freeze at only Equifax/Experian/TransUnion still leaves backdoors open. Do all five. It's free. It takes 10 minutes per bureau. Do it right now, before you finish reading this.</span>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <span><strong>Get an IRS Identity Protection PIN before tax season closes.</strong> Go to IRS.gov/ippin. This PIN must be included on your federal tax return and prevents anyone else from filing in your name. With SSN data from the Infutor breach already in circulation, tax fraud is the fastest-moving threat. The PIN is free and takes 15 minutes to set up. This one move can save you months of IRS nightmare.</span>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <span><strong>Pull all three credit reports and scan for anything new.</strong> Go to AnnualCreditReport.com. You're entitled to free weekly reports. Print or screenshot them today as a baseline. Look for: any new accounts you didn't open, hard inquiries from lenders you never contacted, new addresses attached to your file, and any accounts showing as "transferred" or "sold." Any anomaly needs a certified mail dispute immediately.</span>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <span><strong>Place a fraud alert at one bureau — it propagates to all three.</strong> A fraud alert requires lenders to contact you and verify your identity before opening new accounts. Unlike a freeze, it doesn't block access — it triggers a verification call. Use both: freeze for blocking, fraud alert for the early warning layer. Place it at Equifax, Experian, or TransUnion — they're legally required to notify the other two.</span>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <span><strong>File a report at IdentityTheft.gov if you see fraudulent activity.</strong> The FTC's IdentityTheft.gov portal generates an official recovery plan and creates an identity theft report that carries legal weight with creditors and credit bureaus. This document is what you'll need to dispute fraudulent accounts and override creditor resistance. Do not skip this step if you find anything wrong.</span>
+        </li>
+        <li>
+          <span class="action-num">6</span>
+          <span><strong>Check ChexSystems and LexisNexis for banking and background record fraud.</strong> Fraudsters use stolen SSNs to open bank accounts and pass background checks. Request your free ChexSystems report at ChexSystems.com and your LexisNexis consumer file at LexisNexisRisk.com/consumers. These records affect your ability to open bank accounts and pass tenant screening — they're often ignored until the damage is already done.</span>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>The system is failing — and NMD fills the gap</h2>
+
+      <p>Let's be direct: <strong>the data broker industry has zero federal regulation worth mentioning.</strong> Companies like Infutor and Verisk collect, aggregate, and sell your personal information at industrial scale with almost no oversight. A bipartisan bill (the American Data Privacy and Protection Act) has been bouncing around Congress for years. It has not passed. Meanwhile, your SSN sits in a misconfigured cloud bucket.</p>
+
+      <p>The CFPB — which at least had the authority to investigate data broker abuses — has been stripped down. The FTC has jurisdiction but limited enforcement bandwidth. State attorneys general are fighting back, but it's a patchwork. The systemic protection you'd need simply doesn't exist at scale.</p>
+
+      <p>What does exist is <strong>individual action backed by the right tools.</strong> A credit freeze works. An IRS IP PIN works. Real-time credit monitoring works. AI-powered dispute management works. None of these are passive — they require you to move. But when you move fast, you intercept the fraud before it lands on your report and before it takes 12 to 18 months to clean up.</p>
+
+      <div class="callout info">
+        <div class="callout-label">&#128161; NMD Solutions — Cross-Industry AI Tools</div>
+        <p>NMD Solutions builds AI-powered business tools for real estate professionals, auto dealers, law firms, insurance agencies, and credit repair operators. Whether you need lead generation, automated outreach, deal analysis, or client management — we build the tools that replace the work humans hate doing. Check the full suite at nmdzaza.github.io/nmd-solutions/</p>
+      </div>
+
+      <p>The Infutor breach is a reminder that your financial safety is not someone else's job. It never was. Every breach that's happened — National Public Data, LexisNexis, Conduent, and now Infutor — has proven the same thing: the infrastructure that's supposed to protect you is either compromised, defunded, or asleep. The people who come out of these events intact are the ones who were already watching their own file.</p>
+
+      <p>That is the entire point of what we build at NMD. <strong>Automated monitoring. Instant dispute generation. Bureau response tracking.</strong> When a fraudulent account appears on your file, the system catches it in hours, not months. When a bureau fails to respond within the FCRA's 30-day window, the escalation letter goes out automatically. When a creditor ignores a dispute, the next step in the legal sequence is already queued.</p>
+
+      <p>You can build this system for yourself for $29. No monthly fees. No lawyers. No waiting for the next breach notification to tell you what already happened.</p>
+
+      <!-- CTA BOX -->
+      <div class="cta-box">
+        <div class="cta-label">NMD Credit Intelligence</div>
+        <h2>676 million records are already out there. Lock yours down now.</h2>
+        <p>Our AI credit bot monitors your file in real time, auto-generates dispute letters, and tracks bureau response deadlines. One-time $29 flat. No subscriptions. Built for people who can't afford to wait.</p>
+        <div class="cta-links">
+          <a href="https://t.me/ScoreBoostByNMDBot" class="cta-btn primary" target="_blank">Protect My Credit &mdash; $29</a>
+          <a href="https://nmdzaza.github.io/nmd-solutions/" class="cta-btn secondary" target="_blank">View All NMD Tools</a>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a href="https://twitter.com/intent/tweet?text=676%20million%20SSNs%20just%20hit%20the%20dark%20web%20in%20the%20Infutor%20breach.%20Here%27s%20the%20exact%20action%20plan%20to%20protect%20your%20credit%20right%20now.%20%40nmdzaza%3A&url=https%3A%2F%2Fnmdzaza.github.io%2Fnmd-newsletters%2Fnmd-infutor-676m-breach-2026.html" target="_blank" class="share-btn x-btn">Post on X</a>
+        <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="share-tg-btn">Join Telegram</a>
+        <button class="share-btn copy-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';this.classList.add('copied')">Copy Link</button>
+      </div>
+
+      <!-- SUBSCRIBE -->
+      <div class="article-subscribe">
+        <div class="as-tag">NMD Intelligence</div>
+        <div class="as-headline">Stay ahead of breaches before they wreck your credit.</div>
+        <div class="as-desc">Identity theft alerts. Bureau tactics. Score defense strategies. NMD sends the intel that keeps your file locked down.</div>
+        <div class="as-row">
+          <input type="email" class="as-input" placeholder="your@email.com" id="as-email">
+          <button class="as-btn" onclick="document.querySelector('.as-confirm').style.display='block';document.querySelector('.as-input').value='';">Subscribe</button>
+        </div>
+        <div class="as-confirm">You're in. Watch your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">Recent Intelligence</div>
+        <div class="sidebar-links">
+          <a href="nmd-conduent-breach-25m-2026.html" class="sidebar-link">25M SSNs Stolen &mdash; The Conduent Breach Action Plan</a>
+          <a href="nmd-lexisnexis-breach-2026.html" class="sidebar-link">LexisNexis Breach &mdash; What It Means for Your Credit</a>
+          <a href="nmd-tax-id-theft-irs-2026.html" class="sidebar-link">Tax Identity Theft Is Surging &mdash; File First, File Now</a>
+          <a href="nmd-bureaus-errors-surge-2026.html" class="sidebar-link">2.7M Complaints Ignored &mdash; Credit Bureaus Stop Fixing Errors</a>
+          <a href="nmd-deepfake-synthetic-id-credit-2026.html" class="sidebar-link">Deepfake Synthetic IDs Are Targeting Your Credit File</a>
+        </div>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">NMD Credit Bot</div>
+        <div class="sidebar-cta-headline">AI-powered credit protection. $29 flat.</div>
+        <div class="sidebar-cta-desc">Real-time monitoring. Auto dispute letters. Bureau response tracking. Stay ahead of identity theft &mdash; automatically.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" target="_blank" class="sidebar-cta-btn">Protect Now &mdash; $29</a>
+      </div>
+
+      <div class="solutions-sidebar">
+        <div class="solutions-sidebar-badge">NMD Solutions</div>
+        <h4>AI tools for businesses and professionals who need to move fast</h4>
+        <p>42 AI-powered tools across real estate, car sales, legal, insurance, and credit repair. Built for operators who can't afford to slow down.</p>
+        <a href="https://nmdzaza.github.io/nmd-solutions/" target="_blank">Explore NMD Solutions</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD ZAZA &mdash; Credit Intelligence</span>
+    <div class="footer-right">
+      <a href="nmd-privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+      <a href="nmd-terms.html">Terms</a> &nbsp;&middot;&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      document.getElementById('prog').style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+</body>
+</html>

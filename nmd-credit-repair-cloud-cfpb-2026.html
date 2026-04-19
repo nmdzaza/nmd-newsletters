@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="The CFPB just hit Credit Repair Cloud and CEO Daniel Rosen with a $3 million penalty for enabling illegal fees. Here's what it means for the industry and your credit journey.">
+  <meta name="keywords" content="Credit Repair Cloud, Daniel Rosen, CFPB, illegal advance fees, credit repair industry, CROA, NMD ZAZA">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The CFPB Just Killed Credit Repair Cloud — What It Means for You | NMD">
+  <meta property="og:description" content="A $3M CFPB penalty just hit the platform 10,000+ credit repair businesses use. Here's what collapsed, who's exposed, and why NMD is built different.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-credit-repair-cloud-cfpb-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The CFPB Just Hit Credit Repair Cloud With $3M — What It Means | NMD">
+  <meta name="twitter:description" content="The government just cracked down on the software behind thousands of credit repair shops. NMD breaks down the fallout.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CFPB Just Hit Credit Repair Cloud With $3M — What It Means for You | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 26px; font-weight: 700;
+      line-height: 1.2; color: var(--ink);
+      margin: 48px 0 16px;
+    }
+
+    p {
+      font-size: 16px; line-height: 1.8; color: #333;
+      margin-bottom: 20px;
+    }
+
+    strong { color: var(--ink); }
+
+    .divider {
+      border: none; border-top: 1px solid var(--rule);
+      margin: 40px 0;
+    }
+
+    /* CALLOUTS */
+    .callout {
+      border-radius: 4px; padding: 24px 28px; margin: 32px 0;
+      border-left: 4px solid;
+    }
+    .callout.bad { background: var(--red-light); border-color: var(--red); }
+    .callout.good { background: var(--green-light); border-color: var(--green); }
+    .callout.neutral { background: var(--gold-light); border-color: var(--gold); }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .callout.bad .callout-label { color: var(--red); }
+    .callout.good .callout-label { color: var(--green); }
+    .callout.neutral .callout-label { color: #92690b; }
+    .callout p { margin-bottom: 0; font-size: 15px; }
+
+    /* STAT BLOCKS */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin: 32px 0;
+    }
+    .stat-block {
+      background: var(--ink); color: #fff;
+      padding: 24px 20px; border-radius: 4px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 38px; font-weight: 900;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #aaa;
+    }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; margin: 24px 0; }
+    .checklist li {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; line-height: 1.6; color: #333;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      flex-shrink: 0; width: 22px; height: 22px;
+      background: var(--ink); color: var(--gold);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 12px; font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); color: #fff;
+      padding: 40px 44px; border-radius: 4px; margin: 48px 0;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .cta-box h2 {
+      color: #fff; font-size: 28px; margin: 0 0 16px;
+    }
+    .cta-box p { color: #aaa; font-size: 15px; margin-bottom: 24px; }
+    .cta-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta-btn {
+      padding: 12px 24px; border-radius: 3px; font-size: 12px;
+      font-weight: 600; letter-spacing: 1px; text-decoration: none;
+      text-transform: uppercase; transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: var(--ink); }
+    .cta-btn.secondary { background: #1e1e1e; color: #ccc; border: 1px solid #333; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 12px;
+      padding: 24px 0; border-top: 1px solid var(--rule);
+      margin-top: 16px;
+    }
+    .share-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+    }
+    .share-btn, .share-tg-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 14px; border-radius: 3px;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; text-decoration: none; cursor: pointer;
+      border: 1px solid var(--rule); background: #fff; color: var(--ink);
+      transition: border-color 0.2s; font-family: 'Barlow', sans-serif;
+    }
+    .share-btn:hover, .share-tg-btn:hover { border-color: var(--gold); }
+    .x-btn { background: var(--ink); color: #fff; border-color: transparent; }
+
+    /* SUBSCRIBE */
+    .article-subscribe {
+      background: var(--gold-light); border: 1px solid #e8d99a;
+      border-radius: 4px; padding: 32px 36px; margin: 40px 0;
+    }
+    .as-tag {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: #92690b; font-weight: 700; margin-bottom: 10px;
+    }
+    .as-headline {
+      font-family: 'Fraunces', serif;
+      font-size: 24px; font-weight: 700; margin-bottom: 8px;
+    }
+    .as-desc { font-size: 14px; color: var(--slate); margin-bottom: 20px; }
+    .as-row { display: flex; gap: 10px; }
+    .as-input {
+      flex: 1; padding: 10px 14px; border: 1px solid #ddd;
+      border-radius: 3px; font-size: 14px; font-family: 'Barlow', sans-serif;
+    }
+    .as-input.error { border-color: var(--red); }
+    .as-btn {
+      padding: 10px 20px; background: var(--ink); color: #fff;
+      border: none; border-radius: 3px; font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+      font-family: 'Barlow', sans-serif;
+    }
+    .as-confirm { display: none; color: var(--green); font-weight: 600; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-card {
+      background: var(--ink); color: #fff;
+      padding: 28px; border-radius: 4px; margin-bottom: 24px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: #666; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: #ccc; text-decoration: none;
+      padding-bottom: 12px; border-bottom: 1px solid #1e1e1e;
+      transition: color 0.2s;
+    }
+    .sidebar-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-link:hover { color: var(--gold); }
+    .sidebar-cta {
+      background: var(--gold); padding: 28px; border-radius: 4px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(0,0,0,0.5); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700;
+      color: var(--ink); margin-bottom: 10px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 13px; color: rgba(0,0,0,0.6); margin-bottom: 20px; }
+    .sidebar-cta-btn {
+      display: block; background: var(--ink); color: var(--gold);
+      padding: 12px 18px; border-radius: 3px; font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+      text-align: center; transition: opacity 0.2s;
+    }
+    .sidebar-cta-btn:hover { opacity: 0.85; }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 24px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; letter-spacing: 3px; color: #555;
+    }
+    .footer-right { display: flex; gap: 20px; }
+    .footer-right a { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; }
+      .header-nav-links { display: none; }
+      .article-hero { padding: 48px 20px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 20px; gap: 40px; }
+      .sidebar { position: static; }
+      .stat-row { grid-template-columns: 1fr; }
+      .cta-box { padding: 28px 24px; }
+      footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="prog"></div>
+
+  <header>
+    <a class="header-brand" href="index.html">NMD ZAZA</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-blog.html">Blog</a>
+      <a href="nmd-tools.html">Free Tools</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <div class="article-hero">
+    <div class="article-kicker">Industry Shakeup &nbsp;·&nbsp; March 2026</div>
+    <h1>The CFPB Just Hit Credit Repair Cloud With <em>$3 Million</em> — Here's the Real Story</h1>
+    <p class="article-dek">A federal enforcement action just landed on the platform powering thousands of credit repair businesses. The industry is scrambling. Here's what actually happened and what it means for you.</p>
+    <div class="article-meta">
+      <span>📅 March 11, 2026</span>
+      <span>✍️ Za | NMD ZAZA 🐐</span>
+      <span>⏱ 6 min read</span>
+    </div>
+  </div>
+
+  <div class="article-wrap">
+    <article>
+
+      <p>Credit Repair Cloud — the SaaS platform that powers an estimated 10,000+ credit repair businesses across the country — just got hit with a $3 million CFPB enforcement action. CEO Daniel Rosen faces a $2 million personal penalty. The company itself owes $1 million. And the whole industry is watching.</p>
+
+      <p>This is not a minor compliance slap. This is the federal government saying: if you build tools that make it easy for credit repair businesses to break the law, you are liable. Full stop.</p>
+
+      <h2>What Credit Repair Cloud Actually Did</h2>
+
+      <p>The Credit Repair Organizations Act (CROA) prohibits charging consumers fees before services are actually delivered. This is not a grey area. You can't take money upfront for credit repair — period. It's been the law since 1996.</p>
+
+      <p>What the CFPB alleged: Credit Repair Cloud built a platform that made it frictionless for credit repair companies to charge those illegal advance fees at scale. The software integrated billing systems, generated dispute tracking, and provided templated scripts. Rosen personally trained users on how to run their businesses — including how and when to collect money from clients.</p>
+
+      <div class="callout bad">
+        <div class="callout-label">⚠ The Core Violation</div>
+        <p>The CFPB's position: providing substantial assistance to businesses that violate CROA makes you liable under CROA. You don't have to be the one charging consumers. If you knowingly helped the machine run, you're in the machine.</p>
+      </div>
+
+      <p>The proposed consent order requires Credit Repair Cloud to notify all its users about what constitutes illegal telemarketing and advance fee collection — and then monitor whether those users comply. Rosen personally faces compliance monitoring. Both parties must cooperate with ongoing CFPB oversight.</p>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-num">$2M</div>
+          <div class="stat-label">Daniel Rosen personal penalty</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">$1M</div>
+          <div class="stat-label">Credit Repair Cloud company penalty</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">10K+</div>
+          <div class="stat-label">businesses using the platform</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <h2>Why This Is Bigger Than One Company</h2>
+
+      <p>The credit repair industry has a problem. Not all of it — but a substantial slice. The advance fee model is widespread. "Sign up today, we start working immediately, pay $99 now" — that's illegal. Has been for 30 years. But enforcement has been inconsistent enough that operators kept running it.</p>
+
+      <p>This enforcement action changes the calculus because it went upstream. Instead of chasing individual operators, the CFPB went after the infrastructure. The platform. The enabler. That sends a message to every SaaS company in the space: your compliance obligations don't end at your terms of service.</p>
+
+      <p>For consumers, this matters because the illegal advance fee model is how most bad credit repair scams operate. You pay up front. They send dispute letters. Your credit doesn't improve. They keep your money. The average consumer has no idea they were scammed until it's too late — because the disputes were filed, so technically "work was done."</p>
+
+      <div class="callout neutral">
+        <div class="callout-label">📌 Know the Law</div>
+        <p>Under CROA, credit repair companies cannot charge you before completing promised services. If you paid upfront for credit repair and received no results, you may have a legal claim. A consumer protection attorney can evaluate your case — many take these on contingency.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>What Happened to the 10,000+ Businesses Using It</h2>
+
+      <p>Here's where it gets real: every business that was running the illegal advance fee model through Credit Repair Cloud is now exposed. The CFPB's consent order requires Credit Repair Cloud to notify all users about what's illegal. Those notifications create a paper trail. If users continue operating illegally after receiving those notices, they've got a much harder time claiming ignorance.</p>
+
+      <p>Some of those 10,000 businesses were operating legitimately — performance-based billing, proper disclosures, the full package. They're fine. But a significant chunk was running the advance fee play. For them, the clock just started.</p>
+
+      <ul class="checklist">
+        <li>
+          <span class="check-icon">1</span>
+          <div><strong>Legitimate operators</strong> — performance-based billing, deliver results first, then charge. These businesses are compliant and this action doesn't touch them.</div>
+        </li>
+        <li>
+          <span class="check-icon">2</span>
+          <div><strong>Advance fee operators</strong> — charging upfront before services delivered. The CFPB notification requirement just put them on notice. Future violations will be much harder to defend.</div>
+        </li>
+        <li>
+          <span class="check-icon">3</span>
+          <div><strong>Consumers already scammed</strong> — if you paid advance fees for credit repair that didn't deliver, look into CROA claims. Statutory damages, actual damages, attorney fees — all available under the Act.</div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>The NMD Difference — Built Different From Day One</h2>
+
+      <p>NMD ZAZA doesn't run credit repair for you. We give you the tools, the intelligence, and the strategy to run your own credit journey. No advance fees, no "sign up and wait" — you access the tools, you execute, you see results. That's the model.</p>
+
+      <p>The NMD Dispute Tool generates FCRA-compliant dispute letters that you submit yourself. The Telegram drops real-time strategy. The credit intelligence in these newsletters is free. When you use NMD Solutions AI tools, you're buying access to a system — not paying someone to maybe fix your credit one day.</p>
+
+      <div class="callout good">
+        <div class="callout-label">✓ NMD Model</div>
+        <p>AI-powered credit tools you control. No advance fee dependency. No "trust us and wait." You get the knowledge and the automation — the work gets done, transparently, and you see every move. That's how it was always supposed to be built.</p>
+      </div>
+
+      <p>The Credit Repair Cloud enforcement action is a signal. The industry is being cleaned up. The compliance bar is rising. Businesses that survive this shakeout will be the ones operating legitimately — and consumers who came out of bad experiences with the advance fee shops are going to be looking for a better way.</p>
+
+      <p>That's where we come in.</p>
+
+      <hr class="divider">
+
+      <h2>What You Should Do Right Now</h2>
+
+      <p>If you used a credit repair service and paid upfront without seeing results, document everything — contracts, invoices, any disputes filed on your behalf. A consumer protection attorney familiar with CROA can tell you within a free consultation whether you have a viable claim. The law has teeth. Use them.</p>
+
+      <p>If you're trying to repair your credit now and don't know where to start — start with us. The dispute process, the strategy, the scoring mechanics — all of it is mapped out. You don't need to pay a monthly fee to someone operating in legal grey zones. You need information and tools. NMD has both.</p>
+
+      <p>The industry just got put on notice. The consumers who educate themselves win. That's the whole play.</p>
+
+      <p><em>— Za | NMD ZAZA 🐐</em></p>
+
+      <div class="cta-box">
+        <div class="cta-label">Take Control With NMD</div>
+        <h2>Don't pay anyone to fix your credit. Fix it yourself.</h2>
+        <p>AI-powered dispute tools, real-time strategy, and credit intelligence — free on Telegram. No advance fees, no middlemen. Just results.</p>
+        <div class="cta-links">
+          <a class="cta-btn primary" href="https://t.me/ScoreBoostByNMDBot" target="_blank">Start Free — Credit Bot</a>
+          <a class="cta-btn secondary" href="nmd-tools.html">Run the Dispute Tool</a>
+          <a class="cta-btn secondary" href="index.html">More Newsletters</a>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Post to X
+        </a>
+        <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+          Telegram
+        </a>
+        <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+
+      <div class="article-subscribe" id="article-subscribe-crc">
+        <div class="as-tag">NMD Credit Intelligence</div>
+        <div class="as-headline">Get every drop free.</div>
+        <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+        <div class="as-row" id="as-row-crc">
+          <input type="email" class="as-input" id="as-email-crc" placeholder="your@email.com">
+          <button class="as-btn" onclick="submitArticleEmail('crc', this)">Subscribe</button>
+        </div>
+        <div class="as-confirm" id="as-confirm-crc">✓ You're in — next drop coming to your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">In This Edition</div>
+        <div class="sidebar-links">
+          <a href="#" class="sidebar-link">What Credit Repair Cloud did</a>
+          <a href="#" class="sidebar-link">The $3M CFPB action</a>
+          <a href="#" class="sidebar-link">Why it's bigger than one company</a>
+          <a href="#" class="sidebar-link">10,000+ businesses affected</a>
+          <a href="#" class="sidebar-link">Your rights under CROA</a>
+          <a href="#" class="sidebar-link">The NMD difference</a>
+        </div>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">NMD Solutions</div>
+        <div class="sidebar-cta-headline">AI Tools for Every Industry</div>
+        <div class="sidebar-cta-desc">Real estate, car dealerships, law firms, insurance — full AI operations stacks built and live. See what's possible.</div>
+        <a href="https://nmdzaza.github.io/nmd-solutions/" class="sidebar-cta-btn" target="_blank">View NMD Solutions →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD — No Money Down ZAZA</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Progress bar
+    const prog = document.getElementById('prog');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (window.scrollY / h * 100) + '%';
+    });
+
+    function shareTelegram() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      window.open('https://t.me/share/url?url=' + url + '&text=' + title, '_blank');
+    }
+
+    function copyArticleLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        var orig = btn.innerHTML;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    (function() {
+      var xBtn = document.getElementById('share-x');
+      if (xBtn) {
+        var url = encodeURIComponent(window.location.href);
+        var title = encodeURIComponent("The CFPB Just Hit Credit Repair Cloud With $3M — What It Means via @nmdzaza");
+        xBtn.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+      }
+    })();
+
+    (function() {
+      if (localStorage.getItem('nmd_email')) {
+        var el = document.getElementById('article-subscribe-crc');
+        if (el) el.style.display = 'none';
+      }
+    })();
+
+    async function submitArticleEmail(uid, btn) {
+      var emailEl = document.getElementById('as-email-' + uid);
+      var email = emailEl ? emailEl.value.trim() : '';
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+        return;
+      }
+      if (emailEl) emailEl.classList.remove('error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+            subject: 'New NMD Subscriber — Article Page',
+            email: email,
+            source: window.location.pathname
+          })
+        });
+        var data = await res.json();
+        if (data.success) {
+          localStorage.setItem('nmd_email', email);
+          document.getElementById('as-row-' + uid).style.display = 'none';
+          document.getElementById('as-confirm-' + uid).style.display = 'block';
+        } else {
+          btn.textContent = 'Try Again'; btn.disabled = false;
+        }
+      } catch(e) {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    }
+  </script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

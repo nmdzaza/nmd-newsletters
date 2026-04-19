@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hire Your NMD AI Team — Step-by-Step Setup Guide</title>
+  <meta name="description" content="Set up your NMD AI employees in Claude Code. Step-by-step setup guide — from downloading Claude to running your first AI employee in terminal.">
+  <meta property="og:title" content="Hire Your NMD AI Team — Step-by-Step Setup">
+  <meta property="og:description" content="Set up your NMD AI employees in Claude Code. Free. Runs on your machine. No API key needed.">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-get-started.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #e8e4df; color: #111; font-family: Inter, sans-serif; min-height: 100vh; }
+
+    /* HEADER */
+    header {
+      background: #0d0d0d; padding: 24px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .logo-nmd { font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #888; text-transform: uppercase; }
+    .header-nav a {
+      color: #888; text-decoration: none; font-size: 10px;
+      letter-spacing: 2px; text-transform: uppercase; margin-left: 28px; transition: color 0.2s;
+    }
+    .header-nav a:hover { color: #c9a84c; }
+    .header-nav a.active { color: #c9a84c; }
+
+    /* HERO */
+    .hero {
+      padding: 80px 48px 64px;
+      border-bottom: 1px solid #d0ccc6;
+      max-width: 900px;
+    }
+    .hero-tag {
+      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+      color: #c9a84c; font-weight: 700; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-tag::before { content: ''; display: block; width: 32px; height: 2px; background: #c9a84c; }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900; color: #111; line-height: 1.1; margin-bottom: 24px;
+    }
+    .hero h1 span { color: #c9a84c; }
+    .hero-sub {
+      font-size: 18px; color: #555; line-height: 1.7; max-width: 640px;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+    }
+    .pill {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: #c9a84c; border: 1px solid #c9a84c55; padding: 6px 14px;
+      font-weight: 700;
+    }
+    .pill.dark { color: #777; border-color: #c8c4be; }
+
+    /* PLUGIN CARDS */
+    .plugins-section {
+      padding: 64px 48px 48px;
+      border-bottom: 1px solid #d0ccc6;
+    }
+    .section-label {
+      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+      color: #888; font-weight: 700; margin-bottom: 32px;
+    }
+    .plugin-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .plugin-card {
+      background: #fff; padding: 32px;
+      border: 1px solid #d0ccc6; transition: border-color 0.2s;
+    }
+    .plugin-card:hover { border-color: #c9a84c88; }
+    .plugin-icon {
+      width: 40px; height: 40px; background: #c9a84c11;
+      border: 1px solid #c9a84c44;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 20px;
+    }
+    .plugin-name {
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; font-weight: 700; margin-bottom: 10px;
+    }
+    .plugin-title {
+      font-size: 18px; font-weight: 700; color: #111; margin-bottom: 10px;
+    }
+    .plugin-desc {
+      font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 20px;
+    }
+    .plugin-cmd {
+      background: #0d0d0d; border: 1px solid #222;
+      padding: 10px 14px; font-family: 'Courier New', monospace;
+      font-size: 12px; color: #c9a84c; letter-spacing: 0.5px;
+    }
+    .plugin-cmd span { color: #888; margin-right: 6px; }
+
+    /* STEPS */
+    .steps-section {
+      padding: 64px 48px;
+      max-width: 800px;
+    }
+    .steps-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px; font-weight: 900; color: #111; margin-bottom: 8px;
+    }
+    .steps-sub {
+      font-size: 14px; color: #777; margin-bottom: 56px;
+    }
+
+    .step {
+      display: flex; gap: 32px; margin-bottom: 56px; position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px; top: 48px;
+      width: 2px; bottom: -32px;
+      background: linear-gradient(to bottom, #c9a84c66, transparent);
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: #c9a84c; color: #0d0d0d;
+      font-size: 14px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-body { flex: 1; }
+    .step-title {
+      font-size: 18px; font-weight: 700; color: #111; margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 16px;
+    }
+    .step-action {
+      display: inline-block;
+      background: #c9a84c; color: #0d0d0d;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 10px 20px;
+      text-decoration: none; transition: opacity 0.2s;
+      margin-bottom: 16px;
+    }
+    .step-action:hover { opacity: 0.85; }
+    .step-action.secondary {
+      background: transparent; color: #c9a84c;
+      border: 1px solid #c9a84c55;
+    }
+    .terminal {
+      background: #0d0d0d; border: 1px solid #222;
+      border-left: 3px solid #c9a84c;
+      padding: 16px 20px; margin-top: 12px;
+    }
+    .terminal-line {
+      font-family: 'Courier New', monospace;
+      font-size: 13px; line-height: 2;
+    }
+    .terminal-line .prompt { color: #c9a84c; margin-right: 8px; }
+    .terminal-line .cmd { color: #fff; }
+    .terminal-line .comment { color: #555; }
+    .terminal-line .output { color: #666; }
+
+    .tip-box {
+      background: #fff; border: 1px solid #d0ccc6;
+      border-left: 3px solid #c9a84c;
+      padding: 16px 20px; margin-top: 16px;
+    }
+    .tip-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: #c9a84c; font-weight: 700; margin-bottom: 6px;
+    }
+    .tip-text { font-size: 13px; color: #555; line-height: 1.6; }
+    .tip-text a { color: #c9a84c; text-decoration: none; }
+    .tip-text a:hover { text-decoration: underline; }
+
+    .os-tabs {
+      display: flex; gap: 0; margin-bottom: 12px; flex-wrap: nowrap;
+    }
+    .os-tab {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: 700; padding: 8px 20px; cursor: pointer;
+      background: #f0ece7; color: #777; border: 1px solid #ccc;
+      transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+      white-space: nowrap; user-select: none;
+      position: relative; margin-right: -1px;
+    }
+    .os-tab.active { background: #c9a84c11; color: #c9a84c; border-color: #c9a84c55; z-index: 1; }
+
+    .os-content { display: none; }
+    .os-content.active { display: block; }
+
+    /* WHAT HAPPENS NEXT */
+    .next-section {
+      padding: 64px 48px;
+      border-top: 1px solid #d0ccc6;
+      background: #dedad4;
+    }
+    .next-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px; margin-top: 40px;
+    }
+    .next-card {
+      padding: 28px; background: #e8e4df; border: 1px solid #ccc;
+    }
+    .next-card-num {
+      font-size: 32px; font-weight: 900; color: #c9a84c55;
+      font-family: 'Playfair Display', serif; margin-bottom: 12px;
+    }
+    .next-card-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 8px; }
+    .next-card-desc { font-size: 13px; color: #666; line-height: 1.6; }
+
+    /* FOOTER */
+    footer {
+      background: #0d0d0d;
+      padding: 40px 48px; border-top: 1px solid #222;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-brand { font-size: 20px; font-weight: 700; letter-spacing: 6px; color: #fff; }
+    .footer-right { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
+
+    @media (max-width: 700px) {
+      header { padding: 20px 24px; }
+      .header-nav { display: none; }
+      .hero, .plugins-section, .steps-section, .next-section { padding-left: 24px; padding-right: 24px; }
+      .step { gap: 20px; }
+      footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <span class="logo-nmd">NMD</span>
+    <span class="logo-sub">No Money Down</span>
+  </a>
+      <nav class="header-nav">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html" class="active">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">NMD AI Team</div>
+  <h1>Hire real AI employees.<br><span>Not just prompts.</span></h1>
+  <p class="hero-sub">
+    These aren't chatbot templates. They're full AI employees that run inside Claude Code on your computer — opening browsers, sourcing leads, building dispute letters, and doing the actual work. Here's every step to get set up.
+  </p>
+  <div class="hero-pills">
+    <span class="pill">Free to run</span>
+    <span class="pill">No API key needed</span>
+    <span class="pill">Mac · Windows · Linux</span>
+    <span class="pill dark">~10 min setup</span>
+  </div>
+</section>
+
+<!-- AI COMPANY CARDS -->
+<section class="plugins-section">
+  <div class="section-label">Your Five AI Companies</div>
+  <div class="plugin-grid">
+
+    <div class="plugin-card">
+      <div class="plugin-icon">🏚️</div>
+      <div class="plugin-name">NMD Wholesale Co.</div>
+      <div class="plugin-title">Victor, Blake, Val, Nina + 6 more</div>
+      <div class="plugin-desc">Probate leads, cash buyer lists, comps, deal analysis, seller outreach, offer writing, assignment contracts, and deal tracking. The full wholesale pipeline.</div>
+      <div class="plugin-cmd"><span>$</span>curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s probate-hunter cash-buyer-builder comps-finder deal-analyzer skip-tracer offer-writer seller-pitch assignment-contract deal-pipeline</div>
+    </div>
+
+    <div class="plugin-card">
+      <div class="plugin-icon">🏦</div>
+      <div class="plugin-name">NMD Mortgage Co.</div>
+      <div class="plugin-title">Marco, Lena</div>
+      <div class="plugin-desc">Pulls 100 mortgage leads from public records — refi candidates, divorce filings, pre-foreclosure. Finds phone numbers and emails via skip trace. Built for loan officers.</div>
+      <div class="plugin-cmd"><span>$</span>curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s mortgage-lead-hunter lien-finder</div>
+    </div>
+
+    <div class="plugin-card">
+      <div class="plugin-icon">🚗</div>
+      <div class="plugin-name">NMD Auto Co.</div>
+      <div class="plugin-title">Tony, Lucy</div>
+      <div class="plugin-desc">Full dealership sales system. Conquest leads from Craigslist + CarGurus, buyer lead generation, outreach scripts, follow-up sequences, and dealer onboarding.</div>
+      <div class="plugin-cmd"><span>$</span>curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s car-sales-suite lead-gen-ai</div>
+    </div>
+
+    <div class="plugin-card">
+      <div class="plugin-icon">📲</div>
+      <div class="plugin-name">NMD Media Co.</div>
+      <div class="plugin-title">Stella, Noah</div>
+      <div class="plugin-desc">Social posts, blog articles, video scripts, newsletters — all written in your voice. One command content engine that covers every platform. Run once, post everywhere.</div>
+      <div class="plugin-cmd"><span>$</span>curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s social newsletter-ai</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STEP BY STEP -->
+<section class="steps-section">
+  <div class="section-label">Setup Guide</div>
+  <div class="steps-title">From zero to running.</div>
+  <p class="steps-sub">Every step. Exactly what I had to figure out.</p>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">Create a free Claude account</div>
+      <div class="step-desc">Go to claude.ai and sign up. A free account works for running your AI employees. No credit card required.</div>
+      <a href="https://claude.ai" target="_blank" class="step-action">Go to Claude.ai →</a>
+      <div class="tip-box">
+        <div class="tip-label">Note</div>
+        <div class="tip-text">If you already have a Claude account, skip this step. Claude Pro ($20/mo) gives you higher usage limits which helps when running longer AI employee sessions.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">Install Node.js</div>
+      <div class="step-desc">Claude Code runs on Node.js. Download and install it first — this is a one-time setup.</div>
+      <a href="https://nodejs.org" target="_blank" class="step-action">Download Node.js →</a>
+      <div class="tip-box">
+        <div class="tip-label">How to check if Node is already installed</div>
+        <div class="tip-text">Open Terminal and type <code style="color:#c9a84c;">node --version</code> — if you see a version number (like v20.x.x) you're good to go.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">Open your Terminal</div>
+      <div class="step-desc">Terminal is where you'll install and run Claude Code. Here's how to open it on each system:</div>
+      <div class="os-tabs">
+        <div class="os-tab active" onclick="switchOS(this,'mac')">Mac</div>
+        <div class="os-tab" onclick="switchOS(this,'windows')">Windows</div>
+        <div class="os-tab" onclick="switchOS(this,'linux')">Linux</div>
+      </div>
+      <div class="os-content active" id="os-mac">
+        <div class="terminal">
+          <div class="terminal-line"><span class="comment"># Press Command + Space, type "Terminal", hit Enter</span></div>
+          <div class="terminal-line"><span class="comment"># OR go to Applications → Utilities → Terminal</span></div>
+        </div>
+      </div>
+      <div class="os-content" id="os-windows">
+        <div class="terminal">
+          <div class="terminal-line"><span class="comment"># Press Windows key + R, type "cmd", hit Enter</span></div>
+          <div class="terminal-line"><span class="comment"># OR search "Command Prompt" in Start Menu</span></div>
+          <div class="terminal-line"><span class="comment"># PowerShell also works — search "PowerShell"</span></div>
+        </div>
+      </div>
+      <div class="os-content" id="os-linux">
+        <div class="terminal">
+          <div class="terminal-line"><span class="comment"># Press Ctrl + Alt + T</span></div>
+          <div class="terminal-line"><span class="comment"># OR right-click desktop → "Open Terminal"</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">Install Claude Code</div>
+      <div class="step-desc">In your terminal, paste this command and hit Enter. It installs Claude Code globally on your machine.</div>
+      <div class="terminal">
+        <div class="terminal-line"><span class="prompt">$</span><span class="cmd">npm install -g @anthropic-ai/claude-code</span></div>
+        <div class="terminal-line"><span class="output"># Wait for it to finish — takes about 30 seconds</span></div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-label">If you see a permissions error on Mac</div>
+        <div class="tip-text">Try: <code style="color:#c9a84c;">sudo npm install -g @anthropic-ai/claude-code</code> and enter your Mac password when it asks.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-title">Start Claude Code</div>
+      <div class="step-desc">In your terminal, type <code style="color:#c9a84c;">claude</code> and hit Enter. The first time it will ask you to log in with your Claude account.</div>
+      <div class="terminal">
+        <div class="terminal-line"><span class="prompt">$</span><span class="cmd">claude</span></div>
+        <div class="terminal-line"><span class="output"># It will open a login link in your browser</span></div>
+        <div class="terminal-line"><span class="output"># Log in with your Claude account from Step 1</span></div>
+        <div class="terminal-line"><span class="output"># Come back to terminal when done</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <div class="step-title">Hire Your NMD AI Team</div>
+      <div class="step-desc">In Claude Code, run the install command for the AI company you want. Paste this into the Claude Code terminal (not your regular terminal):</div>
+      <div class="terminal">
+        <div class="terminal-line"><span class="comment"># Hire the Wholesale Team (Victor, Blake, Val, Nina + more):</span></div>
+        <div class="terminal-line"><span class="prompt">></span><span class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s probate-hunter cash-buyer-builder comps-finder deal-analyzer skip-tracer offer-writer seller-pitch assignment-contract deal-pipeline</span></div>
+        <br>
+        <div class="terminal-line"><span class="comment"># Hire the Auto Team (Tony, Lucy):</span></div>
+        <div class="terminal-line"><span class="prompt">></span><span class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s car-sales-suite lead-gen-ai</span></div>
+        <br>
+        <div class="terminal-line"><span class="comment"># Hire the Media Team (Stella, Noah):</span></div>
+        <div class="terminal-line"><span class="prompt">></span><span class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s social newsletter-ai</span></div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-label">See all five AI companies</div>
+        <div class="tip-text">Head to the <a href="nmd-plugins.html">AI Companies page</a> for every employee, their role, and the full install command for each company.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-body">
+      <div class="step-title">Run setup &amp; start using it</div>
+      <div class="step-desc">After installing, run the setup command. It walks you through saving your profile so the AI employee knows your info every time.</div>
+      <div class="terminal">
+        <div class="terminal-line"><span class="comment"># Wholesale team — set up your market once:</span></div>
+        <div class="terminal-line"><span class="prompt">></span><span class="cmd">/probate-hunter</span></div>
+        <br>
+        <div class="terminal-line"><span class="comment"># Auto team — enter your dealership info:</span></div>
+        <div class="terminal-line"><span class="prompt">></span><span class="cmd">/dealer-onboarding</span></div>
+        <br>
+        <div class="terminal-line"><span class="comment"># Media team — set up your brand profile:</span></div>
+        <div class="terminal-line"><span class="prompt">></span><span class="cmd">/social-setup</span></div>
+        <br>
+        <div class="terminal-line"><span class="comment"># Then just say what you need:</span></div>
+        <div class="terminal-line"><span class="prompt">></span><span class="cmd">/social</span></div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-label">That's it — your team is on the clock</div>
+        <div class="tip-text">From here Claude runs your AI employees. They open browsers, pull live data, write outreach, generate documents, and take real actions — not just give you text.</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next-section">
+  <div class="section-label">After setup</div>
+  <div class="steps-title" style="font-size:28px;">What your AI employees actually do</div>
+  <div class="next-grid">
+    <div class="next-card">
+      <div class="next-card-num">01</div>
+      <div class="next-card-title">Opens your browser</div>
+      <div class="next-card-desc">Your car sales AI employee scans Craigslist, CarGurus, Reddit — pulls live leads directly, not manually.</div>
+    </div>
+    <div class="next-card">
+      <div class="next-card-num">02</div>
+      <div class="next-card-title">Writes real letters</div>
+      <div class="next-card-desc">Your credit repair AI employee generates bureau dispute letters, goodwill letters, and debt validation responses personalized to your file.</div>
+    </div>
+    <div class="next-card">
+      <div class="next-card-num">03</div>
+      <div class="next-card-title">Remembers your profile</div>
+      <div class="next-card-desc">Set it up once. Every time you run your AI employee it already knows who you are, your dealership, your clients — no re-entering info.</div>
+    </div>
+    <div class="next-card">
+      <div class="next-card-num">04</div>
+      <div class="next-card-title">Runs entirely local</div>
+      <div class="next-card-desc">Everything runs on your machine through Claude. No third-party app, no subscription, no data leaving your computer. Your AI team works for you, privately.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEED HELP -->
+<section style="padding: 64px 48px; border-top: 1px solid #d0ccc6; max-width: 700px;">
+  <div class="section-label">Stuck?</div>
+  <div style="font-size:22px;font-weight:700;color:#111;margin-bottom:12px;">Hit the Telegram.</div>
+  <div style="font-size:15px;color:#555;line-height:1.7;margin-bottom:28px;">
+    If anything breaks, looks weird, or you get an error you don't understand — drop it in the group. This is the real-time support line for all NMD tools.
+  </div>
+  <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="step-action">Join the Telegram →</a>
+</section>
+
+<footer>
+  <div class="footer-brand">NMD</div>
+  <div class="footer-right">Free · Always · nmdzaza.github.io/nmd-newsletters</div>
+</footer>
+
+<script>
+  function switchOS(tab, os) {
+    document.querySelectorAll('.os-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.os-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('os-' + os).classList.add('active');
+  }
+</script>
+
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

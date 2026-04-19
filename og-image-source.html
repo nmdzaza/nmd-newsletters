@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    background: #0d0d0d;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+  }
+
+  /* ── DOT GRID TEXTURE ── */
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.5;
+  }
+
+  /* ── GOLD DIAGONAL SLASH ── */
+  .slash {
+    position: absolute;
+    top: -100px; right: 180px;
+    width: 6px; height: 900px;
+    background: linear-gradient(to bottom, transparent, #c9a84c55, #c9a84c, #c9a84c55, transparent);
+    transform: rotate(20deg);
+    transform-origin: top center;
+  }
+  .slash2 {
+    position: absolute;
+    top: -100px; right: 220px;
+    width: 2px; height: 900px;
+    background: linear-gradient(to bottom, transparent, #c9a84c22, #c9a84c44, #c9a84c22, transparent);
+    transform: rotate(20deg);
+    transform-origin: top center;
+  }
+
+  /* ── GIANT 850 WATERMARK ── */
+  .watermark {
+    position: absolute;
+    right: -20px; bottom: -40px;
+    font-size: 320px;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px #c9a84c18;
+    letter-spacing: -10px;
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* ── TOP GOLD BAR ── */
+  .top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(to right, #c9a84c, #f0cc70, #c9a84c);
+  }
+
+  /* ── LEFT GOLD STRIPE ── */
+  .left-stripe {
+    position: absolute;
+    top: 6px; left: 0; bottom: 0;
+    width: 8px;
+    background: #c9a84c;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content {
+    position: absolute;
+    top: 6px; left: 8px; right: 0; bottom: 0;
+    padding: 52px 72px 48px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* ── TOP SECTION ── */
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nmd-hero {
+    font-size: 148px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .nmd-sub-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 6px;
+    margin-bottom: 32px;
+  }
+
+  .nmd-full {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    font-weight: 700;
+  }
+
+  .dot-sep {
+    width: 4px; height: 4px;
+    background: #c9a84c;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .goat-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #555;
+    font-weight: 600;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #c9a84c, #c9a84c66, transparent);
+    margin-bottom: 28px;
+  }
+
+  /* ── HEADLINE ── */
+  .headline {
+    font-size: 58px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    max-width: 740px;
+  }
+
+  .headline .gold { color: #c9a84c; }
+
+  /* ── BOTTOM ROW ── */
+  .bottom-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .bottom-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .bottom-url {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  .bottom-tags {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .tag-pill {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    font-weight: 700;
+    border: 1px solid #c9a84c44;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .tag-pill.dark {
+    color: #444;
+    border-color: #2a2a2a;
+  }
+
+  .bottom-right {
+    text-align: right;
+  }
+
+  .free-badge {
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 700;
+  }
+
+  .credit-score-display {
+    font-size: 64px;
+    font-weight: 900;
+    color: #c9a84c;
+    letter-spacing: -2px;
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  .score-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #444;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="slash"></div>
+  <div class="slash2"></div>
+  <div class="watermark">850</div>
+  <div class="top-bar"></div>
+  <div class="left-stripe"></div>
+
+  <div class="content">
+    <div class="top-section">
+      <div class="nmd-hero">NMD</div>
+      <div class="nmd-sub-row">
+        <span class="nmd-full">No Money Down</span>
+        <div class="dot-sep"></div>
+        <span class="goat-tag">Credit Intelligence · The Credit Goat 🐐</span>
+      </div>
+      <div class="divider"></div>
+      <div class="headline">The credit moves<br><span class="gold">you need to know.</span></div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="bottom-left">
+        <div class="bottom-tags">
+          <span class="tag-pill">Bureau Intel</span>
+          <span class="tag-pill">Dispute Strategy</span>
+          <span class="tag-pill">AI Tools</span>
+          <span class="tag-pill dark">Free · Always</span>
+        </div>
+        <div class="bottom-url">nmdzaza.github.io/nmd-newsletters</div>
+      </div>
+      <div class="bottom-right">
+        <div class="credit-score-display">850</div>
+        <div class="score-label">Target Score</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

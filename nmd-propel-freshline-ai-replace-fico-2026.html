@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="A Canadian fintech just launched FreshLine — an AI-powered credit product that bypasses FICO scores entirely and targets the 40% of Americans banks refuse to serve. Here's what it means for you.">
+  <meta name="keywords" content="Propel Holdings FreshLine, AI credit scoring, replace FICO, near-prime borrowers, credit access 2026, alternative underwriting, NMD ZAZA">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Is Coming for FICO — And the 40% Banks Ignore Are About to Win | NMD">
+  <meta property="og:description" content="Propel Holdings launched FreshLine with $210M in capital and zero FICO requirements. AI analyzes your cash flow instead. Here's what this means for everyone locked out of traditional credit.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-propel-freshline-ai-replace-fico-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Is Replacing FICO — 40% of Americans Left Out Are About to Get In | NMD">
+  <meta name="twitter:description" content="Propel Holdings FreshLine uses AI cash-flow underwriting instead of FICO. $210M backed. Targets the 650–700 near-prime borrowers banks turn away. Game-changer.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Is Coming for FICO — And the 40% Banks Ignore Are About to Win | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* STAT CALLOUT */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;
+    }
+    .stat-block {
+      background: #fff; border: 1px solid var(--rule); padding: 24px 20px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: 40px; font-weight: 900;
+      color: var(--red); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--slate); line-height: 1.4; }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* SOLUTIONS CARD */
+    .solutions-sidebar {
+      background: #0d0d0d; border: 1px solid #2a2a2a;
+      padding: 28px 24px; margin-top: 20px;
+    }
+    .solutions-sidebar-badge {
+      font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      display: inline-block; padding: 4px 10px; margin-bottom: 14px;
+    }
+    .solutions-sidebar h4 {
+      font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
+      color: #fff; margin-bottom: 10px; line-height: 1.3;
+    }
+    .solutions-sidebar p { font-size: 12px; color: #555; margin-bottom: 16px; line-height: 1.5; }
+    .solutions-sidebar a {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 11px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Fintech Disruption &middot; March 17, 2026</div>
+    <h1>AI Is Coming for FICO.<br><em>The 40% banks ignore are about to win.</em></h1>
+    <p class="article-dek">Propel Holdings just launched FreshLine — a $210 million AI credit product that doesn't use your FICO score at all. It reads your cash flow instead. If you've been stuck in the 650–700 range getting turned down by every traditional lender, the rules of the game just changed.</p>
+    <div class="article-meta">
+      <span>&#128197; March 17, 2026</span>
+      <span>&#9998; NMD ZAZA</span>
+      <span>&#9201; 6 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>The number that explains everything: 40%.</h2>
+
+      <p>Forty percent of Americans are either unscoreable or stuck in a near-prime credit range that makes traditional lenders flinch. That's roughly 130 million people. They have jobs. They pay their rent. Their bank accounts run clean. But their FICO scores — built on a 60-year-old model that mostly cares about revolving debt and payment history — say they're too risky to touch.</p>
+
+      <p>That's not a gap. That's a market. And a Canadian fintech called Propel Holdings just bet $210 million that AI can unlock it.</p>
+
+      <p>Their new product, FreshLine, is an unsecured credit line that runs on AI underwriting instead of FICO. It doesn't ask what your score is. It asks what your cash flow looks like — how money moves in and out of your account, when your paychecks land, how consistently you cover your bills. The model flags creditworthy borrowers that the traditional system leaves on the table.</p>
+
+      <div class="callout info">
+        <div class="callout-label">&#128161; What FreshLine Actually Is</div>
+        <p>FreshLine is an unsecured revolving credit line launched by Propel Holdings in March 2026, backed by $210 million in committed capital. It targets near-prime borrowers (roughly 650–700 FICO range) using AI-driven cash-flow underwriting instead of traditional credit scoring. No FICO minimum. No hard pull on initial qualification. Income timing and bank account patterns drive the decision.</p>
+      </div>
+
+      <h2>Why this matters more than another fintech launch</h2>
+
+      <p>Startups pitch alternative underwriting every year. Most of them fail quietly when they realize that cheap credit to high-risk borrowers without FICO guardrails ends in default waves. So what makes FreshLine different?</p>
+
+      <p>First, the capital. $210 million in committed funding is not a pilot program. That's a real product designed to scale. Propel has been running AI-powered subprime lending through its existing brands — CreditFresh and MoneyKey — since 2020. FreshLine is their move upmarket into the near-prime segment, which carries significantly lower risk and higher approval potential.</p>
+
+      <p>Second, the timing. Fannie Mae and Freddie Mac began accepting VantageScore 4.0 for mortgage underwriting in 2026, cracking open the door on alternative scoring models. FICO's pricing doubled to $10 per score pull — which has every lender quietly searching for alternatives. The regulatory and market environment has never been more ready for FICO competitors to step in.</p>
+
+      <blockquote>
+        <p>"The traditional credit system was built to serve people who already have credit. We built FreshLine to serve people who've earned it but don't have a FICO score that proves it." — Propel Holdings, March 2026</p>
+      </blockquote>
+
+      <h2>The numbers behind the locked-out 40%</h2>
+
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="stat-num">40%</div>
+          <div class="stat-label">Share of Americans banks routinely turn away — near-prime, thin-file, or unscoreable</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">$210M</div>
+          <div class="stat-label">Committed capital behind FreshLine at launch — not a pilot, a live product</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">715</div>
+          <div class="stat-label">National average FICO score — down 2 points — as utilization rises and missed payments climb</div>
+        </div>
+      </div>
+
+      <p>The national average FICO score dropped to 715 this quarter — driven by rising credit card balances, more missed payments, and the ripple effects of high APRs. That means more people are sliding from "prime" into "near-prime" territory right now. <strong>The 40% who banks ignore is growing, not shrinking.</strong></p>
+
+      <p>And the banks aren't helping. With the CFPB gutted and enforcement frozen, credit bureaus are resolving fewer disputes than ever. People who have legitimate errors dragging down their scores have fewer remedies than they did 18 months ago. The traditional path to a higher FICO — dispute, wait, reapply — is slower and less reliable today.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">&#9888; The FICO Trap Is Getting Worse</div>
+        <p>With the CFPB enfeebled and bureaus resolving fewer complaints (Experian's resolution rate dropped from ~20% to under 1% in 2025), errors are sticking longer on credit files. Near-prime borrowers are getting squeezed from both sides: rising balances pushing scores down, and a broken dispute system making it harder to fix them. FreshLine targets exactly this population.</p>
+      </div>
+
+      <h2>How AI cash-flow underwriting actually works</h2>
+
+      <p>Here's the part most people don't understand: AI underwriting isn't magic — it's pattern recognition at scale applied to data that FICO ignores.</p>
+
+      <p>Traditional FICO looks backward. It sees your payment history, your current balances, the age of your accounts, and your mix of credit types. It says nothing about whether your paycheck hits on the 1st and 15th like clockwork, or whether you consistently transfer money to savings, or whether your account balance never drops below $200 even in tough months.</p>
+
+      <p><strong>Cash-flow underwriting sees all of that.</strong> With permission to connect to your bank account (similar to how apps like Plaid work), the AI model analyzes 90 to 180 days of transaction history. It looks at income regularity, expense-to-income ratio, overdraft frequency, balance trends, and payment timing. It builds a creditworthiness picture that FICO literally cannot see.</p>
+
+      <p>FICO 10T and VantageScore 4.0 are starting to incorporate trended data — looking at 24 months of balance history rather than a snapshot. But they still don't touch actual bank transaction data. FreshLine's model does. That's a structural advantage for identifying creditworthy near-prime borrowers.</p>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>What Traditional FICO Sees</th>
+            <th>What AI Cash-Flow Sees</th>
+            <th>Who Benefits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Payment history on revolving accounts</td>
+            <td>Income regularity, timing, and consistency</td>
+            <td><span class="tag green">Near-prime borrowers with clean cash flow</span></td>
+          </tr>
+          <tr>
+            <td>Current balances vs. limits</td>
+            <td>Expense-to-income ratio, savings behavior</td>
+            <td><span class="tag green">Thin-file borrowers who manage money well</span></td>
+          </tr>
+          <tr>
+            <td>Account age and credit mix</td>
+            <td>Overdraft frequency, balance floor trends</td>
+            <td><span class="tag green">People who don't carry much credit but pay on time</span></td>
+          </tr>
+          <tr>
+            <td>Hard inquiry count</td>
+            <td>Employment income signals, seasonal patterns</td>
+            <td><span class="tag yellow">Gig workers, contractors, small business owners</span></td>
+          </tr>
+          <tr>
+            <td>Derogatory marks, collections</td>
+            <td>Recovery patterns after financial stress</td>
+            <td><span class="tag yellow">People rebuilding after hardship who've stabilized</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What this means for your credit strategy right now</h2>
+
+      <p>If you've been grinding on your FICO score because it's the only metric that matters — you're not wrong, but you're playing a game that's getting smaller. Here's what the smart move looks like in 2026:</p>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <span><strong>Keep your bank account clean.</strong> If AI underwriting is going to look at your transaction history, the 90–180 days before any application matters enormously. Reduce overdrafts to zero. Let your balance sit higher than it normally would. Consistent, clean cash flow is the new score.</span>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <span><strong>Still fix your FICO — traditional lenders haven't disappeared.</strong> Mortgages, car loans, most business credit lines still run on FICO or VantageScore. The goal is to be creditworthy in both systems. Use ScoreBoost to handle disputes, track bureau responses, and optimize your file for the traditional scoring model while your cash flow builds the alternative profile.</span>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <span><strong>Understand that BNPL and rent reporting are now on-ramps.</strong> FICO 10T and VantageScore 4.0 are incorporating BNPL payment history. Several services now report rent payments to credit bureaus. These are direct paths to building a FICO-eligible credit profile even if you've never had a traditional credit card.</span>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <span><strong>Watch the lender landscape shift.</strong> FreshLine is not the last AI-underwritten product. Fintech lenders using cash-flow models will proliferate over the next 18 months as FICO's pricing makes it less attractive for lower-dollar lending. Knowing which lenders use which models gives you a strategic advantage in choosing where to apply.</span>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <span><strong>Don't confuse access with forgiveness.</strong> AI underwriting opens the door — it doesn't paper over bad financial habits. Defaults on AI-underwritten products end up in collections the same as any other debt, and collections are reported to the bureaus the same way. Use new access responsibly or it will make your traditional FICO worse.</span>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>The NMD angle: two games, one player</h2>
+
+      <p>The credit game is bifurcating. On one side, FICO — the legacy model that still governs mortgages, auto loans, and most bank products. On the other side, AI underwriting — cash-flow models that are unlocking access for people the traditional system ignores. The winners in 2026 are the people who understand both and play them simultaneously.</p>
+
+      <p>That's exactly what ScoreBoost was built for. The bot handles your FICO side — automated disputes, bureau monitoring, FCRA escalations, credit utilization strategy. NMD Solutions handles the intelligence layer — knowing when AI underwriting applies, which products use which models, and how to position your financial profile to get approved across both systems.</p>
+
+      <p><strong>Forty percent of Americans have been locked out of credit for decades by a single number.</strong> That number's monopoly is ending. The question is whether you're positioned to take advantage of it — or still waiting on a bureau dispute letter that nobody at Experian is reading.</p>
+
+      <!-- CTA BOX -->
+      <div class="cta-box">
+        <div class="cta-label">NMD Credit Intelligence</div>
+        <h2>Build your credit profile for both systems — FICO and AI.</h2>
+        <p>ScoreBoost handles your disputes, tracks bureau responses, and optimizes your credit file automatically. $29 flat. No subscriptions. The smartest $29 you'll spend before your next application.</p>
+        <div class="cta-links">
+          <a href="https://t.me/ScoreBoostByNMDBot" class="cta-btn primary" target="_blank">Start Now — $29</a>
+          <a href="https://nmdzaza.github.io/nmd-solutions/" class="cta-btn secondary" target="_blank">View All NMD Tools</a>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a href="https://twitter.com/intent/tweet?text=AI%20is%20replacing%20FICO%20for%2040%25%20of%20Americans%20banks%20ignore.%20%40nmdzaza%20breaks%20down%20Propel%20Holdings%20FreshLine%20and%20what%20it%20means%20for%20your%20credit%3A&url=https%3A%2F%2Fnmdzaza.github.io%2Fnmd-newsletters%2Fnmd-propel-freshline-ai-replace-fico-2026.html" target="_blank" class="share-btn x-btn">Post on X</a>
+        <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="share-tg-btn">Join Telegram</a>
+        <button class="share-btn copy-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';this.classList.add('copied')">Copy Link</button>
+      </div>
+
+      <!-- SUBSCRIBE -->
+      <div class="article-subscribe">
+        <div class="as-tag">NMD Intelligence</div>
+        <div class="as-headline">The credit system is changing fast. Stay ahead of it.</div>
+        <div class="as-desc">AI underwriting. FICO disruption. Bureau tactics. New lending products. NMD sends the intel that keeps your credit profile strong as the old rules break down.</div>
+        <div class="as-row">
+          <input type="email" class="as-input" placeholder="your@email.com" id="as-email">
+          <button class="as-btn" onclick="document.querySelector('.as-confirm').style.display='block';document.querySelector('.as-input').value='';">Subscribe</button>
+        </div>
+        <div class="as-confirm">You're in. Watch your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">Recent Intelligence</div>
+        <div class="sidebar-links">
+          <a href="nmd-jpmorgan-ai-credit-crunch-2026.html" class="sidebar-link">JPMorgan's AI Credit Crunch — Your Borrowing Power Is Next</a>
+          <a href="nmd-fico-stock-crash-vantagescore-march-2026.html" class="sidebar-link">FICO Stock Crashed 9% — The Scoring War Is On</a>
+          <a href="nmd-fannie-mae-620-floor-gone-2026.html" class="sidebar-link">Fannie Mae's 620 Score Floor Is Gone — VantageScore Takes Over</a>
+          <a href="nmd-cfpb-gutted-2026.html" class="sidebar-link">CFPB Gutted — Credit Dispute Rights at Risk</a>
+          <a href="nmd-ai-credit-approvals-2026.html" class="sidebar-link">AI Is Already Deciding Your Credit Approval — Here's How</a>
+        </div>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">NMD Credit Bot</div>
+        <div class="sidebar-cta-headline">AI-powered credit repair. $29 flat.</div>
+        <div class="sidebar-cta-desc">Auto-disputes. Bureau monitoring. FCRA letter generation. Business credit building. Position your file for both FICO and AI underwriting systems.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" target="_blank" class="sidebar-cta-btn">Start Now — $29</a>
+      </div>
+
+      <div class="solutions-sidebar">
+        <div class="solutions-sidebar-badge">NMD Solutions</div>
+        <h4>AI tools built for the new credit environment</h4>
+        <p>From dispute automation to score monitoring and AI underwriting prep — NMD Solutions gives you the edge to get approved in both the old credit system and the new one.</p>
+        <a href="https://nmdzaza.github.io/nmd-solutions/" target="_blank">Explore NMD Solutions</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD ZAZA — Credit Intelligence</span>
+    <div class="footer-right">
+      <a href="nmd-privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+      <a href="nmd-terms.html">Terms</a> &nbsp;&middot;&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      document.getElementById('prog').style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+</body>
+</html>

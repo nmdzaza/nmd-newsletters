@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NMD Blog — Credit Intelligence</title>
+  <meta name="description" content="NMD breaks down the biggest shifts in credit, banking, and financial products so you always know what it means for you." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #e8e4df; font-family: Inter, sans-serif; min-height: 100vh; color: #111; }
+    header { background: #0d0d0d; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
+    .logo { display: flex; flex-direction: column; gap: 2px; }
+    .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #555; text-transform: uppercase; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav a:hover, .header-nav a.active { color: #c9a84c; }
+
+    /* ── BLOG HERO ─────────────────────────────────────── */
+    .blog-hero {
+      padding: 80px 48px 60px;
+      border-bottom: 1px solid #ccc;
+      background: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 400px; height: 100%;
+      background: radial-gradient(ellipse at right center, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: #c9a84c; }
+    .blog-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 900; line-height: 1.0;
+      color: #e8e4df; max-width: 800px;
+    }
+    .blog-hero h1 em { font-style: italic; color: #c9a84c; }
+    .hero-desc {
+      margin-top: 28px; font-size: 16px;
+      color: rgba(232,228,223,0.6); max-width: 520px; line-height: 1.75;
+    }
+
+    /* ── GRID ─────────────────────────────────────────── */
+    .grid-section { padding: 60px 48px 80px; }
+    .section-label {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: #888; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid #ccc;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .card { background: #0d0d0d; border-radius: 4px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+    .card-accent { height: 3px; width: 100%; }
+    .card-body { padding: 32px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .card-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1.2; color: #fff; margin-bottom: 14px; }
+    .card-desc { font-size: 13px; color: #888; line-height: 1.65; flex: 1; }
+    .card-footer { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid #222; }
+    .card-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
+    .card-arrow { font-size: 18px; color: #444; transition: color 0.2s, transform 0.2s; }
+    .card:hover .card-arrow { color: #fff; }
+
+    footer { background: #0d0d0d; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left, .footer-right { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+
+    @media (max-width: 640px) { header, .blog-hero, .grid-section, footer { padding-left: 24px; padding-right: 24px; } }
+
+    /* ── NEWSLETTER POPUP ─────────────────────────────── */
+    .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 9999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(2px); }
+    .popup-overlay.open { display: flex; }
+    .popup-card { background: #e8e4df; max-width: 560px; width: 100%; border: 1px solid #ccc; position: relative; animation: popupIn 0.32s ease; }
+    @keyframes popupIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .popup-close { position: absolute; top: 14px; right: 18px; background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer; line-height: 1; padding: 4px; transition: color 0.2s; }
+    .popup-close:hover { color: #111; }
+    .popup-featured { padding: 36px 40px 28px; border-bottom: 1px solid #d0ccc6; }
+    .popup-featured-tag { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #c9a84c; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .popup-featured-tag::before { content: ''; display: block; width: 24px; height: 2px; background: #c9a84c; }
+    .popup-article-headline { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 12px; }
+    .popup-article-desc { font-size: 13px; color: #666; line-height: 1.65; margin-bottom: 20px; }
+    .popup-read-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #111; text-decoration: none; font-weight: 700; transition: color 0.2s; }
+    .popup-read-link:hover { color: #c9a84c; }
+    .popup-subscribe { padding: 28px 40px 36px; background: #fff; }
+    .popup-subscribe-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #aaa; margin-bottom: 10px; }
+    .popup-subscribe-headline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #111; margin-bottom: 8px; line-height: 1.2; }
+    .popup-subscribe-sub { font-size: 13px; color: #666; margin-bottom: 20px; line-height: 1.5; }
+    .popup-form-row { display: flex; }
+    .popup-email-input { flex: 1; background: #fff; border: 1px solid #ccc; border-right: none; color: #111; padding: 14px 16px; font-size: 14px; font-family: Inter, sans-serif; outline: none; transition: border-color 0.2s; }
+    .popup-email-input:focus { border-color: #111; }
+    .popup-email-input::placeholder { color: #bbb; }
+    .popup-email-input.error { border-color: #c00; }
+    .popup-submit-btn { background: #111; color: #fff; border: none; padding: 14px 22px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .popup-submit-btn:hover { background: #333; }
+    .popup-submit-btn:disabled { background: #ccc; color: #999; cursor: not-allowed; }
+    .popup-confirm { display: none; font-size: 13px; color: #111; font-weight: 600; padding: 14px 0 0; line-height: 1.5; }
+    .popup-no-thanks { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #bbb; cursor: pointer; margin-top: 18px; display: inline-block; transition: color 0.2s; }
+    .popup-no-thanks:hover { color: #111; }
+    @media (max-width: 600px) { .popup-featured, .popup-subscribe { padding-left: 24px; padding-right: 24px; } .popup-form-row { flex-direction: column; } .popup-email-input { border-right: 1px solid #ccc; border-bottom: none; } .popup-submit-btn { width: 100%; } }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K7VFHF48M5');</script>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-nmd">NMD</span>
+      <span class="logo-sub">No Money Down</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <div class="nmd-ticker-wrap" aria-label="Breaking credit news ticker">
+    <div class="nmd-ticker-label">Live</div>
+    <div class="nmd-ticker-track-wrap">
+      <div class="nmd-ticker-track">
+        <span>BREAKING: Credit repair company hacked &mdash; Credit Freedom &amp; Restoration breach exposes 30,000 clients&rsquo; credit reports, passports, and mortgage docs &mdash; March 18, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>BREAKING: Banks lobby CFPB to label credit repair disputes &ldquo;frivolous&rdquo; and block them — ABA formal letter targets dispute rights — March 17, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>BREAKING: FTC warns TikTok "credit hack" is a federal crime — influencers coaching millions to file fake identity theft reports — March 17, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>BREAKING: Wall Street private credit meltdown — Blackstone, Apollo, KKR lose $265B since Sept 2025 — lending standards tightening fast — March 17, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>NEW: FICO Credit Insights Lab launches — 33M invisible Americans now scoreable via UltraFICO and cash-flow data — March 17, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>BREAKING: MetroWest Credit Union breach — SSNs, payment cards, driver's licenses exposed for 20,722 people — March 17, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>NEW: Medicaid credit bomb — $50B in new medical debt projected as OBBBA cuts 15M people from coverage — March 17, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>BREAKING: Senate bill S.381 would cap credit card APRs at 10% — bipartisan Sanders/Hawley push as banks fight back — March 16, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>BREAKING: NY Fed — credit applications hit 3-year high (44.4%), bank rejections lowest since 2021 (15.9%) — March 16, 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>BREAKING: Student loan wage garnishment restarted — 5.5M borrowers, 15% of paychecks seized with no court order</span><span class="nmd-ticker-sep">·</span>
+        <span>FCRA 2026: Bureaus must now prove accuracy — burden of proof shifts to furnishers, unverifiable items must be deleted</span><span class="nmd-ticker-sep">·</span>
+        <span>SBA eliminates SBSS pre-screening for loans under $350K — March 2026</span><span class="nmd-ticker-sep">·</span>
+        <span>CFPB loses enforcement power — credit dispute rights at risk</span><span class="nmd-ticker-sep">·</span>
+        <span>FICO 10T expands to mortgage scoring — 24-month history now counts</span><span class="nmd-ticker-sep">·</span>
+        <span>Capital One halts Experian reporting — file gaps appearing nationwide</span><span class="nmd-ticker-sep">·</span>
+        <span>Medical debt back on credit reports — federal protection struck down</span><span class="nmd-ticker-sep">·</span>
+        <span>JPMorgan marks down AI-disrupted software loans — $120B default wave projected — March 12, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="blog-hero">
+    <div class="hero-label">Credit Intelligence</div>
+    <h1>The Blog.<br><em>Every move, decoded.</em></h1>
+    <p class="hero-desc">NMD breaks down the biggest shifts in credit, banking, and financial products so you always know what it means for you.</p>
+  </section>
+
+  <section class="grid-section">
+    <div class="section-label">All Articles</div>
+    <div class="grid">
+      <a class="card" href="nmd-woflow-shinyhunters-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Data Breach Alert &middot; March 20, 2026</div>
+          <div class="card-title">You&rsquo;ve Never Heard of Woflow &mdash; But They Had Your SSN. Here&rsquo;s Your Credit Lockdown Plan.</div>
+          <div class="card-desc">ShinyHunters (same crew behind AT&T and Ticketmaster) breached Woflow on March 3 &mdash; stealing SSNs, credit card numbers, and financial account data. Here's your 5-step response before fraudsters act.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-heloc-credit-score-debt-exit-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Debt Strategy &middot; March 20, 2026</div>
+          <div class="card-title">Credit Cards Are 22%. Home Equity Is 7%. Your Score Is the Gate.</div>
+          <div class="card-desc">HELOC rates hit 7.20% today while credit cards are still at 22%. That 15-point spread is the biggest debt-exit opportunity in consumer finance right now — if your credit score qualifies you for it.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fed-holds-mortgage-rate-jump-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Housing &amp; Credit &middot; March 20, 2026</div>
+          <div class="card-title">Fed Held Rates. Mortgages Went Up Anyway. Your Credit Score Is Now Worth $300/Month.</div>
+          <div class="card-desc">The Fed paused on March 18 — and 30-year fixed rates jumped to 6.22% the next day. The gap between a rebuilding score and a strong one costs $200–$414 every month. NMD breaks down the exact math.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-croa-lawsuit-credit-repair-scam-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Consumer Protection &middot; March 20, 2026</div>
+          <div class="card-title">Credit Repair Company Gets Sued &mdash; The FTC Just Sent $10.9M in Refunds to 443,000 Scam Victims</div>
+          <div class="card-desc">New CROA lawsuit filed against "My Credit Guy." FTC is mailing $10.9M in checks to 443,048 Financial Education Services victims. Here's how to spot the scam before it costs you.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-irs-dirty-dozen-ai-tax-scams-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Tax Season Alert &middot; March 20, 2026</div>
+          <div class="card-title">The IRS Just Dropped 12 Scam Warnings for 2026 &mdash; AI Is Making This Tax Season Dangerous for Your Credit Score</div>
+          <div class="card-desc">AI voice cloning, fake IRS agents, and social media tax hacks made the Dirty Dozen this year. If a scammer files before you, you could face IRS debt and a lien that tanks your credit for years.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-spycloud-65b-stolen-records-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Security Alert &middot; March 20, 2026</div>
+          <div class="card-title">65.7 Billion Stolen Records: Your Identity Is Already for Sale &mdash; Here&rsquo;s Your Credit Protection Checklist</div>
+          <div class="card-desc">SpyCloud&rsquo;s 2026 report dropped yesterday: 65.7B stolen credentials in active criminal circulation, up 23% in one year. Synthetic identity fraud is exploding. Here&rsquo;s your 6-step credit lockdown checklist.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-fes-pyramid-refunds-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FTC Enforcement &middot; March 20, 2026</div>
+          <div class="card-title">The FTC Is Sending $10.9M in Checks to Credit Repair Pyramid Scheme Victims</div>
+          <div class="card-desc">Financial Education Services charged $89/month, delivered nothing, and ran a pyramid scheme. Now 443,048 people are getting refund checks.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-occ-bank-capital-cut-lending-2026.html">
+        <div class="card-accent" style="background:#1d4ed8;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1d4ed8;">Banking Policy &middot; March 19, 2026</div>
+          <div class="card-title">Banks Just Got Permission to Lend More Money. Your Credit App Is About to Get a Better Shot.</div>
+          <div class="card-desc">The OCC, Fed, and FDIC jointly proposed cutting bank capital requirements by 6.9% on March 19. More lending capacity means banks compete harder for good borrowers — and your clean file is the ticket in by Q3 2026.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-declared-dead-fcra-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FCRA Alert &middot; March 20, 2026</div>
+          <div class="card-title">Your Bank Declared You Dead. Capital One Just Settled for $2.4M.</div>
+          <div class="card-desc">Capital One wrongly flagged 1,142 living customers as deceased with all three credit bureaus &mdash; then refused to fix it. Today&rsquo;s settlement approval means you need to check your credit file now.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-111m-trapped-credit-card-debt-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking Analysis &middot; March 20, 2026</div>
+          <div class="card-title">111 Million Americans Are Trapped in Credit Card Debt &mdash; $368 Million Lost Every Single Day</div>
+          <div class="card-desc">A new report confirms half of America can&rsquo;t pay their credit card bill in full. $1.3 trillion in debt, 22%+ APR, and Trump&rsquo;s rate cap promise still hasn&rsquo;t arrived. Here&rsquo;s your move.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-equifax-vantagescore-mortgage-shift-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Scoring &middot; Breaking &middot; March 20, 2026</div>
+          <div class="card-title">Equifax Just Told Mortgage Lenders to Ditch FICO &mdash; Here&rsquo;s What That Means for You</div>
+          <div class="card-desc">Equifax broke ranks with FICO, offering VantageScore 4.0 at 50%+ off to mortgage lenders. If your lender switches, rent payments and utility bills now count toward your mortgage score.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-experian-dispute-collapse-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Bureaus &middot; Breaking &middot; March 20, 2026</div>
+          <div class="card-title">Experian Stopped Fixing Your Credit Report Errors. Here&rsquo;s the Data.</div>
+          <div class="card-desc">Experian&rsquo;s dispute relief rate collapsed from 20% to under 1% in one year. TransUnion cut theirs in half. 2.7M complaints went nowhere. Here&rsquo;s exactly what to do now.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-hsbc-ai-bank-layoffs-dispute-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Banking &middot; Breaking &middot; March 19, 2026</div>
+          <div class="card-title">HSBC Is Cutting 20,000 Jobs With AI &mdash; Here&rsquo;s What That Means for Your Dispute Letters</div>
+          <div class="card-desc">Banks are replacing dispute handlers with algorithms. Sloppy letters get auto-rejected at machine speed. Here&rsquo;s exactly what AI dispute systems are scanning for &mdash; and how to make sure your letter hits every mark.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-aba-recession-odds-credit-warning-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Economic Warning &middot; Breaking &middot; March 19, 2026</div>
+          <div class="card-title">Bank Economists Put 25% Odds on a 2026 Recession &mdash; Is Your Credit Ready?</div>
+          <div class="card-desc">The ABA Credit Conditions Index just hit its 5th straight quarter below neutral at 37.5. America&rsquo;s top bank economists are calling a 1-in-4 chance of recession. Here&rsquo;s exactly what to fix before lenders slam the door.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-fes-credit-repair-scam-refund-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Scam Alert &middot; Breaking &middot; March 19, 2026</div>
+          <div class="card-title">FTC Just Sent $10.9M to 443,048 Victims of a Fake Credit Repair Company &mdash; Are You One of Them?</div>
+          <div class="card-desc">Financial Education Services charged $89/month for illegal credit promises, built a pyramid scheme on top, and bilked $213M from consumers. The FTC shut them down. Refund checks are in the mail &mdash; 90 days to cash.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-sba-22pct-denied-business-credit-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Business Credit &middot; Breaking &middot; March 19, 2026</div>
+          <div class="card-title">22% of Small Businesses Got $0 From the SBA &mdash; Your Credit Profile Is Exactly Why</div>
+          <div class="card-desc">The SBA deployed $150M in working capital. 1 in 5 applicants got nothing. The reason is almost always the same: a weak credit file. Here&rsquo;s how to fix it before the next funding window opens.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fed-holds-rates-credit-card-march-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Federal Reserve &middot; Breaking &middot; March 20, 2026</div>
+          <div class="card-title">The Fed Just Froze Your Credit Card Rate. Here&rsquo;s the Only Move Left.</div>
+          <div class="card-desc">FOMC voted 11-1 to hold at 3.5%&ndash;3.75%. One cut projected for all of 2026. Your 21% APR isn&rsquo;t moving &mdash; but your score can. Here&rsquo;s exactly what to do now.</div>
+          <div class="card-footer"><span class="card-date">March 20, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-xai-grok-bank-ai-lending-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">AI &amp; Banking &middot; Breaking &middot; March 19, 2026</div>
+          <div class="card-title">Elon&rsquo;s AI Is Learning Your Credit File. You Should Be Worried.</div>
+          <div class="card-desc">xAI hired credit experts to train Grok on finance. Goldman Sachs runs autonomous AI agents. Lloyds uses AI for fraud in seconds. Banks went all-in on AI &mdash; here&rsquo;s your counter.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fico-price-hike-stock-crash-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Scoring &middot; Breaking &middot; March 19, 2026</div>
+          <div class="card-title">FICO Doubled Its Price &mdash; And the Stock Market Is Saying Goodbye</div>
+          <div class="card-desc">FICO jacked what lenders pay per mortgage score 2x for 2026. Wall Street responded: stock dropped 9% in one day. The 30-year scoring monopoly is cracking &mdash; here's what that means for your credit strategy right now.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-spycloud-657b-identity-breach-2026.html">
+        <div class="card-accent" style="background:#dc2626;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#dc2626;">Identity Theft Alert &middot; Breaking &middot; March 19, 2026</div>
+          <div class="card-title">65.7 Billion Reasons to Check Your Credit File Right Now</div>
+          <div class="card-desc">SpyCloud's 2026 report just dropped: 65.7 billion identity records in criminal hands, 5.3 billion credentials stolen, 80% in plaintext. Here's what it means for your credit file and what to do today.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bnpl-federal-policy-gap-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Consumer Alert &middot; March 19, 2026</div>
+          <div class="card-title">BNPL Is a Credit Score Time Bomb &mdash; And Congress Just Admitted Nobody&rsquo;s Protecting You</div>
+          <div class="card-desc">$63 billion in Buy Now Pay Later debt. No federal rules. Missed payments that may or may not hit your credit &mdash; depending on which app you used. The CRS just confirmed consumers are flying blind.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ny-bnpl-rules-credit-score-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Regulatory Alert &middot; March 19, 2026</div>
+          <div class="card-title">New York Just Dropped the First Major BNPL Rules in the Nation &mdash; And Your Credit Score Is in the Middle</div>
+          <div class="card-desc">NY Governor Hochul signed the nation&rsquo;s first comprehensive BNPL regulation. Klarna, Affirm, and Afterpay must now register, disclose credit reporting, and cap fees. Here&rsquo;s what it means for your score.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bankrate-fraud-surge-ai-scams-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Fraud Alert &middot; March 19, 2026</div>
+          <div class="card-title">2 in 5 Americans Hit by a Financial Scam This Year &mdash; AI Is Making Scammers Unstoppable</div>
+          <div class="card-desc">Bankrate&rsquo;s 2026 fraud survey: 40% of Americans got hit in the last 12 months. AI is cloning voices, faking IDs, writing perfect phishing emails. Here&rsquo;s how to protect your credit before fraud destroys it.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-frankenstein-identity-synthetic-fraud-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Fraud Alert &middot; March 19, 2026</div>
+          <div class="card-title">The "Frankenstein Identity": Criminals Are Building Fake Credit Profiles With Your Child&rsquo;s SSN</div>
+          <div class="card-desc">New account fraud is up 51% year-over-year. The weapon of choice? A child&rsquo;s SSN stitched to a fake name, left to build credit for years before anyone notices. Here&rsquo;s how to stop it.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-fes-refund-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FTC Action &middot; March 19, 2026</div>
+          <div class="card-title">FTC Is Mailing $10.9M in Refund Checks to 443,048 Credit Repair Scam Victims &mdash; You Have 90 Days</div>
+          <div class="card-desc">The FTC shut down the Financial Education Services pyramid scheme and is sending nearly half a million consumers their money back. If you paid FES, that check might be in the mail right now &mdash; but you have 90 days to cash it.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-cfpb-dark-bureaus-complaints-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking &middot; CFPB Alert &middot; March 19, 2026</div>
+          <div class="card-title">The Cops Are Gone &mdash; Credit Bureaus Just Stopped Fixing Your Mistakes</div>
+          <div class="card-desc">CFPB enforcement is offline. Experian&rsquo;s resolution rate crashed from 20% to less than 1%. 2.7 million complaints are sitting unresolved. Here&rsquo;s what this means for your credit file and what actually works now.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-idr-backlog-credit-score-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Student Loan Alert &middot; March 18, 2026</div>
+          <div class="card-title">576,000 Borrowers Stuck in Student Loan Payment Plan Limbo &mdash; Credit Scores Are Taking the Hit</div>
+          <div class="card-desc">A March 17 court filing confirmed 576,609 federal student loan borrowers still can&rsquo;t access affordable IDR plans. No payment plan means no protection. Delinquency is live for thousands right now.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-repair-company-hack-march-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking &middot; Identity Theft Alert &middot; March 18, 2026</div>
+          <div class="card-title">The Credit Repair Company They Trusted Just Got Hacked &mdash; 30,000 People&rsquo;s Files Are Exposed</div>
+          <div class="card-desc">Credit Freedom &amp; Restoration confirmed a breach today. Credit reports, passports, SSNs, and mortgage docs for 30,000 clients are in attacker hands. Here&rsquo;s the 48-hour action plan.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-crunch-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Business Credit Alert &middot; March 18, 2026</div>
+          <div class="card-title">The 2026 Credit Crunch Is Here &mdash; And Small Business Owners Are the Last to Know</div>
+          <div class="card-desc">Spreads at multi-year highs. Blackstone bled $3.8B. SBA loan rules changed March 1. If you have a business or building business credit, this directly affects your borrowing power right now.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-fcra-deceased-settlement-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FCRA Alert &middot; Class Action &middot; March 18, 2026</div>
+          <div class="card-title">Capital One Marked You Dead &mdash; Now They&rsquo;re Paying $2.4M</div>
+          <div class="card-desc">Capital One flagged living customers as deceased on their credit reports. A $2.4M FCRA class action closes March 20. No claim form required. Full breakdown on what happened and how to check your own file.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-pyramid-10m-march-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Consumer Alert &middot; March 18, 2026</div>
+          <div class="card-title">FTC Just Paid Out $10.9 Million to Victims of a Fake Credit Repair Scheme</div>
+          <div class="card-desc">443,048 people got robbed by a credit repair pyramid scheme. The FTC clawed back the money &mdash; but most victims never see justice. Here&rsquo;s how to spot the fakes and protect yourself.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-corvel-lena-health-breach-march-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking &middot; Identity Theft Alert &middot; March 18, 2026</div>
+          <div class="card-title">Two Breaches Hit Yesterday. Is Your Credit Under Attack?</div>
+          <div class="card-desc">CorVel and Lena Health both confirmed breaches on March 17 &mdash; workers&rsquo; comp data and healthcare records exposed. With tax season live, employment identity theft is at record risk. Here&rsquo;s the 48-hour action plan.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fico-1b-debt-march-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Market Intelligence &middot; March 18, 2026</div>
+          <div class="card-title">FICO Just Borrowed $1 Billion &mdash; And That&rsquo;s a Red Flag for Your Credit Score</div>
+          <div class="card-desc">FICO is refinancing $1B in debt at 6.25% &mdash; same week their stock crashed 9%. When the company that controls your financial life scrambles for cash, here&rsquo;s what it means for your score and what to do now.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-experian-under-1pct-propublica-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Investigative &middot; March 18, 2026</div>
+          <div class="card-title">Experian Just Stopped Fixing Your Report. On Purpose.</div>
+          <div class="card-desc">ProPublica confirmed it: Experian&rsquo;s dispute resolution rate crashed from 20% to under 1% after the CFPB was gutted. Real consumer case studies. The new 2026 dispute playbook that actually works.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-2026-credit-crunch-geopolitical-march-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Market Alert &middot; March 18, 2026</div>
+          <div class="card-title">The 2026 Credit Crunch Is Live: Geopolitical Shocks Are Closing the Door on Loans Right Now</div>
+          <div class="card-desc">Oil jumped $50 a barrel, the Fed refused to cut, and $265B in private credit is under stress. If you&rsquo;ve been getting denied lately, this is exactly why &mdash; and here&rsquo;s how to position yourself while everyone else is stuck.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-mortgage-rate-630-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Market Alert <div class="grid">middot; March 18, 2026</div>
+          <div class="card-title">Mortgage Rates Just Hit 6.30% <div class="grid">mdash; The Year<div class="grid">rsquo;s High, and Your Credit Score Is Costing You Hundreds a Month</div>
+          <div class="card-desc">The 30-year fixed climbed to its 2026 peak today. The gap between a 760 score and a 600 score is now $500+ per month on a median home. Here<div class="grid">rsquo;s the exact rate breakdown and what to do right now.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow"><div class="grid">#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-onemain-13-states-lawsuit-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking Legal Alert &middot; March 18, 2026</div>
+          <div class="card-title">13 States Are Suing OneMain Financial &mdash; And Your Credit Report Could Be in the Crossfire</div>
+          <div class="card-desc">A bipartisan coalition of 13 AGs sued OneMain for hiding fees inside personal loans &mdash; and they&rsquo;re demanding negative credit reporting tied to the scheme gets wiped. If you had a OneMain loan, act now.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ncua-credit-union-deregulation-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Regulatory Alert &middot; March 18, 2026</div>
+          <div class="card-title">The Credit Union You Trusted Just Lost Its Watchdog &mdash; 7 Rounds of Deregulation, Zero Hearings</div>
+          <div class="card-desc">The NCUA pushed through 7 rounds of consumer rollbacks &mdash; stripping nondiscrimination lending rules, killing third-party oversight, and gutting protections for underserved communities. Here&rsquo;s what it means for your credit rebuild strategy.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-car-loan-interest-deduction-obbba-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Tax &amp; Credit &middot; March 18, 2026</div>
+          <div class="card-title">No Tax on Car Loan Interest: The One Big Beautiful Bill Just Changed the Math for 28 Million Americans</div>
+          <div class="card-desc">IRS guidance is final. Up to $10,000 deduction on new car loan interest. But most used-car buyers and foreign-assembled vehicles don&rsquo;t qualify. Here&rsquo;s what actually applies to you &mdash; and how to put those savings toward your credit score.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-student-loan-delinquency-25pct-score-drop-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Score Alert &middot; March 18, 2026</div>
+          <div class="card-title">25% of Student Loan Borrowers Are Delinquent &mdash; And the Score Damage Is Brutal</div>
+          <div class="card-desc">7.9 million borrowers hit in 2025. Average drop: 57 points. If you started at 760+, one missed payment can cost you 171 points. Here&rsquo;s the full picture and your recovery plan.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-robinhood-platinum-card-credit-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Fintech &middot; March 19, 2026</div>
+          <div class="card-title">Robinhood Just Launched a Premium Credit Card &mdash; And You Need Good Credit to Get It</div>
+          <div class="card-desc">5% cash back on everything. $300 sign-on bonus. No annual fee for Gold members. The hottest new card on the market &mdash; and what credit score you need to qualify.</div>
+          <div class="card-footer"><span class="card-date">March 19, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-dave-flex-card-ai-credit-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Fintech &middot; March 18, 2026</div>
+          <div class="card-title">Dave Just Built a Credit Card That Doesn&rsquo;t Care About Your FICO Score</div>
+          <div class="card-desc">A $554M AI engine processed 150 million cash advances with zero FICO checks &mdash; and now they&rsquo;re launching the Flex Card for the 45 million Americans credit bureaus locked out.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-gen-z-credit-score-crash-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FICO Inaugural Report &middot; March 18, 2026</div>
+          <div class="card-title">Gen Z Credit Scores Hit 676 &mdash; Lowest of Any Generation, FICO&rsquo;s Own Data Confirms</div>
+          <div class="card-desc">FICO&rsquo;s first-ever Credit Insights Report found Gen Z averaging 676 &mdash; 39 points below the national average. Student loans, BNPL, and thin files are the cause. Here&rsquo;s the full breakdown and your fix.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-freedom-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Data Breach Alert &middot; March 18, 2026</div>
+          <div class="card-title">The Company They Paid to Fix Their Credit Just Got Hacked</div>
+          <div class="card-desc">Credit Freedom &amp; Restoration was breached. 30,000 customers had their credit reports, passports, driver&rsquo;s licenses, and mortgage docs stolen. Here&rsquo;s the action plan.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ny-fed-credit-applications-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">NY Fed Data &middot; March 18, 2026</div>
+          <div class="card-title">Banks Are Saying Yes More Than Ever — But Mortgage Refi Rejections Just Hit 41.8%</div>
+          <div class="card-desc">Credit applications hit a 3-year high. Overall rejections are down. But mortgage refi denials spiked 57% year-over-year. Here's what the NY Fed data means for your credit strategy right now.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-insurance-credit-score-premium-2026.html">
+        <div class="card-accent" style="background:#166534;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#166534;">Insurance &amp; Credit · March 17, 2026</div>
+          <div class="card-title">Your bad credit is costing you $550 a year on home insurance.</div>
+          <div class="card-desc">Wharton researchers analyzed 70 million policies and found credit scores impact your homeowners premium as much as disaster risk. Low credit = 24% higher premiums. Here's the fix.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fico-score-drop-national-report-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FICO Report &middot; March 17, 2026</div>
+          <div class="card-title">America&rsquo;s Average FICO Score Just Fell. Here&rsquo;s Why Your Number Is at Risk.</div>
+          <div class="card-desc">FICO&rsquo;s inaugural Credit Insights Report confirms the national average score dropped 2 points. Rising utilization, missed payments, and student loan re-reporting are the culprit. Here&rsquo;s the three-move playbook to protect your number.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-finfluencer-illegal-credit-hack-2026.html">
+        <div class="card-accent" style="background:#e05c5c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#e05c5c;">FTC Alert &middot; March 17, 2026</div>
+          <div class="card-title">The &ldquo;Credit Hack&rdquo; Going Viral on TikTok Is Federal Fraud</div>
+          <div class="card-desc">Finfluencers are coaching people to file fake identity theft reports to delete legitimate debts. The FTC says this is a federal crime — and it doesn't even work. Here's the truth.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-fes-pyramid-refund-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FTC Enforcement &middot; March 17, 2026</div>
+          <div class="card-title">FTC Is Mailing $10.9 Million in Checks to Victims of a Credit Repair Pyramid Scheme</div>
+          <div class="card-desc">Financial Education Services charged 443,048 people up to $89/month for credit repair that didn't work — while secretly running a pyramid scheme underneath. The FTC is finally cutting checks. Here's how to spot the next one.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-propel-freshline-ai-replace-fico-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Fintech Disruption &middot; March 17, 2026</div>
+          <div class="card-title">AI Is Coming for FICO — And the 40% Banks Ignore Are About to Win</div>
+          <div class="card-desc">Propel Holdings launched FreshLine with $210M in capital and zero FICO requirements. AI analyzes your cash flow instead. If you&rsquo;ve been stuck in the 650&ndash;700 range getting turned down, the rules of the game just changed.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-experian-transunion-dispute-collapse-cfpb-trump-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#ef4444;">Bureau Investigation &middot; March 17, 2026</div>
+          <div class="card-title">Experian Stopped Fixing Your Credit. On Purpose.</div>
+          <div class="card-desc">ProPublica reveals Experian&rsquo;s dispute relief rate collapsed from 20% to under 1% the moment Trump gutted the CFPB. TransUnion cut relief in half. 2.7 million complaints &mdash; almost none resolved. Here&rsquo;s the new dispute playbook that actually works.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-banks-lobby-cfpb-block-disputes-2026.html">
+        <div class="card-accent" style="background:#7c2d12;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f97316;">Industry Alert &middot; March 17, 2026</div>
+          <div class="card-title">Banks Are Lobbying the CFPB to Flag and Kill Your Disputes</div>
+          <div class="card-desc">The American Bankers Association just asked the CFPB to identify credit repair clients and treat their disputes as &ldquo;frivolous&rdquo; before they&rsquo;re ever processed. This is the most direct attack on your right to dispute in a decade.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-freedom-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#ef4444;">Breach Alert &middot; March 17, 2026</div>
+          <div class="card-title">The Credit Repair Company Trusted to Protect You Just Got Hacked</div>
+          <div class="card-desc">Credit Freedom &amp; Restoration was breached &mdash; 30,000 clients&rsquo; credit reports, IDs, passports, and mortgage docs stolen. If you used them, your full financial identity may be in criminal hands right now.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fed-holds-rates-21pct-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Fed Decision &middot; March 18, 2026</div>
+          <div class="card-title">Fed Holds Rates Again &mdash; You&rsquo;re Stuck at 21% Until You Fix Your Score</div>
+          <div class="card-desc">The Fed held rates steady today. Credit card APRs are above 21% and card issuers aren&rsquo;t cutting. The only exit from that trap is a score high enough to qualify for something better.</div>
+          <div class="card-footer"><span class="card-date">March 18, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-medical-debt-federal-preemption-2026.html">
+        <div class="card-accent" style="background:#b45309;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b45309;">Medical Debt Alert &middot; March 17, 2026</div>
+          <div class="card-title">They Killed the Federal Rule. Now They&rsquo;re Killing the State Backup Plans Too.</div>
+          <div class="card-desc">The CFPB rule wiping medical debt from credit reports is dead. Now Trump&rsquo;s CFPB is using federal preemption to nullify the 15 state laws that tried to fill the gap. Here&rsquo;s what to do before your window closes.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-tiktok-credit-scam-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FTC Warning &middot; March 17, 2026</div>
+          <div class="card-title">The TikTok Credit Hack Is a Federal Crime. People Are Still Doing It.</div>
+          <div class="card-desc">Finfluencers are coaching millions to file fake identity theft reports at IdentityTheft.gov to erase legitimate debt. The FTC confirmed it&rsquo;s illegal. Here&rsquo;s what actually happens when you follow that advice.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-pyramid-scheme-109m-refund-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FTC Enforcement &middot; March 17, 2026</div>
+          <div class="card-title">The FTC Just Sent $10.9M to Victims of a Credit Repair Pyramid Scheme</div>
+          <div class="card-desc">FES and United Wealth Education charged illegal upfront fees, promised results they never delivered, and ran a pyramid recruitment scheme on top of it. Here&rsquo;s the red flags list and what real credit repair looks like.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-private-credit-meltdown-2026.html">
+        <div class="card-accent" style="background:#8b0000;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#8b0000;">Business Credit Alert &middot; March 17, 2026</div>
+          <div class="card-title">Wall Street Just Lost $265 Billion in Credit &mdash; And You&rsquo;re About to Feel It</div>
+          <div class="card-desc">Blackstone, Apollo, KKR, Ares, and Blue Owl have lost $265B in market value since September 2025. Private credit is drying up and lending standards are tightening fast. Here&rsquo;s what to do before the window closes.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bureaus-ignoring-disputes-cfpb-2026.html">
+        <div class="card-accent" style="background:#16a34a;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#16a34a;">Fed Research &middot; March 17, 2026</div>
+          <div class="card-title">Fraud Victims Are Seeing Their Credit Scores RISE &mdash; Federal Reserve Just Proved It</div>
+          <div class="card-desc">Fed research on 50,000 identity theft victims found extended fraud alert filers gained 11 credit score points on average. The improvement lasted 5 years. Here&rsquo;s the exact move.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+            <a class="card" href="nmd-fico-credit-insights-lab-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Scoring &middot; March 17, 2026</div>
+          <div class="card-title">FICO Just Opened the Lab &mdash; And 33 Million &lsquo;Invisible&rsquo; People Are About to Get Scored</div>
+          <div class="card-desc">FICO&rsquo;s Credit Insights Lab launched March 11. Lenders can now test UltraFICO, FICO XD, and cash flow data to approve consumers the old system ignored. Here&rsquo;s who benefits and exactly what to do now.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-dead-fcra-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA Alert &middot; March 17, 2026</div>
+          <div class="card-title">Capital One Told the Bureaus You Were Dead &mdash; $2.4M FCRA Settlement, Final Approval March 20</div>
+          <div class="card-desc">Capital One marked living customers as deceased and kept confirming it when they disputed. A federal class action hits final approval in 3 days. Here's what it means for your credit file.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-metrowest-breach-credit-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#ef4444;">Breach Alert &middot; March 17, 2026</div>
+          <div class="card-title">Your Full Identity Was Just Exposed — Credit Union Breach Hits 20,722 People</div>
+          <div class="card-desc">MetroWest Credit Union breach: SSNs, payment cards, driver's licenses, and account numbers all exposed. Notification letters dropping now. Here's the 7-step lockdown protocol.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-propel-ai-fico-thin-file-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Finance Shift &middot; March 17, 2026</div>
+          <div class="card-title">Banks Are Building AI to Bypass Your FICO Score — Here's What That Means if You're in the 40%</div>
+          <div class="card-desc">Propel Holdings says AI should replace FICO for the 40% of Americans banks won't serve. JPMorgan and Goldman Sachs are already deploying it. Here's what this shift means for your credit file right now.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fico-bnpl-scoring-33m-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Score Alert &middot; March 17, 2026</div>
+          <div class="card-title">Your Klarna &amp; Afterpay Payments Are Now in Your FICO Score — And Most People Have No Idea</div>
+          <div class="card-desc">FICO Score 10 BNPL is live. Klarna, Afterpay, and Affirm are all reporting. 33 million previously invisible Americans just got scored. Here's what changed and what to do right now.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-medicaid-cuts-credit-bomb-2026.html">
+        <div class="card-accent" style="background:#8b0000;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#cc3333;">Policy Alert &middot; March 17, 2026</div>
+          <div class="card-title">The Medicaid Credit Bomb: $50 Billion in New Medical Debt Is Coming — And the CFPB Can't Stop It</div>
+          <div class="card-desc">OBBBA cut $1T from Medicaid. 15M Americans losing coverage. $50B in new medical debt projected. The federal rule that kept bills off your credit report is already gone. Here's what you do right now.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-2026-documentation-rules.html">
+        <div class="card-accent" style="background:#166534;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#16a34a;">FCRA Overhaul &middot; March 17, 2026</div>
+          <div class="card-title">The FCRA Just Flipped the Script: Bureaus Must Now Prove Their Data Is Right</div>
+          <div class="card-desc">Biggest FCRA update in a decade. Bureaus need actual documentation now — not just automated confirmations. A 10-day clock on high-risk errors. Unverifiable data must be deleted.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bureaus-1pct-win-rate-collapse-2026.html">
+        <div class="card-accent" style="background:#8b0000;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#cc3333;">CFPB Alert &middot; March 17, 2026</div>
+          <div class="card-title">Credit Bureaus Now Resolve Less Than 1% of Disputes in Your Favor</div>
+          <div class="card-desc">Experian dropped from 20% to under 1%. TransUnion followed. The CFPB is gutted and 2.7M complaints sit unresolved. Here's how you fight back when the system stops working for you.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-7year-credit-purge-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Report Alert &middot; March 16, 2026</div>
+          <div class="card-title">March 2026: The Great Credit Purge &mdash; Millions of Bad Marks Are Falling Off Reports RIGHT NOW</div>
+          <div class="card-desc">Items from 2019 are hitting their 7-year FCRA expiration this month. myFICO forums are buzzing with people watching $74k+ in charge-offs disappear. Here's what happens next and what you need to do today.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-upstart-bank-charter-ai-lending-2026.html">
+        <div class="card-accent" style="background:#1d4ed8;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1d4ed8;">AI &amp; Lending &middot; March 16, 2026</div>
+          <div class="card-title">The AI Lender Wants to Become a Real Bank. Your Credit File Will Never Be the Same.</div>
+          <div class="card-desc">Upstart filed for a national bank charter. They process 456,000 loans per quarter using 1,600 data variables — no FICO required. Here's what an AI bank means for your approval odds in 2026.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-lexisnexis-deceased-settlement-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Settlement Alert &middot; March 16, 2026</div>
+          <div class="card-title">LexisNexis Called You Dead. A $13.5M Settlement Just Got Final Approval — Claim Your Cash Before May 15.</div>
+          <div class="card-desc">LexisNexis flagged living consumers as deceased in their identity verification system — wrecking loans, credit apps, and account openings. The settlement is approved today. File your claim at deceasedreportsuit.com before the deadline.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-10pct-credit-card-rate-cap-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Legislative Alert &middot; March 16, 2026</div>
+          <div class="card-title">The 10% Credit Card Rate Cap Is Real &mdash; And Banks Are Already Fighting It</div>
+          <div class="card-desc">A bipartisan Senate bill would slash your APR from 28% to 10%. Banks are pouring millions into killing it. Here's what's in the bill and the 5 moves to make right now before Congress decides your fate.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-apps-peak-reject-low-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking Data &middot; March 16, 2026</div>
+          <div class="card-title">Banks Are Saying Yes More Than They Have in 5 Years &mdash; Here&rsquo;s How to Get Your Cut</div>
+          <div class="card-desc">NY Fed data: credit application rates hit a 3-year high (44.4%) and rejection rates dropped to a 5-year low (15.9%). The window is open. Here&rsquo;s the 4-step move to walk through it.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-survival-gap-credit-cards-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking Survey &middot; March 16, 2026</div>
+          <div class="card-title">The Survival Gap: 55% of Americans Are Charging Rent and Groceries to Their Credit Cards</div>
+          <div class="card-desc">New 2026 survey: 55% using cards for basic necessities, five-figure balances hit a 3-year high, 57% have never explored debt relief. Here's the real picture and the move to make today.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bureaus-dispute-win-collapse-cfpb-court-2026.html">
+        <div class="card-accent" style="background:#8b0000;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#cc3333;">CFPB Alert &middot; March 16, 2026</div>
+          <div class="card-title">Credit Bureaus Are Ignoring Your Disputes — And a Federal Judge Just Fought Back</div>
+          <div class="card-desc">TransUnion and Experian slashed dispute wins for consumers as CFPB enforcement weakened. Today, a federal judge ordered Trump to fund the CFPB — calling the defunding unlawful. Here's what it means for your credit file right now.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-doge-ssa-deceased-credit-score-2026.html">
+        <div class="card-accent" style="background:#cc3333;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#cc3333;">Breaking Alert &middot; March 16, 2026</div>
+          <div class="card-title">DOGE Declared You Dead — And Your Credit Score Just Vanished</div>
+          <div class="card-desc">DOGE's SSA database purge is flagging living Americans as deceased. When SSA marks your number dead, all three bureaus apply a deceased indicator — and your FICO score disappears overnight. Here's how to check and fight it.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-trump-mortgage-eo-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking Policy &middot; March 16, 2026</div>
+          <div class="card-title">Trump Just Signed an EO to Blow Up Mortgage Red Tape — What It Actually Means for Your Credit</div>
+          <div class="card-desc">On March 13, 2026, Trump signed the "Promoting Access to Mortgage Credit" executive order. CFPB gets streamlining orders. Community banks get a green light. Here's the real breakdown — and how to position your credit right now.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-student-loan-garnishment-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Urgent Alert &middot; March 16, 2026</div>
+          <div class="card-title">The Government Is Already Taking 15% of Your Paycheck — 5.5 Million Student Loan Borrowers Just Got Hit</div>
+          <div class="card-desc">Student loan wage garnishment restarted in January 2026. No court order. No warning. 5.5 million borrowers in default, credit scores dropping up to 175 points — and the window to stop it is closing fast.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-conduent-breach-march31-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Urgent Deadline &middot; March 16, 2026</div>
+          <div class="card-title">25 Million Americans Have 15 Days to Claim Free Credit Protection — Conduent Breach Deadline</div>
+          <div class="card-desc">You've never heard of Conduent. But they had your SSN, medical records, and insurance data. March 31 is the last day for free credit monitoring — and most victims don't know it exists.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-new-york-employer-credit-check-ban-april-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking News &middot; March 16, 2026</div>
+          <div class="card-title">New York Just Made It Illegal to Use Your Credit Score to Reject You From a Job</div>
+          <div class="card-desc">Effective April 2026, New York State bans most employers from using credit history in hiring decisions. 11 states already have similar laws. If you're outside those protections, your credit report is still costing you jobs you'll never know you lost.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-cfpb-bureaus-99pct-ignore-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Credit Rights &middot; March 16, 2026</div>
+          <div class="card-title">Credit Bureaus Are Ignoring 99% of Your Complaints. The Government Won't Help. Here's the Fix.</div>
+          <div class="card-desc">Experian went from resolving 20% of complaints in your favor to less than 1%. 2.7 million consumers got ignored. The CFPB is offline — but the FCRA playbook still works if you know how to use it.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-figure-shinyhunters-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Security Breach &middot; March 16, 2026</div>
+          <div class="card-title">ShinyHunters Hit a Major Fintech. Nearly 1 Million People's Data Is Already Gone.</div>
+          <div class="card-desc">Figure Technology Solutions got cracked by ShinyHunters in February 2026. Names, DOBs, addresses, phone numbers, emails — nearly a million customers. Here's your five-move action plan before the damage hits your credit.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-119b-scam-crisis-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Fraud Alert &middot; March 16, 2026</div>
+          <div class="card-title">$119 Billion a Year. Gone. And It's Wrecking Credit Files Across America</div>
+          <div class="card-desc">The real scam loss number is 7x what the FBI reports. 81% of attacks start on social media — mostly Meta. Investment fraud, account takeover, and government impersonation are the top weapons. Here's the NMD defense protocol.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-experian-dispute-collapse-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking News &middot; March 16, 2026</div>
+          <div class="card-title">Experian's Dispute Win Rate Crashed From 20% to Under 1%</div>
+          <div class="card-desc">ProPublica/CNN investigation confirmed it: with the CFPB gutted, Experian resolves disputes in consumers' favor less than 1% of the time. TransUnion dropped 50%. Here's the new playbook.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-coerced-debt-ny-law-march-2026.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Legal Alert &middot; March 16, 2026</div>
+          <div class="card-title">New York Just Gave Debt Abuse Survivors a Legal Weapon — And It Goes Live This Week</div>
+          <div class="card-desc">If someone forced you into debt — an abusive partner, a trafficker, a family member — NY's Coerced Debt Law activates March 19. Dispute those accounts and force creditors to remove them. Here's how.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-doge-ssa-data-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Identity Theft Alert &middot; March 16, 2026</div>
+          <div class="card-title">Every American's SSN May Be on a Flash Drive Right Now</div>
+          <div class="card-desc">A DOGE whistleblower says 300M Americans' Social Security numbers may have walked out of the SSA on a personal thumb drive. Investigation confirmed March 6, 2026. Here's your full credit protection action plan.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-one-10m-harassment-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Enforcement Action &middot; March 16, 2026</div>
+          <div class="card-title">Credit One Bank Got Fined $10.2M for Calling You 10 Times a Day</div>
+          <div class="card-desc">State DAs did what the CFPB refused to — nailed Credit One for $10.2M in harassment penalties. Here's what it means for every consumer being hounded by a collector right now.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bureau-disputes-ignored-cfpb-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">CFPB Crisis &middot; March 16, 2026</div>
+          <div class="card-title">2.7 Million Disputes Ignored &mdash; Bureaus Are Burying Your Credit Errors and Getting Away With It</div>
+          <div class="card-desc">Experian&rsquo;s relief rate dropped to under 1%. TransUnion cut theirs in half. The CFPB got gutted and the bureaus noticed immediately. Here&rsquo;s the new dispute playbook that still works.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-cfpb-bureau-relief-collapse-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">CFPB Alert &middot; March 16, 2026</div>
+          <div class="card-title">The Bureaus Stopped Fixing Your Credit &mdash; And the Watchdog That Made Them Do It Is Gone</div>
+          <div class="card-desc">TransUnion and Experian cut their complaint relief rates by up to 95% once the CFPB went dark. 2.7 million disputes filed this year. Almost none resolved. Here&rsquo;s the new strategy.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-2026-new-rules-burden-proof.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Law Change Alert &middot; March 15, 2026</div>
+          <div class="card-title">The FCRA Just Changed the Rules &mdash; Bureaus Can No Longer Fake-Verify Your Disputes</div>
+          <div class="card-desc">The Fair Credit Reporting Act's biggest overhaul in a decade shifts the burden of proof onto creditors. If they can't prove what they're reporting is accurate, the bureau must delete it. Here's how to use it now.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-sba-sofr-citizens-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Business Credit &middot; March 15, 2026</div>
+          <div class="card-title">SBA Just Flipped the Script on Business Loans &mdash; New Rates, New Rules, and Green Card Holders Are Out</div>
+          <div class="card-desc">Effective March 1, 2026, the SBA switched to SOFR-based loan pricing and added a US citizens-only requirement. 3.2M immigrant-owned businesses just lost access. Here&rsquo;s what changed and what to do.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-discover-migration-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Alert &middot; March 15, 2026</div>
+          <div class="card-title">Capital One Just Switched 25 Million Cards to Discover &mdash; And It&rsquo;s Already Breaking Things</div>
+          <div class="card-desc">Capital One migrated Venture, Savor, and Quicksilver off Mastercard onto the Discover network. Failed recurring charges are triggering surprise derogatory marks for people who don&rsquo;t know it happened.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-idmerit-billion-records-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking &middot; Identity Breach &middot; March 15, 2026</div>
+          <div class="card-title">1 Billion Identity Records Just Leaked &mdash; The Company Hired to Stop Fraud Caused It</div>
+          <div class="card-desc">IDMerit, the KYC firm banks use to verify your identity, left 1 billion records in an unprotected database. 203M Americans exposed. Here&rsquo;s what to do right now.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-navient-120m-settlement-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Settlement Alert &middot; Student Loans &middot; March 15, 2026</div>
+          <div class="card-title">Navient Owes You Money &mdash; $120M in Settlement Checks Are Going Out Right Now</div>
+          <div class="card-desc">The CFPB forced Navient to pay $100M to borrowers they wronged. Checks started mailing Feb 13. Here&rsquo;s who qualifies, how to claim yours, and why your credit report may still be carrying illegal damage.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-lawsuit-surge-march-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA Litigation &middot; Consumer Rights &middot; March 15, 2026</div>
+          <div class="card-title">832 FCRA Lawsuits in January Alone &mdash; Consumers Are Suing the Bureaus and Winning</div>
+          <div class="card-desc">FCRA litigation surged 47.5% year over year. The bureaus stopped fixing errors &mdash; so consumers started suing. Here&rsquo;s what triggers a winning case and how to build your paper trail.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-dead-flag-fcra-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA Enforcement &middot; Class Action &middot; March 15, 2026</div>
+          <div class="card-title">Capital One Reported You Dead and Destroyed Your Credit &mdash; Their $2.4M Check Clears in 5 Days</div>
+          <div class="card-desc">Capital One got caught flagging living customers as deceased to the credit bureaus. Final approval hearing is March 20, 2026. Here&rsquo;s what the &ldquo;deceased&rdquo; flag does to your file &mdash; and how to find and remove it.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ai-cash-flow-lending-fico-miss-2026.html">
+        <div class="card-accent" style="background:#1a237e;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1a237e;">Fintech Disruption &middot; AI Lending &middot; March 15, 2026</div>
+          <div class="card-title">FICO Just Got Outplayed &mdash; AI Lenders Are Approving the People Your Score Rejected</div>
+          <div class="card-desc">25 million Americans are credit invisible to FICO. AI cash-flow underwriting sees them clearly &mdash; and Chase and PayPal are already deploying it. Here&rsquo;s what changed and what it means for your credit strategy.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-key-credit-repair-banned-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">CFPB Enforcement &middot; Credit Repair Fraud &middot; March 15, 2026</div>
+          <div class="card-title">They Faked Credit Repair for Years. Now They're Banned for 25.</div>
+          <div class="card-desc">Key Credit Repair collected $36M+ in illegal upfront fees from 40,000 consumers. The CFPB handed them a 25-year industry ban. Here's exactly what the fraud looked like and how to protect yourself.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-delinquency-crisis-march-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Economic Alert &middot; March 15, 2026</div>
+          <div class="card-title">Auto Loans and Credit Cards Are Going Delinquent at a 14-Year High &mdash; Here&rsquo;s What to Do Before It Hits Your Score</div>
+          <div class="card-desc">Serious delinquencies just hit levels not seen since 2012. Bank economists flagged deteriorating conditions for the 5th straight quarter. Recession probability: 25%. Your next 90 days decide a lot.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-tariffs-credit-score-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Economic Alert &middot; Tariffs &middot; March 15, 2026</div>
+          <div class="card-title">Trump&rsquo;s Tariffs Are Setting Your Credit Score on Fire</div>
+          <div class="card-desc">Tariffs are forcing households to spend $2,500 more per year — and millions are charging it to credit cards at 22% APR. With $1.27T in card debt, your credit score is at risk. Here&rsquo;s how to protect it.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-furnisher-validation-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA 2026 &middot; Furnisher Rule &middot; March 15, 2026</div>
+          <div class="card-title">If Banks Can&rsquo;t Prove It, Bureaus Must Delete It</div>
+          <div class="card-desc">The 2026 FCRA furnisher validation rule is the biggest consumer protection upgrade in a decade. Creditors must now provide actual documentation — not just a checkbox. FCRA lawsuits are up 47.5%. Here&rsquo;s how to use the new rule.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-influencer-credit-hack-prison-2026.html">
+        <div class="card-accent" style="background:#cc3333;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#cc3333;">FTC Alert &middot; March 15, 2026</div>
+          <div class="card-title">That &ldquo;Secret Hack&rdquo; to Wipe Your Credit? The FTC Says It&rsquo;s a Federal Crime</div>
+          <div class="card-desc">Influencers are pushing a viral trick to erase bad credit by filing false identity theft reports. The FTC just issued a formal alert: this is a federal crime with prison time attached.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-cfpb-fcra-preemption-flip-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">CFPB &middot; FCRA Preemption &middot; March 15, 2026</div>
+          <div class="card-title">The CFPB Just Killed Your State's Credit Protections</div>
+          <div class="card-desc">Federal law now broadly preempts state credit rules. California's CCCRAA, medical debt bans, and stricter dispute windows may all be gone. Here's exactly what got wiped and what you do next.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-furnisher-reage-ban-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA 2026 Update &middot; March 15, 2026</div>
+          <div class="card-title">FCRA 2026: Furnishers Can No Longer Re-Age Your Negative Accounts</div>
+          <div class="card-desc">One of the dirtiest tricks in the creditor playbook just became illegal. The 2026 FCRA update bans furnishers from resetting the date of first delinquency after a dispute. Here's what changed and how to weaponize it.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+            <a class="card" href="nmd-credit-karma-unauthorized-access-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FCRA &middot; Class Action &middot; March 15, 2026</div>
+          <div class="card-title">Credit Karma Gave Her Ex-Husband Access to Her Credit Report. Now She's Suing.</div>
+          <div class="card-desc">New federal FCRA class action: Credit Karma allegedly furnished a woman's credit data to her unauthorized ex-spouse for years. Here's what it means for your credit privacy and what to do right now.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-genz-credit-score-crisis-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Gen Z &middot; Credit Crisis &middot; March 15, 2026</div>
+          <div class="card-title">Gen Z Credit Scores Hit Record Lows — The K-Shaped Economy Is Destroying a Generation's Credit</div>
+          <div class="card-desc">FICO's inaugural Credit Insights Report confirms it: Gen Z's average score dropped to 676, the biggest decline of any generation. Student loans, BNPL, and doom spending hit at the same time. Here's how to fight back.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-burden-proof-shift-2026.html">
+        <div class="card-accent" style="background:#166534;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#166534;">FCRA 2026 &middot; Credit Law &middot; March 15, 2026</div>
+          <div class="card-title">They Have to Prove It Now. Not You.</div>
+          <div class="card-desc">The 2026 FCRA update shifted the burden of proof to furnishers — they must now prove items on your report are accurate, or delete them. Here's the new dispute playbook.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-repair-rico-lawsuit-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Consumer Protection &middot; RICO &middot; March 15, 2026</div>
+          <div class="card-title">Fired Employee Exposes Credit Repair RICO Scam — What Illegal Fees Look Like and How to Spot Them</div>
+          <div class="card-desc">A former employee filed a federal RICO lawsuit against a Milwaukee credit repair company charging illegal upfront fees for 4 years. Here's what to look for and how to protect yourself.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-colorado-ai-lending-disclosure-2026.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">AI &amp; Consumer Rights &middot; March 15, 2026</div>
+          <div class="card-title">AI Is Making Credit Decisions About You. Colorado Just Said Lenders Have to Tell You.</div>
+          <div class="card-desc">Colorado's AI Act hits June 30, 2026 — lenders using AI to approve or deny credit must disclose it, prove no bias, and show their work. Here's what this means for your credit file nationwide.</div>
+          <div class="card-footer"><span class="card-date">March 15, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-colony-ridge-predatory-lending-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Predatory Lending &middot; DOJ Settlement &middot; March 12, 2026</div>
+          <div class="card-title">The $68M Warning Shot: Predatory Lenders Hunt Families With Bad Credit</div>
+          <div class="card-desc">The DOJ secured a $68M settlement against Colony Ridge — a Texas predator that trapped 12,000 Hispanic families in junk land contracts. Here's how bad credit makes you a target and how to make yourself off-limits.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-2026-dispute-templates-dead.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA 2026 &middot; Credit Repair &middot; March 12, 2026</div>
+          <div class="card-title">Your Old Dispute Letters Are Dead — Here's the 2026 Playbook That Works</div>
+          <div class="card-desc">The FCRA got its biggest overhaul in a decade. Generic templates are getting flagged as frivolous. Furnishers must now prove accuracy — or delete. Here's how to build disputes that actually hit.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ai-fraud-wave-2026.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Fraud Alert &middot; AI &amp; Identity Theft &middot; March 12, 2026</div>
+          <div class="card-title">The AI Fraud Wave Is Here — $40 Billion in Losses and Your Credit File Is the Target</div>
+          <div class="card-desc">Deepfakes, synthetic identities, and agentic fraud bots are draining $40B from the financial system in 2026. The CFPB is sidelined. Here's NMD's 6-step lockdown protocol to make your file untouchable.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bureau-mortgage-cost-surge-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Housing &middot; Consumer Finance &middot; March 12, 2026</div>
+          <div class="card-title">The Credit Bureau Cartel Just Made Your Mortgage More Expensive</div>
+          <div class="card-desc">Tri-merge report costs surged 40–50% in 2026. Lenders pull twice per loan — a couple now pays $188+ in bureau fees alone. Here's what's driving the price gouge and the one move that actually protects you.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-card-rate-cap-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Policy &middot; Consumer Finance &middot; March 12, 2026</div>
+          <div class="card-title">Trump Wants Your Credit Card Rate at 10%. Banks Are Furious. Here's the Truth.</div>
+          <div class="card-desc">Average APRs over 21%. Trump, Sanders, and Hawley all agree: cap it at 10%. Here's what happens to your debt, your score, and your access to credit — and what to do right now.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fcra-lawsuit-surge-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Consumer Rights &middot; Legal &middot; March 12, 2026</div>
+          <div class="card-title">832 FCRA Lawsuits Filed in January. Consumers Are Suing Credit Bureaus &mdash; And Winning.</div>
+          <div class="card-desc">FCRA litigation surged 47.5% year-over-year. With the CFPB gutted, consumers are taking credit bureaus to federal court instead. Here's what you need to know &mdash; and how to potentially get paid.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-jpmorgan-ai-credit-crunch-2026.html">
+        <div class="card-accent" style="background:#1d4ed8;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1d4ed8;">Breaking &middot; AI &amp; Credit Markets &middot; March 12, 2026</div>
+          <div class="card-title">JPMorgan's AI Credit Crunch — What It Means for Your Borrowing Power</div>
+          <div class="card-desc">JPMorgan marked down billions in software loans over AI disruption fears. UBS projects $75–$120B in fresh defaults by year-end. The credit window is closing — here's how to protect yourself before it shuts.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-700credit-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Data Breach &middot; Identity Theft &middot; March 11, 2026</div>
+          <div class="card-title">5.8 Million SSNs Stolen From Car Dealerships — Is Yours For Sale Right Now?</div>
+          <div class="card-desc">700Credit was hacked. 18,000 dealerships affected. SSNs, dates of birth, and addresses went on dark web forums in November 2025. Here's your move-by-move response plan before the damage hits your credit file.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-deepfake-synthetic-id-credit-2026.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">AI Threat &middot; Identity Fraud &middot; March 11, 2026</div>
+          <div class="card-title">The Deepfake Tsunami — AI Synthetic Identity Fraud Is Destroying Credit Scores in 2026</div>
+          <div class="card-desc">Deepfake fraud rose 700%. Impersonation scams surged 148%. Synthetic identities built with AI are the fastest-growing financial crime. Here's how it works and what to do about it today.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-deceased-settlement-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Settlement Alert &middot; FCRA &middot; March 12, 2026</div>
+          <div class="card-title">Capital One Is Paying $2.4M for Reporting Living People as Dead on Credit Reports</div>
+          <div class="card-desc">Capital One allegedly failed to fix "deceased" errors after consumers disputed them — killing loan approvals and jacking rates. Final approval March 20. Here's who qualifies and how to fight back.</div>
+          <div class="card-footer"><span class="card-date">March 12, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bnpl-credit-report-bomb-2026.html">
+        <div class="card-accent" style="background:#b45309;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b45309;">Credit Alert &middot; BNPL &middot; March 17, 2026</div>
+          <div class="card-title">BNPL Is Now on Your Credit Report — The Bomb Most People Don't Know Is Ticking</div>
+          <div class="card-desc">Klarna, Afterpay, Affirm — all three credit bureaus are now reporting BNPL tradelines. That forgotten missed split payment could be sitting as a derogatory on your file right now. Here's what to do.</div>
+          <div class="card-footer"><span class="card-date">March 17, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-state-ags-cfpb-fightback-2026.html">
+        <div class="card-accent" style="background:#166534;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#166534;">Breaking &middot; Consumer Protection &middot; March 11, 2026</div>
+          <div class="card-title">22 State AGs Declared War on the CFPB Gutting — Here's What It Means for Your Credit</div>
+          <div class="card-desc">The feds walked away from consumer protection. Now 22 state attorneys general are filling the gap — and depending on where you live, your dispute game just got a major upgrade.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ai-fcra-eightfold-2026.html">
+        <div class="card-accent" style="background:#1d4ed8;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1d4ed8;">FCRA Alert &middot; AI &amp; Consumer Rights &middot; March 11, 2026</div>
+          <div class="card-title">AI Is Secretly Pulling Consumer Reports on Job Seekers — And It's Illegal</div>
+          <div class="card-desc">A landmark class action says Eightfold AI ran FCRA-covered reports on millions of applicants at Microsoft, PayPal, Starbucks &amp; more — without consent, without disclosure, without the right to dispute.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-cfpb-45day-dispute-rule-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Policy Alert &middot; CFPB &middot; March 11, 2026</div>
+          <div class="card-title">The CFPB Just Put a 45-Day Wall Between You and Your Credit Rights</div>
+          <div class="card-desc">Starting Feb 2026, you must dispute with bureaus first, wait 45 days, and sign a sworn attestation before the CFPB accepts your complaint — while those same bureaus resolve less than 1% in your favor. Here's your new playbook.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-cfpb-27m-complaints-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking &middot; CFPB Collapse &middot; March 11, 2026</div>
+          <div class="card-title">2.7 Million Credit Complaints. Zero Relief. The Bureaus Stopped Caring.</div>
+          <div class="card-desc">Since Trump gutted the CFPB, Experian's complaint resolution rate collapsed from 20% to under 1%. ProPublica just exposed it. Here's your 6-step action plan to fight back without the government's help.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-trump-fraud-eo-2026.html">
+        <div class="card-accent" style="background:#0f1f3d;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking &middot; Executive Order &middot; March 11, 2026</div>
+          <div class="card-title">Trump Declared War on the Fraud Networks Wrecking Your Credit</div>
+          <div class="card-desc">$12.5B stolen in 2024. A new Executive Order just dropped targeting the transnational scam networks behind it — with a Victims Restoration Program and DOJ enforcement mandate. Here's what it means for your credit file right now.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-credit-repair-cloud-cfpb-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Industry Shakeup &middot; March 11, 2026</div>
+          <div class="card-title">The CFPB Just Hit Credit Repair Cloud With $3M &#8212; Here&#8217;s the Real Story</div>
+          <div class="card-desc">A federal enforcement action just landed on the platform powering 10,000+ credit repair businesses. CEO Daniel Rosen faces a $2M personal penalty. Here&#8217;s what collapsed, who&#8217;s exposed, and what it means for you.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-fico-direct-bypass-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking · Mortgage Credit · March 11, 2026</div>
+          <div class="card-title">FICO Just Cut the Credit Bureaus Out of Your Mortgage</div>
+          <div class="card-desc">FICO's new Direct License Program lets lenders bypass Equifax, Experian, and TransUnion — cutting mortgage score costs by 50%. Here's what that means for your home purchase and your FICO 10T score.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-shadow-ledger-cashflow-2026.html">
+        <div class="card-accent" style="background:#0f1f3d;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#0f1f3d;">Fintech Intelligence · March 11, 2026</div>
+          <div class="card-title">The Shadow Ledger: Fintech Is Building a Second Credit Score — And Lenders Are Already Using It</div>
+          <div class="card-desc">Your FICO score is 35 years old and updates once a month. Cash-flow apps are scoring you in real time from your bank data — and reshaping who gets approved for loans, cards, and mortgages.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-conduent-breach-25m-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Identity Theft Alert · March 11, 2026</div>
+          <div class="card-title">25 Million SSNs Stolen. The Conduent Ransomware Breach Is the Biggest Identity Threat of 2026.</div>
+          <div class="card-desc">Safepay stole SSNs, medical records, and financial data from 25 million people. Here's the exact action plan — credit freeze, IRS IP PIN, dispute strategy — before someone does it first.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-colony-ridge-doj-settlement-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Predatory Lending · March 11, 2026</div>
+          <div class="card-title">$68M Settlement. Zero Dollars to Victims. The Colony Ridge Predatory Lending Scandal.</div>
+          <div class="card-desc">DOJ settled with a Texas lender that targeted Hispanic borrowers with flood-prone land and 12% interest rates. $20M went to immigration enforcement. Victims got nothing. Here's what your rights actually are.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ftc-fake-dispute-crackdown-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FTC Alert · March 16, 2026</div>
+          <div class="card-title">That Viral Credit Hack Is a Federal Crime. The FTC Just Said So.</div>
+          <div class="card-desc">Finfluencers are teaching people to file fake identity theft reports to wipe negative credit items. The FTC formally warned it's a federal crime under 18 U.S.C. § 1001 — up to 5 years in prison. Here's what actually works.</div>
+          <div class="card-footer"><span class="card-date">March 16, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-trigger-lead-ban-2026.html">
+        <div class="card-accent" style="background:#166534;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#166534;">Consumer Win · March 11, 2026</div>
+          <div class="card-title">They Can No Longer Sell Your Credit Pull. The Trigger Lead Ban Is Now Law.</div>
+          <div class="card-desc">Effective March 5, 2026: applying for a mortgage no longer triggers a swarm of competing lenders calling your phone. The Homebuyers Privacy Protection Act amends the FCRA. Seven years. Finally done.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-capital-one-fcra-deceased-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Settlement Alert · March 11, 2026</div>
+          <div class="card-title">Capital One reported 1,142 people as deceased — then ignored their disputes. $2.4M settlement. Final approval March 20.</div>
+          <div class="card-desc">No claim form. No lawyer. If Capital One reported you as dead and refused to fix it, you may get paid automatically on final approval. Here's the full breakdown and what to do right now.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-bureaus-errors-surge-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking · March 11, 2026</div>
+          <div class="card-title">2.7 Million Complaints Ignored. Your credit report has errors — and nobody's fixing them.</div>
+          <div class="card-desc">Experian's relief rate collapsed from 20% to under 1%. TransUnion cut resolutions in half. The CFPB is gone. Here's what's happening and exactly what you do right now.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-data-broker-congress-20bn-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Data Privacy · March 11, 2026</div>
+          <div class="card-title">Congress confirmed it: data brokers cost consumers $20.8 billion. Equifax, TransUnion, National Public Data — all named.</div>
+          <div class="card-desc">4 breaches. 651 million records. A Senate report just put a number on the damage — and most people who got hit still don't know it happened. Here's the NMD playbook for fighting back.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-mastercard-virtual-cfo-2026.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">AI &amp; Business Credit · March 11, 2026</div>
+          <div class="card-title">Mastercard gave AI a seat in your C-Suite. Your credit score is the ticket in.</div>
+          <div class="card-desc">Mastercard launched Virtual C-Suite — autonomous AI agents acting as CFO for small businesses. 90% of businesses can't afford executive help. Now AI fills that seat. And your credit score determines your access tier.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-vantagescore-mortgage-war-2026.html">
+        <div class="card-accent" style="background:#1d4ed8;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1d4ed8;">Mortgage Score War · March 11, 2026</div>
+          <div class="card-title">VantageScore 4.0 dropped to $0.99. FICO still charges $10. The mortgage score war is now a price massacre — and your rent payments finally count.</div>
+          <div class="card-desc">All three bureaus cut VantageScore 4.0 to under a dollar this week. FICO charges lenders 10x more. Over 250 lenders are already switching. If your rent is on time, you might score higher than you've ever seen.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-tax-id-theft-irs-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Tax Season Alert · March 11, 2026</div>
+          <div class="card-title">Employment identity theft is up 61%. The IRS 2026 Dirty Dozen is live and it's targeting your credit file.</div>
+          <div class="card-desc">Criminals are using stolen SSNs to get hired. You won't know until a W-2 arrives from a company you never worked for — and your credit is already burning. The 7-step defense starts here.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-ai-credit-approvals-2026.html">
+        <div class="card-accent" style="background:#1d4ed8;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1d4ed8;">AI &amp; Credit · March 11, 2026</div>
+          <div class="card-title">AI is now deciding your approvals. Here's exactly what that means.</div>
+          <div class="card-desc">Lenders are replacing FICO with AI models reading rent, utilities, and spending behavior. Colorado just forced them to explain how. Here's who wins, who gets wrecked, and the 5 moves to make now.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+      <a class="card" href="nmd-cfpb-portal-locked-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking · March 11, 2026</div>
+          <div class="card-title">The CFPB just locked you out. The new 45-day dispute rule changes everything.</div>
+          <div class="card-desc">Dispute with the bureau first. Wait 45 days. Then — and only then — will CFPB touch your complaint. The bureaus now have a kill switch on your case. Here's the new playbook.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-fcra-2026-validation-delete.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA Overhaul · March 11, 2026</div>
+          <div class="card-title">If creditors can't prove it, bureaus must delete it. The 2026 FCRA validation standard explained.</div>
+          <div class="card-desc">New rules require furnishers to produce real documentation to keep negative items on your report. If they can't — deletion is legally required. Here's the new playbook.</div>
+          <div class="card-footer"><span class="card-date">March 11, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+            <a class="card" href="nmd-wells-fargo-cares-settlement-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Settlement Alert · March 10, 2026</div>
+          <div class="card-title">Wells Fargo owes $56.85M for destroying credit scores during COVID. Deadline: March 25.</div>
+          <div class="card-desc">They gave you CARES Act forbearance — then reported you delinquent anyway. No claim form. No lawyer. But your address update deadline is 15 days away. Here's everything.</div>
+          <div class="card-footer"><span class="card-date">March 10, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-bureaus-1pct-complaints-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking · March 10, 2026</div>
+          <div class="card-title">Credit bureaus now resolve less than 1% of complaints in your favor.</div>
+          <div class="card-desc">Experian dropped from 20% resolution to under 1% the moment the CFPB went dark. 2.7M complaints with no relief. Here's what to do now.</div>
+          <div class="card-footer"><span class="card-date">March 10, 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-fcra-2026-dispute-overhaul.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">FCRA 2026 · Consumer Rights</div>
+          <div class="card-title">Your generic dispute letter is dead. The FCRA just got its biggest update in a decade.</div>
+          <div class="card-desc">Generic templates are out. Furnishers must now prove accuracy or delete. The delinquency date loophole is illegal. FCRA lawsuits up 47.5% — here's the new playbook.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-lexisnexis-breach-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">Breaking · Identity Theft Alert</div>
+          <div class="card-title">LexisNexis got hacked — 400K profiles leaked including federal judges.</div>
+          <div class="card-desc">The Fulcrumsec group leaked 2GB of LexisNexis data including government agencies, DOJ attorneys, and law firms. Here's what it means for your credit and identity — and the 5 moves you need to make right now.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-ftc-fake-id-theft-ai-credit-2026.html">
+        <div class="card-accent" style="background:#b91c1c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#b91c1c;">FTC Alert + AI Finance · Double Feature</div>
+          <div class="card-title">Influencers are catching felonies. And AI just took over credit trading.</div>
+          <div class="card-desc">The FTC is cracking down on fake identity theft reports pushed by social media influencers. Meanwhile, JPMorgan and Goldman Sachs deployed autonomous AI agents to run credit markets. Two stories. One takeaway.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-sba-sbss-drop-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Breaking · Business Funding</div>
+          <div class="card-title">SBA just killed the credit score that was blocking your small business loan.</div>
+          <div class="card-desc">Effective March 1, 2026 — the SBA eliminated mandatory SBSS pre-screening for 7(a) loans under $350,000. The algorithmic gatekeeper that was auto-denying borderline applications is gone. Here's how to move before the window closes.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-bank-approval-reality.html">
+        <div class="card-accent" style="background:#f0b429;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f0b429;">Real Talk · Business Funding</div>
+          <div class="card-title">57% of businesses get approved. Here's how to make sure you're in that group.</div>
+          <div class="card-desc">Only 25% of small business loans get approved at big banks. 85% of lenders are tightening standards due to economic uncertainty. The 57% who get through aren't luckier — they're prepared. Here's what preparation actually looks like.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-chase-ink-crackdown.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#a78bfa;">Elite Strategy · Business Credit</div>
+          <div class="card-title">Chase just locked down the most popular business card stacking strategy.</div>
+          <div class="card-desc">The Ink Cash + Ink Unlimited rotation that entrepreneurs used to stack no-annual-fee business credit is done. New family rules block the bonus cycle. Here's exactly what changed and what the new play looks like.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-paydex-80-blueprint.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Business Credit Guide · Scoring</div>
+          <div class="card-title">PAYDEX 80 — the business credit score lenders check before they look at your FICO.</div>
+          <div class="card-desc">Most business owners don't know their PAYDEX score exists. Three bureau scoring models, a 90-day build timeline, and the exact payment behavior that gets you from zero to fundable — all of it, explained.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-goldman-sachs-claude-ai-banking-2026.html">
+        <div class="card-accent" style="background:#1d4ed8;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#3b82f6;">AI &amp; Finance · March 2026</div>
+          <div class="card-title">Goldman Sachs runs on Claude AI now. So does your credit future.</div>
+          <div class="card-desc">Goldman deployed Anthropic's Claude to automate trade accounting, compliance, and KYC onboarding. The same AI powering NMD tools is now running Wall Street. Here's what that shift means for your credit file — and your money.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-net30-approval-playbook.html">
+        <div class="card-accent" style="background:#34d399;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#34d399;">Business Credit Builders · Playbook</div>
+          <div class="card-title">Net 30 approval playbook — a fundable business credit profile in 60 days.</div>
+          <div class="card-desc">Zero business credit history to a file lenders can see — in 60 days. The step-by-step execution playbook using vendor accounts that report to D&amp;B, Experian Business, and Equifax. Start on day one.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-cfpb-gutted-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#e74c3c;">Breaking · March 2026</div>
+          <div class="card-title">The CFPB got gutted. Here's what that costs your credit disputes.</div>
+          <div class="card-desc">The agency that enforced your dispute rights, capped collector harassment, and removed medical debt from reports just lost its enforcement power. NMD breaks down what changed and exactly how to protect your file without the government's help.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-business-credit-ein.html">
+        <div class="card-accent" style="background:#5b21ff;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Business Credit</div>
+          <div class="card-title">Your EIN is a second credit identity — most business owners never use it.</div>
+          <div class="card-desc">An EIN gives your business its own credit profile — separate from your SSN, invisible to personal score pulls, and capable of carrying six-figure credit lines. Here's how to build it from zero.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-goodwill-letter-strategy.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Late Payment Strategy</div>
+          <div class="card-title">The goodwill letter — how to ask a creditor to remove a late payment and actually win.</div>
+          <div class="card-desc">Late payments stay for 7 years — but the creditor who reported it can remove it voluntarily. The right letter, sent the right way, to the right person. Here's the template.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-freeze-vs-fraud-alert.html">
+        <div class="card-accent" style="background:#1a8fdf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1a8fdf;">Credit Protection</div>
+          <div class="card-title">Credit freeze vs fraud alert — what's the difference and which one you need.</div>
+          <div class="card-desc">Both tools protect your credit but work completely differently. Use the wrong one and you're either exposed or blocking your own approvals. Here's exactly when to use each.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-medical-debt-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Consumer Protection</div>
+          <div class="card-title">Medical debt is back on credit reports — the federal protection got killed.</div>
+          <div class="card-desc">The CFPB rule that would have erased $49 billion in medical debt from 15 million credit reports was struck down. Here's what happened and what you can still do.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-fico-10t-trended-data.html">
+        <div class="card-accent" style="background:#34d399;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#34d399;">Mortgage Intelligence</div>
+          <div class="card-title">FICO 10T is watching your last 24 months — not just today.</div>
+          <div class="card-desc">The new mortgage scoring model doesn't care what your balance is right now. It cares what you've been doing for two years. That changes everything about how to prepare.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-credit-report-errors.html">
+        <div class="card-accent" style="background:#f0b429;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f0b429;">Credit Guide</div>
+          <div class="card-title">One error on your credit report can cost you thousands.</div>
+          <div class="card-desc">1 in 5 credit reports has an error serious enough to affect approval decisions. Mixed files, wrong balances, accounts that aren't yours — they're all removable under the FCRA.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-hard-inquiry-removal.html">
+        <div class="card-accent" style="background:#7c3aed;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Credit Guide</div>
+          <div class="card-title">Hard inquiries are costing you points — here's how to fight back.</div>
+          <div class="card-desc">Authorized inquiries stay. Unauthorized ones can be removed. The FCRA gives you the right — most people just don't know how to use it.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-secured-card-graduation.html">
+        <div class="card-accent" style="background:#2ec27e;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#2ec27e;">Credit Builders</div>
+          <div class="card-title">How to graduate from a secured card — and when it actually happens.</div>
+          <div class="card-desc">Not every secured card graduates. The ones that do follow a specific timeline. Here's how Discover, Capital One, and BofA handle graduation — and how to trigger it.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-debt-validation-fdcpa.html">
+        <div class="card-accent" style="background:#e55b3a;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#e55b3a;">Debt Strategy</div>
+          <div class="card-title">Debt collectors have 30 days to prove they own what they say you owe.</div>
+          <div class="card-desc">FDCPA §1692g gives you the right to demand validation — and it freezes all collection activity until they prove the debt is real. Most collectors can't.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-credit-utilization-strategy.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Auto Strategy</div>
+          <div class="card-title">Lower your utilization before you apply — the pre-approval playbook.</div>
+          <div class="card-desc">Your credit score the day you apply is the only one that matters. Utilization moves fast — here's how to drop it in 30 days before a mortgage, auto loan, or any major credit pull.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-2026-score-changes.html">
+        <div class="card-accent" style="background:#2ec27e;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#2ec27e;">Breaking — Credit Guide</div>
+          <div class="card-title">The way credit scores are calculated just changed.</div>
+          <div class="card-desc">Rent. Utilities. Buy now pay later. 2026 scoring models are counting things that never counted before — and most people don't know it's happening.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-authorized-user-blueprint.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Credit Builders</div>
+          <div class="card-title">30 to 80 points in 45 days — the authorized user blueprint.</div>
+          <div class="card-desc">You don't need to open a single new account. Being added to the right card can move your score faster than almost anything else.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-2026-card-strategy.html">
+        <div class="card-accent" style="background:#1a8fdf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#1a8fdf;">Elite Strategy</div>
+          <div class="card-title">The 2026 card strategy everyone on myFICO is running.</div>
+          <div class="card-desc">APRs sitting at 23.96%. Issuers tightening up. The credit community mapped out exactly how to play 2026 — here's the breakdown.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="identity-theft-act-2026.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Consumer Protection</div>
+          <div class="card-title">Congress Just Woke Up — $394 Billion in Identity Theft.</div>
+          <div class="card-desc">The Stop Identity Fraud Act of 2026 just hit Congress. 353 million people breached, AI bots stealing billions — and the law that already protects you that nobody talks about.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-capital-one-experian-gap.html">
+        <div class="card-accent" style="background:#c9a84c;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c9a84c;">Breaking — Bureau Gap</div>
+          <div class="card-title">Capital One stopped reporting to Experian.</div>
+          <div class="card-desc">Months of on-time payments — invisible to one bureau. What the Capital One Experian reporting gap means for your credit score, and what to do before it costs you an approval.</div>
+          <div class="card-footer"><span class="card-date">March 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-bankruptcy-target-carousel.html">
+        <div class="card-accent" style="background:#c0392b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#c0392b;">Client Story</div>
+          <div class="card-title">They said bankruptcy would close every door.</div>
+          <div class="card-desc">24 months post BK7 discharge and a client just got approved for a $2,000 credit limit. Here is the story, what it means, and how we got there.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Rebuild</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-boa-my-credit.html">
+        <div class="card-accent" style="background:#5ba4cf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#5ba4cf;">Bank of America</div>
+          <div class="card-title">Bank of America just built its own credit portal.</div>
+          <div class="card-desc">BoA is moving from just supplying a FICO score to a full-featured credit intelligence platform. What the My Credit upgrade means for your credit strategy.</div>
+          <div class="card-footer"><span class="card-date">January 2026</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-cfpb-credit-union-gap.html">
+        <div class="card-accent" style="background:#f0b429;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f0b429;">Consumer Protection</div>
+          <div class="card-title">Your credit union might not be protected.</div>
+          <div class="card-desc">The CFPB is losing its funding. There is a critical gap in the law that leaves anyone with a credit union account including NFCU and PenFed with no federal regulator to complain to.</div>
+          <div class="card-footer"><span class="card-date">2026 - Breaking</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-fico-vs-vantagescore.html">
+        <div class="card-accent" style="background:#a78bfa;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#a78bfa;">Real Talk</div>
+          <div class="card-title">The score you're watching isn't the one they're using.</div>
+          <div class="card-desc">FICO vs VantageScore is not just academic. The score you check every day may be completely different from what lenders actually pull. Here is what to track instead.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Scores</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-pledge-ssl-loan.html">
+        <div class="card-accent" style="background:#34d399;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#34d399;">Credit Builders</div>
+          <div class="card-title">The best score bang per dollar on the market.</div>
+          <div class="card-desc">Navy Federal pledge and share secured loans are the community consensus for maximum score impact per dollar spent. Here is the proven strategy and how to execute it.</div>
+          <div class="card-footer"><span class="card-date">2026 - Strategy</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-vs4-likes-me.html">
+        <div class="card-accent" style="background:#2dd4bf;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#2dd4bf;">VantageScore 4.0</div>
+          <div class="card-title">VS4 apparently likes me. Does it like you?</div>
+          <div class="card-desc">VantageScore 4.0 scores differently than FICO. Some borrowers score 14 to 15 points higher. Others get wrecked. Here is who it loves and who it penalizes.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Intel</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-1million-credit-lines.html">
+        <div class="card-accent" style="background:#3b82f6;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#3b82f6;">Elite Strategy</div>
+          <div class="card-title">$1,000,000 in total credit lines.</div>
+          <div class="card-desc">A $1M total credit limit isn't luck. It's years of deliberate file-building, strategic lender relationships, and knowing exactly which cards and which sequence unlocks limits most people never see.</div>
+          <div class="card-footer"><span class="card-date">2026 - TCL Playbook</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-affirm-bnpl.html">
+        <div class="card-accent" style="background:#00ff41;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#00c830;">BNPL Intelligence</div>
+          <div class="card-title">Affirm and your FICO.</div>
+          <div class="card-desc">Buy Now Pay Later is reshaping credit profiles across the country. NMD breaks down exactly how Affirm reports, what the CFA classification means for your score, and when BNPL becomes a strategic asset.</div>
+          <div class="card-footer"><span class="card-date">2026 - Credit Scores</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-business-cards.html">
+        <div class="card-accent" style="background:#5b21ff;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#7c3aed;">Business Credit</div>
+          <div class="card-title">Business credit cards, decoded.</div>
+          <div class="card-desc">The right business card can unlock higher limits, better rewards, and keep business spending off your personal report. NMD breaks down the best business credit cards and how to use them strategically.</div>
+          <div class="card-footer"><span class="card-date">2026 - Business</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-business-credit-101.html">
+        <div class="card-accent" style="background:#4d9ef7;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#4d9ef7;">Business Credit</div>
+          <div class="card-title">Business credit 101.</div>
+          <div class="card-desc">Most small business owners are leaving money on the table. Building a business credit profile separate from your personal file unlocks financing, protects your personal score, and opens doors most people don't know exist.</div>
+          <div class="card-footer"><span class="card-date">2026 - Business</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-car-loan.html">
+        <div class="card-accent" style="background:#f59e0b;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#f59e0b;">Auto Strategy</div>
+          <div class="card-title">Car loans and your credit file.</div>
+          <div class="card-desc">An auto loan is one of the most powerful tools in a credit-building strategy — if you use it correctly. NMD breaks down the timing, the lenders, and the rate leverage that most car buyers never negotiate.</div>
+          <div class="card-footer"><span class="card-date">2026 - Auto Loans</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="nmd-v2-debt-consolidation.html">
+        <div class="card-accent" style="background:#ef4444;"></div>
+        <div class="card-body">
+          <div class="card-label" style="color:#ef4444;">Debt Strategy</div>
+          <div class="card-title">Debt consolidation, done right.</div>
+          <div class="card-desc">Consolidating debt can slash your interest rate and simplify your payments — or wreck your score if done wrong. NMD gives you the full playbook on when to consolidate, which products to use, and what lenders won't tell you.</div>
+          <div class="card-footer"><span class="card-date">2026 - Debt Strategy</span><span class="card-arrow">&#8594;</span></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
+    <span class="footer-right" style="display:flex;gap:24px;align-items:center;">
+      <a href="nmd-videos.html" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Films</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank" style="color:#444;text-decoration:none;font-size:9px;letter-spacing:3px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#444'">Gumroad</a>
+    </span>
+  </footer>
+
+  <!-- NEWSLETTER POPUP -->
+  <div class="popup-overlay" id="nmd-popup">
+    <div class="popup-card">
+      <button class="popup-close" onclick="closePopup()">&#10005;</button>
+      <div class="popup-featured">
+        <div class="popup-featured-tag">Latest Drop &middot; March 18, 2026</div>
+        <div class="popup-article-headline">Credit Repair Company Hacked &mdash; 30,000 Clients&rsquo; Files Exposed</div>
+        <div class="popup-article-desc">Credit Freedom &amp; Restoration was breached &mdash; credit reports, passports, and mortgage docs for 30,000 clients are now in the hands of hackers. Here&rsquo;s what happened and what you need to do right now.</div>
+        <a href="nmd-credit-freedom-breach-2026.html" class="popup-read-link" onclick="closePopup()">Read this edition &#8594;</a>
+      </div>
+      <div class="popup-subscribe">
+        <div class="popup-subscribe-label">NMD Credit Intelligence</div>
+        <div class="popup-subscribe-headline">Stay ahead of every credit move.</div>
+        <div class="popup-subscribe-sub">Breaking credit news. Strategy. New tools. Direct to your inbox — free.</div>
+        <div class="popup-form-row">
+          <input type="email" class="popup-email-input" id="popup-email" placeholder="your@email.com">
+          <button class="popup-submit-btn" onclick="submitPopupEmail(this)">Subscribe</button>
+        </div>
+        <div class="popup-confirm" id="popup-confirm">&#10003; You're in — watch your inbox for the next drop.</div>
+        <div class="popup-no-thanks" onclick="closePopup()">No thanks</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      if (localStorage.getItem('nmd_email')) return;
+      var dismissed = localStorage.getItem('nmd_popup_dismissed');
+      if (dismissed && Date.now() - parseInt(dismissed) < 7 * 24 * 60 * 60 * 1000) return;
+      setTimeout(function() { document.getElementById('nmd-popup').classList.add('open'); }, 2500);
+    })();
+    document.getElementById('nmd-popup').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
+    function closePopup() { document.getElementById('nmd-popup').classList.remove('open'); localStorage.setItem('nmd_popup_dismissed', Date.now().toString()); }
+    async function submitPopupEmail(btn) {
+      var emailEl = document.getElementById('popup-email');
+      var email = emailEl.value.trim();
+      if (!email || !email.includes('@') || !email.includes('.')) { emailEl.classList.add('error'); emailEl.focus(); return; }
+      emailEl.classList.remove('error'); btn.textContent = 'Sending...'; btn.disabled = true;
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1', subject: 'New NMD Blog Subscriber', email: email, source: 'Blog popup', page: window.location.href }) });
+        var data = await res.json();
+        if (data.success) { localStorage.setItem('nmd_email', email); document.querySelector('.popup-form-row').style.display = 'none'; document.querySelector('.popup-no-thanks').style.display = 'none'; document.getElementById('popup-confirm').style.display = 'block'; setTimeout(closePopup, 2800); }
+        else { btn.textContent = 'Try Again'; btn.disabled = false; }
+      } catch(e) { btn.textContent = 'Try Again'; btn.disabled = false; }
+    }
+  </script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

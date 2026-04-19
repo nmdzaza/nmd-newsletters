@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & FAQ — NMD Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #e8e4df; color: #111; font-family: Inter, sans-serif; min-height: 100vh; }
+
+    /* HEADER */
+    header {
+      background: #0d0d0d; padding: 24px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .logo-nmd { font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #555; text-transform: uppercase; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a {
+      color: #555; text-decoration: none; font-size: 10px;
+      letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s;
+    }
+    .header-nav a:hover, .header-nav a.active { color: #c9a84c; }
+
+    /* HERO */
+    .hero {
+      background: #0d0d0d; padding: 80px 48px 72px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .hero-label {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-label::before { content: ''; display: block; width: 32px; height: 2px; background: #c9a84c; }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 68px); font-weight: 900;
+      line-height: 1.05; color: #fff; max-width: 780px; margin-bottom: 28px;
+    }
+    .hero-headline em { font-style: italic; color: #c9a84c; }
+    .hero-desc { font-size: 16px; color: #888; max-width: 520px; line-height: 1.75; }
+
+    /* SEARCH BAR */
+    .search-section {
+      padding: 48px 48px 0;
+      max-width: 680px;
+    }
+    .search-wrap {
+      display: flex; gap: 0;
+      border: 1px solid #ccc; background: #fff;
+    }
+    .search-input {
+      flex: 1; padding: 16px 20px; font-size: 14px;
+      border: none; background: transparent; outline: none;
+      font-family: Inter, sans-serif; color: #111;
+    }
+    .search-input::placeholder { color: #aaa; }
+    .search-btn {
+      padding: 16px 28px; background: #111; color: #fff;
+      border: none; cursor: pointer; font-size: 10px;
+      letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      font-family: Inter, sans-serif; transition: background 0.2s;
+    }
+    .search-btn:hover { background: #333; }
+
+    /* FAQ SECTIONS */
+    .faq-outer { padding: 64px 48px 80px; }
+    .faq-grid { display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start; }
+
+    .faq-sidebar { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 4px; }
+    .faq-sidebar-link {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: 600; color: #aaa; text-decoration: none;
+      padding: 8px 0; border-left: 2px solid transparent;
+      padding-left: 14px; transition: all 0.2s;
+    }
+    .faq-sidebar-link:hover, .faq-sidebar-link.active { color: #c9a84c; border-left-color: #c9a84c; }
+
+    .faq-content { display: flex; flex-direction: column; gap: 64px; }
+
+    .faq-category {}
+    .category-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #888; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .category-tag::before { content: ''; display: block; width: 24px; height: 2px; background: #c9a84c; }
+    .category-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 32px); font-weight: 700;
+      color: #111; margin-bottom: 32px; line-height: 1.2;
+    }
+
+    /* ACCORDION */
+    .accordion { display: flex; flex-direction: column; gap: 2px; }
+    .accordion-item { background: #fff; border: 1px solid #e0dbd5; }
+    .accordion-trigger {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 28px; cursor: pointer; background: none; border: none;
+      text-align: left; gap: 20px;
+    }
+    .accordion-trigger:hover { background: #fafaf8; }
+    .accordion-question {
+      font-size: 15px; font-weight: 600; color: #111;
+      line-height: 1.4; font-family: Inter, sans-serif;
+    }
+    .accordion-icon {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border: 1px solid #e0dbd5; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: #aaa; transition: transform 0.25s, color 0.2s;
+    }
+    .accordion-item.open .accordion-icon { transform: rotate(45deg); color: #c9a84c; }
+    .accordion-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .accordion-item.open .accordion-body { max-height: 600px; }
+    .accordion-answer {
+      padding: 0 28px 24px;
+      font-size: 14px; color: #555; line-height: 1.85;
+    }
+    .accordion-answer a { color: #c9a84c; text-decoration: none; }
+    .accordion-answer a:hover { text-decoration: underline; }
+    .accordion-answer strong { color: #111; font-weight: 600; }
+    .accordion-answer ul {
+      margin: 12px 0 0 20px; display: flex; flex-direction: column; gap: 6px;
+    }
+
+    /* LIVE SUPPORT CTA */
+    .support-section {
+      background: #0d0d0d; padding: 80px 48px;
+      border-top: 1px solid #1a1a1a;
+    }
+    .support-inner { max-width: 680px; }
+    .support-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .support-tag::before { content: ''; display: block; width: 32px; height: 2px; background: #c9a84c; }
+    .support-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px); font-weight: 900;
+      color: #fff; line-height: 1.1; margin-bottom: 20px;
+    }
+    .support-headline em { font-style: italic; color: #c9a84c; }
+    .support-desc { font-size: 15px; color: #888; line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
+    .support-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .support-btn {
+      display: inline-block; text-decoration: none; padding: 16px 36px;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      font-weight: 700; transition: all 0.2s;
+    }
+    .support-btn.gold { background: #c9a84c; color: #111; }
+    .support-btn.gold:hover { background: #e0c060; }
+    .support-btn.outline { border: 1px solid #333; color: #888; }
+    .support-btn.outline:hover { border-color: #fff; color: #fff; }
+
+    /* FOOTER */
+    footer {
+      background: #0d0d0d; padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #111;
+    }
+    .footer-brand { font-size: 12px; letter-spacing: 3px; color: #444; text-transform: uppercase; }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #444; text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #c9a84c; }
+
+    /* RESPONSIVE */
+    @media(max-width: 960px) {
+      .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+      .faq-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 8px 20px; }
+      .faq-sidebar-link { padding-left: 0; border-left: none; border-bottom: 2px solid transparent; padding-bottom: 4px; }
+      .faq-sidebar-link:hover, .faq-sidebar-link.active { border-bottom-color: #c9a84c; border-left-color: transparent; }
+    }
+    @media(max-width: 768px) {
+      header { padding: 20px 24px; }
+      .header-nav { display: none; }
+      .hero { padding: 56px 24px 48px; }
+      .search-section { padding: 36px 24px 0; }
+      .faq-outer { padding: 48px 24px 64px; }
+      .support-section { padding: 64px 24px; }
+      footer { padding: 28px 24px; flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <span class="logo-nmd">NMD</span>
+      <span class="logo-sub">Solutions</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">Help Center</div>
+    <h1 class="hero-headline">Got questions?<br>We got <em>answers.</em></h1>
+    <p class="hero-desc">Everything you need to know about NMD Solutions, AI employees, Claude setup, pricing, and getting started. Can't find it? Hit us in Telegram.</p>
+  </section>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <div class="search-wrap">
+      <input class="search-input" type="text" id="faqSearch" placeholder="Search the FAQ — e.g. &quot;how do I install&quot; or &quot;pricing&quot;" />
+      <button class="search-btn" onclick="runSearch()">Search</button>
+    </div>
+  </div>
+
+  <!-- FAQ BODY -->
+  <div class="faq-outer">
+    <div class="faq-grid">
+
+      <!-- SIDEBAR NAV -->
+      <aside class="faq-sidebar">
+        <a href="#faq-general" class="faq-sidebar-link active">General</a>
+        <a href="#faq-claude" class="faq-sidebar-link">Claude & AI</a>
+        <a href="#faq-companies" class="faq-sidebar-link">AI Companies</a>
+        <a href="#faq-setup" class="faq-sidebar-link">Setup & Install</a>
+        <a href="#faq-pricing" class="faq-sidebar-link">Pricing</a>
+        <a href="#faq-support" class="faq-sidebar-link">Support</a>
+      </aside>
+
+      <!-- FAQ CONTENT -->
+      <main class="faq-content">
+
+        <!-- GENERAL -->
+        <section class="faq-category" id="faq-general">
+          <div class="category-tag">The Basics</div>
+          <h2 class="category-headline">General Questions</h2>
+          <div class="accordion">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What is NMD Solutions?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">NMD Solutions builds AI-powered business systems — we call them <strong>AI employees</strong>. Instead of hiring staff or buying generic software, you get a customized Claude AI setup that runs lead generation, marketing, deal analysis, outreach, and more — automated, branded, and built for your industry. We started in real estate and now serve auto dealerships, mortgage brokers, law firms, insurance agencies, and more.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Who is NMD Solutions for?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Anyone who wants to use AI to grow their business without writing code or managing a tech team. Our clients include:<ul><li>Real estate agents and wholesalers</li><li>Car dealership sales associates</li><li>Mortgage brokers and loan officers</li><li>Insurance agencies</li><li>Law firms and solo attorneys</li><li>Contractors and home service companies</li></ul>If your business runs on leads, deals, and follow-up — NMD can automate it.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Do I need to know how to code?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer"><strong>No.</strong> Zero coding required. Our AI employees run inside Claude — which you access through a free app on your phone or desktop. Setup is a copy-paste install that takes under 10 minutes. If you can send a text message, you can run an NMD AI employee.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Is NMD Solutions a subscription?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Our tools are sold as one-time purchases — you pay once and own it. The only ongoing cost is your Claude subscription (Anthropic charges ~$20/month for Claude Pro, which powers everything). Optional territory locks are $200/month if you want exclusive market protection.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- CLAUDE & AI -->
+        <section class="faq-category" id="faq-claude">
+          <div class="category-tag">The Technology</div>
+          <h2 class="category-headline">Claude & AI Questions</h2>
+          <div class="accordion">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What is Claude?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Claude is the AI assistant made by Anthropic — one of the leading AI companies in the world. It's available as a free app (<a href="https://claude.ai" target="_blank">claude.ai</a>) and as a downloadable desktop app. Claude is what powers our AI employees — think of it as the brain, and our skills are the job training.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What's the difference between Claude free and Claude Pro?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Claude free gives you limited daily messages. <strong>Claude Pro (~$20/month)</strong> gives you extended usage, access to the most powerful models, and the ability to use Claude Code — which is required for running NMD's full AI employee suite. We always recommend Pro for professional use.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What is Claude Code?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Claude Code is Anthropic's advanced agentic interface — it lets Claude take real actions on your computer, run automations, and use installed skills (like ours). It's the environment where NMD AI employees live and operate. You install it once, load our skills, and your AI team is ready to work.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Are NMD skills official Claude plugins?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Our tools are built as <strong>Claude skills</strong> — structured prompt files that install into Claude Code. We have submitted tools to Anthropic's official plugin marketplace and continue to build for the platform. All skills are built to Claude's standards and work natively inside the Claude Code environment.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Is my data safe with Claude?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Yes. Claude is built by Anthropic with strong privacy standards. Your conversations are not used to train the model by default (especially on Pro). Our skills run locally on your machine — your leads, client data, and business info stay on your device, not on NMD's servers.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- AI COMPANIES -->
+        <section class="faq-category" id="faq-companies">
+          <div class="category-tag">Our Products</div>
+          <h2 class="category-headline">AI Companies Questions</h2>
+          <div class="accordion">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What are the NMD AI Companies?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">NMD AI Companies are five pre-built AI business units — each a complete team of AI employees specialized for one industry:<ul><li><strong>NMD Wholesale Co.</strong> — Real estate lead gen, deal analysis, and wholesaling</li><li><strong>NMD Mortgage Co.</strong> — Refi leads, buyer pre-qual, rate alerts</li><li><strong>NMD Auto Co.</strong> — Car buyer leads, conquest campaigns, follow-up</li><li><strong>NMD Media Co.</strong> — Content, social posts, brand building</li><li><strong>NMD Credit Co.</strong> — Credit repair, dispute strategies, client education</li></ul>Each company has multiple AI employees (skills) that you install and run through Claude.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Can I buy just one AI employee instead of a full company?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Yes. Individual AI employees (skills) are available starting at <strong>$50/lead or $500/tool</strong>. You don't have to buy a whole company — pick the specific employee that solves your biggest problem first, then add more as you grow. See our full pricing on the <a href="nmd-solutions.html">Solutions page</a>.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What's included in a full AI company purchase?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">A full AI company package includes all skills for that vertical, setup documentation, onboarding walkthrough, and priority Telegram support. The <strong>full NMD suite</strong> (all five companies, all tools) is $3,000 and includes a free territory lock for your market.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Can I white-label NMD tools and resell them?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Yes — that's one of our most popular arrangements. The <strong>white-label portal</strong> lets you rebrand NMD tools under your own company name and sell them to your clients. Ask us about partnership pricing in Telegram.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SETUP & INSTALL -->
+        <section class="faq-category" id="faq-setup">
+          <div class="category-tag">Getting Running</div>
+          <h2 class="category-headline">Setup & Install</h2>
+          <div class="accordion">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">How do I install an NMD AI employee?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">The full step-by-step guide is on our <a href="nmd-get-started.html">Get Started page</a>. The short version:<ul><li>Download Claude Code (free from Anthropic)</li><li>Copy the skill file we send you into your skills folder</li><li>Open Claude Code and the AI employee is ready to work</li></ul>Most people are up and running in under 10 minutes.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Does this work on Mac and Windows?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Yes. Claude Code runs on Mac, Windows, and Linux. The installation steps are slightly different per OS — our Get Started guide walks through all three. Mobile-only users can use the web version of Claude with some limitations.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">I installed the skill but nothing is happening. What do I do?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Try these steps first:<ul><li>Make sure the skill file is in the correct folder: <strong>~/.claude/skills/</strong></li><li>Restart Claude Code after adding the file</li><li>Type the skill name exactly as shown in the instructions (e.g., <strong>/probate-hunter</strong>)</li><li>Make sure you're on Claude Pro — some skills require extended context</li></ul>If it's still not working, drop a message in our Telegram and we'll debug with you live.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Can I run multiple AI employees at the same time?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Yes. You can have dozens of skills installed and switch between them freely. Each session in Claude Code is independent — you can run your lead gen employee in one tab and your content employee in another at the same time.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Do NMD skills update automatically?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Not automatically. When we release an update to a skill, we'll notify you in Telegram and send the updated file. Updating is the same as installing — replace the old file in your skills folder with the new one.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="faq-category" id="faq-pricing">
+          <div class="category-tag">Costs</div>
+          <h2 class="category-headline">Pricing Questions</h2>
+          <div class="accordion">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">How much do NMD tools cost?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Our pricing tiers:<ul><li><strong>$50</strong> — Single lead pull</li><li><strong>$150</strong> — Starter pack (5 leads)</li><li><strong>$500</strong> — Single AI employee (plugin)</li><li><strong>$1,500</strong> — Pro bundle (5 tools)</li><li><strong>$3,000</strong> — Full suite (all tools, all companies)</li><li><strong>$200/month</strong> — Territory lock (exclusive market, 90-day minimum)</li></ul>Full suite buyers get territory lock free.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Is there a free trial?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">We don't do free trials of paid tools, but we do offer a <strong>free demo run in Telegram</strong>. Join the group, tell us your industry and what you're trying to solve, and we'll run a live demo with your real data so you can see exactly what you're getting before you buy.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Do you offer refunds?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Because our tools are digital products (delivered instantly upon purchase), we generally don't offer refunds. However, if something doesn't work as described and we can't fix it, we'll make it right. Reach out in Telegram before you buy if you have concerns — we'd rather answer your questions upfront than deal with a dispute after.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What payment methods do you accept?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">We process payments through <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>, which accepts all major credit/debit cards, PayPal, and Apple Pay. For larger deals (pro bundle and full suite), we also accept bank transfer and Zelle — message us in Telegram to arrange.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SUPPORT -->
+        <section class="faq-category" id="faq-support">
+          <div class="category-tag">We Got You</div>
+          <h2 class="category-headline">Support Questions</h2>
+          <div class="accordion">
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">How do I get help if something breaks?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">The fastest way to get help is the <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">NMD Telegram group</a>. Post your issue and someone from the team will respond. For urgent issues from paid clients, DM directly in Telegram and mention your order.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">What's the typical response time for support?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Telegram group: usually within a few hours during business hours. Paid clients with direct access typically get a response within 1–2 hours. We're based in Arizona (MST) — if you message overnight, expect a response first thing in the morning.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">Can I get a custom AI employee built for my specific business?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Yes — custom builds are available. We've built tools for industries and use cases not listed on the site. If you have a specific workflow you want automated, message us in Telegram with the details and we'll scope it out and quote you.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                <span class="accordion-question">I'm new to AI. Can you walk me through setup personally?</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Yes. For Pro bundle and full suite clients, we offer a personal onboarding session — we walk through setup together live (via screen share or step-by-step in Telegram). For smaller purchases, our <a href="nmd-get-started.html">Get Started guide</a> covers everything and we're available for questions in Telegram if you get stuck.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- LIVE SUPPORT CTA -->
+  <section class="support-section">
+    <div class="support-inner">
+      <div class="support-tag">Still Have Questions?</div>
+      <h2 class="support-headline">Talk to a <em>real person.</em></h2>
+      <p class="support-desc">Can't find what you're looking for? The Telegram is live — drop your question and someone from the NMD team will get back to you fast.</p>
+      <div class="support-btns">
+        <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="support-btn gold">Join Telegram &#8594;</a>
+        <a href="nmd-solutions.html" class="support-btn outline">See All Solutions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">NMD ZAZA · Built Different 🤖</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
+    </div>
+  </footer>
+
+  <script>
+    // Accordion toggle
+    function toggleAccordion(btn) {
+      const item = btn.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      // Close all in same accordion
+      const siblings = btn.closest('.accordion').querySelectorAll('.accordion-item');
+      siblings.forEach(s => s.classList.remove('open'));
+      // Open this one if it was closed
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Sidebar active state on scroll
+    const sections = document.querySelectorAll('.faq-category');
+    const sideLinks = document.querySelectorAll('.faq-sidebar-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+      });
+      sideLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+      });
+    }, { passive: true });
+
+    // Basic FAQ search — filters accordion items by question text
+    function runSearch() {
+      const q = document.getElementById('faqSearch').value.trim().toLowerCase();
+      if (!q) return;
+      const items = document.querySelectorAll('.accordion-item');
+      let firstMatch = null;
+      items.forEach(item => {
+        const question = item.querySelector('.accordion-question').textContent.toLowerCase();
+        const answer = item.querySelector('.accordion-answer').textContent.toLowerCase();
+        if (question.includes(q) || answer.includes(q)) {
+          item.style.display = '';
+          if (!firstMatch) firstMatch = item;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      if (firstMatch) {
+        firstMatch.classList.add('open');
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+    document.getElementById('faqSearch').addEventListener('keydown', e => {
+      if (e.key === 'Enter') runSearch();
+    });
+    // Reset hidden items when search is cleared
+    document.getElementById('faqSearch').addEventListener('input', e => {
+      if (!e.target.value.trim()) {
+        document.querySelectorAll('.accordion-item').forEach(i => i.style.display = '');
+      }
+    });
+  </script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

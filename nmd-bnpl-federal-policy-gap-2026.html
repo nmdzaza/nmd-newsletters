@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="Congress's own research arm just flagged Buy Now Pay Later as an unprotected credit score wildcard. BNPL volume hit $63B. Federal rules died. Here's what this means for your score.">
+  <meta name="keywords" content="BNPL credit score, buy now pay later credit report, CFPB BNPL rule, Congressional Research Service BNPL 2026, BNPL missed payments credit">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="BNPL Is a Credit Score Time Bomb — And Congress Just Admitted Nobody's Protecting You | NMD">
+  <meta property="og:description" content="$63 billion in Buy Now Pay Later debt. No federal rules. Inconsistent credit reporting. The CRS just confirmed what consumers feared — BNPL is the most dangerous unregulated thing on your credit report.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-bnpl-federal-policy-gap-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BNPL: $63B Debt Bomb With No Federal Protection | NMD ZAZA">
+  <meta name="twitter:description" content="Congress's own research arm flagged BNPL as an unresolved credit policy mess. Missed payments may or may not hit your score — depending on the lender. Here's the full breakdown.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BNPL Is a Credit Score Time Bomb — Congress Just Admitted Nobody's Protecting You | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { color: #aaa; font-size: 15px; margin-bottom: 28px; }
+    .cta-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-block; padding: 14px 28px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      text-decoration: none; border-radius: 3px; transition: all 0.2s;
+    }
+    .cta-btn.primary { background: var(--gold); color: var(--ink); }
+    .cta-btn.primary:hover { background: #b8942e; }
+    .cta-btn.secondary { background: transparent; color: #aaa; border: 1px solid #333; }
+    .cta-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    .share-strip {
+      display: flex; align-items: center; gap: 12px;
+      padding: 24px 0; border-top: 1px solid var(--rule);
+      margin-top: 48px;
+    }
+    .share-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-right: 4px; }
+    .share-btn, .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; font-size: 11px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; border-radius: 3px; text-decoration: none; cursor: pointer;
+      border: 1px solid var(--rule); background: #fff; color: #333; transition: all 0.2s;
+    }
+    .share-btn:hover, .share-tg-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .x-btn { color: #000; }
+    .copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+    .article-subscribe {
+      background: var(--ink); border-radius: 4px;
+      padding: 36px; margin: 32px 0 0;
+      text-align: center;
+    }
+    .as-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .as-headline { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #888; margin-bottom: 20px; }
+    .as-row { display: flex; gap: 8px; max-width: 320px; margin: 0 auto; }
+    .as-input { flex: 1; padding: 10px 14px; border-radius: 3px; border: 1px solid #333; background: #1a1a1a; color: #fff; font-size: 13px; }
+    .as-input.error { border-color: var(--red); }
+    .as-btn { padding: 10px 20px; background: var(--gold); color: var(--ink); border: none; border-radius: 3px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
+    .as-confirm { display: none; color: #4ade80; font-size: 14px; }
+
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-card, .solutions-sidebar, .sidebar-cta {
+      border: 1px solid var(--rule); border-radius: 4px;
+      padding: 24px; margin-bottom: 20px; background: #fff;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-link { font-size: 13px; color: #333; text-decoration: none; line-height: 1.5; }
+    .sidebar-link:hover { color: var(--gold); }
+    .solutions-sidebar p { font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 12px; }
+    .solutions-sidebar a { font-size: 12px; font-weight: 600; color: var(--gold); text-decoration: none; letter-spacing: 1px; }
+    .sidebar-cta { background: var(--ink); border-color: transparent; }
+    .sidebar-cta .sidebar-label { color: var(--gold); }
+    .sidebar-cta-headline { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .sidebar-cta-desc { font-size: 13px; color: #888; margin-bottom: 16px; line-height: 1.6; }
+    .sidebar-cta-btn { display: block; padding: 12px 20px; background: var(--gold); color: var(--ink); text-align: center; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 3px; }
+
+    footer {
+      background: var(--ink); padding: 24px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; letter-spacing: 3px; color: #555; }
+    .footer-right a { font-size: 11px; color: #555; text-decoration: none; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 860px) {
+      header { padding: 16px 20px; }
+      .header-nav-links { display: none; }
+      .article-hero { padding: 40px 20px 32px; }
+      .article-wrap { grid-template-columns: 1fr; gap: 0; padding: 32px 20px; }
+      .sidebar { display: none; }
+      footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="prog"></div>
+
+  <header>
+    <a class="header-brand" href="index.html">NMD ZAZA</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-blog.html">Blog</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="https://t.me/ScoreBoostByNMDBot" target="_blank">Credit Bot</a>
+    </nav>
+  </header>
+
+  <div class="article-hero">
+    <div class="article-kicker">Consumer Finance &bull; March 19, 2026</div>
+    <h1>BNPL Is a <em>Credit Score</em> Time Bomb — And Congress Just Admitted Nobody's Protecting You</h1>
+    <p class="article-dek">$63 billion in Buy Now Pay Later debt. No federal oversight. Missed payments that may or may not hit your credit — depending on which app you used. The Congressional Research Service just dropped the report that confirms it: consumers are flying completely blind.</p>
+    <div class="article-meta">
+      <span>By NMD ZAZA</span>
+      <span>March 19, 2026</span>
+      <span>7 min read</span>
+    </div>
+  </div>
+
+  <div class="article-wrap">
+    <article>
+
+      <p><strong>The federal rule that would have protected you from Buy Now Pay Later is dead.</strong> The Trump administration killed the Biden-era CFPB rule that would have classified BNPL under Truth in Lending Act protections — the same rules that govern your credit cards. Now the Congressional Research Service just released a report on March 17 confirming what that means: a $63 billion industry operating in a regulatory no-man's land, inconsistently reporting to credit bureaus, with no unified federal framework and a patchwork of state laws that differ by zip code.</p>
+
+      <p>This isn't theoretical. BNPL debt has exploded from $2.2 billion in 2019 to an estimated $63.3 billion in 2025. Tens of millions of Americans are carrying BNPL balances on Afterpay, Klarna, Affirm, Zip, Sezzle, and a dozen other platforms. And a significant portion of them have no idea whether their missed payments are silently killing their credit scores — because the answer literally depends on which app they used.</p>
+
+      <blockquote>
+        <p>"Policymakers are facing a myriad of unresolved BNPL issues." — Congressional Research Service, March 17, 2026</p>
+      </blockquote>
+
+      <p>That's not a consumer advocacy group. That's Congress's own nonpartisan research staff telling lawmakers that they haven't figured this out yet. If Capitol Hill is still working on the problem, you're definitely on your own.</p>
+
+      <hr class="divider">
+
+      <h2>The credit reporting problem is the one that will burn people</h2>
+
+      <p>Here's the core issue that most BNPL users don't know: <strong>there is no standardized requirement for BNPL lenders to report to credit bureaus.</strong> Some do. Some don't. Some report only negative information (missed payments) but not positive information (on-time payments). Some report everything. Some report nothing at all.</p>
+
+      <p>What that means in practice:</p>
+
+      <div class="callout warning">
+        <div class="callout-label">&#x26A0; Credit Score Risk</div>
+        <p>You could miss a BNPL payment on one platform and it wrecks your credit. Miss the same payment on a different platform and nothing happens. There's no way to know which scenario you're in until the damage is done.</p>
+      </div>
+
+      <p>The CRS report specifically identified "inconsistent credit reporting" as one of the central unresolved BNPL policy issues. This isn't a bug in the system — it's the feature. BNPL companies market themselves as a "credit card alternative" that's easier to get and doesn't affect your credit, and for many platforms that was technically true — for a while. That's changing.</p>
+
+      <p>Affirm now reports to Experian on many of its products. Klarna began reporting to all three bureaus in late 2024. Afterpay, Zip, and Sezzle have inconsistent and product-dependent reporting. And the reporting methodology itself creates problems — BNPL installments can sometimes appear as multiple separate trade lines on your credit report, which can affect your credit mix, available credit calculations, and even your debt-to-income ratio in ways you wouldn't expect.</p>
+
+      <hr class="divider">
+
+      <h2>How BNPL debt actually hits your score — the mechanics</h2>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>BNPL Platform</th>
+            <th>Reports to Bureaus?</th>
+            <th>What Gets Reported</th>
+            <th>Score Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Affirm</strong></td>
+            <td>Yes (Experian, some products all 3)</td>
+            <td>Positive + negative</td>
+            <td><span class="tag yellow">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Klarna</strong></td>
+            <td>Yes (all 3, as of late 2024)</td>
+            <td>Positive + negative</td>
+            <td><span class="tag yellow">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Afterpay</strong></td>
+            <td>Product-dependent</td>
+            <td>Varies — often negative only</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Zip (Quadpay)</strong></td>
+            <td>Inconsistent</td>
+            <td>Collections only (when delinquent)</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Sezzle</strong></td>
+            <td>Optional (user-controlled)</td>
+            <td>Positive + negative if opted in</td>
+            <td><span class="tag green">Lower</span></td>
+          </tr>
+          <tr>
+            <td><strong>PayPal Pay Later</strong></td>
+            <td>Soft pull only on 4-pay</td>
+            <td>Nothing to bureaus (standard)</td>
+            <td><span class="tag green">Lower</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The key pattern: <strong>most BNPL platforms that do report only send negative information.</strong> You never get credit for paying on time — but you absolutely get punished for missing a payment. That's the worst possible deal in consumer finance. All the downside risk, none of the upside.</p>
+
+      <hr class="divider">
+
+      <h2>The state vs. federal split — why this just got more complicated</h2>
+
+      <p>When the CFPB killed the federal BNPL rule, states rushed to fill the gap. New York passed the first major state BNPL regulatory framework this year, requiring disclosures, ability-to-repay analysis, and consistent credit reporting for BNPL products. California has pending legislation. Massachusetts, Illinois, and Colorado all have BNPL bills in committee.</p>
+
+      <p>The CRS report specifically flagged this as a problem: if every state creates its own BNPL rules, a platform operating nationally faces 50 different compliance frameworks. That drives consolidation toward large, well-funded platforms — and further locks out smaller, potentially more consumer-friendly options. Meanwhile consumers in states without BNPL laws remain completely unprotected.</p>
+
+      <div class="callout info">
+        <div class="callout-label">&#x1F4CD; Where You Live Matters</div>
+        <p>If you're in New York, you have BNPL protections starting in 2026. If you're in Florida, Texas, Georgia, or most other states — you have nothing. Federal law is the only thing that would apply uniformly, and it doesn't exist for BNPL right now.</p>
+      </div>
+
+      <p>The irony: the Trump administration killed the federal rule in the name of reducing regulatory burden on businesses. But what that actually created is a compliance nightmare for BNPL companies and a protection gap for consumers. The CRS report is essentially telling Congress: you need to figure this out, because the market won't fix it on its own.</p>
+
+      <hr class="divider">
+
+      <h2>The debt spiral risk — $63B is a lot of "small purchases"</h2>
+
+      <p>BNPL is engineered to feel painless. No interest on the 4-pay products. Split into easy installments. No hard credit pull. It's the psychological equivalent of paying with Monopoly money — the purchase feels free because you don't feel the full cost in the moment.</p>
+
+      <p>The CRS report flagged consumer overspending as a documented BNPL policy concern. Research cited in the report shows that BNPL availability increases purchase amounts and total spending compared to cash or credit card transactions. Consumers are accumulating multiple simultaneous BNPL balances across different platforms — because there's no centralized visibility, no unified credit check, and no mechanism to prevent someone from holding 8 different BNPL installment plans at once.</p>
+
+      <p>When the payments come due simultaneously, or when an unexpected expense hits, that's when the missed payments pile up. And if those platforms are among the ones that do report negative data — hello, score drop.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">&#x1F6A8; The Invisible Debt Problem</div>
+        <p>Because most BNPL doesn't show on your credit report until it goes bad, lenders making credit decisions can't see how much BNPL debt you're carrying. The result: people get approved for credit they can't actually afford because the true picture of their obligations is hidden. This is the same dynamic that preceded the 2008 mortgage crisis — just at a smaller scale, for now.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>What you need to do right now</h2>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <div><strong>Audit every BNPL account you have open right now.</strong> Log in to every platform — Affirm, Klarna, Afterpay, Zip, Sezzle, PayPal, Apple Pay Later, Amazon Buy Now Pay Later. List what you owe and when payments are due. You probably have more outstanding than you think. The missed payment that wrecks your credit will be the one you forgot about.</div>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <div><strong>Pull all three credit reports and look for BNPL trade lines.</strong> Go to annualcreditreport.com (free, weekly pulls). BNPL accounts that report will show up as installment accounts. If you see accounts you didn't expect, or missed payments you didn't know were reported — you have an active dispute situation and you need to move immediately.</div>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <div><strong>Know which platforms report before you miss a payment.</strong> If you're considering missing a payment, contact the BNPL company first. Ask directly: "Do you report to credit bureaus and what do you report?" Some platforms will work out payment deferrals or extensions. That conversation, before a missed payment, is far better than a dispute after the fact.</div>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <div><strong>Stop using BNPL for anything you can't pay immediately.</strong> BNPL is fine for a purchase you would buy anyway, paid with funds you actually have. It becomes a problem the moment it's a substitute for cash you don't have. Treat every BNPL purchase as if it's going on your credit card — because it increasingly is being treated that way by the platforms.</div>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <div><strong>If BNPL debt is already hurting your score — dispute it.</strong> If you have BNPL accounts in collections or reporting negative information that you believe is inaccurate, you have the same FCRA rights you'd have with any creditor. Dispute the item, document the dispute certified mail, and run the 30-day clock. NMD's ScoreBoost bot generates BNPL-specific dispute letters in minutes.</div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>NMD Solutions: we built the tools for exactly this</h2>
+
+      <p>The BNPL problem is a perfect example of why NMD Solutions exists. You've got a consumer finance landscape that's changing faster than regulation can keep up — new products, inconsistent rules, hidden credit implications, and consumers who are flying blind. That's the exact gap that our AI-powered tools were built to fill.</p>
+
+      <p>The ScoreBoost credit bot monitors your score factors, generates dispute letters for inaccurate BNPL reporting, helps you understand what's on your report and why, and gives you a roadmap to fix it. Business owners using our suite get access to the same intelligence — because credit health affects financing, vendor terms, and cash flow access.</p>
+
+      <div class="callout good">
+        <div class="callout-label">&#x2713; NMD Solutions</div>
+        <p>From credit dispute automation to real estate lead gen to car dealership tools — NMD Solutions builds AI-powered business systems across industries. The same AI intelligence that powers ScoreBoost is available as a full product suite for any business that needs to move faster than the competition. Explore the full catalog at nmdzaza.github.io/nmd-solutions/</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>The bottom line</h2>
+
+      <p>Buy Now Pay Later was sold to consumers as a consequence-free alternative to credit cards. It never was — and the Congressional Research Service just made that official. The federal government had one chance to create uniform protections and killed the rule. State governments are playing catch-up with no coordination. And BNPL platforms are operating in the gap with no obligation to protect you.</p>
+
+      <p>$63 billion in outstanding BNPL debt means tens of millions of people are exposed. If even a fraction of those borrowers hit a rough patch — lost income, unexpected expense, multiple simultaneous payments due — the credit report fallout will be significant. And unlike a credit card late payment where you always knew the risk, BNPL users in states without protections have been operating without any reliable way to understand the consequences.</p>
+
+      <p>Now you know. Act accordingly.</p>
+
+      <p><em>— Za | NMD ZAZA</em></p>
+
+      <div class="cta-box">
+        <div class="cta-label">Fix Your Credit with NMD</div>
+        <h2>BNPL wrecked your score without warning? We know what to do.</h2>
+        <p>AI-powered dispute letters, BNPL-specific credit strategies, score rebuilding plans — all in the ScoreBoost Telegram bot. $29 flat. No subscription. No fluff.</p>
+        <div class="cta-links">
+          <a class="cta-btn primary" href="https://t.me/ScoreBoostByNMDBot" target="_blank">Launch ScoreBoost Bot</a>
+          <a class="cta-btn secondary" href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Join NMD Telegram</a>
+          <a class="cta-btn secondary" href="index.html">More Newsletters</a>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Post to X
+        </a>
+        <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+          Telegram
+        </a>
+        <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+
+      <div class="article-subscribe" id="article-subscribe-bnpl">
+        <div class="as-tag">NMD Credit Intelligence</div>
+        <div class="as-headline">Get every drop free.</div>
+        <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+        <div class="as-row" id="as-row-bnpl">
+          <input type="email" class="as-input" id="as-email-bnpl" placeholder="your@email.com">
+          <button class="as-btn" onclick="submitArticleEmail('bnpl', this)">Subscribe</button>
+        </div>
+        <div class="as-confirm" id="as-confirm-bnpl">&#x2713; You're in — next drop coming to your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">In This Edition</div>
+        <div class="sidebar-links">
+          <a href="#" class="sidebar-link">The CRS report: what Congress admitted</a>
+          <a href="#" class="sidebar-link">Which BNPL platforms report to bureaus</a>
+          <a href="#" class="sidebar-link">How BNPL debt hits your score</a>
+          <a href="#" class="sidebar-link">The state vs. federal split</a>
+          <a href="#" class="sidebar-link">The $63B debt spiral risk</a>
+          <a href="#" class="sidebar-link">5 actions to protect yourself now</a>
+        </div>
+      </div>
+      <div class="solutions-sidebar">
+        <div class="sidebar-label">NMD Solutions</div>
+        <p>AI-powered tools for credit builders, real estate pros, and small businesses. Dispute automation, score strategy, lead gen — all in one suite.</p>
+        <a href="nmd-solutions.html">Explore the Suite &rarr;</a>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">Credit Bot</div>
+        <div class="sidebar-cta-headline">Fix your score. $29 flat.</div>
+        <div class="sidebar-cta-desc">AI-powered dispute letters and credit building. No subscription. No upsells. Just results.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" class="sidebar-cta-btn" target="_blank">Launch Credit Bot &rarr;</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD — No Money Down ZAZA</span>
+    <div class="footer-right">
+      <a href="index.html">&larr; All Newsletters</a> &nbsp;&middot;&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    const prog = document.getElementById('prog');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (window.scrollY / h * 100) + '%';
+    });
+
+    (function() {
+      var xBtn = document.getElementById('share-x');
+      if (xBtn) {
+        var t = encodeURIComponent('$63B in BNPL debt. No federal rules. Missed payments that may or may not hit your credit — Congress just admitted nobody\'s protecting you. Full breakdown via @nmdzaza');
+        var u = encodeURIComponent(window.location.href);
+        xBtn.href = 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u;
+      }
+    })();
+
+    function shareTelegram() {
+      var u = encodeURIComponent(window.location.href);
+      var t = encodeURIComponent('BNPL Is a Credit Score Time Bomb — Congress Just Admitted Nobody\'s Protecting You | NMD ZAZA');
+      window.open('https://t.me/share/url?url=' + u + '&text=' + t, '_blank');
+    }
+
+    function copyArticleLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        btn.classList.add('copied');
+        btn.textContent = '\u2713 Copied';
+        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link'; }, 2000);
+      });
+    }
+
+    function submitArticleEmail(id, btn) {
+      var input = document.getElementById('as-email-' + id);
+      var email = input ? input.value.trim() : '';
+      if (!email || !email.includes('@')) { if(input) input.classList.add('error'); return; }
+      btn.disabled = true;
+      btn.textContent = '...';
+      setTimeout(() => {
+        document.getElementById('as-row-' + id).style.display = 'none';
+        document.getElementById('as-confirm-' + id).style.display = 'block';
+      }, 800);
+    }
+  </script>
+</body>
+</html>

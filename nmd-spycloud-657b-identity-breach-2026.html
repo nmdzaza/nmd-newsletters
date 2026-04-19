@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5w5OA">
+  <meta name="description" content="SpyCloud's 2026 report dropped today: 65.7 billion identity records in criminal hands. 5.3 billion credential pairs stolen. 80% in plaintext. If your credentials are in that pile, your credit file is next.">
+  <meta name="keywords" content="identity theft 2026, SpyCloud 2026 report, credential breach, credit repair, dark web exposure, FCRA, credit file protection, identity records stolen">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="65.7 Billion Reasons to Check Your Credit File Right Now | NMD">
+  <meta property="og:description" content="SpyCloud's 2026 annual report just dropped: 65.7 billion identity records are in criminal databases right now. Here's what that means for your credit file — and what to do about it today.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-spycloud-657b-identity-breach-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="65.7 Billion Identity Records in Criminal Hands — Is Yours One of Them? | NMD">
+  <meta name="twitter:description" content="SpyCloud's 2026 report is out. 65.7B records. 5.3B credential pairs. 80% plaintext. Your credit file could be the next target.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>65.7 Billion Reasons to Check Your Credit File Right Now | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-input.error { border-color: #c00; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .sidebar-cta-headline {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .sidebar-cta-desc { font-size: 12px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .sidebar-cta-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 12px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* NMD SOLUTIONS CARD */
+    .nmd-solutions-card {
+      background: var(--ink); padding: 28px 24px; margin-bottom: 20px;
+      border: 1px solid #2a2a2a;
+    }
+    .nmd-solutions-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .nmd-solutions-headline {
+      font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; line-height: 1.3;
+    }
+    .nmd-solutions-desc { font-size: 12px; color: #888; margin-bottom: 16px; line-height: 1.5; }
+    .nmd-solutions-btn {
+      display: block; background: var(--gold); color: #111;
+      text-align: center; text-decoration: none; padding: 10px;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; }
+    .footer-right { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      header, footer { padding-left: 24px; padding-right: 24px; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; }
+      .sidebar { display: none; }
+    }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div id="prog"></div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="header-brand">NMD</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-kicker">Identity Theft Intel · March 19, 2026</div>
+    <h1>65.7 Billion<br><em>reasons to check your file.</em></h1>
+    <p class="article-dek">SpyCloud dropped their 2026 annual report today — and the number that should wake you up is 65.7 billion. That's how many identity records are sitting in criminal databases right now. And 80% of the passwords tied to those records are in plaintext, ready to weaponize. If you haven't locked your credit file, today is the day.</p>
+    <div class="article-meta">
+      <span>📅 March 19, 2026</span>
+      <span>✍️ NMD ZAZA</span>
+      <span>⏱ 6 min read</span>
+    </div>
+  </div>
+
+  <!-- BODY + SIDEBAR -->
+  <div class="article-wrap">
+    <article>
+
+      <h2>The SpyCloud 2026 report just dropped — and the numbers are brutal.</h2>
+
+      <p>SpyCloud published their annual identity exposure report this morning, and if you're building or repairing credit, this report is directly relevant to you. Their criminal data lake — a database of stolen identity records harvested from breaches, malware, and dark web markets — grew <strong>23% in the past year</strong> to a staggering 65.7 billion records.</p>
+
+      <p>That's not a typo. 65.7 billion identity records in criminal hands. For context, the entire U.S. population is 335 million people. Every American's identity has been exposed multiple times over, statistically speaking. And <strong>5.3 billion credential pairs</strong> — combinations of username and password — were stolen and are actively circulating.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">⚠ The Number That Should Stop You Cold</div>
+        <p>80% of the exposed corporate credentials in SpyCloud's database contained plaintext passwords — meaning they weren't encrypted. The criminal who grabs your login doesn't need to crack anything. They just log in. And once they're in your email, your bank, or your financial accounts, your credit file is three clicks away from being destroyed.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>What this has to do with your credit file</h2>
+
+      <p>Here's the connection that most people miss: identity theft and credit damage are the same crime, just different stages. The chain goes like this — your credentials get stolen in a breach (probably one you never even heard about), a criminal uses those credentials to access your email or financial accounts, they reset passwords and change contact info, and then they start opening new credit lines in your name.</p>
+
+      <p>By the time you find out, there are collections, new accounts, and hard inquiries all over your credit report. The damage that takes months to dispute and years to fully heal traces back to a password sitting in plaintext in a criminal database — a database that, as of today, contains <strong>65.7 billion records and is still growing</strong>.</p>
+
+      <blockquote>
+        <p>"The question is not whether your credentials have been exposed. The question is whether someone has decided to act on them yet."</p>
+      </blockquote>
+
+      <hr class="divider">
+
+      <h2>The new threat: non-human identity theft</h2>
+
+      <p>SpyCloud's 2026 report introduces a concept that changes the threat landscape entirely: <strong>non-human identity theft</strong>. Attackers are no longer just targeting your username and password. They're going after session tokens, API keys, and machine identity credentials — the digital keys that apps and services use to talk to each other.</p>
+
+      <p>Why does this matter for credit? Because session token theft means an attacker doesn't need your password at all. They steal the active session — the invisible handshake that keeps you logged into your bank or credit card portal — and they're inside your account while you're already authenticated. No 2FA prompt. No login alert. They're just... in.</p>
+
+      <div class="callout info">
+        <div class="callout-label">💡 What Changed in 2026</div>
+        <p>This is why we're seeing a surge in "impossible travel" fraud — account activity showing logins from two countries simultaneously, or transactions happening while the real account holder is logged in from their home IP. Banks are struggling to distinguish legitimate sessions from stolen ones because the token is real — it was just stolen from a different device.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>The scale — by the numbers</h2>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>SpyCloud 2026 Stat</th>
+            <th>Number</th>
+            <th>Risk Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Total identity records in criminal databases</strong></td>
+            <td>65.7 billion (+23% YoY)</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>Stolen credential pairs (user + password)</strong></td>
+            <td>5.3 billion</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>Credentials with plaintext passwords</strong></td>
+            <td>80% of corporate records</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>Growth in non-human identity attacks</strong></td>
+            <td>Fastest growing vector 2026</td>
+            <td><span class="tag red">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>U.S. identity theft cost (past decade)</strong></td>
+            <td>$20 billion (Senate report)</td>
+            <td><span class="tag yellow">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Database growth rate (year over year)</strong></td>
+            <td>23% annual increase</td>
+            <td><span class="tag yellow">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="divider">
+
+      <h2>Why your credit repair strategy needs to account for this</h2>
+
+      <p>If you're in the middle of rebuilding your credit and you suddenly see new collections, hard inquiries you didn't authorize, or accounts you don't recognize — there's a real chance the cause isn't a mistake by the bureaus. It might be that your credentials are already in a criminal's hands and someone is actively burning your file.</p>
+
+      <p>This changes the dispute strategy. A standard dispute letter says "this account is not mine." But when the cause is identity theft, you also need to file an <strong>FTC Identity Theft Report</strong> at IdentityTheft.gov, send fraud alerts to all three bureaus, and potentially invoke the <strong>Identity Theft Blocking</strong> provisions under FCRA Section 605B — which forces bureaus to block fraudulent information within 4 business days when paired with a verified identity theft report.</p>
+
+      <p>Most people skip the FTC report. That's a mistake. It's the document that unlocks the fastest dispute process in the credit system.</p>
+
+      <div class="callout good">
+        <div class="callout-label">The NMD Angle — AI Fights AI</div>
+        <p>NMD Solutions builds AI-powered tools for businesses that need to stay ahead of credential theft, identity fraud, and automated attacks. ScoreBoost by NMD — available free on Telegram — uses AI to help you monitor your file, identify suspicious patterns, and dispute fraudulent items faster. The same technology criminals are using to attack can be your defense system.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2>Your 5-step response protocol — do this today</h2>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <div><strong>Check your email on HaveIBeenPwned.com right now.</strong> This free tool cross-references your email address against known breach databases. If your email shows up — and statistically it will — you know your credentials have been circulating. Change every password tied to that email, starting with your bank, credit cards, and email account itself.</div>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <div><strong>Freeze your credit at all three bureaus — Equifax, Experian, TransUnion.</strong> A credit freeze blocks new credit applications entirely, even if a fraudster has your SSN. It's free, takes 10 minutes per bureau, and is the single most effective identity theft defense that exists. A fraud alert is not the same thing — get the freeze.</div>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <div><strong>Pull your free credit reports today at AnnualCreditReport.com.</strong> Reports are now free weekly. Go through every account, every inquiry, every address listed. Anything you don't recognize — an address you never lived at, an employer you never worked for, an account you never opened — is a red flag that needs immediate action.</div>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <div><strong>Enable login notifications on every financial account.</strong> Most banks and credit card issuers offer real-time SMS or email alerts for logins, password changes, and new transactions. This won't stop session token theft, but it catches traditional credential stuffing attacks the moment they happen — giving you time to respond before damage is done.</div>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <div><strong>If you find fraud — file the FTC report first, then dispute.</strong> Go to IdentityTheft.gov, file the report, and download the Identity Theft Report PDF. Send that document with your dispute letters to the bureaus via certified mail. Under FCRA 605B, this triggers a 4-business-day blocking requirement for fraudulent items — the fastest dispute path in the system.</div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>The bottom line</h2>
+
+      <p>65.7 billion identity records. That number should be a gut punch — and a call to action. The breach already happened. The credentials are already out there. What you control now is whether someone gets to use them to burn your financial life down.</p>
+
+      <p>Lock your file. Monitor your report. Know your FCRA rights. And if fraud does hit — move fast, move smart, and use every legal lever available. The ScoreBoost Bot on Telegram is built to walk you through every step of this, free.</p>
+
+      <p>The NMD crew stays two moves ahead. That's the only play that matters.</p>
+
+      <p><em>— Za | NMD ZAZA</em></p>
+
+      <div class="cta-box">
+        <div class="cta-label">Your Credit File Is Under Attack — Get Protected</div>
+        <h2>65 billion records in the wild. The Credit Goat has your back.</h2>
+        <p>Join the NMD Telegram for real-time credit intel, free dispute guides, and the Score Boost Bot — AI-powered credit defense built for the world we're actually living in.</p>
+        <div class="cta-links">
+          <a class="cta-btn primary" href="https://t.me/ScoreBoostByNMDBot" target="_blank">Launch Score Boost Bot</a>
+          <a class="cta-btn secondary" href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Join NMD Telegram</a>
+          <a class="cta-btn secondary" href="index.html">More Newsletters</a>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Post to X
+        </a>
+        <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+          Telegram
+        </a>
+        <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy Link
+        </button>
+      </div>
+
+      <div class="article-subscribe" id="article-subscribe-spycloud">
+        <div class="as-tag">NMD Credit Intelligence</div>
+        <div class="as-headline">Get every drop free.</div>
+        <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+        <div class="as-row" id="as-row-spycloud">
+          <input type="email" class="as-input" id="as-email-spycloud" placeholder="your@email.com">
+          <button class="as-btn" onclick="submitArticleEmail('spycloud', this)">Subscribe</button>
+        </div>
+        <div class="as-confirm" id="as-confirm-spycloud">✓ You're in — next drop coming to your inbox.</div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">In This Edition</div>
+        <div class="sidebar-links">
+          <a href="#" class="sidebar-link">65.7B identity records exposed</a>
+          <a href="#" class="sidebar-link">5.3B credentials stolen</a>
+          <a href="#" class="sidebar-link">Non-human identity theft rise</a>
+          <a href="#" class="sidebar-link">How this hits your credit</a>
+          <a href="#" class="sidebar-link">5-step protection protocol</a>
+          <a href="#" class="sidebar-link">FCRA 605B — fastest dispute path</a>
+        </div>
+      </div>
+      <div class="nmd-solutions-card">
+        <div class="nmd-solutions-label">NMD Solutions</div>
+        <div class="nmd-solutions-headline">AI Tools Built for Businesses That Can't Afford to Get Hit</div>
+        <div class="nmd-solutions-desc">Custom AI tool suites for real estate, law firms, dealerships, and more. Identity protection, credit monitoring, and dispute automation at scale.</div>
+        <a href="https://nmdzaza.github.io/nmd-newsletters/nmd-solutions.html" class="nmd-solutions-btn">Explore NMD Solutions →</a>
+      </div>
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">Free Bot</div>
+        <div class="sidebar-cta-headline">Score Boost Bot — Free</div>
+        <div class="sidebar-cta-desc">Real-time credit guidance. Dispute tools. Powered by NMD AI.</div>
+        <a href="https://t.me/ScoreBoostByNMDBot" class="sidebar-cta-btn" target="_blank">Launch Free Bot →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">NMD — No Money Down ZAZA</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Progress bar
+    const prog = document.getElementById('prog');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (window.scrollY / h * 100) + '%';
+    });
+
+    // Share to X
+    const shareX = document.getElementById('share-x');
+    if (shareX) {
+      shareX.href = 'https://twitter.com/intent/tweet?text=' +
+        encodeURIComponent('65.7 billion identity records in criminal hands. Is yours one of them? @nmdzaza breaks down the SpyCloud 2026 report and what it means for your credit file.') +
+        '&url=' + encodeURIComponent('https://nmdzaza.github.io/nmd-newsletters/nmd-spycloud-657b-identity-breach-2026.html');
+    }
+
+    function shareTelegram() {
+      const url = 'https://t.me/share/url?url=' +
+        encodeURIComponent('https://nmdzaza.github.io/nmd-newsletters/nmd-spycloud-657b-identity-breach-2026.html') +
+        '&text=' + encodeURIComponent('65.7B identity records exposed. Your credit file could be next. NMD breaks it down:');
+      window.open(url, '_blank');
+    }
+
+    function copyArticleLink(btn) {
+      navigator.clipboard.writeText('https://nmdzaza.github.io/nmd-newsletters/nmd-spycloud-657b-identity-breach-2026.html').then(() => {
+        btn.classList.add('copied');
+        btn.textContent = '✓ Copied';
+        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link'; }, 2000);
+      });
+    }
+
+    function submitArticleEmail(id, btn) {
+      const input = document.getElementById('as-email-' + id);
+      const confirm = document.getElementById('as-confirm-' + id);
+      const row = document.getElementById('as-row-' + id);
+      if (!input.value || !input.value.includes('@')) { input.classList.add('error'); return; }
+      input.classList.remove('error');
+      btn.disabled = true; btn.textContent = 'Sending...';
+      setTimeout(() => { row.style.display = 'none'; confirm.style.display = 'block'; }, 800);
+    }
+  </script>
+</body>
+</html>

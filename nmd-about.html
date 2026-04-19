@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Here — NMD · The Credit Goat 🐐</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #e8e4df; font-family: Inter, sans-serif; min-height: 100vh; color: #111; }
+
+    /* ── HEADER ── */
+    header {
+      background: #0d0d0d; padding: 24px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #222;
+    }
+    .logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .logo-nmd { font-family: Inter, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 6px; color: #fff; text-transform: uppercase; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #555; text-transform: uppercase; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav a:hover, .header-nav a.active { color: #c9a84c; }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0d0d0d; padding: 80px 48px 72px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .hero-label {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-label::before { content: ''; display: block; width: 32px; height: 2px; background: #c9a84c; }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 80px); font-weight: 900;
+      line-height: 1.0; color: #fff; max-width: 820px;
+      margin-bottom: 28px;
+    }
+    .hero-headline em { font-style: italic; color: #c9a84c; }
+    .hero-desc {
+      font-size: 16px; color: #888; max-width: 520px;
+      line-height: 1.75;
+    }
+
+    /* ── ORIGIN STORY ── */
+    .story-section {
+      padding: 80px 48px; border-bottom: 1px solid #ccc;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: start;
+    }
+    .story-left {}
+    .story-right {}
+    .section-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #888; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-tag::before { content: ''; display: block; width: 24px; height: 2px; background: #c9a84c; }
+    .story-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px); font-weight: 700;
+      line-height: 1.15; color: #111; margin-bottom: 28px;
+    }
+    .story-headline em { font-style: italic; color: #555; }
+    .story-body p {
+      font-size: 15px; color: #444; line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: #111; font-weight: 600; }
+
+    .pull-quote {
+      border-left: 3px solid #c9a84c;
+      padding: 20px 24px; margin: 32px 0;
+      background: #fff;
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-style: italic;
+      color: #111; line-height: 1.5;
+    }
+    .pull-quote cite {
+      display: block; margin-top: 12px;
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: #888;
+      font-style: normal;
+    }
+
+    /* ── WHAT NMD IS ── */
+    .what-section {
+      background: #fff; padding: 80px 48px;
+      border-bottom: 1px solid #ccc;
+    }
+    .what-header { margin-bottom: 56px; }
+    .what-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 40px); font-weight: 700;
+      color: #111; line-height: 1.2; margin-top: 12px;
+    }
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2px;
+    }
+    .pillar {
+      background: #f9f7f4; padding: 36px 32px;
+      transition: background 0.2s;
+    }
+    .pillar:hover { background: #f0ece6; }
+    .pillar-icon { font-size: 28px; margin-bottom: 16px; }
+    .pillar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700; color: #111;
+      margin-bottom: 10px; line-height: 1.2;
+    }
+    .pillar-desc { font-size: 13px; color: #555; line-height: 1.7; }
+
+    /* ── THE NUMBERS ── */
+    .numbers-section {
+      background: #0d0d0d; padding: 72px 48px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .numbers-label {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #555; margin-bottom: 48px;
+    }
+    .numbers-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 40px;
+    }
+    .number-item {}
+    .number-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px; font-weight: 900; color: #c9a84c;
+      line-height: 1;
+    }
+    .number-label {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; margin-top: 8px; line-height: 1.5;
+    }
+
+    /* ── WHY FREE ── */
+    .why-section {
+      padding: 80px 48px; border-bottom: 1px solid #ccc;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: start;
+    }
+    .why-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px); font-weight: 700;
+      line-height: 1.15; color: #111; margin-top: 12px; margin-bottom: 28px;
+    }
+    .why-body p {
+      font-size: 15px; color: #444; line-height: 1.8; margin-bottom: 18px;
+    }
+    .why-body p:last-child { margin-bottom: 0; }
+
+    /* ── TRUST SECTION ── */
+    .trust-section {
+      background: #fff; padding: 80px 48px;
+      border-bottom: 1px solid #ccc;
+    }
+    .trust-header { margin-bottom: 48px; }
+    .trust-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 2.8vw, 36px); font-weight: 700;
+      color: #111; margin-top: 12px; line-height: 1.2;
+    }
+    .trust-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .trust-card {
+      border: 1px solid #e0dbd5; padding: 28px 24px;
+      background: #f9f7f4;
+    }
+    .trust-stars { color: #c9a84c; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+    .trust-quote {
+      font-size: 14px; color: #333; line-height: 1.7;
+      font-style: italic; margin-bottom: 16px;
+    }
+    .trust-name {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #888;
+    }
+
+    /* ── START HERE CTA ── */
+    .start-section {
+      background: #0d0d0d; padding: 80px 48px;
+    }
+    .start-inner { max-width: 680px; }
+    .start-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #c9a84c; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .start-tag::before { content: ''; display: block; width: 24px; height: 2px; background: #c9a84c; }
+    .start-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 56px); font-weight: 900;
+      color: #fff; line-height: 1.05; margin-bottom: 28px;
+    }
+    .start-desc {
+      font-size: 15px; color: #777; line-height: 1.75; margin-bottom: 40px;
+    }
+    .start-steps { margin-bottom: 48px; }
+    .start-step {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 20px 0; border-bottom: 1px solid #1a1a1a;
+    }
+    .start-step:last-child { border-bottom: none; }
+    .start-step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 900; color: #c9a84c;
+      flex-shrink: 0; line-height: 1; width: 40px;
+    }
+    .start-step-body {}
+    .start-step-title {
+      font-size: 14px; font-weight: 700; color: #fff;
+      margin-bottom: 4px;
+    }
+    .start-step-desc { font-size: 13px; color: #555; line-height: 1.6; }
+    .start-step-link { color: #c9a84c; text-decoration: none; }
+    .start-step-link:hover { text-decoration: underline; }
+
+    .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .cta-primary {
+      background: #c9a84c; color: #111; text-decoration: none;
+      padding: 16px 32px; font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700;
+      transition: background 0.2s; display: inline-block;
+    }
+    .cta-primary:hover { background: #e0c060; }
+    .cta-secondary {
+      background: transparent; color: #fff; text-decoration: none;
+      padding: 16px 32px; font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; border: 1px solid #333;
+      transition: border-color 0.2s; display: inline-block;
+    }
+    .cta-secondary:hover { border-color: #666; }
+
+    /* ── SUBSCRIBE ── */
+    .subscribe-section {
+      padding: 72px 48px; border-top: 1px solid #ccc;
+    }
+    .subscribe-inner { max-width: 560px; }
+    .sub-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #888; margin-bottom: 12px;
+    }
+    .sub-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 700; color: #111;
+      margin-bottom: 8px;
+    }
+    .sub-desc { font-size: 13px; color: #777; margin-bottom: 24px; line-height: 1.6; }
+    .sub-row { display: flex; }
+    .sub-input {
+      flex: 1; background: #fff; border: 1px solid #ccc; border-right: none;
+      color: #111; padding: 14px 16px; font-size: 14px;
+      font-family: Inter, sans-serif; outline: none; transition: border-color 0.2s;
+    }
+    .sub-input:focus { border-color: #999; }
+    .sub-input::placeholder { color: #bbb; }
+    .sub-input.error { border-color: #c00; }
+    .sub-submit {
+      background: #111; color: #fff; border: none;
+      padding: 14px 24px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .sub-submit:hover { background: #333; }
+    .sub-submit:disabled { background: #999; cursor: not-allowed; }
+    .sub-confirm {
+      display: none; font-size: 13px; color: #c9a84c;
+      font-weight: 600; padding: 14px 0 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d0d0d; padding: 32px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-left, .footer-right {
+      font-size: 9px; letter-spacing: 3px;
+      text-transform: uppercase; color: #444;
+    }
+    .footer-right a { color: #444; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: #c9a84c; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header, .hero, .what-section, .numbers-section, .trust-section,
+      .start-section, .subscribe-section, footer { padding-left: 24px; padding-right: 24px; }
+      .story-section, .why-section { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-row { flex-direction: column; }
+      .cta-primary, .cta-secondary { text-align: center; }
+    }
+  </style>
+<!-- NMD Analytics — replace G-K7VFHF48M5 with your Google Analytics 4 Measurement ID -->
+<!-- Get your ID free at analytics.google.com → Admin → Data Streams → Web Stream -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K7VFHF48M5');
+</script>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <span class="logo-nmd">NMD</span>
+      <span class="logo-sub">No Money Down</span>
+    </a>
+        <nav class="header-nav">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html" class="active">About</a>
+      <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">Start Here</div>
+    <h1 class="hero-headline">
+      The Credit Goat<br><em>story.</em>
+    </h1>
+    <p class="hero-desc">
+      Who is NMD ZAZA? Where did this come from? Why is everything free?
+      Read this first — then go build something.
+    </p>
+  </section>
+
+  <!-- ORIGIN STORY -->
+  <section class="story-section">
+    <div class="story-left">
+      <div class="section-tag">The Origin</div>
+      <h2 class="story-headline">
+        Nobody handed me<br>a credit score.
+        <em>I had to build it.</em>
+      </h2>
+    </div>
+    <div class="story-right">
+      <div class="story-body">
+        <p>
+          I started NMD because I was tired of watching people get locked out of money —
+          not because they weren't smart enough, not because they were lazy, but because
+          <strong>nobody told them how the game worked.</strong>
+        </p>
+        <p>
+          Credit isn't complicated. The system just benefits from you thinking it is.
+          Banks, lenders, and financial institutions all profit from confusion. The more
+          opaque the rules, the easier it is to keep people in a cycle of fees, denials,
+          and low limits.
+        </p>
+        <p>
+          I cracked the code for myself — learned how reporting works, how bureaus
+          communicate (and when they don't), how to leverage trade lines, how to write
+          disputes that actually land, and how to build profiles that open doors.
+        </p>
+
+        <div class="pull-quote">
+          <p>"The information was always out there. I just put it in a format that actually helps regular people move."</p>
+          <cite>— NMD ZAZA · The Credit Goat 🐐</cite>
+        </div>
+
+        <p>
+          So I started sharing it. Free. No paywalls. No "join my $997 course to find out."
+          Just real information — newsletter drops, AI tools, strategy breakdowns — all of it
+          <strong>yours the moment you show up.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT NMD IS -->
+  <section class="what-section">
+    <div class="what-header">
+      <div class="section-tag">What We Build</div>
+      <h2 class="what-headline">NMD is three things.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">📰</div>
+        <div class="pillar-title">Credit Intelligence</div>
+        <div class="pillar-desc">
+          A newsletter that breaks down real credit events — bureau changes, lender shifts,
+          reporting gaps, and strategic moves — as they happen. No fluff. Just the intel
+          you need to stay ahead.
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🛠️</div>
+        <div class="pillar-title">Free AI Tools</div>
+        <div class="pillar-desc">
+          Five purpose-built AI tools — dispute letters, score building, lead generation,
+          social content, and more. No login. No API key. Built in Claude, run in seconds.
+          Because the best tool is the one you actually use.
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🏗️</div>
+        <div class="pillar-title">Systems to Build With</div>
+        <div class="pillar-desc">
+          The AI Employee Blueprint and Vibe Build with NMD show you how to build your own
+          branded AI employees and monetize your knowledge — no code required. Because once
+          you understand credit, the next move is building income.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE NUMBERS -->
+  <section class="numbers-section">
+    <div class="numbers-label">NMD · By the Numbers</div>
+    <div class="numbers-grid">
+      <div class="number-item">
+        <div class="number-value">5</div>
+        <div class="number-label">Free AI tools<br>— no login needed</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">100%</div>
+        <div class="number-label">Newsletter content<br>— free, always</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">0</div>
+        <div class="number-label">Paywalls between you<br>and the knowledge</div>
+      </div>
+      <div class="number-item">
+        <div class="number-value">🐐</div>
+        <div class="number-label">GOAT status when<br>your credit is clean</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FREE -->
+  <section class="why-section">
+    <div>
+      <div class="section-tag">The Philosophy</div>
+      <h2 class="why-headline">Why is everything free?</h2>
+    </div>
+    <div class="why-body">
+      <p>
+        Gatekeeping credit education is one of the biggest scams in the financial industry.
+        People sell courses for $500, $1,000, $2,000 to teach information that is
+        <strong>publicly available and intentionally hidden in plain sight.</strong>
+      </p>
+      <p>
+        NMD does it different. The newsletter is free. The tools are free. The breakdowns,
+        the strategy, the intel — free. Because the people who need this information most
+        are the ones who can least afford to pay for it.
+      </p>
+      <p>
+        We cover costs through the NMD Build products — the AI Employee Blueprint and
+        Vibe Build courses teach you how to build your own income systems using the same
+        tools and methods we use here. Those are paid because they're full build systems,
+        not just information.
+      </p>
+      <p>
+        <strong>But the credit knowledge? That stays free. Period.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- TRUST / COMMUNITY SIGNALS -->
+  <section class="trust-section">
+    <div class="trust-header">
+      <div class="section-tag">The Community</div>
+      <h2 class="trust-headline">What the Telegram is saying.</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-stars">★★★★★</div>
+        <div class="trust-quote">"Dropped my utilization from 87% to 9% in 6 weeks using the strategy from the newsletter. Score went up 94 points. No joke."</div>
+        <div class="trust-name">Telegram Member · Credit Rebuild</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-stars">★★★★★</div>
+        <div class="trust-quote">"Used the dispute tool — sent 4 letters, got 2 collections removed in 30 days. The AI prompt did exactly what he said it would."</div>
+        <div class="trust-name">Telegram Member · Dispute Win</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-stars">★★★★★</div>
+        <div class="trust-quote">"I've paid for credit courses. None of them gave me what the free NMD newsletter gives every week. The man is just on a different level."</div>
+        <div class="trust-name">Telegram Member · Newsletter Reader</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- START HERE CTA -->
+  <section class="start-section">
+    <div class="start-inner">
+      <div class="start-tag">Your Next Move</div>
+      <h2 class="start-headline">Ready? Here's where to go.</h2>
+      <p class="start-desc">
+        You've read the story. Now let's get you moving. Here's the fastest path from
+        zero to knowing exactly how to build and protect your credit.
+      </p>
+
+      <div class="start-steps">
+        <div class="start-step">
+          <div class="start-step-num">1</div>
+          <div class="start-step-body">
+            <div class="start-step-title">Subscribe to the Newsletter</div>
+            <div class="start-step-desc">
+              Every drop is free. Breaking credit events, bureau shifts, strategy moves.
+              You want this in your inbox. <a href="index.html" class="start-step-link">Read the latest editions →</a>
+            </div>
+          </div>
+        </div>
+        <div class="start-step">
+          <div class="start-step-num">2</div>
+          <div class="start-step-body">
+            <div class="start-step-title">Run the Free AI Tools</div>
+            <div class="start-step-desc">
+              Dispute letters, score building strategy, lead gen — all AI-powered, all free,
+              no login required. <a href="nmd-tools.html" class="start-step-link">Launch a tool now →</a>
+            </div>
+          </div>
+        </div>
+        <div class="start-step">
+          <div class="start-step-num">3</div>
+          <div class="start-step-body">
+            <div class="start-step-title">Join the Telegram</div>
+            <div class="start-step-desc">
+              Daily drops, live Q&A, community wins. This is where the real-time moves
+              happen. <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="start-step-link">Join the group →</a>
+            </div>
+          </div>
+        </div>
+        <div class="start-step">
+          <div class="start-step-num">4</div>
+          <div class="start-step-body">
+            <div class="start-step-title">Build Your Own System (Optional)</div>
+            <div class="start-step-desc">
+              Ready to build income, not just credit? The AI Employee Blueprint and Vibe Build
+              show you exactly how. <a href="nmd-solutions.html" class="start-step-link">See what's available →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a href="index.html" class="cta-primary">Read the Newsletter</a>
+        <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank" class="cta-secondary">Join Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section class="subscribe-section">
+    <div class="subscribe-inner">
+      <div class="sub-tag">NMD Credit Intelligence</div>
+      <h2 class="sub-headline">Get every drop in your inbox.</h2>
+      <p class="sub-desc">Breaking credit news, strategy, and new tools — free, direct to you. No spam. No noise. Just moves.</p>
+      <div class="sub-row" id="about-sub-row">
+        <input type="email" class="sub-input" id="about-email" placeholder="your@email.com">
+        <button class="sub-submit" onclick="submitAboutEmail(this)">Subscribe</button>
+      </div>
+      <div class="sub-confirm" id="about-confirm">✓ You're in — watch your inbox for the next drop.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">NMD ZAZA · The Credit Goat 🐐</div>
+    <div class="footer-right">
+      <a href="index.html">Newsletter</a> &nbsp;·&nbsp;
+      <a href="nmd-tools.html">Tools</a> &nbsp;·&nbsp;
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Hide subscribe if already signed up
+    if (localStorage.getItem('nmd_email')) {
+      document.querySelector('.subscribe-section').style.display = 'none';
+    }
+
+    async function submitAboutEmail(btn) {
+      const emailEl = document.getElementById('about-email');
+      const email = emailEl.value.trim();
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        emailEl.classList.add('error'); emailEl.focus(); return;
+      }
+      emailEl.classList.remove('error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+            subject: 'New NMD Subscriber — About Page',
+            email: email,
+            source: 'About / Start Here page'
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          localStorage.setItem('nmd_email', email);
+          document.getElementById('about-sub-row').style.display = 'none';
+          document.getElementById('about-confirm').style.display = 'block';
+        } else {
+          btn.textContent = 'Try Again'; btn.disabled = false;
+        }
+      } catch(e) {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    }
+  </script>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMD AI Companies — Five AI Businesses. One Install.</title>
+  <meta name="description" content="Five AI companies built on Claude Code. NMD Wholesale, Mortgage, Auto, Media, and Credit — each one a full operation with a named team, a revenue model, and zero monthly fees.">
+  <meta property="og:title" content="NMD AI Companies — Five AI Businesses. One Install.">
+  <meta property="og:description" content="Not tools. Not plugins. Five AI companies — each with a named team, a revenue model, and a job to do. Built on Claude Code. Free.">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-plugins.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K7VFHF48M5');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#e8e4df;color:#111;font-family:Inter,sans-serif;min-height:100vh;}
+
+    /* HEADER */
+    header{background:#0d0d0d;padding:24px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #222;position:sticky;top:0;z-index:100;}
+    .logo{display:flex;flex-direction:column;gap:2px;text-decoration:none;}
+    .logo-nmd{font-weight:700;font-size:24px;letter-spacing:6px;color:#fff;text-transform:uppercase;}
+    .logo-sub{font-size:9px;letter-spacing:4px;color:#888;text-transform:uppercase;}
+    .header-nav a{color:#888;text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-left:28px;transition:color 0.2s;}
+    .header-nav a:hover,.header-nav a.active{color:#c9a84c;}
+
+    /* HERO */
+    .hero{padding:80px 48px 64px;border-bottom:1px solid #d0ccc6;}
+    .hero-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .hero-tag::before{content:'';display:block;width:32px;height:2px;background:#c9a84c;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:900;color:#111;line-height:1.05;margin-bottom:20px;}
+    .hero h1 span{color:#c9a84c;}
+    .hero-sub{font-size:17px;color:#555;line-height:1.7;max-width:620px;margin-bottom:40px;}
+    .hero-cta{display:inline-flex;align-items:center;gap:12px;}
+    .btn-gold{background:#c9a84c;color:#0d0d0d;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:opacity 0.2s;display:inline-block;}
+    .btn-gold:hover{opacity:0.85;}
+    .btn-ghost{background:transparent;color:#c9a84c;border:1px solid #c9a84c66;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;text-decoration:none;transition:all 0.2s;display:inline-block;}
+    .btn-ghost:hover{border-color:#c9a84c;}
+
+    /* PORTFOLIO OVERVIEW */
+    .portfolio-bar{background:#0d0d0d;border-bottom:1px solid #222;padding:0 48px;display:flex;overflow-x:auto;}
+    .portfolio-item{padding:20px 32px;border-right:1px solid #222;flex-shrink:0;cursor:pointer;transition:background 0.2s;text-decoration:none;display:flex;flex-direction:column;gap:4px;}
+    .portfolio-item:hover{background:#111;}
+    .portfolio-co{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;}
+    .portfolio-rev{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;}
+    .portfolio-count{font-size:10px;color:#555;letter-spacing:1px;}
+
+    /* COMPANY SECTIONS */
+    .company-section{border-bottom:2px solid #d0ccc6;}
+
+    .company-header{background:#0d0d0d;padding:56px 48px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;}
+    .company-header-left{}
+    .company-cat{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#555;font-weight:700;margin-bottom:16px;}
+    .company-name{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,72px);font-weight:900;color:#fff;line-height:1;margin-bottom:16px;}
+    .company-tagline{font-size:16px;color:#888;line-height:1.6;max-width:540px;margin-bottom:24px;}
+    .company-pitch{font-size:14px;color:#666;line-height:1.75;max-width:540px;}
+
+    .company-header-right{min-width:240px;}
+    .rev-block{border:1px solid #222;border-left:3px solid #c9a84c;padding:20px 24px;margin-bottom:16px;}
+    .rev-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:6px;}
+    .rev-value{font-size:15px;color:#c9a84c;font-weight:700;}
+    .rev-detail{font-size:11px;color:#666;margin-top:4px;line-height:1.4;}
+    .team-count{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#555;margin-bottom:12px;margin-top:16px;}
+
+    /* EMPLOYEE CARDS */
+    .company-body{padding:48px;background:#e8e4df;}
+    .employee-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:40px;}
+    .employee-card{background:#0d0d0d;border:1px solid #222;padding:24px;display:flex;flex-direction:column;gap:6px;transition:border-color 0.2s;}
+    .employee-card:hover{border-color:#c9a84c44;}
+    .emp-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#fff;line-height:1;}
+    .emp-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-top:2px;}
+    .emp-skill{font-size:10px;color:#444;font-family:'Courier New',monospace;margin-top:4px;}
+    .emp-line{font-size:11px;color:#777;line-height:1.5;margin-top:8px;border-top:1px solid #1a1a1a;padding-top:10px;}
+
+    /* COMPANY FEATURES */
+    .company-features{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #d0ccc6;margin-bottom:32px;}
+    .feature-item{padding:16px 20px;border-bottom:1px solid #d0ccc6;border-right:1px solid #d0ccc6;display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#444;line-height:1.5;}
+    .feature-item:nth-child(even){border-right:none;}
+    .feature-item::before{content:'→';color:#c9a84c;flex-shrink:0;font-weight:700;}
+
+    /* INSTALL BLOCK */
+    .install-block{background:#0d0d0d;border:1px solid #222;border-left:3px solid #c9a84c;padding:16px 20px;margin-bottom:12px;}
+    .install-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:8px;}
+    .install-cmd{font-family:'Courier New',monospace;font-size:13px;color:#c9a84c;word-break:break-all;}
+    .install-cmd .dim{color:#555;}
+
+    /* HIRE ALL */
+    .hire-section{padding:80px 48px;max-width:800px;}
+    .section-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#888;font-weight:700;margin-bottom:24px;}
+    .hire-section h2{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:#111;margin-bottom:12px;line-height:1.1;}
+    .hire-section p{font-size:15px;color:#555;margin-bottom:36px;line-height:1.7;}
+    .big-cmd{background:#0d0d0d;border:1px solid #222;border-left:4px solid #c9a84c;padding:20px 24px;margin-bottom:16px;}
+    .big-cmd .comment{font-family:'Courier New',monospace;font-size:12px;color:#555;margin-bottom:8px;}
+    .big-cmd .cmd{font-family:'Courier New',monospace;font-size:15px;color:#c9a84c;word-break:break-all;}
+
+    footer{background:#0d0d0d;padding:40px 48px;border-top:1px solid #222;display:flex;align-items:center;justify-content:space-between;}
+    .footer-brand{font-size:20px;font-weight:700;letter-spacing:6px;color:#fff;}
+    .footer-right{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;}
+
+    @media(max-width:900px){
+      header{padding:20px 24px;}
+      .header-nav{display:none;}
+      .hero{padding:48px 24px;}
+      .company-header{grid-template-columns:1fr;gap:32px;padding:40px 24px;}
+      .company-body{padding:32px 24px;}
+      .company-features{grid-template-columns:1fr;}
+      .feature-item{border-right:none;}
+      .portfolio-bar{padding:0 24px;}
+      .hire-section{padding:48px 24px;}
+      footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center;}
+    }
+  </style>
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <span class="logo-nmd">NMD</span>
+    <span class="logo-sub">No Money Down</span>
+  </a>
+  <nav class="header-nav">
+    <a href="index.html">Newsletters</a>
+    <a href="nmd-videos.html">Films</a>
+    <a href="nmd-plugins.html" class="active">AI Companies</a>
+    <a href="nmd-tools.html">Tools</a>
+    <a href="nmd-get-started.html">Get Started</a>
+    <a href="nmd-solutions.html">Solutions</a>
+    <a href="nmd-about.html">About</a>
+    <a href="nmd-help.html">Help</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">NMD AI Portfolio</div>
+  <h1>Five AI companies.<br><span>One install.</span></h1>
+  <p class="hero-sub">Each one is a full operation — a named team with specific jobs, a revenue model, and a playbook they already know. Real estate wholesale, mortgage leads, car sales, content, and credit repair. You own all five the moment you install.</p>
+  <div class="hero-cta">
+    <a href="nmd-get-started.html" class="btn-gold">Build Your Portfolio →</a>
+    <a href="https://github.com/nmdzaza/nmd-plugins" target="_blank" class="btn-ghost">GitHub →</a>
+  </div>
+</section>
+
+<!-- PORTFOLIO NAV BAR -->
+<div class="portfolio-bar">
+  <a href="#wholesale" class="portfolio-item">
+    <span class="portfolio-co">NMD Wholesale Co.</span>
+    <span class="portfolio-rev">Assignment Fees</span>
+    <span class="portfolio-count">10 employees</span>
+  </a>
+  <a href="#mortgage" class="portfolio-item">
+    <span class="portfolio-co">NMD Mortgage Co.</span>
+    <span class="portfolio-rev">Referral Fees</span>
+    <span class="portfolio-count">2 employees</span>
+  </a>
+  <a href="#auto" class="portfolio-item">
+    <span class="portfolio-co">NMD Auto Co.</span>
+    <span class="portfolio-rev">Commissions</span>
+    <span class="portfolio-count">2 employees</span>
+  </a>
+  <a href="#media" class="portfolio-item">
+    <span class="portfolio-co">NMD Media Co.</span>
+    <span class="portfolio-rev">Audience & Brand</span>
+    <span class="portfolio-count">2 employees</span>
+  </a>
+  <a href="#credit" class="portfolio-item">
+    <span class="portfolio-co">NMD Credit Co.</span>
+    <span class="portfolio-rev">Monthly Retainer</span>
+    <span class="portfolio-count">1 employee</span>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COMPANY 01 — NMD WHOLESALE CO. -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="company-section" id="wholesale">
+  <div class="company-header">
+    <div class="company-header-left">
+      <div class="company-cat">AI Company — Real Estate</div>
+      <h2 class="company-name">NMD Wholesale Co.</h2>
+      <p class="company-tagline">Your full real estate wholesale operation — from the first distressed lead to a closed assignment fee.</p>
+      <p class="company-pitch">Victor finds the properties. Chase gets you the seller's number. Val runs the comps. Nina tells you if the deal pencils. Sofia scripts the conversation. Leo writes the offer. Parker tracks every deal from lead to close. Ava handles the assignment. Blake keeps a cash buyer ready before you even lock it up. Maya mails the leads who don't pick up the phone. Ten employees. One pipeline. You collect the check.</p>
+    </div>
+    <div class="company-header-right">
+      <div class="rev-block">
+        <div class="rev-label">Revenue Model</div>
+        <div class="rev-value">Assignment Fees</div>
+        <div class="rev-detail">$5,000–$25,000 per closed deal. No capital required. No license needed. Pure wholesale.</div>
+      </div>
+      <div class="team-count">10 AI Employees</div>
+      <a href="nmd-get-started.html" class="btn-gold" style="width:100%;text-align:center;">Hire This Team →</a>
+    </div>
+  </div>
+
+  <div class="company-body">
+    <div class="employee-grid">
+      <div class="employee-card">
+        <div class="emp-name">Victor</div>
+        <div class="emp-role">Estate Investigator</div>
+        <div class="emp-skill">probate-hunter</div>
+        <div class="emp-line">Searches probate court filings for newly opened estates with real property — before anyone else knows the deal exists.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Blake</div>
+        <div class="emp-role">Buyer Relations</div>
+        <div class="emp-skill">cash-buyer-builder</div>
+        <div class="emp-line">Builds your cash buyer list from county recorder data — investors who closed with no mortgage in the last 12 months.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Val</div>
+        <div class="emp-role">Valuation Analyst</div>
+        <div class="emp-skill">comps-finder</div>
+        <div class="emp-line">Pulls sold comps from Zillow, Redfin, and county assessor records and outputs a low/mid/high ARV range with a confidence rating.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Nina</div>
+        <div class="emp-role">Deal Analyst</div>
+        <div class="emp-skill">deal-analyzer</div>
+        <div class="emp-line">Runs the numbers — MAO, assignment spread, buyer profit, deal grade. Tells you if it's an A deal or a pass before you pick up the phone.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Chase</div>
+        <div class="emp-role">Skip Tracer</div>
+        <div class="emp-skill">skip-tracer</div>
+        <div class="emp-line">Finds phone and email for any property owner or executor using public records. Rates every contact HIGH / MEDIUM / LOW confidence.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Leo</div>
+        <div class="emp-role">Contracts Specialist</div>
+        <div class="emp-skill">offer-writer</div>
+        <div class="emp-line">Generates a signed-ready LOI and wholesale Purchase & Sale Agreement the moment you're ready to lock up a deal. Saves as PDF.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Sofia</div>
+        <div class="emp-role">Sales Coach</div>
+        <div class="emp-skill">seller-pitch</div>
+        <div class="emp-line">Word-for-word cold call scripts, voicemail drops, SMS sequences, and objection handlers for probate, pre-foreclosure, FSBO, and more.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Maya</div>
+        <div class="emp-role">Direct Mail Manager</div>
+        <div class="emp-skill">mailer-campaign</div>
+        <div class="emp-line">Turns any lead list into personalized PDF letters — one per contact. Submits to Lob.com for printing and mailing at ~$0.95/piece.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Ava</div>
+        <div class="emp-role">Assignment Specialist</div>
+        <div class="emp-skill">assignment-contract</div>
+        <div class="emp-line">Generates the Assignment of Real Estate Purchase Contract with non-refundable EMD terms and buyer disclosure. Closes the back end.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Parker</div>
+        <div class="emp-role">Operations Manager</div>
+        <div class="emp-skill">deal-pipeline</div>
+        <div class="emp-line">Tracks every deal across 8 pipeline stages. Flags stale deals, suggests next actions, logs notes, and records your assignment fees.</div>
+      </div>
+    </div>
+
+    <div class="company-features">
+      <div class="feature-item">Find probate, pre-foreclosure, absentee, and distressed properties before they hit MLS</div>
+      <div class="feature-item">Run comps and deal analysis in minutes — know your MAO before you call</div>
+      <div class="feature-item">Get seller phone and email from public records — confidence-rated contacts only</div>
+      <div class="feature-item">Know exactly what to say on every call, text, and voicemail for every seller type</div>
+      <div class="feature-item">Lock up deals with a signed-ready LOI or Purchase & Sale Agreement in minutes</div>
+      <div class="feature-item">Always have a cash buyer lined up before you go under contract</div>
+      <div class="feature-item">Close the back end with a professional assignment contract that protects your fee</div>
+      <div class="feature-item">Track your entire pipeline from new lead to closed assignment — nothing falls through</div>
+    </div>
+
+    <div class="install-block">
+      <div class="install-label">Hire the Wholesale Team:</div>
+      <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s probate-hunter cash-buyer-builder comps-finder deal-analyzer skip-tracer offer-writer seller-pitch mailer-campaign assignment-contract deal-pipeline</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COMPANY 02 — NMD MORTGAGE CO. -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="company-section" id="mortgage">
+  <div class="company-header">
+    <div class="company-header-left">
+      <div class="company-cat">AI Company — Mortgage</div>
+      <h2 class="company-name">NMD Mortgage Co.</h2>
+      <p class="company-tagline">Pull qualified mortgage leads from public records and deliver them to a loan officer for a referral fee.</p>
+      <p class="company-pitch">Marco pulls pre-foreclosure homeowners, borrowers locked into 6–8% rates from 2021–2023, divorce filings where both parties need new mortgages, and probate heirs who need financing to settle an estate — all straight from county records, skip-traced for phone and email, and packaged into a clean CSV. Lena checks every property for liens before you hand the list to your referral partner. You never need a mortgage license. You just need a relationship with a loan officer and a reason to call.</p>
+    </div>
+    <div class="company-header-right">
+      <div class="rev-block">
+        <div class="rev-label">Revenue Model</div>
+        <div class="rev-value">Referral Fees</div>
+        <div class="rev-detail">$500–$2,000 per funded loan. Send the leads, collect the fee when they close. No license required.</div>
+      </div>
+      <div class="team-count">2 AI Employees</div>
+      <a href="nmd-get-started.html" class="btn-gold" style="width:100%;text-align:center;">Hire This Team →</a>
+    </div>
+  </div>
+
+  <div class="company-body">
+    <div class="employee-grid">
+      <div class="employee-card">
+        <div class="emp-name">Marco</div>
+        <div class="emp-role">Lead Hunter</div>
+        <div class="emp-skill">mortgage-lead-hunter</div>
+        <div class="emp-line">Pulls 100 qualified mortgage leads from county recorder and court records — pre-foreclosure, high-rate refi candidates, divorce filings, and probate heirs. Every lead skip-traced for phone and email.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Lena</div>
+        <div class="emp-role">Lien Investigator</div>
+        <div class="emp-skill">lien-finder</div>
+        <div class="emp-line">Runs 5 live lien checks per property — county recorder, tax assessor, UCC, state tax, and federal IRS. Delivers a full risk report before your loan officer makes the call.</div>
+      </div>
+    </div>
+
+    <div class="company-features">
+      <div class="feature-item">Pull pre-foreclosure leads from Notice of Trustee Sale filings — urgent, motivated refi candidates</div>
+      <div class="feature-item">Find borrowers locked into 6–8% rates from 2021–2023 who are prime to refinance now</div>
+      <div class="feature-item">Surface divorce filings where both parties need new mortgages or buyout loans</div>
+      <div class="feature-item">Locate probate heirs who need financing to settle an inherited property</div>
+      <div class="feature-item">Skip trace every lead for phone and email — HIGH and MEDIUM confidence only</div>
+      <div class="feature-item">Check every property for liens before the loan officer makes the call</div>
+      <div class="feature-item">Deliver a clean CSV and urgency-ranked report — ready to hand off same day</div>
+      <div class="feature-item">Track every referral from lead to funded loan — know your fee pipeline at all times</div>
+    </div>
+
+    <div class="install-block">
+      <div class="install-label">Hire the Mortgage Team:</div>
+      <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s mortgage-lead-hunter lien-finder</div>
+    </div>
+
+    <div style="margin-top:32px;border-radius:0;overflow:hidden;border:1px solid #d0ccc6;background:#0d0d0d;">
+      <div style="padding:12px 20px;background:#0d0d0d;display:flex;align-items:center;gap:10px;border-bottom:1px solid #222;">
+        <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+        <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+        <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+        <span style="font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;margin-left:8px;">Lena Live — 1346 N 41st Ave, Phoenix AZ</span>
+      </div>
+      <video autoplay muted loop playsinline style="width:100%;display:block;max-height:480px;object-fit:cover;">
+        <source src="lien-finder-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COMPANY 03 — NMD AUTO CO. -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="company-section" id="auto">
+  <div class="company-header">
+    <div class="company-header-left">
+      <div class="company-cat">AI Company — Automotive</div>
+      <h2 class="company-name">NMD Auto Co.</h2>
+      <p class="company-tagline">Work your entire dealership lead pipeline and find conquest buyers before they walk into a competitor's lot.</p>
+      <p class="company-pitch">Tony works every lead on your existing list — hot, warm, dead, denied financing — with personalized outreach calibrated to exactly where they are in the buying cycle. Lucy scans Craigslist, CarGurus, AutoTrader, OfferUp, Reddit, and Facebook Marketplace in real time and surfaces buyers who are actively looking right now. Two employees working both ends of your pipeline. You close the deals.</p>
+    </div>
+    <div class="company-header-right">
+      <div class="rev-block">
+        <div class="rev-label">Revenue Model</div>
+        <div class="rev-value">Sales Commissions</div>
+        <div class="rev-detail">More closed deals from your existing leads plus new conquest buyers found every session.</div>
+      </div>
+      <div class="team-count">2 AI Employees</div>
+      <a href="nmd-get-started.html" class="btn-gold" style="width:100%;text-align:center;">Hire This Team →</a>
+    </div>
+  </div>
+
+  <div class="company-body">
+    <div class="employee-grid">
+      <div class="employee-card">
+        <div class="emp-name">Tony</div>
+        <div class="emp-role">Car Sales AI</div>
+        <div class="emp-skill">car-sales-suite</div>
+        <div class="emp-line">Works hot, warm, and dead leads with personalized outreach for every situation. Builds full car packages with financing, trade-in, and next steps. Pulls car details from any dealership link.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Lucy</div>
+        <div class="emp-role">Lead Generator</div>
+        <div class="emp-skill">lead-gen-ai</div>
+        <div class="emp-line">Scans Craigslist, CarGurus, AutoTrader, OfferUp, Reddit, and Facebook Marketplace for buyers actively looking right now. Qualifies each lead before you reach out.</div>
+      </div>
+    </div>
+
+    <div class="company-features">
+      <div class="feature-item">Work every lead type — hot, warm, dead, denied financing — with custom outreach per situation</div>
+      <div class="feature-item">Pull full vehicle details from any dealership listing link automatically</div>
+      <div class="feature-item">Build complete car packages with financing options, trade-in estimates, and next steps</div>
+      <div class="feature-item">Scan Craigslist, CarGurus, AutoTrader, OfferUp, and Facebook Marketplace live</div>
+      <div class="feature-item">Find buyers on Reddit, X/Twitter, and subprime finance forums</div>
+      <div class="feature-item">Work denied financing leads and old dead leads who may now qualify</div>
+      <div class="feature-item">Draft iMessages and emails for your review before anything sends</div>
+      <div class="feature-item">Save all leads to a local CSV — your own lightweight CRM</div>
+    </div>
+
+    <div class="install-block">
+      <div class="install-label">Hire the Auto Team:</div>
+      <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s car-sales-suite lead-gen-ai</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COMPANY 04 — NMD MEDIA CO. -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="company-section" id="media">
+  <div class="company-header">
+    <div class="company-header-left">
+      <div class="company-cat">AI Company — Content & Marketing</div>
+      <h2 class="company-name">NMD Media Co.</h2>
+      <p class="company-tagline">Grow your audience, keep them warm, and turn consistent content into inbound leads.</p>
+      <p class="company-pitch">Stella drops content on every platform in one session — Instagram, Facebook, X, LinkedIn, blog, newsletter, and credit forums — all written in your voice, branded to your business. Noah writes your weekly email newsletter from scratch so your list never goes cold and your brand shows up every week without fail. Together they run your entire content operation. You don't have to write a word.</p>
+    </div>
+    <div class="company-header-right">
+      <div class="rev-block">
+        <div class="rev-label">Revenue Model</div>
+        <div class="rev-value">Audience & Brand</div>
+        <div class="rev-detail">Consistent content builds an audience. An audience generates inbound leads. Inbound leads convert at higher rates and cost nothing to acquire.</div>
+      </div>
+      <div class="team-count">2 AI Employees</div>
+      <a href="nmd-get-started.html" class="btn-gold" style="width:100%;text-align:center;">Hire This Team →</a>
+    </div>
+  </div>
+
+  <div class="company-body">
+    <div class="employee-grid">
+      <div class="employee-card">
+        <div class="emp-name">Stella</div>
+        <div class="emp-role">Social Media Manager</div>
+        <div class="emp-skill">social</div>
+        <div class="emp-line">Type /social and content hits every platform in one session — Instagram, Facebook, X, LinkedIn, blog, newsletter, and credit forums. Always sounds like you.</div>
+      </div>
+      <div class="employee-card">
+        <div class="emp-name">Noah</div>
+        <div class="emp-role">Newsletter Writer</div>
+        <div class="emp-skill">newsletter-ai</div>
+        <div class="emp-line">Writes your weekly branded email newsletter in your voice — subject line, preview text, full body, and CTA. Formats for Mailchimp, ConvertKit, Klaviyo, and Beehiiv.</div>
+      </div>
+    </div>
+
+    <div class="company-features">
+      <div class="feature-item">One command posts to Instagram, Facebook, X, LinkedIn, blog, newsletter, and forums simultaneously</div>
+      <div class="feature-item">Saves your brand voice profile once — every piece of content sounds like you from day one</div>
+      <div class="feature-item">Repurposes your existing content and favorite sources across every platform automatically</div>
+      <div class="feature-item">Writes full long-form SEO blog articles with /social blog</div>
+      <div class="feature-item">Weekly newsletter written in your voice — production-ready subject line, preview text, and full body</div>
+      <div class="feature-item">Formats newsletters for Mailchimp, ConvertKit, Klaviyo, and Beehiiv out of the box</div>
+      <div class="feature-item">Generates AI image prompts and video scripts for every post</div>
+      <div class="feature-item">Auto-opens browser and posts — you just confirm before anything goes live</div>
+    </div>
+
+    <div class="install-block">
+      <div class="install-label">Hire the Media Team:</div>
+      <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s social newsletter-ai</div>
+    </div>
+    <div class="install-block" style="margin-top:8px;">
+      <div class="install-label">After install — run setup once</div>
+      <div class="install-cmd"><span class="dim">> </span>/social-setup</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- COMPANY 05 — NMD CREDIT CO. -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="company-section" id="credit">
+  <div class="company-header">
+    <div class="company-header-left">
+      <div class="company-cat">AI Company — Credit Repair</div>
+      <h2 class="company-name">NMD Credit Co.</h2>
+      <p class="company-tagline">Dispute credit for yourself or your clients — every bureau, every negative item, every letter handled.</p>
+      <p class="company-pitch">Claire reads the credit report, identifies every error, late payment, collection account, and incorrect balance across all three bureaus, writes the dispute letters for Equifax, Experian, and TransUnion, generates goodwill letters for old lates, writes debt validation letters for every collection account, and tracks the 30/60/90-day windows so nothing expires. You hand her the report. She handles the rest. Run her for yourself or build a recurring client base and charge monthly.</p>
+    </div>
+    <div class="company-header-right">
+      <div class="rev-block">
+        <div class="rev-label">Revenue Model</div>
+        <div class="rev-value">Monthly Retainer</div>
+        <div class="rev-detail">$99–$299/month per client for ongoing dispute management. Or use Claire on your own credit and qualify for deals you couldn't before.</div>
+      </div>
+      <div class="team-count">1 AI Employee</div>
+      <a href="nmd-get-started.html" class="btn-gold" style="width:100%;text-align:center;">Hire Claire →</a>
+    </div>
+  </div>
+
+  <div class="company-body">
+    <div class="employee-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+      <div class="employee-card">
+        <div class="emp-name">Claire</div>
+        <div class="emp-role">Credit Repair Specialist</div>
+        <div class="emp-skill">credit-repair-ai</div>
+        <div class="emp-line">Reads your credit report across all three bureaus, identifies every dispute opportunity, writes every letter, and tracks every deadline. One employee running your entire credit dispute file.</div>
+      </div>
+    </div>
+
+    <div class="company-features">
+      <div class="feature-item">Reads credit reports from Equifax, Experian, and TransUnion — identifies every error and negative item</div>
+      <div class="feature-item">Writes bureau dispute letters for all three bureaus — formatted and ready to send</div>
+      <div class="feature-item">Generates goodwill letters for accounts with old late payments that are dragging your score</div>
+      <div class="feature-item">Writes debt validation letters for every collection account — challenges them to prove the debt</div>
+      <div class="feature-item">Tracks 30/60/90-day dispute windows so nothing expires and every response is captured</div>
+      <div class="feature-item">Saves every letter, timeline, and dispute file locally — your complete paper trail</div>
+      <div class="feature-item">Follows the NMD dispute playbook — the same system from the newsletter</div>
+      <div class="feature-item">Run for yourself to qualify for deals, or run for clients and charge a monthly retainer</div>
+    </div>
+
+    <div class="install-block">
+      <div class="install-label">Hire Claire:</div>
+      <div class="install-cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s credit-repair-ai</div>
+    </div>
+  </div>
+</section>
+
+<!-- HIRE EVERYTHING -->
+<section class="hire-section">
+  <div class="section-tag">The Full Portfolio</div>
+  <h2>All five companies.<br>One command.</h2>
+  <p>Installs every AI company — all 17 employees — to your Claude Code setup in 30 seconds. Every team is ready to work the moment the install finishes.</p>
+
+  <div class="big-cmd">
+    <div class="comment"># Hire your entire AI portfolio at once:</div>
+    <div class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash</div>
+  </div>
+
+  <div class="big-cmd">
+    <div class="comment"># Or hire just one company:</div>
+    <div class="cmd">curl -sSL https://raw.githubusercontent.com/nmdzaza/nmd-plugins/main/install.sh | bash -s mortgage-lead-hunter lien-finder</div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <a href="nmd-get-started.html" class="btn-gold">Full Setup Guide →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">NMD</div>
+  <div class="footer-right">github.com/nmdzaza/nmd-plugins · Free · Always</div>
+</footer>
+
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

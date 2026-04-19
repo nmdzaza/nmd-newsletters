@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="FICO just started scoring your Klarna, Afterpay, and Affirm payments. 33 million previously invisible Americans now have credit scores. Here's what changed and what to do.">
+  <meta name="keywords" content="FICO BNPL, buy now pay later credit score, Klarna credit score, Afterpay FICO, FICO Score 10, credit invisible, credit repair 2026">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Your Klarna & Afterpay Payments Are Now in Your FICO Score — And Most People Have No Idea | NMD">
+  <meta property="og:description" content="FICO launched FICO Score 10 BNPL. Every Klarna split, every Afterpay installment — it's in your score now. 33 million Americans who were invisible just got scored.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-fico-bnpl-scoring-33m-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your Klarna & Afterpay Payments Are Now in Your FICO Score | NMD">
+  <meta name="twitter:description" content="FICO Score 10 BNPL is live. 33M newly scored Americans. Late Afterpay payments now hurt you. Here's your playbook.">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Klarna & Afterpay Payments Are Now in Your FICO Score — And Most People Have No Idea | NMD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <!-- NMD Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K7VFHF48M5');
+  </script>
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --white: #ffffff;
+      --cream: #f5f2eb;
+      --rule: #e0dbd0;
+      --slate: #556070;
+      --gold: #c9a84c;
+      --gold-light: #fef9ec;
+      --red: #b91c1c;
+      --red-light: #fee2e2;
+      --green: #166534;
+      --green-light: #dcfce7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* PROGRESS BAR */
+    #prog {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--gold); width: 0%; z-index: 100;
+      transition: width 0.1s linear;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--ink); padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 50;
+    }
+    .header-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .header-nav-links { display: flex; gap: 24px; }
+    .header-nav-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; text-decoration: none; transition: color 0.2s; }
+    .header-nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .article-hero {
+      padding: 72px 48px 56px;
+      border-bottom: 1px solid var(--rule);
+      max-width: 860px;
+    }
+    .article-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .article-kicker::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.0;
+      color: var(--ink); margin-bottom: 24px;
+    }
+    h1 em { font-style: italic; color: var(--slate); }
+    .article-dek {
+      font-size: 18px; color: var(--slate); line-height: 1.65;
+      max-width: 620px; margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #aaa;
+      padding-top: 24px; border-top: 1px solid var(--rule);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* MAIN LAYOUT */
+    .article-wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 64px 48px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* BODY */
+    article { min-width: 0; }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700; color: var(--ink);
+      margin: 48px 0 16px; line-height: 1.2;
+    }
+    h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    p { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 20px; }
+    p strong { color: var(--ink); font-weight: 600; }
+    p em { font-style: italic; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+    /* CALLOUT BOXES */
+    .callout {
+      padding: 24px 28px; margin: 32px 0;
+      border-left: 3px solid; border-radius: 0 4px 4px 0;
+    }
+    .callout.warning { background: var(--red-light); border-color: var(--red); }
+    .callout.info { background: var(--gold-light); border-color: var(--gold); }
+    .callout.good { background: var(--green-light); border-color: #16a34a; }
+    .callout-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--red); }
+    .callout.info .callout-label { color: #92700a; }
+    .callout.good .callout-label { color: var(--green); }
+    .callout p { font-size: 14px; margin: 0; line-height: 1.65; color: #222; }
+
+    /* PULL QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px; margin: 36px 0;
+      background: #fff;
+    }
+    blockquote p {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--ink); line-height: 1.5; margin: 0;
+    }
+
+    /* IMPACT TABLE */
+    .impact-table { width: 100%; border-collapse: collapse; margin: 28px 0; }
+    .impact-table th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      background: var(--ink); color: #fff; padding: 12px 16px; text-align: left;
+    }
+    .impact-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid var(--rule); color: #333; }
+    .impact-table tr:last-child td { border-bottom: none; }
+    .impact-table tr:nth-child(even) td { background: #fff; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+    .tag.red { background: var(--red-light); color: var(--red); }
+    .tag.yellow { background: var(--gold-light); color: #92700a; }
+    .tag.green { background: var(--green-light); color: var(--green); }
+
+    /* ACTION LIST */
+    .action-list { list-style: none; margin: 24px 0; }
+    .action-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--rule);
+      font-size: 15px; color: #333; line-height: 1.6;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      font-family: 'Fraunces', serif; font-size: 22px; font-weight: 900;
+      color: var(--gold); flex-shrink: 0; line-height: 1.1; width: 28px;
+    }
+
+    /* CTA BOX */
+    .cta-box {
+      background: var(--ink); border-radius: 4px;
+      padding: 40px 36px; margin: 48px 0; text-align: center;
+    }
+    .cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .cta-box h2 {
+      font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700; color: #fff; margin: 0 0 14px; line-height: 1.3;
+    }
+    .cta-box p { font-size: 14px; color: #aaa; margin-bottom: 28px; line-height: 1.6; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-btn {
+      display: inline-block; padding: 12px 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn.primary { background: var(--gold); color: #fff; }
+    .cta-btn.secondary { background: transparent; border: 1px solid #444; color: #aaa; }
+
+    /* SHARE STRIP */
+    .share-strip {
+      display: flex; align-items: center; gap: 16px;
+      padding: 28px 0; border-top: 1px solid var(--rule); flex-wrap: wrap;
+    }
+    .share-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 1px solid; cursor: pointer;
+      background: none; font-family: inherit;
+    }
+    .share-btn.x-btn { color: #fff; background: #000; border-color: #000; }
+    .share-btn.x-btn:hover { background: #1a1a1a; }
+    .share-btn.copy-btn { color: #111; background: var(--cream); border-color: #ccc; }
+    .share-btn.copy-btn:hover { border-color: #999; }
+    .share-btn.copy-btn.copied { color: var(--gold); border-color: var(--gold); }
+    .share-tg-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; font-size: 12px; font-weight: 600;
+      text-decoration: none; color: #fff; background: #0088cc; border: 1px solid #0088cc;
+    }
+    .share-tg-btn:hover { background: #0077bb; }
+
+    /* ARTICLE SUBSCRIBE */
+    .article-subscribe {
+      background: var(--ink); padding: 48px 40px; margin: 48px 0 0;
+    }
+    .as-tag {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .as-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    .as-headline { font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .as-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .as-row { display: flex; max-width: 480px; }
+    .as-input {
+      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+      color: #fff; padding: 13px 16px; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .as-input:focus { border-color: #555; }
+    .as-input::placeholder { color: #444; }
+    .as-input.error { border-color: #c00; }
+    .as-btn {
+      background: var(--gold); color: #111; border: none;
+      padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .as-btn:hover { background: #e0c060; }
+    .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+    .as-confirm { display: none; font-size: 13px; color: var(--gold); font-weight: 600; padding: 12px 0 0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; }
+    .sidebar-card {
+      background: #fff; border: 1px solid var(--rule);
+      padding: 28px 24px; margin-bottom: 20px;
+    }
+    .sidebar-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa; margin-bottom: 16px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar-link {
+      font-size: 13px; color: var(--ink); text-decoration: none;
+      line-height: 1.4; transition: color 0.2s; padding-left: 12px;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-link:hover { color: var(--gold); border-color: var(--gold); }
+    .sidebar-cta {
+      background: var(--ink); padding: 28px 24px;
+    }
+    .sidebar-cta-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .sidebar-cta h4 {
+      font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700;
+      color: #fff; margin-bottom: 10px; line-height: 1.3;
+    }
+    .sidebar-cta p { font-size: 12px; color: #666; margin-bottom: 18px; line-height: 1.6; }
+    .sidebar-cta-btn {
+      display: block; text-align: center; background: var(--gold);
+      color: #111; text-decoration: none; padding: 12px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .sidebar-cta-btn:hover { background: #e0c060; }
+
+    /* STAT HIGHLIGHT */
+    .stat-block {
+      background: var(--ink); padding: 28px 32px; margin: 32px 0;
+      display: flex; gap: 32px; flex-wrap: wrap;
+    }
+    .stat-item { text-align: center; flex: 1; min-width: 120px; }
+    .stat-number {
+      font-family: 'Fraunces', serif; font-size: 48px; font-weight: 900;
+      color: var(--gold); line-height: 1; display: block;
+    }
+    .stat-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #666; margin-top: 8px; display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); border-top: 1px solid #1a1a1a;
+      padding: 40px 48px; margin-top: 0;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 16px; letter-spacing: 4px; color: #fff; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: #444; text-decoration: none; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 11px; color: #333; margin-top: 16px;
+      max-width: 1100px; margin: 16px auto 0; text-align: center; }
+
+    @media (max-width: 768px) {
+      header { padding: 16px 24px; }
+      .header-nav-links { display: none; }
+      .article-hero { padding: 48px 24px 40px; }
+      .article-wrap { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .sidebar { position: static; }
+      footer { padding: 32px 24px; }
+      .stat-block { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="prog"></div>
+
+  <header>
+    <a class="header-brand" href="index.html">NMD ZAZA</a>
+    <nav class="header-nav-links">
+      <a href="index.html">Intel</a>
+      <a href="nmd-blog.html">Blog</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="https://t.me/ScoreBoostByNMDBot">Fix My Credit</a>
+    </nav>
+  </header>
+
+  <div class="article-hero">
+    <div class="article-kicker">Credit Score Alert &mdash; March 17, 2026 &middot; FICO &amp; BNPL</div>
+    <h1>Your Klarna &amp; Afterpay Payments Are Now in Your FICO Score &mdash; <em>And Most People Have No Idea</em></h1>
+    <p class="article-dek">FICO quietly launched a scoring model that tracks every Buy Now Pay Later installment. Miss one payment and your score takes a hit. Make them all on time and 33 million previously invisible Americans suddenly have credit scores. The rules changed — did anyone tell you?</p>
+    <div class="article-meta">
+      <span>By NMD ZAZA &mdash; The Credit Goat</span>
+      <span>March 17, 2026</span>
+      <span>7 min read</span>
+    </div>
+  </div>
+
+  <div class="article-wrap">
+    <article>
+
+      <p>Most people think of their FICO score as the product of credit cards, car loans, and maybe a mortgage. You pay your bills, you build credit. You miss payments, you hurt it. Simple.</p>
+
+      <p>That model just got a major update — and it's playing out in real time while most consumers are completely unaware.</p>
+
+      <p><strong>FICO has officially launched FICO Score 10 BNPL.</strong> Buy Now Pay Later providers — Klarna, Afterpay, Affirm — are now feeding payment data directly into the scoring model. Every four-payment installment you run on a $60 online order is being tracked. Every split purchase on your phone. All of it.</p>
+
+      <p>If you've been treating BNPL like free money with zero consequences, the game just changed on you.</p>
+
+      <div class="stat-block">
+        <div class="stat-item">
+          <span class="stat-number">33M</span>
+          <span class="stat-label">Previously "credit invisible" Americans now getting FICO scores</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Major BNPL providers now reporting to FICO (Klarna, Afterpay, Affirm)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2yr</span>
+          <span class="stat-label">Behavior window FICO 10 analyzes — not just a current snapshot</span>
+        </div>
+      </div>
+
+      <h2>What FICO Score 10 BNPL Actually Does</h2>
+
+      <p>FICO Score 10 isn't new — it's been the industry's most advanced model for a few years. But the BNPL extension is a major expansion. Here's what it does differently:</p>
+
+      <p><strong>It scores your installment payment behavior across BNPL apps.</strong> Klarna, Afterpay, and Affirm are the first three providers integrated into the model. That means when you split a purchase into four payments, FICO is now tracking whether you pay on time, whether you pay in full, and whether you default.</p>
+
+      <p>Previously, BNPL existed in a gray zone. Most providers didn't report to bureaus. Consumers could miss BNPL payments without direct credit score consequences. That gray zone is gone.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">Direct Impact</div>
+        <p>A single missed Klarna payment can now drop your FICO score just like a missed credit card payment. BNPL is no longer consequence-free credit.</p>
+      </div>
+
+      <h2>The 33 Million Nobody Is Talking About</h2>
+
+      <p>Here's the other half of the story — and it's actually good news for a lot of people.</p>
+
+      <p>Alongside the BNPL scoring change, FICO announced that an estimated <strong>33 million Americans who were previously "credit invisible"</strong> will now receive FICO scores. These are people who had thin or no traditional credit files — no credit cards, no auto loans, no mortgage history — but who did have BNPL activity.</p>
+
+      <p>If you've been responsible with your Afterpay account and splitting purchases on time, you may have just earned yourself a score you never had before. That score can open doors to credit cards, car loans, and eventually mortgages that were previously out of reach.</p>
+
+      <blockquote>
+        <p>"For millions of Americans, the on-ramp to credit just opened for the first time — through apps they were already using."</p>
+      </blockquote>
+
+      <p>But here's the catch: it cuts both ways. If you've been using BNPL carelessly — missing payments, defaulting on split purchases — you just went from invisible to negatively scored. The system now sees you, and what it sees isn't good.</p>
+
+      <h2>The Mortgage Trap You Didn't See Coming</h2>
+
+      <p>Here's where it gets more complicated for people actively working on their credit.</p>
+
+      <p>FICO Score 10 doesn't just take a snapshot of where you are right now. It analyzes <strong>24 months of credit behavior trends.</strong> That means a client who cleaned up their act 12 months ago can still have the damage from 24 months ago pulling their score down — because the model looks at the arc of your behavior, not just the current position.</p>
+
+      <p>If you're trying to qualify for a mortgage in 2026 and your lender is using FICO 10 or VantageScore 4.0, they're not just looking at where you are. They're looking at where you've been. A recovering client with 18 months of good behavior can still score lower than their current file would suggest because of the trend data.</p>
+
+      <div class="callout info">
+        <div class="callout-label">For Credit Repair Clients</div>
+        <p>If you started cleaning up 12–18 months ago, you may be scoring lower than expected on FICO 10 models. This is normal — the 2-year trend window is still carrying older negative behavior. Give it time and keep the clean streak running. The model will catch up.</p>
+      </div>
+
+      <h2>What BNPL Apps Are Actually Reporting Now</h2>
+
+      <table class="impact-table">
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Reporting Status</th>
+            <th>What Gets Scored</th>
+            <th>Risk Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Klarna</td>
+            <td><span class="tag green">Active</span></td>
+            <td>Payment history, on-time rate, defaults</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td>Afterpay</td>
+            <td><span class="tag green">Active</span></td>
+            <td>Payment history, installment behavior</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td>Affirm</td>
+            <td><span class="tag green">Active</span></td>
+            <td>Payment history, loan completion rate</td>
+            <td><span class="tag red">High</span></td>
+          </tr>
+          <tr>
+            <td>PayPal Pay Later</td>
+            <td><span class="tag yellow">Pending</span></td>
+            <td>Integration in progress</td>
+            <td><span class="tag yellow">Watch</span></td>
+          </tr>
+          <tr>
+            <td>Apple Pay Later</td>
+            <td><span class="tag yellow">Pending</span></td>
+            <td>Integration announced</td>
+            <td><span class="tag yellow">Watch</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Your Action Plan — Right Now</h2>
+
+      <ul class="action-list">
+        <li>
+          <span class="action-num">1</span>
+          <div><strong>Audit every BNPL account you have.</strong> Log into Klarna, Afterpay, and Affirm and check your payment history. Any missed or late payments in the last 24 months are now in play. Dispute any errors immediately.</div>
+        </li>
+        <li>
+          <span class="action-num">2</span>
+          <div><strong>Set up autopay on all BNPL accounts today.</strong> There is no excuse for a missed installment now that it directly impacts your FICO score. Four payments of $15 is not worth a 30-point drop. Set autopay and move on.</div>
+        </li>
+        <li>
+          <span class="action-num">3</span>
+          <div><strong>Check if you now have a score you didn't have before.</strong> If you were credit invisible and have been using BNPL responsibly, pull your score today. You may have just unlocked a starting point for building full credit history.</div>
+        </li>
+        <li>
+          <span class="action-num">4</span>
+          <div><strong>Tell your credit repair clients immediately.</strong> If you work in credit repair, your clients need to know that BNPL behavior is now scored. This changes the conversation around "safe" credit tools significantly.</div>
+        </li>
+        <li>
+          <span class="action-num">5</span>
+          <div><strong>Use ScoreBoost to monitor what's actually hitting your report.</strong> The landscape changed. You need a system that tracks what's being reported in real time — not a quarterly check-in. ScoreBoost was built for exactly this.</div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>The Bigger Picture: Credit Scoring Is Expanding Fast</h2>
+
+      <p>BNPL scoring isn't happening in isolation. It's part of a broader shift in how creditworthiness is measured in 2026. Alongside the BNPL changes, mortgage lenders are transitioning from FICO 8 to FICO 10 and VantageScore 4.0 — models that also incorporate rent, utility, and telecom payment data.</p>
+
+      <p>For the first time, a person who has been paying rent on time for five years, never missed a utility bill, and split their purchases responsibly through Afterpay can walk into a mortgage conversation with a real score — even if they've never held a traditional credit card.</p>
+
+      <p>That's a genuine win for millions of people who were locked out of the system. But it only works if you know the rules have changed.</p>
+
+      <p><strong>The people who don't know? They're about to get scored on behavior they thought was invisible.</strong> A few months of careless BNPL use — a missed Klarna payment here, a defaulted Affirm loan there — is now the kind of thing that shows up when you apply for an apartment or a car loan.</p>
+
+      <p>The credit system is watching more closely than ever. The only question is whether you're watching back.</p>
+
+      <div class="cta-box">
+        <div class="cta-label">ScoreBoost by NMD ZAZA</div>
+        <h2>The Score Rules Changed. Your System Needs to Keep Up.</h2>
+        <p>BNPL is scored. Rent is scored. Utilities are scored. ScoreBoost monitors what's hitting your credit file in real time — so you're never surprised by a score drop again. Start for free on Telegram.</p>
+        <div class="cta-links">
+          <a class="cta-btn primary" href="https://t.me/ScoreBoostByNMDBot">Start ScoreBoost Free</a>
+          <a class="cta-btn secondary" href="https://nmdzaza.github.io/nmd-newsletters/">Read More Intel</a>
+        </div>
+      </div>
+
+      <div class="share-strip">
+        <span class="share-label">Share</span>
+        <a class="share-btn x-btn" href="https://twitter.com/intent/tweet?text=Your%20Klarna%20%26%20Afterpay%20payments%20are%20now%20in%20your%20FICO%20score.%2033M%20Americans%20just%20got%20scored%20for%20the%20first%20time.%20%40nmdzaza%20breaks%20it%20down%3A%20https%3A%2F%2Fnmdzaza.github.io%2Fnmd-newsletters%2Fnmd-fico-bnpl-scoring-33m-2026.html" target="_blank" rel="noopener">Share on X</a>
+        <a class="share-tg-btn" href="https://t.me/ScoreBoostByNMDBot" target="_blank" rel="noopener">Get on Telegram</a>
+        <button class="share-btn copy-btn" onclick="copyLink(this)">Copy Link</button>
+      </div>
+
+      <div class="article-subscribe">
+        <div class="as-tag">NMD Credit Intel</div>
+        <div class="as-headline">Stay Ahead of Every Score Change</div>
+        <div class="as-desc">Credit rules change fast. Get NMD's breakdowns in your inbox — no spam, no filler, just what matters for your score.</div>
+        <div class="as-row">
+          <input class="as-input" type="email" placeholder="your@email.com" id="asEmail">
+          <button class="as-btn" id="asBtn" onclick="handleSubscribe()">Subscribe</button>
+        </div>
+        <div class="as-confirm" id="asConfirm">You're in. NMD Intel lands in your inbox next drop.</div>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">Also This Week</div>
+        <div class="sidebar-links">
+          <a class="sidebar-link" href="nmd-medicaid-cuts-credit-bomb-2026.html">The Medicaid Credit Bomb: $50B in New Debt Is Coming</a>
+          <a class="sidebar-link" href="nmd-bureaus-1pct-complaints-2026.html">Credit Bureaus Now Resolving Less Than 1% of Complaints</a>
+          <a class="sidebar-link" href="nmd-wells-fargo-cares-settlement-2026.html">Wells Fargo $56.85M FCRA Settlement — Deadline March 25</a>
+          <a class="sidebar-link" href="nmd-idmerit-billion-records-breach-2026.html">1 Billion Identity Records Exposed — IDMerit Breach</a>
+          <a class="sidebar-link" href="nmd-student-loan-garnishment-2026.html">Student Loan Wage Garnishments Resume — What to Do</a>
+        </div>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">NMD Solutions</div>
+        <h4>AI Tools for Businesses That Move Fast</h4>
+        <p>We build AI employees for real estate teams, car dealerships, law firms, and more. Full automation suites — done for you.</p>
+        <a class="sidebar-cta-btn" href="https://nmdzaza.github.io/nmd-solutions/">See What We Build</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">NMD ZAZA</div>
+      <div class="footer-links">
+        <a href="index.html">Intel</a>
+        <a href="nmd-blog.html">Blog</a>
+        <a href="nmd-tools.html">Tools</a>
+        <a href="nmd-about.html">About</a>
+        <a href="nmd-legal.html">Legal</a>
+        <a href="nmd-privacy.html">Privacy</a>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2026 NMD ZAZA. Credit intelligence for people who play offense.</div>
+  </footer>
+
+  <script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const d = document.documentElement;
+      const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+      document.getElementById('prog').style.width = pct + '%';
+    });
+
+    function copyLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        btn.classList.add('copied');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.classList.remove('copied'); btn.textContent = 'Copy Link'; }, 2000);
+      });
+    }
+
+    function handleSubscribe() {
+      const input = document.getElementById('asEmail');
+      const btn = document.getElementById('asBtn');
+      const confirm = document.getElementById('asConfirm');
+      const email = input.value.trim();
+      if (!email || !email.includes('@')) { input.classList.add('error'); return; }
+      input.classList.remove('error');
+      btn.disabled = true;
+      btn.textContent = 'Done';
+      confirm.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

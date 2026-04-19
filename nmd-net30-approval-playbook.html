@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net 30 Approval Playbook — Build a Fundable Business Credit Profile in 60 Days — NMD Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #f5f0e8; max-width: 720px; margin: 0 auto; padding: 0; }
+    header { background: #0d0d0d; padding: 28px 48px; border-bottom: 1px solid #1e1e1e; display: flex; align-items: center; justify-content: space-between; }
+    .logo-nmd { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 6px; color: #fff; text-transform: uppercase; text-decoration: none; }
+    .logo-sub { font-size: 9px; letter-spacing: 4px; color: #444; text-transform: uppercase; margin-top: 2px; }
+    .back-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: #34d399; }
+
+    .article-wrap { padding: 56px 48px 80px; }
+
+    .section-label {
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: #34d399; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: #34d399; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900; line-height: 1.1;
+      color: #fff; margin-bottom: 24px;
+    }
+
+    .lede {
+      font-size: 19px; color: #34d399; line-height: 1.55;
+      border-left: 3px solid #34d399; padding-left: 18px;
+      margin-bottom: 40px;
+    }
+
+    p { font-size: 16px; line-height: 1.75; margin-bottom: 20px; color: #c8c3ba; }
+    strong { color: #fff; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: #fff; margin: 44px 0 16px; }
+    .divider { border: none; border-top: 1px solid #1e1e1e; margin: 36px 0; }
+
+    /* BUSINESS CREDIT BUILDERS — action-oriented, playbook / checklist style */
+    .phase-header {
+      background: #34d399; color: #000;
+      padding: 14px 20px; margin: 40px 0 0;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .phase-num { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; }
+    .phase-title { font-size: 16px; font-weight: 700; flex: 1; }
+    .phase-time { font-size: 11px; font-weight: 600; opacity: 0.7; }
+
+    .phase-body { background: #111; border: 1px solid #1e1e1e; border-top: none; padding: 24px 24px 8px; margin-bottom: 8px; }
+
+    /* VENDOR CARDS */
+    .vendor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+    .vendor-card { background: #0a0a0a; border: 1px solid #1e1e1e; padding: 18px 16px; position: relative; }
+    .vendor-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #34d399; }
+    .vendor-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .vendor-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .vendor-tag { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; background: #1a1a1a; color: #555; }
+    .vendor-tag.reports { color: #34d399; background: rgba(52,211,153,0.1); }
+    .vendor-tag.easy { color: #c9a84c; background: rgba(201,168,76,0.1); }
+    .vendor-notes { font-size: 12px; color: #666; line-height: 1.55; }
+
+    /* CHECKLIST ITEMS */
+    .checklist { list-style: none; margin: 16px 0; }
+    .checklist li {
+      display: flex; gap: 14px; padding: 12px 0;
+      border-bottom: 1px solid #111; align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-box {
+      width: 20px; height: 20px; border: 2px solid #34d399;
+      flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center;
+    }
+    .check-content { flex: 1; }
+    .check-action { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .check-detail { font-size: 13px; color: #777; line-height: 1.55; }
+    .check-tag { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #34d399; margin-top: 6px; }
+
+    /* WHAT THEY CHECK */
+    .requirement-list { list-style: none; margin: 20px 0; }
+    .req-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #111; font-size: 14px; color: #888; align-items: flex-start; line-height: 1.6; }
+    .req-item:last-child { border-bottom: none; }
+    .req-check { color: #34d399; font-size: 16px; flex-shrink: 0; }
+    .req-text strong { color: #fff; }
+
+    /* MILESTONE TRACKER */
+    .milestones { margin: 28px 0; }
+    .milestone { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #111; align-items: flex-start; }
+    .milestone:last-child { border-bottom: none; }
+    .milestone-day { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #34d399; width: 60px; flex-shrink: 0; padding-top: 2px; }
+    .milestone-content { flex: 1; }
+    .milestone-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .milestone-body { font-size: 13px; color: #777; line-height: 1.55; }
+
+    .warning-box {
+      background: #0f1a12; border: 1px solid #1e3a24;
+      border-left: 3px solid #34d399; padding: 18px 22px; margin: 24px 0;
+    }
+    .warning-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #34d399; margin-bottom: 8px; }
+    .warning-text { font-size: 14px; color: #888; line-height: 1.65; }
+
+    .cta-box { background: #111; border: 1px solid #34d399; padding: 28px 32px; margin: 40px 0; }
+    .cta-box strong { font-size: 17px; display: block; margin-bottom: 10px; color: #fff; }
+    .cta-box p { font-size: 14px; color: #888; margin: 0; }
+    .cta-box a { color: #34d399; }
+
+    .signoff { font-size: 15px; color: #666; margin-top: 40px; padding-top: 24px; border-top: 1px solid #1e1e1e; }
+    .signoff strong { color: #c9a84c; }
+
+    footer { background: #000; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #333; }
+    .footer-right { display: flex; gap: 24px; }
+    .footer-right a { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #333; text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: #34d399; }
+
+    @media (max-width: 640px) {
+      header, .article-wrap, footer { padding-left: 24px; padding-right: 24px; }
+      .vendor-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <header>
+    <div>
+      <a href="index.html" class="logo-nmd">NMD</a>
+      <div class="logo-sub">No Money Down · Credit Intelligence</div>
+    </div>
+    <a href="index.html" class="back-link">← All Newsletters</a>
+  </header>
+
+  <div class="article-wrap">
+
+    <div class="section-label">Business Credit Builders · Playbook</div>
+
+    <h1>Net 30 approval playbook — a fundable business credit profile in 60 days.</h1>
+
+    <div class="lede">
+      Zero business credit history to a file lenders can actually see — in 60 days. Not theory. A step-by-step execution playbook using vendor accounts that report to D&amp;B, Experian Business, and Equifax. Start on day one.
+    </div>
+
+    <p>Net 30 vendor accounts are the foundational layer of every serious business credit build. They're interest-free trade credit — you purchase supplies or services, you have 30 days to pay, and the vendor reports your payment behavior to the business credit bureaus. Five of these reporting on-time can establish your D&amp;B PAYDEX file from scratch.</p>
+
+    <p>The goal is simple: <strong>get 5 vendor tradelines reporting before you approach any business lender.</strong> This playbook shows you exactly how.</p>
+
+    <hr class="divider">
+
+    <!-- PHASE 1 -->
+    <div class="phase-header">
+      <span class="phase-num">Phase 01</span>
+      <span class="phase-title">Foundation Setup — Before You Apply for Anything</span>
+      <span class="phase-time">Days 1–7</span>
+    </div>
+    <div class="phase-body">
+      <p style="margin-top:16px;">Every vendor approval depends on what your business looks like on paper. Get this right before you fill out a single application.</p>
+      <ul class="checklist">
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Active business entity with EIN</div>
+            <div class="check-detail">LLC or corporation filed with your state. Active status. EIN from the IRS — not your SSN. Vendors run EIN checks. A sole proprietor gets flagged differently than an LLC.</div>
+            <span class="check-tag">Required for all vendor applications</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Dedicated business address</div>
+            <div class="check-detail">A business address that matches your state filing. Your home address works if it matches your LLC registration. PO boxes are acceptable for some vendors. Virtual office addresses also work — verify your LLC filing matches whatever you use.</div>
+            <span class="check-tag">Consistency across all applications is key</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Business phone number and email</div>
+            <div class="check-detail">A dedicated business phone number (not your personal cell) and a business email (yourname@yourbusiness.com, not Gmail). These signal legitimacy during the KYB — know your business — verification vendors run.</div>
+          </div>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">D-U-N-S number registered</div>
+            <div class="check-detail">Register at dnb.com for free. This is your business's credit identity at Dun &amp; Bradstreet. All vendor payment reports will attach to this number. Without it, payment data may not reach your credit file even if the vendor reports.</div>
+            <span class="check-tag">Free at dnb.com — skip paid services</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Business checking account with matching address</div>
+            <div class="check-detail">Open a dedicated business bank account. The address on the account must match your LLC registration. Many vendors verify this. Minimum 30 days of account age before applying is ideal.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-header">
+      <span class="phase-num">Phase 02</span>
+      <span class="phase-title">Apply to Tier 1 Vendors — Easy Approval, Immediate Reporting</span>
+      <span class="phase-time">Days 7–14</span>
+    </div>
+    <div class="phase-body">
+      <p style="margin-top:16px;">Start with vendors known for approving new business files with minimal history. These are your first tradelines. Apply to all of these within the same 1–2 week window.</p>
+      <div class="vendor-grid">
+        <div class="vendor-card">
+          <div class="vendor-name">Quill.com</div>
+          <div class="vendor-tags">
+            <span class="vendor-tag reports">Reports D&amp;B</span>
+            <span class="vendor-tag easy">Easy Approval</span>
+          </div>
+          <div class="vendor-notes">Office supplies. Apply online. Net 30 terms. Frequently approved for new business files. Reports payment data to D&amp;B monthly.</div>
+        </div>
+        <div class="vendor-card">
+          <div class="vendor-name">Uline</div>
+          <div class="vendor-tags">
+            <span class="vendor-tag reports">Reports D&amp;B</span>
+            <span class="vendor-tag easy">Easy Approval</span>
+          </div>
+          <div class="vendor-notes">Shipping and packaging supplies. One of the most commonly recommended first-tier vendors. Consistent reporting to D&amp;B.</div>
+        </div>
+        <div class="vendor-card">
+          <div class="vendor-name">Grainger</div>
+          <div class="vendor-tags">
+            <span class="vendor-tag reports">Reports D&amp;B</span>
+            <span class="vendor-tag reports">Reports Experian Biz</span>
+          </div>
+          <div class="vendor-notes">Industrial supplies and safety equipment. Approves new files. Reports to multiple bureaus — more impact per account.</div>
+        </div>
+        <div class="vendor-card">
+          <div class="vendor-name">Crown Office Supplies</div>
+          <div class="vendor-tags">
+            <span class="vendor-tag reports">Reports D&amp;B</span>
+            <span class="vendor-tag easy">Easy Approval</span>
+          </div>
+          <div class="vendor-notes">Specifically designed for business credit building. Approves new EINs. Consistent monthly reporting. A standard first-tier account.</div>
+        </div>
+        <div class="vendor-card">
+          <div class="vendor-name">Summa Office Supplies</div>
+          <div class="vendor-tags">
+            <span class="vendor-tag reports">Reports D&amp;B</span>
+            <span class="vendor-tag easy">No Min Req.</span>
+          </div>
+          <div class="vendor-notes">Office products with net 30 terms. No minimum purchase required. Accessible for early-stage business files with minimal history.</div>
+        </div>
+        <div class="vendor-card">
+          <div class="vendor-name">The CEO Creative</div>
+          <div class="vendor-tags">
+            <span class="vendor-tag reports">Reports D&amp;B</span>
+            <span class="vendor-tag reports">Reports Equifax Biz</span>
+          </div>
+          <div class="vendor-notes">Business marketing supplies and branded merchandise. Reports to both D&amp;B and Equifax Business — helping build your file across two bureaus.</div>
+        </div>
+      </div>
+      <div class="warning-box">
+        <div class="warning-label">Critical: Verify They Report</div>
+        <div class="warning-text">Vendor reporting policies change. Before you apply, confirm the vendor currently reports to at least one of the three major business credit bureaus. Contact their accounts receivable team and ask directly: "Do you report payment history to Dun &amp; Bradstreet, Experian Business, or Equifax Business?" If they can't confirm it, move on.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-header">
+      <span class="phase-num">Phase 03</span>
+      <span class="phase-title">Make Purchases and Pay Early</span>
+      <span class="phase-time">Days 14–45</span>
+    </div>
+    <div class="phase-body" style="padding-bottom:24px;">
+      <p style="margin-top:16px;">This is where most people make the mistake. They open the accounts and then don't know how to optimize the payment behavior for maximum score impact.</p>
+      <ul class="requirement-list">
+        <li class="req-item">
+          <span class="req-check">✓</span>
+          <span class="req-text"><strong>Buy something — even small.</strong> Make a real purchase through each account. Stationery, cleaning supplies, shipping materials — whatever the vendor sells. The purchase activates the account and starts the payment clock.</span>
+        </li>
+        <li class="req-item">
+          <span class="req-check">✓</span>
+          <span class="req-text"><strong>Pay 10–15 days early.</strong> Net 30 means you have 30 days to pay. Pay on day 15. This targets the 85–90 PAYDEX range instead of 80. Early payment is directly reflected in your score — and it compounds.</span>
+        </li>
+        <li class="req-item">
+          <span class="req-check">✓</span>
+          <span class="req-text"><strong>Never go past due — ever.</strong> A single 30-day late payment on a thin business file can drop your PAYDEX from 80 to below 60. Calendar every due date before you apply. Automate payment if possible.</span>
+        </li>
+        <li class="req-item">
+          <span class="req-check">✓</span>
+          <span class="req-text"><strong>Make at least 2 purchase cycles per account.</strong> One payment is a data point. Two consistent on-time payments is a pattern. Lenders and bureaus treat repeated positive history differently than a single transaction.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase-header">
+      <span class="phase-num">Phase 04</span>
+      <span class="phase-title">Verify Your File — Then Expand</span>
+      <span class="phase-time">Days 45–60</span>
+    </div>
+    <div class="phase-body" style="padding-bottom:24px;">
+      <p style="margin-top:16px;">After 45 days of payments, your business credit file should be forming. Check it and verify the data landed correctly before you approach any lender.</p>
+      <ul class="checklist">
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Check your D&amp;B file — confirm all vendors reported</div>
+            <div class="check-detail">Go to Dun &amp; Bradstreet and access your business credit file. Verify that each vendor account is showing in your file with payment history. If a vendor isn't showing up, contact them directly and ask them to verify your account is being reported.</div>
+          </div>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Check your PAYDEX score</div>
+            <div class="check-detail">With 3–5 accounts reporting early payment over 45–60 days, your PAYDEX should be approaching or at 80+. If it's lower than expected, verify: are all accounts reporting? Is your DUNS number attached correctly to all tradelines?</div>
+            <span class="check-tag">Target: 80+ before any bank or SBA application</span>
+          </div>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Dispute any errors immediately</div>
+            <div class="check-detail">Wrong payment dates, accounts linked to wrong DUNS, duplicate entries — these errors happen and they're fixable. D&amp;B has a dispute process. Fix errors before you apply for financing or they'll hurt you during underwriting.</div>
+          </div>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <div class="check-content">
+            <div class="check-action">Apply for Tier 2 vendors and business credit cards</div>
+            <div class="check-detail">With a documented PAYDEX score and 5 tradelines, you're now ready for Tier 2 vendor terms (net 30–60 with higher limits) and business credit cards that report to bureaus. This is where your credit limits start growing significantly.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Your milestone map.</h2>
+
+    <div class="milestones">
+      <div class="milestone">
+        <div class="milestone-day">Day 7</div>
+        <div class="milestone-content">
+          <div class="milestone-title">Foundation complete</div>
+          <div class="milestone-body">Entity active, EIN confirmed, DUNS registered, business bank account open, all application info consistent.</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-day">Day 14</div>
+        <div class="milestone-content">
+          <div class="milestone-title">5 vendor accounts open</div>
+          <div class="milestone-body">All Tier 1 vendors applied to. Accounts approved and first purchases made. Payment dates calendared.</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-day">Day 30</div>
+        <div class="milestone-content">
+          <div class="milestone-title">First payment cycle complete</div>
+          <div class="milestone-body">All invoices paid 10–15 days early. First reporting cycle should hit D&amp;B within 30–45 days of payment.</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-day">Day 45</div>
+        <div class="milestone-content">
+          <div class="milestone-title">File verification</div>
+          <div class="milestone-body">Check D&amp;B. Verify all 5 vendors reported. Check PAYDEX. Dispute any errors. Second purchase cycle in progress.</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-day">Day 60</div>
+        <div class="milestone-content">
+          <div class="milestone-title">PAYDEX 80+ — ready to approach lenders</div>
+          <div class="milestone-body">5 tradelines reporting. PAYDEX in target range. Business bank account with 60 days of history. Apply for business credit cards and begin the funding conversation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <strong>Want the full vendor list + business credit card sequence for after day 60?</strong>
+      <p>Complete build system in the community: <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Join Telegram ↗</a><br>
+      Personal credit cleanup running in parallel: <a href="https://credit-dispute-colle-6tyb.bolt.host/" target="_blank">Dispute Tool ↗</a></p>
+    </div>
+
+    <div class="signoff">
+      Stay locked in — <strong>Za | NMD ZAZA 🐐</strong>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">NMD ZAZA · The Credit Goat 🐐</span>
+    <div class="footer-right">
+      <a href="index.html">← All Newsletters</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/" target="_blank">Gumroad</a>
+    </div>
+  </footer>
+  <script src="nmd-effects.js"></script>
+</body>
+</html>

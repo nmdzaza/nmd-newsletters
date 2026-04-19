@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="UFfKJcFR44U2NPuVke-ZPsdjFRGPoS6vuGmr5j-_5OA">
+  <meta name="description" content="TransUnion just dropped VantageScore 4.0 to $0.99 for mortgage lenders. FICO charges $10. The math is forcing a switch — and if your rent shows up in VantageScore's model, you could score higher than you think.">
+  <meta name="keywords" content="VantageScore 4.0, FICO vs VantageScore, mortgage credit score, credit score 2026, VantageScore mortgage, FICO 10T, credit score war, NMD credit">
+  <meta name="author" content="NMD ZAZA — The Credit Goat">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Mortgage Score War Is Over — VantageScore 4.0 Just Beat FICO on Price">
+  <meta property="og:description" content="TransUnion dropped VantageScore 4.0 to $0.99. FICO charges $10. Lenders are switching — and if your rent payments are on time, you might score higher than you think under the new model.">
+  <meta property="og:url" content="https://nmdzaza.github.io/nmd-newsletters/nmd-vantagescore-mortgage-war-2026.html">
+  <meta property="og:site_name" content="NMD — Credit Intelligence">
+  <meta property="og:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Mortgage Score War Is Over — VantageScore 4.0 Just Beat FICO on Price">
+  <meta name="twitter:description" content="TransUnion dropped VantageScore 4.0 to $0.99. FICO charges $10. Lenders are switching — and if your rent payments are on time, you might score higher than you think under the new model.">
+  <meta name="twitter:image" content="https://nmdzaza.github.io/nmd-newsletters/og-image.png">
+  <meta name="twitter:site" content="@nmdzaza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Mortgage Score War: VantageScore 4.0 at $0.99 vs. FICO at $10 — NMD Credit Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; background: #1a1a1a; color: #f5f0e8; max-width: 680px; margin: 0 auto; padding: 40px 20px; }
+    .alert-bar { background: #1d4ed8; color: #fff; text-align: center; padding: 10px 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; margin: -40px -20px 30px; }
+    .header { text-align: center; border-bottom: 2px solid #c9a84c; padding-bottom: 20px; margin-bottom: 30px; }
+    .brand { font-size: 24px; font-weight: bold; color: #c9a84c; letter-spacing: 3px; font-family: 'Inter', sans-serif; }
+    .tagline { font-size: 11px; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px; }
+    .label { font-size: 11px; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 36px; line-height: 1.2; color: #f5f0e8; margin: 10px 0 20px; }
+    .lede { font-size: 18px; color: #c9a84c; line-height: 1.5; margin-bottom: 30px; border-left: 3px solid #c9a84c; padding-left: 15px; }
+    p { font-size: 16px; line-height: 1.7; margin-bottom: 18px; color: #d4cfc5; }
+    strong { color: #f5f0e8; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: #f5f0e8; margin: 30px 0 14px; }
+    .stat-callout { background: #0d0d0d; border: 1px solid #c9a84c; border-left: 4px solid #c9a84c; padding: 20px 25px; margin: 25px 0; border-radius: 2px; }
+    .stat-callout .num { font-size: 48px; font-weight: bold; color: #c9a84c; font-family: 'Inter', sans-serif; line-height: 1; }
+    .stat-callout .desc { font-size: 13px; color: #aaa; margin-top: 8px; line-height: 1.5; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 25px 0; }
+    .compare-box { background: #0d0d0d; border: 1px solid #333; padding: 18px 20px; border-radius: 4px; }
+    .compare-box.winner { border-color: #c9a84c; }
+    .compare-box .cb-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+    .compare-box.winner .cb-label { color: #c9a84c; }
+    .compare-box .cb-price { font-size: 36px; font-weight: bold; color: #f5f0e8; font-family: 'Inter', sans-serif; line-height: 1; }
+    .compare-box.winner .cb-price { color: #c9a84c; }
+    .compare-box .cb-name { font-size: 12px; color: #999; margin-top: 8px; font-family: 'Inter', sans-serif; }
+    .compare-box .cb-note { font-size: 11px; color: #666; margin-top: 6px; font-family: 'Inter', sans-serif; }
+    .timeline { background: #0d0d0d; border: 1px solid #333; padding: 20px 25px; margin: 25px 0; border-radius: 4px; }
+    .timeline h3 { color: #c9a84c; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 16px; }
+    .timeline-item { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-date { font-size: 11px; color: #c9a84c; font-family: 'Inter', sans-serif; font-weight: bold; min-width: 80px; padding-top: 2px; }
+    .timeline-text { font-size: 14px; color: #d4cfc5; line-height: 1.6; }
+    .tip-block { background: #222; border-left: 3px solid #c9a84c; padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+    .tip-block .tip-label { font-size: 10px; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 8px; }
+    .tip-block p { margin: 0; font-size: 15px; }
+    .rule-box { background: #111; border: 1px solid #333; border-top: 3px solid #c9a84c; padding: 20px 25px; margin: 25px 0; border-radius: 0 0 4px 4px; }
+    .rule-box h3 { color: #c9a84c; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 14px; }
+    .rule-box ul { padding-left: 0; list-style: none; }
+    .rule-box li { font-size: 14px; color: #d4cfc5; padding: 8px 0; border-bottom: 1px solid #222; line-height: 1.5; display: flex; gap: 10px; }
+    .rule-box li:last-child { border-bottom: none; }
+    .rule-box li::before { content: '→'; color: #c9a84c; flex-shrink: 0; }
+    .nmd-sidebar { background: #0a0a0a; border: 1px solid #c9a84c; padding: 20px 24px; margin: 30px 0; border-radius: 4px; }
+    .nmd-sidebar .sidebar-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #c9a84c; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+    .nmd-sidebar .sidebar-title { font-size: 17px; font-weight: bold; color: #f5f0e8; margin-bottom: 8px; font-family: 'Inter', sans-serif; }
+    .nmd-sidebar p { font-size: 13px; color: #999; margin: 0 0 14px; }
+    .nmd-sidebar a { background: #c9a84c; color: #000; padding: 9px 16px; text-decoration: none; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; font-family: 'Inter', sans-serif; display: inline-block; }
+    .divider { border: none; border-top: 1px solid #333; margin: 28px 0; }
+    .cta-box { background: #252525; border: 1px solid #c9a84c; padding: 25px; margin: 30px 0; border-radius: 4px; }
+    .cta-box strong { display: block; margin-bottom: 10px; font-size: 17px; font-family: 'Inter', sans-serif; }
+    .cta-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .cta-links a { background: #c9a84c; color: #000; padding: 10px 18px; text-decoration: none; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; font-family: 'Inter', sans-serif; }
+    .footer { text-align: center; font-size: 12px; color: #555; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; line-height: 2; }
+    .footer a { color: #c9a84c; text-decoration: none; }
+    .back-link { display: inline-block; font-size: 12px; color: #c9a84c; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 30px; }
+    .nmd-nav-links { display:flex; gap:24px; align-items:center; }
+    .nmd-nav-links a { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#888; text-decoration:none; font-weight:600; transition:color 0.2s; font-family:Inter,sans-serif; }
+    .nmd-nav-links a:hover { color:#c9a84c; }
+    @media(max-width:768px){ .nmd-nav-links { display:none; } .compare-grid { grid-template-columns: 1fr; } }
+
+  /* ── ARTICLE SUBSCRIBE STRIP ── */
+  .article-subscribe {
+    background: #0d0d0d;
+    padding: 48px 40px;
+    margin: 48px 0 0;
+  }
+  .article-subscribe .as-tag {
+    font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+    color: #c9a84c; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .article-subscribe .as-tag::before {
+    content: ''; display: block; width: 20px; height: 2px; background: #c9a84c;
+  }
+  .article-subscribe .as-headline {
+    font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #fff;
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .article-subscribe .as-desc {
+    font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px;
+  }
+  .article-subscribe .as-row { display: flex; max-width: 480px; }
+  .article-subscribe .as-input {
+    flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-right: none;
+    color: #fff; padding: 13px 16px; font-size: 14px;
+    font-family: inherit; outline: none; transition: border-color 0.2s;
+  }
+  .article-subscribe .as-input:focus { border-color: #555; }
+  .article-subscribe .as-input::placeholder { color: #444; }
+  .article-subscribe .as-input.error { border-color: #c00; }
+  .article-subscribe .as-btn {
+    background: #c9a84c; color: #111; border: none;
+    padding: 13px 22px; font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; cursor: pointer;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .article-subscribe .as-btn:hover { background: #e0c060; }
+  .article-subscribe .as-btn:disabled { background: #555; color: #888; cursor: not-allowed; }
+  .article-subscribe .as-confirm {
+    display: none; font-size: 13px; color: #c9a84c; font-weight: 600; padding: 12px 0 0;
+  }
+
+  /* ── SOCIAL SHARE ── */
+  .share-strip {
+    display: flex; align-items: center; gap: 16px;
+    padding: 28px 0; border-top: 1px solid #333;
+    flex-wrap: wrap;
+  }
+  .share-label {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: #aaa; white-space: nowrap;
+  }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s; border: 1px solid;
+    cursor: pointer; background: none; font-family: inherit;
+  }
+  .share-btn.x-btn {
+    color: #fff; background: #000; border-color: #000;
+  }
+  .share-btn.x-btn:hover { background: #1a1a1a; }
+  .share-btn.copy-btn {
+    color: #f5f0e8; background: #222; border-color: #444;
+  }
+  .share-btn.copy-btn:hover { border-color: #999; }
+  .share-btn.copy-btn.copied { color: #c9a84c; border-color: #c9a84c; }
+  .share-tg-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; font-size: 12px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+    color: #fff; background: #0088cc; border: 1px solid #0088cc;
+  }
+  .share-tg-btn:hover { background: #0077bb; }
+  </style>
+  <link rel="sitemap" type="application/xml" href="/nmd-newsletters/sitemap.xml">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7VFHF48M5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K7VFHF48M5');
+</script>
+  <link rel="stylesheet" href="nmd-effects.css">
+</head>
+<body>
+  <div class="alert-bar">🏦 Mortgage Score War — VantageScore 4.0 vs. FICO — March 2026</div>
+
+  <a class="back-link" href="https://nmdzaza.github.io/nmd-newsletters/">← All Newsletters</a>
+  <div class="header">
+    <a href="index.html" class="brand" style="text-decoration:none;color:inherit;">NMD</a>
+    <nav class="nmd-nav-links">
+      <a href="index.html">Newsletters</a>
+      <a href="nmd-videos.html">Films</a>
+      <a href="nmd-plugins.html">AI Companies</a>
+      <a href="nmd-tools.html">Tools</a>
+      <a href="nmd-get-started.html">Get Started</a>
+      <a href="nmd-solutions.html">Solutions</a>
+      <a href="nmd-about.html">About</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx" target="_blank">Telegram</a>
+    </nav>
+    <div class="tagline">No Money Down · Credit Intelligence</div>
+  </div>
+
+  <div class="label">Mortgage Credit · March 11, 2026</div>
+  <h1>The Mortgage Score War Is Over — VantageScore Just Dropped the Price to $0.99</h1>
+  <div class="lede">FICO charges lenders $10 per score. TransUnion just dropped VantageScore 4.0 to $0.99. Experian and Equifax followed. At a 10x price gap, lenders aren't waiting — and if your rent is on time, you might score higher than you ever did under the old model.</div>
+
+  <div class="compare-grid">
+    <div class="compare-box">
+      <div class="cb-label">Old Guard</div>
+      <div class="cb-price">$10</div>
+      <div class="cb-name">FICO Score (2026 fee)</div>
+      <div class="cb-note">Per mortgage origination. Traditional model. Rent/utilities ignored.</div>
+    </div>
+    <div class="compare-box winner">
+      <div class="cb-label">New Competition ★</div>
+      <div class="cb-price">$0.99</div>
+      <div class="cb-name">VantageScore 4.0</div>
+      <div class="cb-note">Per origination. Includes rent, utilities, telecom payment history.</div>
+    </div>
+  </div>
+
+  <p>Real talk — the mortgage industry just experienced a seismic pricing shift and most consumers have no idea it happened. On March 9, 2026, TransUnion dropped VantageScore 4.0 mortgage pricing to <strong>$0.99 per origination score</strong>. Experian announced the exact same price the same week. Equifax cut its fee by 90% to $1. FICO, meanwhile, is charging lenders <strong>$10 per score</strong> in 2026.</p>
+
+  <p>That's a 10-to-1 price difference on a commodity product. In an industry that closes millions of mortgages a year, that math doesn't just add up — it forces a decision. TransUnion estimates the pricing shift could drive more than <strong>$900 million in savings</strong> for lenders and consumers combined. Over 250 lenders have already started accepting VantageScore 4.0 in or outside the GSE market.</p>
+
+  <p>The score war is no longer theoretical. It is happening right now, this month, at every mortgage desk in America.</p>
+
+  <hr class="divider">
+
+  <div class="stat-callout">
+    <div class="num">$900M</div>
+    <div class="desc">Estimated total savings for lenders and consumers as VantageScore 4.0 replaces FICO for mortgage originations. TransUnion's internal projection — based on current adoption trajectory at $0.99 vs. FICO's $10 per pull.</div>
+  </div>
+
+  <h2>Why VantageScore 4.0 Matters for Your Credit</h2>
+
+  <p>Here's what the price war means for you specifically — not for lenders. VantageScore 4.0 is built differently than Classic FICO. It doesn't just look at your credit card history, loan repayment, and debt-to-credit ratio. It actively incorporates <strong>rent payments, utility bills, and telecom history</strong> when that data is available. That is a fundamentally different calculation than any FICO model has ever made.</p>
+
+  <p>If you've been paying rent on time for years — and millions of Americans have been — and that rent hasn't been showing up on your FICO score, VantageScore 4.0 may produce a meaningfully higher number for you. For first-time homebuyers without long credit histories, for young adults with thin files, and for anyone who pays rent and utilities religiously but carries minimal credit card debt, the switch to VantageScore could literally change whether you get approved for a mortgage and at what rate.</p>
+
+  <div class="timeline">
+    <h3>How the Mortgage Score War Escalated — Timeline</h3>
+    <div class="timeline-item">
+      <span class="timeline-date">2022–24</span>
+      <span class="timeline-text">FHFA begins the process of approving VantageScore 4.0 and FICO 10T as acceptable models for Fannie Mae and Freddie Mac backed loans. The GSE market — the backbone of American mortgages — starts to open.</span>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">2025</span>
+      <span class="timeline-text">Fannie Mae and Freddie Mac officially allow lenders to use VantageScore 4.0 alongside Classic FICO. Over 250 lenders immediately begin accepting VantageScore pulls free of charge alongside their FICO purchases. The market position begins to shift.</span>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">March 9, 2026</span>
+      <span class="timeline-text">TransUnion announces $0.99 standalone pricing for VantageScore 4.0 mortgage origination pulls. Experian matches. Equifax cuts price to $1. FICO holds at $10. The price war is public.</span>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">Now</span>
+      <span class="timeline-text">Lenders evaluating full migration. Adoption slowed only by pricing grid gaps — the operational work of updating internal systems. The direction is clear. VantageScore is being priced to win the market.</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>The Two Models Score Differently — Here's How</h2>
+
+  <div class="rule-box">
+    <h3>FICO Classic vs. VantageScore 4.0 — Key Differences</h3>
+    <ul>
+      <li><strong>Rent & Utilities:</strong> FICO Classic does not factor in rent or utility payments. VantageScore 4.0 incorporates this data when furnished — meaning on-time rent can boost your VantageScore even if your FICO is thin.</li>
+      <li><strong>Trended Data:</strong> VantageScore 4.0 uses trended credit data — it looks at whether your balances are moving up or down over time, not just a single snapshot. Paying down debt consistently can improve your VantageScore faster than under Classic FICO.</li>
+      <li><strong>Thin File Friendliness:</strong> VantageScore can generate a score with as little as one account and one month of credit history. FICO Classic typically requires 6 months. This matters enormously for first-time borrowers.</li>
+      <li><strong>Medical Debt:</strong> Under federal rules effective in 2026, paid medical debt and medical debt under $500 cannot be on credit reports. VantageScore 4.0 was already designed to treat medical collections less harshly even before this change.</li>
+      <li><strong>Score Range:</strong> Both models use a 300–850 scale. However, a 720 VantageScore does not mean the same thing as a 720 FICO. Lenders who switch models will need to recalibrate their cutoffs. Some will be more lenient during the transition period.</li>
+    </ul>
+  </div>
+
+  <p>The practical implication: if you are applying for a mortgage in 2026 and you have a thin credit file, late credit history, or strong rent payment history, you should specifically ask your lender <strong>which credit score model they are using</strong>. This is your right. And if they're still pulling only Classic FICO, you may want to find a lender using VantageScore 4.0 who might score you higher.</p>
+
+  <hr class="divider">
+
+  <h2>What You Should Do Right Now</h2>
+
+  <div class="tip-block">
+    <div class="tip-label">Action 1 — Get Your VantageScore Today</div>
+    <p>Pull your VantageScore 4.0 from <strong>CreditKarma.com</strong> or <strong>Credit.com</strong> — these services use VantageScore and update regularly. Compare it to your FICO score from your bank or from <strong>myFICO.com</strong>. If your VantageScore is meaningfully higher, you should be seeking lenders who accept VantageScore 4.0 for mortgage originations.</p>
+  </div>
+
+  <div class="tip-block">
+    <div class="tip-label">Action 2 — Report Your Rent Payments</div>
+    <p>VantageScore 4.0 can only use rent data if it's being reported. Services like <strong>Experian RentBureau</strong>, <strong>Rental Kharma</strong>, and <strong>LevelCredit</strong> can report your rent payment history to credit bureaus. If your landlord doesn't report, these services do it for you. Some are free. This data flows directly into your VantageScore calculation.</p>
+  </div>
+
+  <div class="tip-block">
+    <div class="tip-label">Action 3 — Ask Your Lender the Score Question</div>
+    <p>When you start the mortgage pre-approval process, ask directly: "Which credit scoring models are you pulling?" Under the new FHFA framework, lenders can use FICO 10T, VantageScore 4.0, or Classic FICO. Some are using all three. The model they use affects your rate tier. If one model gives you a significantly better score, you want a lender who accepts it.</p>
+  </div>
+
+  <div class="tip-block">
+    <div class="tip-label">Action 4 — Don't Sleep on Trended Data</div>
+    <p>If your credit card balances have been trending down over the past 6 to 12 months — even if your current utilization is still high — VantageScore 4.0 rewards that trajectory. Pay down aggressively in the months before your mortgage application. Under VantageScore's trended data model, the direction of change matters as much as the current snapshot.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- NMD Solutions Sidebar Card -->
+  <div class="nmd-sidebar">
+    <div class="sidebar-tag">NMD Solutions — AI Automation</div>
+    <div class="sidebar-title">Know Your Scores Before the Lender Does</div>
+    <p>NMD Solutions builds AI-powered credit intelligence tools that track both your FICO and VantageScore, flag the gap, and tell you exactly which mortgage lenders in your market are using which scoring model. Stop flying blind. Starting at $29.</p>
+    <a href="https://t.me/ScoreBoostByNMDBot" target="_blank">Get Started — $29</a>
+  </div>
+
+  <hr class="divider">
+
+  <h2>The Bigger Picture — A Monopoly Getting Broken</h2>
+
+  <p>FICO has been the near-monopoly credit scoring solution in America for decades. Lenders didn't have a practical alternative. Now they do — and it costs 10 times less. The fact that all three major bureaus are pricing VantageScore 4.0 at effectively a dollar signals that they believe this is the product that will capture the market. Bureaus make money on volume, not per-score profit margins. A dollar times a million originations is still a million dollars.</p>
+
+  <p>For consumers, this competition is unambiguously positive. More scoring models means more pathways to approval. VantageScore's inclusion of rent and utility data opens the door for millions of Americans who have been excluded from traditional credit markets not because they're irresponsible with money — but because the old model couldn't see their financial behavior at all.</p>
+
+  <p>The national average FICO score just dropped to 715 — the first decline in years, driven by rising credit card utilization and resumed student loan delinquency reporting. But VantageScore 4.0 may be telling a different story for millions of those same consumers. The question is whether you know which story your lender is reading.</p>
+
+  <div class="stat-callout">
+    <div class="num">250+</div>
+    <div class="desc">Lenders already accepting VantageScore 4.0 for mortgage originations as of March 2026. The number is growing weekly as the $0.99 vs. $10 price gap drives adoption and lenders update their pricing grid systems.</div>
+  </div>
+
+  <hr class="divider">
+
+  <p>The mortgage game just changed. Two models. Wildly different prices. Different calculation methods. Different data inputs. Same 300-850 scale — but potentially very different numbers for the same borrower.</p>
+
+  <p>In a market where a 20-point score difference can be the difference between a 6.8% and 7.4% mortgage rate — and tens of thousands of dollars over the life of a loan — knowing which model scores you better isn't academic. It's money.</p>
+
+  <p><em>Stay locked in — Za | NMD ZAZA 🐐</em></p>
+
+  <div class="cta-box">
+    <strong>Ready to know your real numbers before you apply?</strong>
+    <p>The NMD Credit Bot pulls your current score situation, compares FICO vs. VantageScore, and tells you exactly where you stand — and what moves get you to approval faster. $29 flat. Join the Telegram for free strategy drops every day.</p>
+    <div class="cta-links">
+      <a href="https://t.me/ScoreBoostByNMDBot">Check My Scores — $29</a>
+      <a href="https://t.me/+xgDhtpOrWeJkNmUx">Join Telegram</a>
+      <a href="https://nmdzaza.gumroad.com/">Gumroad</a>
+    </div>
+  </div>
+
+  <div class="share-strip">
+    <span class="share-label">Share</span>
+    <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Post to X
+    </a>
+    <a class="share-tg-btn" href="#" onclick="shareTelegram(); return false;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+      Telegram
+    </a>
+    <button class="share-btn copy-btn" onclick="copyArticleLink(this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy Link
+    </button>
+  </div>
+
+  <div class="article-subscribe" id="article-subscribe-nmd_vantagescore_mortgage">
+    <div class="as-tag">NMD Credit Intelligence</div>
+    <div class="as-headline">Get every drop free.</div>
+    <div class="as-desc">Breaking credit news, bureau moves, and new tools — straight to your inbox.</div>
+    <div class="as-row" id="as-row-nmd_vantagescore_mortgage">
+      <input type="email" class="as-input" id="as-email-nmd_vantagescore_mortgage" placeholder="your@email.com">
+      <button class="as-btn" onclick="submitArticleEmail('nmd_vantagescore_mortgage', this)">Subscribe</button>
+    </div>
+    <div class="as-confirm" id="as-confirm-nmd_vantagescore_mortgage">✓ You're in — next drop coming to your inbox.</div>
+  </div>
+
+  <div class="footer">
+    <a href="https://nmdzaza.github.io/nmd-newsletters/">← All Newsletters</a> ·
+    <a href="https://t.me/+xgDhtpOrWeJkNmUx">Telegram</a> ·
+    <a href="https://nmdzaza.gumroad.com/">Gumroad</a>
+    <br><br>NMD ZAZA · The Credit Goat 🐐<br>
+    <span style="color:#444;">© 2026 NMD — No Money Down</span>
+  </div>
+
+  <script>
+    (function() {
+      if (localStorage.getItem('nmd_email')) {
+        var el = document.querySelector('.article-subscribe');
+        if (el) el.style.display = 'none';
+      }
+    })();
+
+    async function submitArticleEmail(uid, btn) {
+      var emailEl = document.getElementById('as-email-' + uid);
+      var email = emailEl ? emailEl.value.trim() : '';
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        if (emailEl) { emailEl.classList.add('error'); emailEl.focus(); }
+        return;
+      }
+      if (emailEl) emailEl.classList.remove('error');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '8fac2bfc-98e3-427e-a633-97c99aa353f1',
+            subject: 'New NMD Subscriber — Article Page',
+            email: email,
+            source: window.location.pathname
+          })
+        });
+        var data = await res.json();
+        if (data.success) {
+          localStorage.setItem('nmd_email', email);
+          document.getElementById('as-row-' + uid).style.display = 'none';
+          document.getElementById('as-confirm-' + uid).style.display = 'block';
+        } else {
+          btn.textContent = 'Try Again'; btn.disabled = false;
+        }
+      } catch(e) {
+        btn.textContent = 'Try Again'; btn.disabled = false;
+      }
+    }
+
+    var shareXBtn = document.getElementById('share-x');
+    if (shareXBtn) {
+      var shareText = encodeURIComponent('VantageScore 4.0 just dropped to $0.99 for mortgage lenders. FICO charges $10. The credit score war is real — and if your rent is on time, you might score higher than you think. @nmdzaza breaks it down:');
+      var shareUrl = encodeURIComponent(window.location.href);
+      shareXBtn.href = 'https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl;
+    }
+
+    function shareTelegram() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      window.open('https://t.me/share/url?url=' + url + '&text=' + title, '_blank');
+    }
+
+    function copyArticleLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        btn.classList.add('copied');
+        btn.querySelector('svg').style.display = 'none';
+        btn.childNodes[btn.childNodes.length - 1].textContent = ' Copied!';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          btn.querySelector('svg').style.display = '';
+          btn.childNodes[btn.childNodes.length - 1].textContent = ' Copy Link';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
